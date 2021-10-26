@@ -22,6 +22,10 @@ CONTEXTUALIZACIÓN
   
   Comenzamos indagación sobre la aplicación Telegram, ya que varios del equipo no se habían interiorizado o siquiera la habían usado alguna vez. Para ello cada uno se descargó la app y al mismo tiempo comenzò a utilizarla. Se investigó sobre operaciones realizadas por chatbots y sus utilidades en foros y videos varios.
 
-<h3>"Primera version del diagrama UML"</h3>
+<h3>Primera version del diagrama UML</h3>
 
 <img src = "docs\UML diagram PROJECT FINAL VERSION.png">
+
+<h3>Segunda version del diagrama UML</h3>
+
+<img src ="docs\TelegramBotUML version 2.png">
