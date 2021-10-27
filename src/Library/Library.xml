@@ -4,6 +4,151 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.Emprendedor">
+            <summary>
+            Esta clase representa un Emprendedor
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Especializacion">
+            <summary>
+            Variable del tipo string que representa la Especializacion del emprendedor
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Habilitaciones">
+            <summary>
+            Coleccion generica del tipo Habilitacion
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Emprendedor.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo constructor que toma como base el nombre, rubro, ciudad y calle de la SuperClase y se le añiade
+            el parametro especializacion (parametro propio del emprendedor)
+            </summary>
+            <param name="nombre"></param>
+            <param name="rubro"></param>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
+            <param name="especializacion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Emprendedor.AddHabilitacion(System.String,System.String)">
+            <summary>
+            Añade habilitacion a la lista de habilitaciones de habilitaciones del emprendedor, recibe de parametro
+            string nombre string  descripcion. El metodo inicializa a habilitacion cumpliendo el patron creator
+            </summary>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+        </member>
+        <member name="M:Library.Emprendedor.RemoveHabilitacion(Library.Habilitacion)">
+            <summary>
+            Remueve la Habilitacion
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="T:Library.Empresa">
+            <summary>
+            Clase que representa una Empresa, Hereda 
+            </summary>
+        </member>
+        <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo constructor de la empresa
+            </summary>
+            <param name="nombre"></param>
+            <param name="rubro"></param>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.Habilitacion">
+            <summary>
+            Esta clase representa una Habilitacion basica
+            </summary>
+        </member>
+        <member name="P:Library.Habilitacion.Name">
+            <summary>
+            Esta variable del tipo string  representa el nombre de la Habilitacion
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Habilitacion.Descripcion">
+            <summary>
+            Esta variable del tipo string
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
+            <summary>
+            Metodo constructor de la Habilitacion
+            </summary>
+            <param name="name"></param>
+            <param name="descripcion"></param>
+        </member>
+        <member name="T:Library.Materiales">
+            <summary>
+            Clase que representa los materiales
+            </summary>
+        </member>
+        <member name="T:Library.Ubicacion">
+            <summary>
+            Esta clase representa una ubicacion
+            </summary>
+        </member>
+        <member name="P:Library.Ubicacion.Ciudad">
+            <summary>
+            variable del tipo string que representa la Ciudad de la Ubicacion
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Ubicacion.Calle">
+            <summary>
+            variable del tipo string que represneta la ciudad
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Ubicacion.#ctor(System.String,System.String)">
+            <summary>
+            Metodo constructor de Ubicacion, recibe dos string.
+            </summary>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
+        </member>
+        <member name="T:Library.Usuario">
+            <summary>
+            Esta es una  superclase Usuario porque la relacion entre la clase Usuario y Emprendedor y Empresa es una 
+            relacion "is a".
+            </summary>
+        </member>
+        <member name="P:Library.Usuario.Nombre">
+            <summary>
+            Se declara una variable nombre del tipo string, nombre del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Usuario.Rubro">
+            <summary>
+            se declara una variable Rubro, indica el rubro del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Usuario.Ubicacion">
+            <summary>
+            Variable del tipo Ubicacion
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Usuario.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor del Usuario, los parametros nombre y rubro son propios de la empresa, mientras
+            que ciudad y calle es para Ubicacion. una instancia llamada ubicacion es inicializada 
+            </summary>
+            <param name="nombre"></param>
+            <param name="rubro"></param>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
+        </member>
         <member name="T:ClassLibrary.Train">
             <summary>
             Esta clase representa un tren muy básico.
