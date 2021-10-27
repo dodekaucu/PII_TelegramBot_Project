@@ -5,13 +5,33 @@ namespace Library
     /// </summary>
     public class Rubro
     {
-        public string rubros;
-        public string clasificacion;
+        public string nombre;
+        public string area;
+        public string descripcion;
 
-    public Rubro(string rubro1, string clasificacion)
-    {
-        this.rubros = rubro1;
-        this.clasificacion = clasificacion;
-    }
+        public Rubro(string nombre, string area, string descripcion)
+        {
+            this.nombre = nombre;
+            this.area = area;
+            this.descripcion = descripcion;
+        }
+        public string Nombre {
+            get
+            {
+                return this.nombre;
+            }
+        }
+        public string Area {
+            get
+            {
+                return this.area;
+            }
+        }
+        public string Descripcion {
+            get
+            {
+                return this.descripcion;
+            }
+        }
     }
 }
