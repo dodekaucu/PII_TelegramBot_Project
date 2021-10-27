@@ -1,9 +1,6 @@
 
 namespace Library
 {
-    /// <summary>
-    /// Esta clase representa un Emprendedor
-    /// </summary>
     public interface IManejoDeDatos
     {
         public void GuardarInfo(Oferta oferta); //no esta creada la clase oferta aun
