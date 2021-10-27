@@ -5,23 +5,17 @@
 //--------------------------------------------------------------------------------
 
 using System;
-using ClassLibrary;
+using Library;
 
 namespace ConsoleApplication
 {
-    /// <summary>
-    /// Programa de consola de demostración.
-    /// </summary>
-    public static class Program
+
+    /*public static class Program
     {
-        /// <summary>
-        /// Punto de entrada al programa principal.
-        /// </summary>
+
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
             Console.WriteLine("Hello World!");
         }
-    }
+    }*/
 }
