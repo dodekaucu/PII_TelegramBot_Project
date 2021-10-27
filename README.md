@@ -28,4 +28,4 @@ CONTEXTUALIZACIÓN
 
 <h3>Segunda version del diagrama UML</h3>
 
-<img src ="docs\TelegramBotUML version 2.png">
+<img src ="docs\TelegramBotUML ver 3.png">
