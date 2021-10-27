@@ -3,7 +3,7 @@ namespace Library
 {
     public interface IManejoDeDatos
     {
-        public void GuardarInfo(Oferta oferta); //no esta creada la clase oferta aun
+        public void GuardarInfo(IManejoDeDatos datos); //no esta creada la clase oferta aun
 
         public void DevolverInfo(); 
     }
