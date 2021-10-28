@@ -21,8 +21,7 @@
         </member>
         <member name="M:Tests.Test.HabilitacionesEmprendedor">
             <summary>
-            Prueba los metodos AddHabilitacion del emprendedor. Chekea si es correcta la agregacion a la lista
-            y si las habilitaciones son creadas correctamente en el metodo.
+            Prueba 
             </summary>
         </member>
     </members>

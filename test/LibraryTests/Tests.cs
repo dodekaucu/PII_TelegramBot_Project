@@ -50,23 +50,32 @@ namespace Tests
             Assert.AreEqual(expectedEspezialicacion,emprendedorTest.Especializacion);
         }
 
+
+        
+        [Test]
+        public void TestCrearHabilitacion()
+        {
+            Habilitacion UNIT9001 = new Habilitacion("UNIT","9001");
+            
+        }
+        [Test]
+        public void TestCrearClasificacion()
+        {
+            
+        }
+
         /// <summary>
-        /// Prueba los metodos AddHabilitacion del emprendedor. Chekea si es correcta la agregacion a la lista
-        /// y si las habilitaciones son creadas correctamente en el metodo.
+        /// Prueba 
         /// </summary>
 
         [Test]
 
-        public void HabilitacionesEmprendedor()
+        public void HabilitacionesEmprendedor() //REVISAR
         {
             Emprendedor emprendedorTest = new Emprendedor("Rene","Musica","La perla","Calle 13","madera");
-            emprendedorTest.AddHabilitacion("UNIT","ISO 9001");
-            int expectedLargo = 1;
-            Assert.AreEqual(emprendedorTest.Habilitaciones.Count, expectedLargo);
-            string expectedHabilitacionNombre = "UNIT";
-            Assert.AreEqual(emprendedorTest.Habilitaciones[0].Name, expectedHabilitacionNombre);
-            string expectedHabilitacionDescripcion = "ISO 9001";
-            Assert.AreEqual(emprendedorTest.Habilitaciones[0].Descripcion,expectedHabilitacionDescripcion);
+            Habilitacion UNIT9001 = new Habilitacion("UNIT","9001");
+            emprendedorTest.AddHabilitacion(UNIT9001);
+            Assert.AreEqual(UNIT9001,emprendedorTest.Habilitaciones[0]);
         }
 
     }

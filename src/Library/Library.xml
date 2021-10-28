@@ -4,6 +4,30 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.Habilitacion">
+            <summary>
+            Esta clase representa una Habilitacion basica
+            </summary>
+        </member>
+        <member name="P:Library.Habilitacion.Name">
+            <summary>
+            Esta variable del tipo string  representa el nombre de la Habilitacion
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Habilitacion.Descripcion">
+            <summary>
+            Esta variable del tipo string
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
+            <summary>
+            Metodo constructor de la Habilitacion
+            </summary>
+            <param name="name"></param>
+            <param name="descripcion"></param>
+        </member>
         <member name="T:Library.Emprendedor">
             <summary>
             Esta clase representa un Emprendedor
@@ -33,7 +57,7 @@
             <param name="especializacion"></param>
             <returns></returns>
         </member>
-        <member name="M:Library.Emprendedor.AddHabilitacion(System.String,System.String)">
+        <member name="M:Library.Emprendedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
             Añade habilitacion a la lista de habilitaciones de habilitaciones del emprendedor, recibe de parametro
             string nombre string  descripcion. El metodo inicializa a habilitacion cumpliendo el patron creator
@@ -61,30 +85,6 @@
             <param name="ciudad"></param>
             <param name="calle"></param>
             <returns></returns>
-        </member>
-        <member name="T:Library.Habilitacion">
-            <summary>
-            Esta clase representa una Habilitacion basica
-            </summary>
-        </member>
-        <member name="P:Library.Habilitacion.Name">
-            <summary>
-            Esta variable del tipo string  representa el nombre de la Habilitacion
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Habilitacion.Descripcion">
-            <summary>
-            Esta variable del tipo string
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
-            <summary>
-            Metodo constructor de la Habilitacion
-            </summary>
-            <param name="name"></param>
-            <param name="descripcion"></param>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>

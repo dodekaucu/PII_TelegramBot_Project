@@ -44,15 +44,8 @@ namespace Library
             this.Especializacion = especializacion;
         }
 
-        /// <summary>
-        /// Añade habilitacion a la lista de habilitaciones de habilitaciones del emprendedor, recibe de parametro
-        /// string nombre string  descripcion. El metodo inicializa a habilitacion cumpliendo el patron creator
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="descripcion"></param>
-        public void AddHabilitacion(string nombre, string descripcion)
+        public void AddHabilitacion(Habilitacion habilitacion)
         {
-            Habilitacion habilitacion = new Habilitacion(nombre, descripcion);
             this.Habilitaciones.Add(habilitacion);
         }
         /// <summary>
