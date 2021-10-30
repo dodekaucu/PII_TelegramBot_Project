@@ -7,23 +7,24 @@ namespace Library
     /// </summary>
     public class Materiales
     {
-        public Materiales(string clasificacion, int cantidad,string unidad, int valor)
+        public Materiales(Clasificacion clasificacion, int cantidad,string unidad, int valor)
         {
             this.clasificacion = clasificacion;
             this.cantidad = cantidad;
             this.unidad = unidad;
             this.valor = valor;
         }
-        private string clasificacion;
+        private Clasificacion clasificacion;
         private int cantidad;
         private string unidad;
         private int valor;
 
-        public string Clasificacion {
+        public Clasificacion Clasificacion {
             get
             {
                 return this.clasificacion;
             }
+            
         }
         public int Cantidad {
             get
@@ -42,11 +43,6 @@ namespace Library
             {
                 return this.valor;
             }
-        }
-        private List<Materiales> Mats = new List<Materiales>();
-        public void AddMat(Materiales m)
-        {
-            this.Mats.Add(m);
         }
     }
 }

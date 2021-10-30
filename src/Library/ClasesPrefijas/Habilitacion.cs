@@ -4,25 +4,30 @@ namespace Library
     /// <summary>
     /// Esta clase representa una Habilitacion basica
     /// </summary>
+    
     public class Habilitacion
     {
+
         /// <summary>
-        /// Esta variable del tipo string  representa el nombre de la Habilitacion
+        /// Obtiene un valor que indica el nombre de la habilitacion
         /// </summary>
         /// <value></value>
+        
         public string Name {get;}
 
         /// <summary>
-        /// Esta variable del tipo string
+        /// Obtiene un valor que indica la descripcion de la habilitacion
         /// </summary>
         /// <value></value>
+        
         public string Descripcion {get;}
 
         /// <summary>
-        /// Metodo constructor de la Habilitacion
+        /// Inicializa una nueva instancia de la clase Habilitacion
         /// </summary>
         /// <param name="name"></param>
         /// <param name="descripcion"></param>
+
         public Habilitacion(string name, string descripcion)
         {
             this.Name = name;

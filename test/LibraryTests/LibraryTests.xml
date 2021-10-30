@@ -4,29 +4,24 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.TrainTests">
+        <member name="T:Tests.Test">
             <summary>
-            Prueba de la clase <see cref="T:ClassLibrary.Train"/>.
+            Pruebas de ?????
             </summary>
         </member>
-        <member name="F:Tests.TrainTests.train">
+        <member name="M:Tests.Test.TestCrearEmpresa">
             <summary>
-            El tren para probar.
+            prueba que la Empresa se cree y se le asignen los valores correctos a sus diferentes atributos
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.Setup">
+        <member name="M:Tests.Test.TestCrearEmprendedor">
             <summary>
-            Crea un tren para probar.
+            Prueba que el emprendedor se cree y que se le asignen los valores correctos a sus diferentes atributos
             </summary>
         </member>
-        <member name="M:Tests.TrainTests.StartTrainTest">
+        <member name="M:Tests.Test.HabilitacionesEmprendedor">
             <summary>
-            Prueba que el tren arranque.
-            </summary>
-        </member>
-        <member name="M:Tests.TrainTests.StopTrainTest">
-            <summary>
-            Prueba que el tren se detenga.
+            Prueba 
             </summary>
         </member>
     </members>
