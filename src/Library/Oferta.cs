@@ -5,7 +5,10 @@ namespace Library
 {
     public class Oferta
     {
-        public string Nombreoferta {get, set}
+        public string Nombreoferta {get; set;}
+        public int Recurrencia {get; set;}
+        public bool Disponible {get; set;}
+        public string Palabraclave {get; set;}
          public Oferta(string nombreoferta, Empresa empresa, int recurrencia, Ubicacion ubicacion, bool disponible, string palabraclave)
          {
              this.Nombreoferta = nombreoferta;
