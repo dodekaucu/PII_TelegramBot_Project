@@ -9,7 +9,7 @@ namespace ConsoleApplication
 
         public static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Empresa emrpesa = new Empresa("","rubro","medellin","colombia");
         }
     }*/
 }
