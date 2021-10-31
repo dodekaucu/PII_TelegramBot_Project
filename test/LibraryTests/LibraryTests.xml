@@ -6,22 +6,27 @@
     <members>
         <member name="T:Tests.Test">
             <summary>
-            Pruebas de ?????
+            Pruebas de las diferentes clases de la libreria
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearEmpresa">
             <summary>
-            prueba que la Empresa se cree y se le asignen los valores correctos a sus diferentes atributos
+            Prueba que se cree la empresa
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearEmprendedor">
             <summary>
-            Prueba que el emprendedor se cree y que se le asignen los valores correctos a sus diferentes atributos
+            Prueba que se cree el emprendedor
             </summary>
         </member>
         <member name="M:Tests.Test.HabilitacionesEmprendedor">
             <summary>
-            Prueba 
+            Prueba que se agruegue una habilitacion a un emprendedor
+            </summary>
+        </member>
+        <member name="M:Tests.Test.ThrowNameException">
+            <summary>
+            Prueba que las excepcioens del constructor funcionen correctamente
             </summary>
         </member>
     </members>
