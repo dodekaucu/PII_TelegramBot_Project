@@ -29,5 +29,10 @@
             Prueba que las excepcioens del constructor funcionen correctamente
             </summary>
         </member>
+        <member name="M:Tests.Test.TestBusqueda">
+            <summary>
+            Test de la clase busqueda
+            </summary>
+        </member>
     </members>
 </doc>
