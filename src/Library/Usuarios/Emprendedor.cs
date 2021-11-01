@@ -8,17 +8,21 @@ namespace Library
     /// </summary>
     public class Emprendedor : Usuario
     {
+
         /// <summary>
-        /// Variable del tipo string que representa la Especializacion del emprendedor
+        /// Obtiene un valor que indica la especializacion del emprendedor
         /// </summary>
         /// <value></value>
+
         public string Especializacion {get; set;}
 
         private List<Habilitacion> habilitaciones = new List<Habilitacion>();
+
         /// <summary>
-        /// Coleccion generica del tipo Habilitacion
+        /// Obtiene el valor de las habilitaciones del emprendedor
         /// </summary>
         /// <value></value>
+
         public List<Habilitacion> Habilitaciones 
         {
             get{
@@ -28,9 +32,9 @@ namespace Library
                 this.habilitaciones=value;
             }
         }
+
         /// <summary>
-        /// Metodo constructor que toma como base el nombre, rubro, ciudad y calle de la SuperClase y se le añiade
-        /// el parametro especializacion (parametro propio del emprendedor)
+        /// Inicializa una nueva instancia de la clase Emprendedor
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="rubro"></param>
@@ -38,25 +42,24 @@ namespace Library
         /// <param name="calle"></param>
         /// <param name="especializacion"></param>
         /// <returns></returns>
-        public Emprendedor(string nombre, string rubro, string ciudad, string calle,string especializacion) :
+
+        public Emprendedor(string nombre, Rubro rubro, string ciudad, string calle,string especializacion) :
         base(nombre,rubro,ciudad,calle)
         {
             this.Especializacion = especializacion;
         }
 
         /// <summary>
-        /// Añade habilitacion a la lista de habilitaciones de habilitaciones del emprendedor, recibe de parametro
-        /// string nombre string  descripcion. El metodo inicializa a habilitacion cumpliendo el patron creator
+        /// Agrega una habilitacion al emprendedor
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="descripcion"></param>
-        public void AddHabilitacion(string nombre, string descripcion)
+        /// <param name="habilitacion"></param>
+
+        public void AddHabilitacion(Habilitacion habilitacion)
         {
-            Habilitacion habilitacion = new Habilitacion(nombre, descripcion);
             this.Habilitaciones.Add(habilitacion);
         }
         /// <summary>
-        /// Remueve la Habilitacion
+        /// Remueve una habilitacion al emprendedor
         /// </summary>
         /// <param name="habilitacion"></param>
         public void RemoveHabilitacion(Habilitacion habilitacion)

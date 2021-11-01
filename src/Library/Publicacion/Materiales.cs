@@ -5,25 +5,30 @@ namespace Library
     /// <summary>
     /// Clase que representa los materiales
     /// </summary>
-    public class Materiales
+    public class Material
     {
-        public Materiales(string clasificacion, int cantidad,string unidad, int valor)
+        public Material(string nombre,Clasificacion clasificacion, int cantidad,string unidad, double valor)
         {
+            this.nombre = nombre;
             this.clasificacion = clasificacion;
             this.cantidad = cantidad;
             this.unidad = unidad;
             this.valor = valor;
         }
-        private string clasificacion;
+        private Clasificacion clasificacion;
         private int cantidad;
         private string unidad;
-        private int valor;
+        private double valor;
 
-        public string Clasificacion {
+        private string nombre;
+
+
+        public Clasificacion Clasificacion {
             get
             {
                 return this.clasificacion;
             }
+            
         }
         public int Cantidad {
             get
@@ -37,16 +42,19 @@ namespace Library
                 return this.unidad;
             }
         }
-        public int Valor {
+        public double Valor {
             get
             {
                 return this.valor;
             }
         }
-        private List<Materiales> Mats = new List<Materiales>();
-        public void AddMat(Materiales m)
+
+        public string Nombre
         {
-            this.Mats.Add(m);
+            get
+            {
+                return this.nombre;
+            }
         }
     }
 }

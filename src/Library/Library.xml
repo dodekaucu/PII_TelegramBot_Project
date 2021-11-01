@@ -4,63 +4,29 @@
         <name>Library</name>
     </assembly>
     <members>
-        <member name="T:Library.Emprendedor">
+        <member name="T:Library.Clasificacion">
             <summary>
-            Esta clase representa un Emprendedor
+            Esta clase representa una clasificación de un material.
             </summary>
         </member>
-        <member name="P:Library.Emprendedor.Especializacion">
+        <member name="P:Library.Clasificacion.Nombre">
             <summary>
-            Variable del tipo string que representa la Especializacion del emprendedor
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Habilitaciones">
-            <summary>
-            Coleccion generica del tipo Habilitacion
+            Obtiene un valor que indica el nombre de la clasificación.
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Emprendedor.#ctor(System.String,System.String,System.String,System.String,System.String)">
+        <member name="P:Library.Clasificacion.Descripcion">
             <summary>
-            Metodo constructor que toma como base el nombre, rubro, ciudad y calle de la SuperClase y se le añiade
-            el parametro especializacion (parametro propio del emprendedor)
+            Obtiene un valor que indica la descripcion de la clasificación.
             </summary>
-            <param name="nombre"></param>
-            <param name="rubro"></param>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
-            <param name="especializacion"></param>
-            <returns></returns>
+            <value></value>
         </member>
-        <member name="M:Library.Emprendedor.AddHabilitacion(System.String,System.String)">
+        <member name="M:Library.Clasificacion.#ctor(System.String,System.String)">
             <summary>
-            Añade habilitacion a la lista de habilitaciones de habilitaciones del emprendedor, recibe de parametro
-            string nombre string  descripcion. El metodo inicializa a habilitacion cumpliendo el patron creator
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Clasificacion"/>.
             </summary>
             <param name="nombre"></param>
             <param name="descripcion"></param>
-        </member>
-        <member name="M:Library.Emprendedor.RemoveHabilitacion(Library.Habilitacion)">
-            <summary>
-            Remueve la Habilitacion
-            </summary>
-            <param name="habilitacion"></param>
-        </member>
-        <member name="T:Library.Empresa">
-            <summary>
-            Clase que representa una Empresa, Hereda 
-            </summary>
-        </member>
-        <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
-            <summary>
-            Metodo constructor de la empresa
-            </summary>
-            <param name="nombre"></param>
-            <param name="rubro"></param>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
-            <returns></returns>
         </member>
         <member name="T:Library.Habilitacion">
             <summary>
@@ -69,31 +35,58 @@
         </member>
         <member name="P:Library.Habilitacion.Name">
             <summary>
-            Esta variable del tipo string  representa el nombre de la Habilitacion
+            Obtiene un valor que indica el nombre de la habilitacion
             </summary>
             <value></value>
         </member>
         <member name="P:Library.Habilitacion.Descripcion">
             <summary>
-            Esta variable del tipo string
+            Obtiene un valor que indica la descripcion de la habilitacion
             </summary>
             <value></value>
         </member>
         <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
             <summary>
-            Metodo constructor de la Habilitacion
+            Inicializa una nueva instancia de la clase Habilitacion
             </summary>
             <param name="name"></param>
             <param name="descripcion"></param>
         </member>
-        <member name="T:Library.Materiales">
-            <summary>
-            Clase que representa los materiales
-            </summary>
-        </member>
         <member name="T:Library.Rubro">
             <summary>
             Clase que representa los rubros
+            </summary>
+        </member>
+        <member name="M:Library.Busqueda.BuscarOferta(System.String,Library.Contenedor)">
+            <summary>
+            La función para buscar ofertas reciben un string con las palabras a buscar y
+            revisa cada oferta para ver si las palabras claves coinciden.
+            Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
+            
+            Contenedor basededatos se usa como una db temporal 
+            </summary>
+        </member>
+        <member name="M:Library.Busqueda.BuscarOferta(Library.Ubicacion,Library.Contenedor)">
+            <summary>
+            En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
+            revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
+            Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
+            
+            Contenedor basededatos se usa como una db temporal
+            </summary>
+        </member>
+        <member name="M:Library.Busqueda.BuscarOferta(Library.Clasificacion,Library.Contenedor)">
+            <summary>
+            En este caso la funcion busqueda recibe clasificacion del material
+            revisa la clasificacion de los materiales de cada oferta para ver si son iguales
+            Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
+            
+            Contenedor basededatos se usa como una db temporal
+            </summary>
+        </member>
+        <member name="T:Library.Material">
+            <summary>
+            Clase que representa los materiales
             </summary>
         </member>
         <member name="T:Library.Ubicacion">
@@ -120,66 +113,92 @@
             <param name="ciudad"></param>
             <param name="calle"></param>
         </member>
-        <member name="T:Library.Usuario">
+        <member name="T:Library.Emprendedor">
             <summary>
-            Esta es una  superclase Usuario porque la relacion entre la clase Usuario y Emprendedor y Empresa es una 
-            relacion "is a".
+            Esta clase representa un Emprendedor
             </summary>
         </member>
-        <member name="P:Library.Usuario.Nombre">
+        <member name="P:Library.Emprendedor.Especializacion">
             <summary>
-            Se declara una variable nombre del tipo string, nombre del usuario
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Usuario.Rubro">
-            <summary>
-            se declara una variable Rubro, indica el rubro del usuario
+            Obtiene un valor que indica la especializacion del emprendedor
             </summary>
             <value></value>
         </member>
-        <member name="P:Library.Usuario.Ubicacion">
+        <member name="P:Library.Emprendedor.Habilitaciones">
             <summary>
-            Variable del tipo Ubicacion
+            Obtiene el valor de las habilitaciones del emprendedor
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Usuario.#ctor(System.String,System.String,System.String,System.String)">
+        <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
             <summary>
-            Constructor del Usuario, los parametros nombre y rubro son propios de la empresa, mientras
-            que ciudad y calle es para Ubicacion. una instancia llamada ubicacion es inicializada 
+            Inicializa una nueva instancia de la clase Emprendedor
             </summary>
             <param name="nombre"></param>
             <param name="rubro"></param>
             <param name="ciudad"></param>
             <param name="calle"></param>
+            <param name="especializacion"></param>
+            <returns></returns>
         </member>
-        <member name="T:ClassLibrary.Train">
+        <member name="M:Library.Emprendedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
-            Esta clase representa un tren muy básico.
+            Agrega una habilitacion al emprendedor
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Library.Emprendedor.RemoveHabilitacion(Library.Habilitacion)">
+            <summary>
+            Remueve una habilitacion al emprendedor
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="T:Library.Empresa">
+            <summary>
+            Clase que representa una Empresa
             </summary>
         </member>
-        <member name="P:ClassLibrary.Train.IsEngineStarted">
+        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
             <summary>
-            Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             </summary>
-            <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
+            <param name="nombre"></param>
+            <param name="rubro"></param>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
+            <returns></returns>
         </member>
-        <member name="M:ClassLibrary.Train.StartEngines">
+        <member name="T:Library.Usuario">
             <summary>
-            Enciende las máquinas del tren.
+            Esta clase representa un usuario de la aplicación.
             </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser encendidas, <c>false</c> en caso contrario.
-            </returns>
         </member>
-        <member name="M:ClassLibrary.Train.StopEngines">
+        <member name="P:Library.Usuario.Nombre">
             <summary>
-            Detiene las máquinas del tren.
+            Obtiene un valor que indica el nombre del usuario
             </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser detenidas, <c>false</c> en caso contrario.
-            </returns>
+            <value></value>
+        </member>
+        <member name="P:Library.Usuario.Rubro">
+            <summary>
+            Obtiene un valor que indica el rubro del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Usuario.Ubicacion">
+            <summary>
+            Obtiene un valor que indica la ubicacion del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">
+            <summary>
+            Inicializa una instancia de la clase Usuario
+            </summary>
+            <param name="nombre"></param>
+            <param name="rubro"></param>
+            <param name="ciudad"></param>
+            <param name="calle"></param>
         </member>
     </members>
 </doc>

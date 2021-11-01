@@ -3,19 +3,21 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Clase que representa una Empresa, Hereda 
+    /// Clase que representa una Empresa
     /// </summary>
     public class Empresa : Usuario
     {
+
         /// <summary>
-        /// Metodo constructor de la empresa
+        /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="rubro"></param>
         /// <param name="ciudad"></param>
         /// <param name="calle"></param>
         /// <returns></returns>
-        public Empresa(string nombre, string rubro, string ciudad, string calle) :
+
+        public Empresa(string nombre, Rubro rubro, string ciudad, string calle) :
         base(nombre,rubro,ciudad,calle)
         {
         }
