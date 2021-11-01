@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Library;
 using System;
+using System.Collections.Generic;
 
 
 namespace Tests
@@ -110,6 +111,28 @@ namespace Tests
             {
                 Assert.AreEqual("Value cannot be null. (Parameter 'name')",e.Message);
             }
+        }
+        
+        /// <summary>
+        /// Test de la clase busqueda
+        /// </summary>
+        [Test] 
+        public void TestBusqueda()
+        {
+            Habilitacion MSP = new Habilitacion("MSP","msp");
+            Rubro Rubro = new Rubro("Forestal","Leñeria","Recursos");
+            Emprendedor Emprendedor = new Emprendedor("Gaston", Rubro,"San Ramon","Ruta 12", "Emprendimiento");
+            Empresa Poyote = new Empresa("Poyote",Rubro,"San Bautista","Ruta 6");
+            Clasificacion poyotero = new Clasificacion("Madera","Roble Oscuro");
+            Oferta uno = new Oferta("Madera",Poyote,1,"San Bautista","Ruta 6", true, "Madera",poyotero,1,"Kilos",500);
+            Contenedor db = Contenedor.Instancia;
+            uno.AddHabilitacion(MSP);
+            Emprendedor.AddHabilitacion(MSP);
+            db.AddOferta(uno);
+            Busqueda buscador = new Busqueda();
+            var coso = buscador.BuscarOferta(Emprendedor,"Madera",db);
+            int Largo = 1;
+            Assert.AreEqual(Largo,coso.Count);
         }
     }
 }
