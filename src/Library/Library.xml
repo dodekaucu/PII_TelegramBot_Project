@@ -57,7 +57,7 @@
             Clase que representa los rubros
             </summary>
         </member>
-        <member name="T:Library.Materiales">
+        <member name="T:Library.Material">
             <summary>
             Clase que representa los materiales
             </summary>
