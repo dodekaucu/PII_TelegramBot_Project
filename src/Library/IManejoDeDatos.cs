@@ -7,6 +7,7 @@ namespace Library
 
         public void DevolverInfo(); 
     }
-}          /* //no se de que manera buscar el registro si con un indice
+}          /* no se de que manera buscar el registro si con un indice
                  o algo relacionado a la empresa */
+
                  
