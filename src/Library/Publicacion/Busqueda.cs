@@ -6,16 +6,8 @@ namespace Library
     class Busqueda
     {
 
-        private List<Oferta> listaOfertas = new List<Oferta>();  
-
-        public List<Oferta> ListaOfertas 
+        public Busqueda()
         {
-            get{
-                return this.listaOfertas;
-            }
-            set{
-                this.listaOfertas=value;
-            }
         }
 
         /// <summary>
@@ -23,17 +15,19 @@ namespace Library
         /// revisa cada oferta para ver si las palabras claves coinciden.
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
         /// 
-        /// Base de datos queda así porque aun no sabemos como funciona.
+        /// Contenedor basededatos se usa como una db temporal 
         /// </summary>
-        public Busqueda(string Mensaje)
+        public List<Oferta> BuscarOferta(string Mensaje, Contenedor basededatos)
         {
-            foreach (Oferta Oferta in BaseDeDatos)
+            List<Oferta> ListaOfertas = new List<Oferta>();
+            foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.PalabrasClaves.Contains(Mensaje))
                 {
                     ListaOfertas.Add(Oferta);
                 }
-            } 
+            }
+            return ListaOfertas;
         }
 
         /// <summary>
@@ -41,17 +35,19 @@ namespace Library
         /// revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
         /// 
-        /// Base de datos queda así porque aun no sabemos como funciona.
+        /// Contenedor basededatos se usa como una db temporal
         /// </summary>
-        public Busqueda(Ubicacion ubicacion)
+        public List<Oferta> BuscarOferta(Ubicacion ubicacion, Contenedor basededatos)
         {
-            foreach (Oferta Oferta in BaseDeDatos)
+            List<Oferta> ListaOfertas = new List<Oferta>();
+            foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.Ubicacion == ubicacion)
                 {
                     ListaOfertas.Add(Oferta);
                 }
             } 
+            return ListaOfertas;
         }
 
         /// <summary>
@@ -59,17 +55,19 @@ namespace Library
         /// revisa la clasificacion de los materiales de cada oferta para ver si son iguales
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
         /// 
-        /// Base de datos queda así porque aun no sabemos como funciona.
+        /// Contenedor basededatos se usa como una db temporal
         /// </summary>
-        public Busqueda(Clasificacion clasificacion)
+        public List<Oferta> BuscarOferta(Clasificacion clasificacion, Contenedor basededatos)
         {
-            foreach (Oferta Oferta in BaseDeDatos)
+            List<Oferta> ListaOfertas = new List<Oferta>();
+            foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.Material.Clasificacion == clasificacion)
                 {
                     ListaOfertas.Add(Oferta);
                 }
-            } 
+            }
+            return ListaOfertas;
         }
     }
 }
