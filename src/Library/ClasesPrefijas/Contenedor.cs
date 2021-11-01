@@ -6,7 +6,8 @@ namespace Library
     {
         //singletonnnnnnnnn
         private static Contenedor contenedor;
-        public static Contenedor Instancia {
+        public static Contenedor Instancia
+        {
             get{
                 if (contenedor == null)
                 {
@@ -14,7 +15,7 @@ namespace Library
                 }
                 return contenedor;
             }
-            }
+        }
 
         private Contenedor()
         {
