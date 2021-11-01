@@ -4,6 +4,22 @@ namespace Library
 {
     public class Contenedor
     {
+        //singletonnnnnnnnn
+        private static Contenedor contenedor;
+        public static Contenedor Instancia {
+            get{
+                if (contenedor == null)
+                {
+                    contenedor = new Contenedor();
+                }
+                return contenedor;
+            }
+            }
+
+        private Contenedor()
+        {
+        }
+        
         private List<Habilitacion> habilitaciones = new List<Habilitacion>();
 
         public List<Habilitacion> Habilitaciones 
@@ -54,7 +70,7 @@ namespace Library
         }
         public void RemoveRubro(Rubro rubro)
         {
-            this.Rubros.Add(rubro);
+            this.Rubros.Remove(rubro);
         }
         
         public void AddClasificacion(string nombre, string descripcion)
@@ -66,5 +82,27 @@ namespace Library
         {
             this.Clasificaciones.Remove(clasificacion);
         }
+
+        private List<Oferta> ofertas = new List<Oferta>();
+        public List<Oferta> Ofertas
+        {
+            get{
+                return this.ofertas;
+            }
+            set{
+                this.ofertas=value;
+            }
+        }
+
+        public void AddOferta(Oferta oferta)
+        {
+            this.Ofertas.Add(oferta);
+        }
+
+        public void RemoveOferta(Oferta oferta)
+        {
+            this.Ofertas.Remove(oferta);
+        }
+        
     }
 }
