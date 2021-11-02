@@ -36,6 +36,10 @@ namespace Tests
             string expectedCalle = "Plaza Independencia 848";
             Assert.AreEqual(expectedCalle, empresaTest.Ubicacion.Calle);
         }
+
+        /// <summary>
+        /// Prueba que se cree una Oferta
+        /// </summary>
         [Test]
         public void TestCrearOferta()
         {
@@ -65,6 +69,10 @@ namespace Tests
             int expectedRecurrencia = 3;
             Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
         }
+
+        /// <summary>
+        /// Prueba que se cree una Habiitacion
+        /// </summary>
         
         [Test]
         public void TestCrearHabilitacion()
