@@ -72,16 +72,16 @@
             Contenedor basededatos se usa como una db temporal 
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Ubicacion,Library.Contenedor)">
-            <summary>
-            En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
-            revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
+=======
             Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-            
-            Contenedor basededatos se usa como una db temporal
-            </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Clasificacion,Library.Contenedor)">
+=======
+
+>>>>>>> cae1dc8f36b4dd3e89a8c9abad96225a885b1539
             <summary>
             En este caso la funcion busqueda recibe clasificacion del material
             revisa la clasificacion de los materiales de cada oferta para ver si son iguales
