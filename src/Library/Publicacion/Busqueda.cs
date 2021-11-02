@@ -8,8 +8,19 @@ namespace Library
     /// </summary>
     public class Busqueda
     {
+        private static Busqueda busqueda;
+        public static Busqueda Instancia
+        {
+            get{
+                if (busqueda == null)
+                {
+                    busqueda = new Busqueda();
+                }
+                return busqueda;
+            }
+        }
 
-        public Busqueda()
+        private Busqueda()
         {
         }
 

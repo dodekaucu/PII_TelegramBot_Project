@@ -129,10 +129,13 @@ namespace Tests
             uno.AddHabilitacion(MSP);
             Emprendedor.AddHabilitacion(MSP);
             db.AddOferta(uno);
-            Busqueda buscador = new Busqueda();
-            var coso = buscador.BuscarOferta(Emprendedor,"Madera",db);
+            Busqueda buscador = Busqueda.Instancia;
+            var ResultadoBusqueda = buscador.BuscarOferta(Emprendedor,"Madera",db);
             int Largo = 1;
-            Assert.AreEqual(Largo,coso.Count);
+            
+            var ResultadoBusqueda2 = buscador.BuscarOferta(Emprendedor,"Azucar",db);
+            int Largo2 = 0;
+            Assert.AreEqual(Largo2,ResultadoBusqueda2.Count);
         }
     }
 }
