@@ -28,6 +28,125 @@
             <param name="nombre"></param>
             <param name="descripcion"></param>
         </member>
+        <member name="T:Library.Contenedor">
+            <summary>
+            Esta clase representa un contenedor de las diferentes clases del bot
+            </summary>
+        </member>
+        <member name="P:Library.Contenedor.Instancia">
+            <summary>
+            Devuelve una instancia de la clase Contenedor y si no existe la crea
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Habilitaciones">
+            <summary>
+            Devuelve un valor con la habilitacion correspondiente al nombre
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Rubros">
+            <summary>
+            Devuelve un valor con la lista de rubros
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Clasificaciones">
+            <summary>
+            Devuelve un valor con la lista de clasificaciones
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Ofertas">
+            <summary>
+            Devuelve un valor con la lista de las ofertas
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Emprendedores">
+            <summary>
+            Devuelve un valor con la lista de los Emprendedores
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Empresas">
+            <summary>
+            Devuelve un valro con la lsita de las Empresas
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Contenedor.AddHabilitacion(Library.Habilitacion)">
+            <summary>
+            Añiade una habilitacion a la lista de habilitaciones
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveHabiltiacion(Library.Habilitacion)">
+            <summary>
+            Remueve una habilitacion de la lista de habilitaciones
+            </summary>
+            <param name="habilitacion"></param>
+        </member>
+        <member name="M:Library.Contenedor.AddRubro(Library.Rubro)">
+            <summary>
+            Añiade un rubro a la lista de rubros
+            </summary>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveRubro(Library.Rubro)">
+            <summary>
+            Remueve un rubro de la lista de rubros
+            </summary>
+            <param name="rubro"></param>
+        </member>
+        <member name="M:Library.Contenedor.AddClasificacion(Library.Clasificacion)">
+            <summary>
+            Añiade una clasificacion a la lista de clasificaciones
+            </summary>
+            <param name="clasificacion"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveClasificacion(Library.Clasificacion)">
+            <summary>
+            Remueve una clasificacion de la lista de clasificaciones
+            </summary>
+            <param name="clasificacion"></param>
+        </member>
+        <member name="M:Library.Contenedor.AddOferta(Library.Oferta)">
+            <summary>
+            Añiade una oferta a la lista de ofertas
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveOferta(Library.Oferta)">
+            <summary>
+            Remueve una oferta de la lista de ofertas
+            </summary>
+            <param name="oferta"></param>
+        </member>
+        <member name="M:Library.Contenedor.AddEmprendedor(Library.Emprendedor)">
+            <summary>
+            Añiade un Emprendedor a la lista de emprendedores
+            </summary>
+            <param name="emprendedor"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveEmprendedor(Library.Emprendedor)">
+            <summary>
+            Remueve un emprendedor de la lista de emprendedores
+            </summary>
+            <param name="emprendedor"></param>
+        </member>
+        <member name="M:Library.Contenedor.AddEmpresa(Library.Empresa)">
+            <summary>
+            Añiade una empresa a la lista de empresas
+            </summary>
+            <param name="empresa"></param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveEmpresa(Library.Empresa)">
+            <summary>
+            Remueve una empresa de la lista de empresas
+            </summary>
+            <param name="empresa"></param>
+        </member>
         <member name="T:Library.Habilitacion">
             <summary>
             Esta clase representa una Habilitacion basica
@@ -57,16 +176,54 @@
             Clase que representa los rubros
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(System.String,Library.Contenedor)">
+        <member name="M:Library.Rubro.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Inicializa una instancia de la clase Rubro
+            </summary>
+            <param name="nombre"></param>
+            <param name="area"></param>
+            <param name="descripcion"></param>
+        </member>
+        <member name="P:Library.Rubro.Nombre">
+            <summary>
+            Devuelve un valor que indica el nombre del rubro
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Rubro.Area">
+            <summary>
+            Devuelve un valor que indica el area del rubro
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Rubro.Descripcion">
+            <summary>
+            Devuelve un valor que indica la descripcion del rubro
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Library.Busqueda">
+            <summary>
+            Singleton clase busqueda.
+            </summary>
+        </member>
+        <member name="P:Library.Busqueda.Instancia">
+            <summary>
+            Singleton de la clase busqueda. Se asegura de que solo haya una instancia de la misma.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,System.String,Library.Contenedor)">
             <summary>
             La función para buscar ofertas reciben un string con las palabras a buscar y
             revisa cada oferta para ver si las palabras claves coinciden.
+            Luego comprueba si el emprendedor tiene las habilitaciones necesarias para acceder a la oferta.
             Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
             
             Contenedor basededatos se usa como una db temporal 
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(Library.Ubicacion,Library.Contenedor)">
+        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Ubicacion,Library.Contenedor)">
             <summary>
             En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
             revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
@@ -75,7 +232,7 @@
             Contenedor basededatos se usa como una db temporal
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(Library.Clasificacion,Library.Contenedor)">
+        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Clasificacion,Library.Contenedor)">
             <summary>
             En este caso la funcion busqueda recibe clasificacion del material
             revisa la clasificacion de los materiales de cada oferta para ver si son iguales
@@ -112,6 +269,28 @@
             </summary>
             <param name="ciudad"></param>
             <param name="calle"></param>
+        </member>
+        <member name="T:Library.Admin">
+            <summary>
+            Esta clase representa un Administrador de la aplicacion
+            </summary>
+        </member>
+        <member name="P:Library.Admin.Nombre">
+            <summary>
+            Obtiene un valor que indica el nombre del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Admin.#ctor(System.String)">
+            <summary>
+            Inicializa una instancia de la clase Admin
+            </summary>
+            <param name="nombre"></param>
+        </member>
+        <member name="M:Library.Admin.InvitarEmpresa">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
@@ -188,6 +367,12 @@
         <member name="P:Library.Usuario.Ubicacion">
             <summary>
             Obtiene un valor que indica la ubicacion del usuario
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Usuario.RegistroUsuario">
+            <summary>
+            Obtiene un valor que indica el registro que lleva el usuario
             </summary>
             <value></value>
         </member>

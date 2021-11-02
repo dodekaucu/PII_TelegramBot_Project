@@ -3,28 +3,58 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    class Busqueda
+    /// <summary>
+    /// Singleton clase busqueda.
+    /// </summary>
+    public class Busqueda
     {
+        private static Busqueda busqueda;
+        /// <summary>
+        /// Singleton de la clase busqueda. Se asegura de que solo haya una instancia de la misma.
+        /// </summary>
+        /// <value></value>
+        public static Busqueda Instancia
+        {
+            get{
+                if (busqueda == null)
+                {
+                    busqueda = new Busqueda();
+                }
+                return busqueda;
+            }
+        }
 
-        public Busqueda()
+        private Busqueda()
         {
         }
 
         /// <summary>
         /// La función para buscar ofertas reciben un string con las palabras a buscar y
         /// revisa cada oferta para ver si las palabras claves coinciden.
+        /// Luego comprueba si el emprendedor tiene las habilitaciones necesarias para acceder a la oferta.
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
         /// 
         /// Contenedor basededatos se usa como una db temporal 
         /// </summary>
-        public List<Oferta> BuscarOferta(string Mensaje, Contenedor basededatos)
+        public List<Oferta> BuscarOferta(Emprendedor emprendedor, string Mensaje, Contenedor basededatos)
         {
             List<Oferta> ListaOfertas = new List<Oferta>();
+            bool valido = true; 
             foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.PalabrasClaves.Contains(Mensaje))
                 {
-                    ListaOfertas.Add(Oferta);
+                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    {
+                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        {
+                        }
+                        else{
+                            valido = false;
+                        }
+                    }
+                    if (valido == true)
+                    {ListaOfertas.Add(Oferta);}
                 }
             }
             return ListaOfertas;
@@ -37,14 +67,25 @@ namespace Library
         /// 
         /// Contenedor basededatos se usa como una db temporal
         /// </summary>
-        public List<Oferta> BuscarOferta(Ubicacion ubicacion, Contenedor basededatos)
+        public List<Oferta> BuscarOferta(Emprendedor emprendedor,Ubicacion ubicacion, Contenedor basededatos)
         {
             List<Oferta> ListaOfertas = new List<Oferta>();
+            bool valido = true; 
             foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.Ubicacion == ubicacion)
                 {
-                    ListaOfertas.Add(Oferta);
+                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    {
+                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        {
+                        }
+                        else{
+                            valido = false;
+                        }
+                    }
+                    if (valido == true)
+                    {ListaOfertas.Add(Oferta);}
                 }
             } 
             return ListaOfertas;
@@ -57,14 +98,25 @@ namespace Library
         /// 
         /// Contenedor basededatos se usa como una db temporal
         /// </summary>
-        public List<Oferta> BuscarOferta(Clasificacion clasificacion, Contenedor basededatos)
+        public List<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
             List<Oferta> ListaOfertas = new List<Oferta>();
+            bool valido = true; 
             foreach (Oferta Oferta in basededatos.Ofertas)
             {
                 if (Oferta.Material.Clasificacion == clasificacion)
                 {
-                    ListaOfertas.Add(Oferta);
+                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    {
+                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        {
+                        }
+                        else{
+                            valido = false;
+                        }
+                    }
+                    if (valido == true)
+                    {ListaOfertas.Add(Oferta);}
                 }
             }
             return ListaOfertas;

@@ -34,11 +34,6 @@
             Prueba que se creen palabras clave
             </summary>
         </member>
-        <member name="M:Tests.Test.TestBuscarOferta">
-            <summary>
-            Prueba que se buscan palabras clave, ubicacion y clasificacion
-            </summary>
-        </member>
         <member name="M:Tests.Test.HabilitacionesEmprendedor">
             <summary>
             Prueba que se agruegue una habilitacion a un emprendedor
@@ -47,6 +42,11 @@
         <member name="M:Tests.Test.ThrowNameException">
             <summary>
             Prueba que las excepcioens del constructor funcionen correctamente
+            </summary>
+        </member>
+        <member name="M:Tests.Test.TestBusqueda">
+            <summary>
+            Test de la clase busqueda
             </summary>
         </member>
     </members>
