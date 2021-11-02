@@ -67,6 +67,7 @@ namespace Tests
         [Test]
         public void TestDisponibilidadMateriales()
         {
+            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
             Material materialTest = new Material("Escombros de Antel", TestClasificaion, 100, "kg", 150);
             Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
             Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
