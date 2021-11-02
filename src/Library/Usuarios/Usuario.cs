@@ -31,6 +31,7 @@ namespace Library
 
         public Ubicacion Ubicacion {get;set;}
         
+        public List<Oferta> RegistroUsuario {get; set;}
 
         /// <summary>
         /// Inicializa una instancia de la clase Usuario

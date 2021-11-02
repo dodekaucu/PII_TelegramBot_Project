@@ -9,7 +9,7 @@ Este proyecto consta de desarrollar un chatbot el cual tratara de conectar empre
 </blockquote>
 
 <h2 align="center">
-Entrega 1:
+Bitacora Proyecto:
 </h2>
 
   Para la primer entrega lo mas desafiante fue el identificar correctamente las clases necesarias para el proyecto, pero sobretodo hacerlo respetando los principios anteriormente vistos en clase. El primer planteo incluyo solamente 5 clases diferentes, a medida que se indagó en el funcionamiento del programa, fue evidente que ibas a ser necesarias muchas mas clases complementarias para respetar el SRP.

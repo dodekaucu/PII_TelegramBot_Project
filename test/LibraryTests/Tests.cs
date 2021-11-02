@@ -95,22 +95,8 @@ namespace Tests
         [Test]
         public void ThrowNameException()
         {
-            try 
-            {
-                Emprendedor emprendedorTest = new Emprendedor("",TestRubro,"La perla","Calle 13","madera");
-            }
-            catch (Exception e)
-            {
-                Assert.AreEqual("El nombre no puede estar vacio",e.Message);
-            }
-            try 
-            {
-                Emprendedor emprendedorTest = new Emprendedor(null,TestRubro,"La perla","Calle 13","madera");
-            }
-            catch (Exception e)
-            {
-                Assert.AreEqual("Value cannot be null. (Parameter 'name')",e.Message);
-            }
+            Assert.Throws<ArgumentException>(() => new Emprendedor("",TestRubro,"La perla","Calle 13","madera"));
+            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null,TestRubro,"La perla","Calle 13","madera"));
         }
         
         /// <summary>
