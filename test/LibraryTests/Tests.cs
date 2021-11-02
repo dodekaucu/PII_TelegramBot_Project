@@ -110,20 +110,6 @@ namespace Tests
             Assert.AreEqual(expectedEspezialicacion,emprendedorTest.Especializacion);
         }
 
-
-        /* REVISAR ESTOS TEST SI SON NECESARIOS !!!!!
-        [Test]
-        public void TestCrearHabilitacion()
-        {
-            Habilitacion UNIT9001 = new Habilitacion("UNIT","9001");
-            
-        }
-        [Test]
-        public void TestCrearClasificacion()
-        {
-            
-        }*/
-
         /// <summary>
         /// Prueba que se agruegue una habilitacion a un emprendedor
         /// </summary>
