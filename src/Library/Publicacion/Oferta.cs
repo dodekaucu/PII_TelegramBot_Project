@@ -38,9 +38,13 @@ namespace Library
         }
         private List<Habilitacion> habilitaciones = new List<Habilitacion>();
 
-        public void AddHabilitacion(string nombre, string descripcion)
+        public List<Habilitacion> Habilitaciones
         {
-            Habilitacion habilitacion = new Habilitacion(nombre,descripcion);
+            get {return this.habilitaciones;}
+        }
+
+        public void AddHabilitacion(Habilitacion habilitacion)
+        {
             this.habilitaciones.Add(habilitacion);
         }
 

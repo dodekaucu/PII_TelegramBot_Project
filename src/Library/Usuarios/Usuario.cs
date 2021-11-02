@@ -30,6 +30,11 @@ namespace Library
         /// <value></value>
 
         public Ubicacion Ubicacion {get;set;}
+
+        /// <summary>
+        /// Obtiene un valor que indica el registro que lleva el usuario
+        /// </summary>
+        /// <value></value>
         
         public List<Oferta> RegistroUsuario {get; set;}
 
