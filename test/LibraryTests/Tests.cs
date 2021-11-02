@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Library;
 using System;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -71,7 +72,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// Prueba que se cree una Habiitacion
+        /// Prueba que se cree una Habilitacion
         /// </summary>
         
         [Test]
@@ -109,6 +110,23 @@ namespace Tests
             Assert.AreEqual(expectedEspezialicacion,emprendedorTest.Especializacion);
         }
 
+        /// <summary>
+        /// Prueba que se creen palabras clave
+        /// </summary>
+        [Test]
+        public void TestPalabrasClave()
+        {
+            List<string> testpalabrasClaves = new List<string>();
+            testpalabrasClaves.Add("madera");
+            testpalabrasClaves.Add("Montevideo");
+            testpalabrasClaves.Add("cocina");
+            string expectedPalabraClave = "madera";
+            Assert.AreEqual(expectedPalabraClave,testpalabrasClaves[0]);
+            string expectedPalabraClave2 = "Montevideo";
+            Assert.AreEqual(expectedPalabraClave2, testpalabrasClaves[1]);
+            string expectedPalabraClave3 = "cocina";
+            Assert.AreEqual(expectedPalabraClave3, testpalabrasClaves[2]);
+        }
 
         /* REVISAR ESTOS TEST SI SON NECESARIOS !!!!!
         [Test]
