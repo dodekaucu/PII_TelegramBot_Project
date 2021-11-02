@@ -36,6 +36,7 @@ namespace Tests
             string expectedCalle = "Plaza Independencia 848";
             Assert.AreEqual(expectedCalle, empresaTest.Ubicacion.Calle);
         }
+        [Test]
         public void TestCrearOferta()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
@@ -55,27 +56,30 @@ namespace Tests
             Assert.AreEqual(expectedClasificacion, ofertaTest.Material.Clasificacion.Nombre);
             string expectedUnidad = "Kilos";
             Assert.AreEqual(expectedUnidad, ofertaTest.Material.Unidad);
-            int expectedCantidad = 100;
+            int expectedCantidad = 150;
             Assert.AreEqual(expectedCantidad, ofertaTest.Material.Cantidad);
-            int expectedPrecio = 150;
+            int expectedPrecio = 100;
             Assert.AreEqual(expectedPrecio, ofertaTest.Material.Valor);
             bool expectedEstado = true;
             Assert.AreEqual(expectedEstado, ofertaTest.Disponible);
             int expectedRecurrencia = 3;
             Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
         }
-        /*            falta terminar
+        
+        [Test]
         public void TestCrearHabilitacion()
         {
+            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
             Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
             Habilitacion habilitacionTest = new Habilitacion("DGI", "Permisos del DGI");
-            empresaTest.Habilitaciones.Add(habilitacionTest);
-            string expectedHabilitacion = "UNIT";
-            Assert.AreEqual(expectedHabilitacion, empresaTest.Habilitaciones[0].Codigo);
-            string expectedEmpresa = "12 Holdings";
-            Assert.AreEqual(expectedEmpresa, empresaTest.Habilitaciones[0].Empresa.Nombre);
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
+            ofertaTest.AddHabilitacion(habilitacionTest.Name, habilitacionTest.Descripcion);
+            string expectedNombreHabilitacion = "DGI";
+            Assert.AreEqual(expectedNombreHabilitacion, habilitacionTest.Name);
+            string expectedDescripcionHabilitacion = "Permisos del DGI";
+            Assert.AreEqual(expectedDescripcionHabilitacion, habilitacionTest.Descripcion);
         }
-        */
+        
         /// <summary>
         /// Prueba que se cree el emprendedor
         /// </summary>
