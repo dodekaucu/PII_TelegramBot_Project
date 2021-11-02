@@ -82,7 +82,7 @@ namespace Tests
             Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
             Habilitacion habilitacionTest = new Habilitacion("DGI", "Permisos del DGI");
             Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
-            ofertaTest.AddHabilitacion(habilitacionTest.Name, habilitacionTest.Descripcion);
+            ofertaTest.AddHabilitacion(habilitacionTest);
             string expectedNombreHabilitacion = "DGI";
             Assert.AreEqual(expectedNombreHabilitacion, habilitacionTest.Name);
             string expectedDescripcionHabilitacion = "Permisos del DGI";
