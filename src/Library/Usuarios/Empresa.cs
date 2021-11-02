@@ -21,7 +21,6 @@ namespace Library
         base(nombre,rubro,ciudad,calle)
         {
         }
-
-        //falta el aceptar invitacion.
+        
     }
 }

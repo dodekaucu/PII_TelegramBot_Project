@@ -57,7 +57,6 @@
             Clase que representa los rubros
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,System.String,Library.Contenedor)">
             <summary>
             La función para buscar ofertas reciben un string con las palabras a buscar y
             revisa cada oferta para ver si las palabras claves coinciden.
@@ -66,7 +65,7 @@
             Contenedor basededatos se usa como una db temporal 
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Ubicacion,Library.Contenedor)">
+
             <summary>
             En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
             revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
@@ -75,7 +74,7 @@
             Contenedor basededatos se usa como una db temporal
             </summary>
         </member>
-        <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Clasificacion,Library.Contenedor)">
+
             <summary>
             En este caso la funcion busqueda recibe clasificacion del material
             revisa la clasificacion de los materiales de cada oferta para ver si son iguales
