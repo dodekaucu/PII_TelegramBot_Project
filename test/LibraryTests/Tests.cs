@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Library;
 using System;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -143,22 +144,33 @@ namespace Tests
         [Test]
         public void ThrowNameException()
         {
-            try 
-            {
-                Emprendedor emprendedorTest = new Emprendedor("",TestRubro,"La perla","Calle 13","madera");
-            }
-            catch (Exception e)
-            {
-                Assert.AreEqual("El nombre no puede estar vacio",e.Message);
-            }
-            try 
-            {
-                Emprendedor emprendedorTest = new Emprendedor(null,TestRubro,"La perla","Calle 13","madera");
-            }
-            catch (Exception e)
-            {
-                Assert.AreEqual("Value cannot be null. (Parameter 'name')",e.Message);
-            }
+            Assert.Throws<ArgumentException>(() => new Emprendedor("",TestRubro,"La perla","Calle 13","madera"));
+            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null,TestRubro,"La perla","Calle 13","madera"));
+        }
+        
+        /// <summary>
+        /// Test de la clase busqueda
+        /// </summary>
+        [Test] 
+        public void TestBusqueda()
+        {
+            Habilitacion MSP = new Habilitacion("MSP","msp");
+            Rubro Rubro = new Rubro("Forestal","Leñeria","Recursos");
+            Emprendedor Emprendedor = new Emprendedor("Gaston", Rubro,"San Ramon","Ruta 12", "Emprendimiento");
+            Empresa Poyote = new Empresa("Poyote",Rubro,"San Bautista","Ruta 6");
+            Clasificacion poyotero = new Clasificacion("Madera","Roble Oscuro");
+            Oferta uno = new Oferta("Madera",Poyote,1,"San Bautista","Ruta 6", true, "Madera",poyotero,1,"Kilos",500);
+            Contenedor db = Contenedor.Instancia;
+            uno.AddHabilitacion(MSP);
+            Emprendedor.AddHabilitacion(MSP);
+            db.AddOferta(uno);
+            Busqueda buscador = Busqueda.Instancia;
+            var ResultadoBusqueda = buscador.BuscarOferta(Emprendedor,"Madera",db);
+            int Largo = 1;
+            
+            var ResultadoBusqueda2 = buscador.BuscarOferta(Emprendedor,"Azucar",db);
+            int Largo2 = 0;
+            Assert.AreEqual(Largo2,ResultadoBusqueda2.Count);
         }
     }
 }

@@ -6,7 +6,8 @@ namespace Library
     {
         //singletonnnnnnnnn
         private static Contenedor contenedor;
-        public static Contenedor Instancia {
+        public static Contenedor Instancia
+        {
             get{
                 if (contenedor == null)
                 {
@@ -14,7 +15,7 @@ namespace Library
                 }
                 return contenedor;
             }
-            }
+        }
 
         private Contenedor()
         {
@@ -104,5 +105,45 @@ namespace Library
             this.Ofertas.Remove(oferta);
         }
         
+        private List<Emprendedor> emprendedores = new List<Emprendedor>();
+        public List<Emprendedor> Emprendedores
+        {
+            get{
+                return this.emprendedores;
+            }
+            set{
+                this.emprendedores=value;
+            }
+        }
+
+        private List<Empresa> empresas = new List<Empresa>();
+        public List<Empresa> Empresas
+        {
+            get{
+                return this.empresas;
+            }
+            set{
+                this.empresas=value;
+            }
+        }
+
+        public void AddEmprendedor(Emprendedor emprendedor)
+        {
+            this.Emprendedores.Add(emprendedor);
+        }
+
+        public void RemoveEmprendedor(Emprendedor emprendedor)
+        {
+            this.Emprendedores.Remove(emprendedor);
+        }
+
+        public void AddEmpresa(Empresa empresa)
+        {
+            this.Empresas.Add(empresa);
+        }
+        public void RemoveEmpresa(Empresa empresa)
+        {
+            this.Empresas.Remove(empresa);
+        }
     }
 }
