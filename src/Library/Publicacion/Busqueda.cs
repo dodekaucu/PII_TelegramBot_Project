@@ -4,11 +4,15 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    /// Clase busqueda. 
+    /// Singleton clase busqueda.
     /// </summary>
     public class Busqueda
     {
         private static Busqueda busqueda;
+        /// <summary>
+        /// Singleton de la clase busqueda. Se asegura de que solo haya una instancia de la misma.
+        /// </summary>
+        /// <value></value>
         public static Busqueda Instancia
         {
             get{
