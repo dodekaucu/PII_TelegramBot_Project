@@ -35,9 +35,9 @@
         </member>
         <member name="P:Library.Contenedor.Instancia">
             <summary>
-            Devuelve una instancia de la clase Contenedor y si no existe la crea.
+            Obtiene una instancia de la clase Contenedor y si no existe la crea.
             </summary>
-            <value>contenedor.</value>
+            <value>this.contenedor.</value>
         </member>
         <member name="P:Library.Contenedor.Habilitaciones">
             <summary>
@@ -79,37 +79,37 @@
             <summary>
             Añiade una habilitacion a la lista de habilitaciones.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitacion que recibe AddHabilitacion.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveHabiltiacion(Library.Habilitacion)">
             <summary>
             Remueve una habilitacion de la lista de habilitaciones.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitacion que recibe RemoveHabilitacion.</param>
         </member>
         <member name="M:Library.Contenedor.AddRubro(Library.Rubro)">
             <summary>
             Añiade un rubro a la lista de rubros.
             </summary>
-            <param name="rubro"></param>
+            <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveRubro(Library.Rubro)">
             <summary>
             Remueve un rubro de la lista de rubros.
             </summary>
-            <param name="rubro"></param>
+            <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
         </member>
         <member name="M:Library.Contenedor.AddClasificacion(Library.Clasificacion)">
             <summary>
             Añiade una clasificacion a la lista de clasificaciones.
             </summary>
-            <param name="clasificacion"></param>
+            <param name="clasificacion">parametro clasificacion que recibe AddClasificacion.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveClasificacion(Library.Clasificacion)">
             <summary>
             Remueve una clasificacion de la lista de clasificaciones.
             </summary>
-            <param name="clasificacion"></param>
+            <param name="clasificacion">parametro clasificacion que recibe Removelasificacion.</param>
         </member>
         <member name="M:Library.Contenedor.AddOferta(Library.Oferta)">
             <summary>
@@ -272,25 +272,26 @@
         </member>
         <member name="T:Library.Admin">
             <summary>
-            Esta clase representa un Administrador de la aplicacion
+            Esta clase representa un Administrador de la aplicacion.
             </summary>
-        </member>
-        <member name="P:Library.Admin.Nombre">
-            <summary>
-            Obtiene un valor que indica el nombre del usuario
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Admin.#ctor(System.String)">
             <summary>
-            Inicializa una instancia de la clase Admin
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Admin"/>.
             </summary>
-            <param name="nombre"></param>
+            <param name="nombre">parametro que recibe el nombre del admin.</param>
         </member>
-        <member name="M:Library.Admin.InvitarEmpresa">
+        <member name="P:Library.Admin.Nombre">
             <summary>
-            
+            Obtiene o establece un valor que indica el nombre del admin.
             </summary>
+            <value>this.nombre.</value>
+        </member>
+        <member name="M:Library.Admin.InvitarEmpresa(System.String)">
+            <summary>
+            Invita a una Empresa.
+            </summary>
+            <param name="userEmpresa">parametro userEmpresa que represneta el usuario de la empresa a inviatr.</param>
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
