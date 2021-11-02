@@ -61,6 +61,20 @@ namespace Tests
         }
 
         /// <summary>
+        /// Test Disponibilidad Materiales
+        /// </summary>
+        /// 
+        [Test]
+        public void TestDisponibilidadMateriales()
+        {
+            Material materialTest = new Material("Escombros de Antel", TestClasificaion, 100, "kg", 150);
+            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
+            int expectedRecurrencia = 3;
+            Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
+        }
+
+        /// <summary>
         /// Prueba que se cree una Oferta
         /// </summary>
         [Test]
