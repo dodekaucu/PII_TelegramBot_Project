@@ -37,6 +37,43 @@ namespace Tests
             string expectedCalle = "Plaza Independencia 848";
             Assert.AreEqual(expectedCalle, empresaTest.Ubicacion.Calle);
         }
+        
+        /// <summary>
+        ///  Prueba que se crea materiales
+        /// </summary>
+        [Test]
+        public void TestCrearMateriales()
+        {
+            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
+            Material materialTest = new Material("Escombros de Antel", clasificacionTest, 100, "kg", 150);
+            string expectedNombre = "Escombros de Antel";
+            Assert.AreEqual(expectedNombre, materialTest.Nombre);
+            string expectedClasificacionNombre = "Escombros";
+            Assert.AreEqual(expectedClasificacionNombre, materialTest.Clasificacion.Nombre);
+            string expectedClasificacionDescripcion = "Escombros de demolicion";
+            Assert.AreEqual(expectedClasificacionDescripcion, materialTest.Clasificacion.Descripcion);
+            int expectedCantidad = 100;
+            Assert.AreEqual(expectedCantidad, materialTest.Cantidad);
+            string expectedUnidad = "kg";
+            Assert.AreEqual(expectedUnidad, materialTest.Unidad);
+            int expectedValor = 150;
+            Assert.AreEqual(expectedValor, materialTest.Valor);
+        }
+
+        /// <summary>
+        /// Test Disponibilidad Materiales
+        /// </summary>
+        /// 
+        [Test]
+        public void TestDisponibilidadMateriales()
+        {
+            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
+            Material materialTest = new Material("Escombros de Antel", TestClasificaion, 100, "kg", 150);
+            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
+            int expectedRecurrencia = 3;
+            Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
+        }
 
         /// <summary>
         /// Prueba que se cree una Oferta
@@ -72,7 +109,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// Prueba que se cree una Habiitacion
+        /// Prueba que se cree una Habilitacion
         /// </summary>
         
         [Test]
@@ -109,6 +146,37 @@ namespace Tests
             string expectedEspezialicacion = "madera";
             Assert.AreEqual(expectedEspezialicacion,emprendedorTest.Especializacion);
         }
+
+        /// <summary>
+        /// Prueba que se creen palabras clave
+        /// </summary>
+        [Test]
+        public void TestPalabrasClave()
+        {
+            List<string> testpalabrasClaves = new List<string>();
+            testpalabrasClaves.Add("madera");
+            testpalabrasClaves.Add("Montevideo");
+            testpalabrasClaves.Add("cocina");
+            string expectedPalabraClave = "madera";
+            Assert.AreEqual(expectedPalabraClave,testpalabrasClaves[0]);
+            string expectedPalabraClave2 = "Montevideo";
+            Assert.AreEqual(expectedPalabraClave2, testpalabrasClaves[1]);
+            string expectedPalabraClave3 = "cocina";
+            Assert.AreEqual(expectedPalabraClave3, testpalabrasClaves[2]);
+        }
+
+        /* REVISAR ESTOS TEST SI SON NECESARIOS !!!!!
+        [Test]
+        public void TestCrearHabilitacion()
+        {
+            Habilitacion UNIT9001 = new Habilitacion("UNIT","9001");
+            
+        }
+        [Test]
+        public void TestCrearClasificacion()
+        {
+            
+        }*/
 
         /// <summary>
         /// Prueba que se agruegue una habilitacion a un emprendedor

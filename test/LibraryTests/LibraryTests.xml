@@ -14,6 +14,11 @@
             Prueba que se cree la empresa
             </summary>
         </member>
+        <member name="M:Tests.Test.TestCrearMateriales">
+            <summary>
+             Prueba que se crea materiales
+            </summary>
+        </member>
         <member name="M:Tests.Test.TestCrearOferta">
             <summary>
             Prueba que se cree una Oferta
@@ -21,12 +26,17 @@
         </member>
         <member name="M:Tests.Test.TestCrearHabilitacion">
             <summary>
-            Prueba que se cree una Habiitacion
+            Prueba que se cree una Habilitacion
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearEmprendedor">
             <summary>
             Prueba que se cree el emprendedor
+            </summary>
+        </member>
+        <member name="M:Tests.Test.TestPalabrasClave">
+            <summary>
+            Prueba que se creen palabras clave
             </summary>
         </member>
         <member name="M:Tests.Test.HabilitacionesEmprendedor">
