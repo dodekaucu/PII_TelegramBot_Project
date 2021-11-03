@@ -4,60 +4,105 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Tests.Test">
+        <member name="T:Test.Tests">
             <summary>
-            Pruebas de las diferentes clases de la libreria
+            Pruebas de las diferentes Users story.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestCrearEmpresa">
+        <member name="F:Test.Tests.testRubro">
             <summary>
-            Prueba que se cree la empresa
+            Rubro para pruebas.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestCrearMateriales">
+        <member name="F:Test.Tests.testHabilitacion">
             <summary>
-             Prueba que se crea materiales
+            Habilitacion para prueba.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestDisponibilidadMateriales">
+
             <summary>
-            Test Disponibilidad Materiales
-            </summary>
-        </member>
-        <member name="M:Tests.Test.TestCrearOferta">
-            <summary>
-            Prueba que se cree una Oferta
+            Clasificacion para prueba.
             </summary>
             
         </member>
-        <member name="M:Tests.Test.TestCrearHabilitacion">
+        <member name="M:Test.Tests.Setup">
             <summary>
-            Prueba que se cree una Habilitacion
+            Crea un Rubro, una habilitacion y una clasificacion para pruebas.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestCrearEmprendedor">
+        <member name="M:Test.Tests.TestCrearEmpresa">
             <summary>
-            Prueba que se cree el emprendedor
+            Prueba que se cree la empresa.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestPalabrasClave">
+        <member name="M:Test.Tests.TestCrearMateriales">
             <summary>
-            Prueba que se creen palabras clave
+             Prueba que se crea materiales.
             </summary>
         </member>
-        <member name="M:Tests.Test.HabilitacionesEmprendedor">
+        <member name="M:Test.Tests.TestCrearOferta">
             <summary>
-            Prueba que se agruegue una habilitacion a un emprendedor
+            Prueba que se cree una Oferta.
             </summary>
         </member>
-        <member name="M:Tests.Test.ThrowNameException">
+        <member name="M:Test.Tests.TestDisponibilidadMateriales">
             <summary>
-            Prueba que las excepcioens del constructor funcionen correctamente
+            Prueba la Disponibilidad Materiales de manera mensual.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestBusqueda">
+        <member name="M:Test.Tests.TestDisponibilidadUnica">
             <summary>
-            Test de la clase busqueda
+            Prueba que dada un oferta que se genera de manera unica, se le asigne la fecha correcta.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestHabilitacionesEmprendedor">
+            <summary>
+            Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestPalabrasClaveOferta">
+            <summary>
+            Prueba que se agreguen las palabras claves a la oferta.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearEmprendedor">
+            <summary>
+            Prueba que se cree el emprendedor.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.HabilitacionesEmprendedor">
+            <summary>
+            Prueba que se agruegue una habilitacion a un emprendedor.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.ThrowNameException">
+            <summary>
+            Prueba que las excepcioens del constructor Usuario funcionen correctamente.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestBusquedaPalabrasClave">
+            <summary>
+            Test de la clase busqueda, realiza una busqueda por palabras claves.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestBusquedaUbicacion">
+            <summary>
+            Test de la clase busqueda, realiza una busqueda por Ubicacion.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestBusquedaCategoria">
+            <summary>
+            Test de la clase busqeuda, realiza una busqueda por categoria de material.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestRegistroEmpresa">
+            <summary>
+            Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determinado.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestRegistroEmprendedor">
+            <summary>
+            Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo determinado.
             </summary>
         </member>
     </members>

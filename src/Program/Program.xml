@@ -4,5 +4,10 @@
         <name>Program</name>
     </assembly>
     <members>
+        <member name="T:ConsoleApplication.Program">
+            <summary>
+            Program vacío.
+            </summary>
+        </member>
     </members>
 </doc>
