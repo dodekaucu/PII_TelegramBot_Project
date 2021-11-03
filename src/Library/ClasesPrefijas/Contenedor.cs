@@ -3,8 +3,8 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -14,12 +14,12 @@ namespace Library
     public class Contenedor
     {
         private static Contenedor contenedor;
-        private List<Habilitacion> habilitaciones = new List<Habilitacion>();
-        private List<Rubro> rubros = new List<Rubro>();
-        private List<Clasificacion> clasificaciones = new List<Clasificacion>();
+        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
+        private Collection<Rubro> rubros = new Collection<Rubro>();
+        private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
         private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
-        private List<Emprendedor> emprendedores = new List<Emprendedor>();
-        private List<Empresa> empresas = new List<Empresa>();
+        private Collection<Emprendedor> emprendedores = new Collection<Emprendedor>();
+        private Collection<Empresa> empresas = new Collection<Empresa>();
 
         private Contenedor()
         {
@@ -43,10 +43,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la habilitacion correspondiente.
+        /// Obtiene un valor con la habilitacion correspondiente.
         /// </summary>
         /// <value>this.habilitaciones.</value>
-        public List<Habilitacion> Habilitaciones
+        public Collection<Habilitacion> Habilitaciones
         {
             get
             {
@@ -55,10 +55,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de rubros.
+        /// Obtiene un valor con la lista de rubros.
         /// </summary>
         /// <value>this.rubros.</value>
-        public List<Rubro> Rubros
+        public Collection<Rubro> Rubros
         {
             get
             {
@@ -67,10 +67,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de clasificaciones.
+        /// Obtiene un valor con la lista de clasificaciones.
         /// </summary>
         /// <value>this.clasificaciones.</value>
-        public List<Clasificacion> Clasificaciones
+        public Collection<Clasificacion> Clasificaciones
         {
             get
             {
@@ -91,10 +91,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de los Emprendedores.
+        /// Obtiene un valor con la lista de los Emprendedores.
         /// </summary>
         /// <value>this.emprendedores.</value>
-        public List<Emprendedor> Emprendedores
+        public Collection<Emprendedor> Emprendedores
         {
             get
             {
@@ -103,10 +103,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valro con la lsita de las Empresas.
+        /// Obtiene un valro con la lsita de las Empresas.
         /// </summary>
         /// <value>this.empresas.</value>
-        public List<Empresa> Empresas
+        public Collection<Empresa> Empresas
         {
             get
             {
