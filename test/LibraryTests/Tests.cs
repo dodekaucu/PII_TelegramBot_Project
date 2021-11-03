@@ -215,9 +215,9 @@ namespace Test
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
             Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa poyote = new Empresa("Poyote", rubro, "San Bautista", "Ruta 6");
-            Clasificacion poyotero = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera", poyote, 1, "San Bautista", "Ruta 6", true, "Madera", poyotero, 1, "Kilos", 500);
+            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
+            Oferta uno = new Oferta("Madera", maderaslr, 1, "San Bautista", "Ruta 6", true, "Madera", madera, 1, "Tonelada", 5000);
             uno.AddHabilitacion(msp);
             emprendedor.AddHabilitacion(msp);
             this.db.AddOferta(uno);
@@ -233,6 +233,18 @@ namespace Test
         [Test]
         public void TestBusquedaUbicacion()
         {
+            Rubro rubro2 = new Rubro("Metal", "Hierro", "Herreria");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro2, "San Ramon", "Ruta 12", "Emprendimiento");
+            Empresa herracor = new Empresa("Herracor", rubro2, "San Bautista", "Ruta 6");
+            Clasificacion hierro = new Clasificacion("Metales", "Metales, etc");
+            Oferta dos = new Oferta("Metales", herracor, 1, "Santa Rosa", "Ruta 6", true, "Metales", hierro, 1, "Kilos", 500);
+            Ubicacion buscarubi = new Ubicacion("Santa Rosa", "Ruta 6");
+            Ubicacion buscarubi2 = new Ubicacion("San Ramon", "Ruta 6");
+            this.db.AddOferta(dos);
+            List<Oferta> expectedResultadoo = new List<Oferta>() { dos };
+            Assert.AreEqual(expectedResultadoo, this.buscador.BuscarOferta(emprendedor, buscarubi, this.db));
+            int largoEsperado2 = 0;
+            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, buscarubi2, this.db).Count);
         }
 
         /// <summary>
@@ -241,6 +253,18 @@ namespace Test
         [Test]
         public void TestBusquedaCategoria()
         {
+            Rubro rubro3 = new Rubro("Ropa", "Textil", "Telas");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro3, "San Ramon", "Ruta 12", "Emprendimiento");
+            Empresa ropaUsada = new Empresa("Ropa Usada", rubro3, "San Bautista", "Ruta 6");
+            Clasificacion textil = new Clasificacion("Textiles", "Todo tipo de textiles");
+            Oferta tres = new Oferta("Textiles", ropaUsada, 1, "San Bautista", "Ruta 6", true, "Textiles", textil, 1, "Kilos", 500);
+            Clasificacion buscarclasi = new Clasificacion("Textiles", "Todo tipo de textiles");
+            Clasificacion buscarclasi2 = new Clasificacion("Residuos hospitalarios", "Residuoos provenientes de hospitales");
+            this.db.AddOferta(tres);
+            List<Oferta> expectedResultadoo = new List<Oferta>() { tres };
+            Assert.AreEqual(expectedResultadoo, this.buscador.BuscarOferta(emprendedor, buscarclasi, this.db));
+            int largoEsperado2 = 0;
+            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, buscarclasi2, this.db).Count);
         }
     }
 }

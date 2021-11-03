@@ -4,6 +4,7 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 
 namespace Library
@@ -55,18 +56,25 @@ namespace Library
             {
                 if (oferta.PalabrasClaves.Contains(mensaje))
                 {
-                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
+                    if (oferta.Habilitaciones.Count >= 1)
                     {
-                        if (emprendedor.Habilitaciones.Contains(habilitacion))
+                        foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                         {
+                            if (emprendedor.Habilitaciones.Contains(habilitacion))
+                            {
+                            }
+                            else
+                            {
+                                valido = false;
+                            }
                         }
-                        else
+
+                        if (valido == true)
                         {
-                            valido = false;
+                            listaOfertas.Add(oferta);
                         }
                     }
-
-                    if (valido == true)
+                    else
                     {
                         listaOfertas.Add(oferta);
                     }
@@ -92,23 +100,41 @@ namespace Library
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (oferta.Ubicacion == ubicacion)
+                if (String.Equals(oferta.Ubicacion.Ciudad, ubicacion.Ciudad))
                 {
-                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
+                    if (String.Equals(oferta.Ubicacion.Calle, ubicacion.Calle))
                     {
-                        if (emprendedor.Habilitaciones.Contains(habilitacion))
+                        if (oferta.Habilitaciones.Count >= 1)
                         {
+                            foreach (Habilitacion habilitacion in oferta.Habilitaciones)
+                            {
+                                if (emprendedor.Habilitaciones.Contains(habilitacion))
+                                {
+                                }
+                                else
+                                {
+                                    valido = false;
+                                }
+                            }
+
+                            if (valido == true)
+                            {
+                                listaOfertas.Add(oferta);
+                            }
                         }
                         else
                         {
-                            valido = false;
+                            listaOfertas.Add(oferta);
                         }
                     }
-
-                    if (valido == true)
+                    else
                     {
-                        listaOfertas.Add(oferta);
+                        valido = false;
                     }
+                }
+                else
+                {
+                    valido = false;
                 }
             }
 
@@ -131,23 +157,34 @@ namespace Library
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (oferta.Material.Clasificacion == clasificacion)
+                if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre))
                 {
-                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
+                    if (oferta.Habilitaciones.Count >= 1)
                     {
-                        if (emprendedor.Habilitaciones.Contains(habilitacion))
+                        foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                         {
+                            if (emprendedor.Habilitaciones.Contains(habilitacion))
+                            {
+                            }
+                            else
+                            {
+                                valido = false;
+                            }
                         }
-                        else
+
+                        if (valido == true)
                         {
-                            valido = false;
+                            listaOfertas.Add(oferta);
                         }
                     }
-
-                    if (valido == true)
+                    else
                     {
                         listaOfertas.Add(oferta);
                     }
+                }
+                else
+                {
+                    valido = false;
                 }
             }
 
