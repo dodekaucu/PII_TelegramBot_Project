@@ -1,33 +1,61 @@
-using NUnit.Framework;
-using Library;
+//--------------------------------------------------------------------------------
+// <copyright file="Tests.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
+using Library;
+using NUnit.Framework;
 
-namespace Tests
+namespace Test
 {
     /// <summary>
-    /// Pruebas de las diferentes clases de la libreria.
+    /// Pruebas de las diferentes Users story.
     /// </summary>
-
     [TestFixture]
-    public class Test
+    public class Tests
     {
+        /// <summary>
+        /// Rubro para pruebas.
+        /// </summary>
+        private Rubro testRubro;
 
-        Rubro TestRubro = new Rubro("Tecnologia", "Software", "Programacion");
-        Habilitacion TestHabilitacion = new Habilitacion("UNIT", "9001");
+        /// <summary>
+        /// Habilitacion para prueba.
+        /// </summary>
+        private Habilitacion testHabilitacion;
 
-        Clasificacion TestClasificaion = new Clasificacion("Hormigon armado", "una hormiga grande con un arma");
+        /// <summary>
+        /// Clasificacion para prueba.
+        /// </summary>
+        private Clasificacion testClasifciacion;
 
+        private Contenedor db;
 
+        private Busqueda buscador;
+
+        /// <summary>
+        /// Crea un Rubro, una habilitacion y una clasificacion para pruebas.
+        /// </summary>
+        [SetUp]
+        public void Setup()
+        {
+            this.testRubro = new Rubro("Tecnologia", "Software", "Programacion");
+            this.testHabilitacion = new Habilitacion("UNIT", "9001");
+            this.testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
+            this.db = Contenedor.Instancia;
+            this.buscador = Busqueda.Instancia;
+        }
 
         /// <summary>
         /// Prueba que se cree la empresa.
         /// </summary>
-            
         [Test]
         public void TestCrearEmpresa()
         {
-            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
             string expectedNombre = "12 Holdings";
             Assert.AreEqual(expectedNombre, empresaTest.Nombre);
             string expectedRubro = "Tecnologia";
@@ -37,7 +65,7 @@ namespace Tests
             string expectedCalle = "Plaza Independencia 848";
             Assert.AreEqual(expectedCalle, empresaTest.Ubicacion.Calle);
         }
-        
+
         /// <summary>
         ///  Prueba que se crea materiales.
         /// </summary>
@@ -61,27 +89,13 @@ namespace Tests
         }
 
         /// <summary>
-        /// Test Disponibilidad Materiales.
-        /// </summary>
-        [Test]
-        public void TestDisponibilidadMateriales()
-        {
-            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
-            Material materialTest = new Material("Escombros de Antel", TestClasificaion, 100, "kg", 150);
-            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
-            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
-            int expectedRecurrencia = 3;
-            Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
-        }
-
-        /// <summary>
         /// Prueba que se cree una Oferta.
         /// </summary>
         [Test]
         public void TestCrearOferta()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
-            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
             Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
             string expectedNombre = "Escombros";
             Assert.AreEqual(expectedNombre, ofertaTest.Nombreoferta);
@@ -108,14 +122,26 @@ namespace Tests
         }
 
         /// <summary>
-        /// Prueba que se cree una Habilitacion.
+        /// Test Disponibilidad Materiales.
         /// </summary>
-        
         [Test]
-        public void TestCrearHabilitacion()
+        public void TestDisponibilidadMateriales()
+        {
+            Material materialTest = new Material("Escombros de Antel", this.testClasifciacion, 100, "kg", 150);
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", this.testClasifciacion, 150, "Kilos", 100);
+            int expectedRecurrencia = 3;
+            Assert.AreEqual(expectedRecurrencia, ofertaTest.Recurrencia);
+        }
+
+        /// <summary>
+        /// Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
+        /// </summary>
+        [Test]
+        public void TestHabilitacionesEmprendedor()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
-            Empresa empresaTest = new Empresa("12 Holdings", TestRubro, "Montevideo", "Plaza Independencia 848");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
             Habilitacion habilitacionTest = new Habilitacion("DGI", "Permisos del DGI");
             Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", clasificacionTest, 150, "Kilos", 100);
             ofertaTest.AddHabilitacion(habilitacionTest);
@@ -124,16 +150,29 @@ namespace Tests
             string expectedDescripcionHabilitacion = "Permisos del DGI";
             Assert.AreEqual(expectedDescripcionHabilitacion, habilitacionTest.Descripcion);
         }
-        
+
+        /// <summary>
+        /// Prueba que se agreguen las palabras claves a la oferta.
+        /// </summary>
+        [Test]
+        public void TestPalabrasClaveOferta()
+        {
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, 3, "Montevideo", "Plaza Independencia 848", true, "Escombros", this.testClasifciacion, 150, "Kilos", 100);
+            ofertaTest.AddPalabraClave("madera");
+            ofertaTest.AddPalabraClave("Montevideo");
+            ofertaTest.AddPalabraClave("cocina");
+            List<string> expectedPalabrasClaves = new List<string>() { "Escombros", "12 Holdings", "Escombros", "madera", "Montevideo", "cocina" };
+            Assert.AreEqual(ofertaTest.PalabrasClaves, expectedPalabrasClaves);
+        }
+
         /// <summary>
         /// Prueba que se cree el emprendedor.
         /// </summary>
-
-
         [Test]
         public void TestCrearEmprendedor()
         {
-            Emprendedor emprendedorTest = new Emprendedor("Rene", TestRubro, "La perla", "Calle 13", "madera");
+            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera");
             string expectedNombre = "Rene";
             Assert.AreEqual(expectedNombre, emprendedorTest.Nombre);
             string expectedRubro = "Tecnologia";
@@ -147,65 +186,31 @@ namespace Tests
         }
 
         /// <summary>
-        /// Prueba que se creen palabras clave.
-        /// </summary>
-        [Test]
-        public void TestPalabrasClave()
-        {
-            List<string> testpalabrasClaves = new List<string>();
-            testpalabrasClaves.Add("madera");
-            testpalabrasClaves.Add("Montevideo");
-            testpalabrasClaves.Add("cocina");
-            string expectedPalabraClave = "madera";
-            Assert.AreEqual(expectedPalabraClave, testpalabrasClaves[0]);
-            string expectedPalabraClave2 = "Montevideo";
-            Assert.AreEqual(expectedPalabraClave2, testpalabrasClaves[1]);
-            string expectedPalabraClave3 = "cocina";
-            Assert.AreEqual(expectedPalabraClave3, testpalabrasClaves[2]);
-        }
-
-        /* REVISAR ESTOS TEST SI SON NECESARIOS !!!!!
-        [Test]
-        public void TestCrearHabilitacion()
-        {
-            Habilitacion UNIT9001 = new Habilitacion("UNIT","9001");
-            
-        }
-        [Test]
-        public void TestCrearClasificacion()
-        {
-            
-        }*/
-
-        /// <summary>
         /// Prueba que se agruegue una habilitacion a un emprendedor.
         /// </summary>
-
         [Test]
-
-        public void HabilitacionesEmprendedor() 
+        public void HabilitacionesEmprendedor()
         {
-            Emprendedor emprendedorTest = new Emprendedor("Rene", TestRubro, "La perla", "Calle 13", "madera");
-            emprendedorTest.AddHabilitacion(TestHabilitacion);
-            Assert.AreEqual(TestHabilitacion,emprendedorTest.Habilitaciones[0]);
+            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera");
+            emprendedorTest.AddHabilitacion(this.testHabilitacion);
+            Assert.AreEqual(this.testHabilitacion, emprendedorTest.Habilitaciones[0]);
         }
 
         /// <summary>
-        /// Prueba que las excepcioens del constructor funcionen correctamente.
+        /// Prueba que las excepcioens del constructor Usuario funcionen correctamente.
         /// </summary>
-
         [Test]
         public void ThrowNameException()
         {
-            Assert.Throws<ArgumentException>(() => new Emprendedor("", TestRubro, "La perla", "Calle 13", "madera"));
-            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null, TestRubro, "La perla", "Calle 13", "madera"));
+            Assert.Throws<ArgumentException>(() => new Emprendedor(string.Empty, this.testRubro, "La perla", "Calle 13", "madera"));
+            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null, this.testRubro, "La perla", "Calle 13", "madera"));
         }
-        
+
         /// <summary>
-        /// Test de la clase busqueda.
+        /// Test de la clase busqueda, realiza una busqueda por palabras claves.
         /// </summary>
-        [Test] 
-        public void TestBusqueda()
+        [Test]
+        public void TestBusquedaPalabrasClave()
         {
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
@@ -213,17 +218,29 @@ namespace Tests
             Empresa poyote = new Empresa("Poyote", rubro, "San Bautista", "Ruta 6");
             Clasificacion poyotero = new Clasificacion("Madera", "Roble Oscuro");
             Oferta uno = new Oferta("Madera", poyote, 1, "San Bautista", "Ruta 6", true, "Madera", poyotero, 1, "Kilos", 500);
-            Contenedor db = Contenedor.Instancia;
             uno.AddHabilitacion(msp);
             emprendedor.AddHabilitacion(msp);
-            db.AddOferta(uno);
-            Busqueda buscador = Busqueda.Instancia;
-            var resultadoBusqueda = buscador.BuscarOferta(emprendedor, "Madera", db);
-            int largoEsperado = 1;
-            Assert.AreEqual(largoEsperado, resultadoBusqueda.Count);
-            var resultadoBusqueda2 = buscador.BuscarOferta(emprendedor, "Azucar", db);
+            this.db.AddOferta(uno);
+            List<Oferta> expectedResultado = new List<Oferta>() { uno };
+            Assert.AreEqual(expectedResultado, this.buscador.BuscarOferta(emprendedor, "Madera", this.db));
             int largoEsperado2 = 0;
-            Assert.AreEqual(largoEsperado2, resultadoBusqueda2.Count);
+            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, "Azucar", this.db).Count);
+        }
+
+        /// <summary>
+        /// Test de la clase busqueda, realiza una busqueda por Ubicacion.
+        /// </summary>
+        [Test]
+        public void TestBusquedaUbicacion()
+        {
+        }
+
+        /// <summary>
+        /// Test de la clase busqeuda, realiza una busqueda por categoria de material.
+        /// </summary>
+        [Test]
+        public void TestBusquedaCategoria()
+        {
         }
     }
 }
