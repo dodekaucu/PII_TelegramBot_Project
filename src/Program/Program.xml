@@ -9,5 +9,10 @@
             Program vacío.
             </summary>
         </member>
+        <member name="M:ConsoleApplication.Program.Main">
+            <summary>
+            Main vacío.
+            </summary>
+        </member>
     </members>
 </doc>

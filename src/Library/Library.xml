@@ -305,7 +305,47 @@
             Clase que representa al Material.
             </summary>
         </member>
-
+        <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
+            </summary>
+            <param name="nombre">El nombre del material.</param>
+            <param name="clasificacion">La clasificacion del material.</param>
+            <param name="cantidad">La cantidad de la unidad.</param>
+            <param name="unidad">La unidad del material.</param>
+            <param name="valor">El valor de la unidad.</param>
+        </member>
+        <member name="P:Library.Material.Clasificacion">
+            <summary>
+            Obtiene la clasificacion del material.
+            </summary>
+            <value>la clasificacion del material.</value>
+        </member>
+        <member name="P:Library.Material.Cantidad">
+            <summary>
+            Obtiene un valor que indica la cantidad del material.
+            </summary>
+            <value>la cantidad de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Unidad">
+            <summary>
+            Obtiene un valor que indica la unidad del material.
+            </summary>
+            <value>la unidad en la cual se va a medir.</value>
+        </member>
+        <member name="P:Library.Material.Valor">
+            <summary>
+            Obtiene un valor que indica el valor del material.
+            </summary>
+            <value>el valor de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Nombre">
+            <summary>
+            Obtiene un valor que indica el nombre del material.
+            </summary>
+            <value>el nombre del material.</value>
+        </member>
+        <member name="T:Library.Oferta">
             <summary>
             Esta clase representa una oferta.
             </summary>
@@ -330,6 +370,79 @@
             <param name="unidad">unidad del material.</param>
             <param name="valor">valor del material.</param>
             <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
+        </member>
+        <member name="T:Library.OfertaBase">
+            <summary>
+            Clase abstracta que representa la base de oferta.
+            </summary>
+        </member>
+        <member name="P:Library.OfertaBase.Nombreoferta">
+            <summary>
+            Obtiene o establece el nombre de la oferta.
+            </summary>
+            <value>Nombre de la oferta.</value>
+        </member>
+        <member name="P:Library.OfertaBase.FechaVenta">
+            <summary>
+            Obtiene o establece fecha en la cual se realizo la venta.
+            </summary>
+            <value>Fecha de la venta.</value>
+        </member>
+        <member name="P:Library.OfertaBase.Material">
+            <summary>
+            Obtiene o establece material ofertado en la oferta.
+            </summary>
+            <value>Material ofrecido.</value>
+        </member>
+        <member name="P:Library.OfertaBase.Empresa">
+            <summary>
+            Obtiene empresa que realiza la oferta.
+            </summary>
+            <value>Empresa que oferta.</value>
+        </member>
+        <member name="P:Library.OfertaBase.Ubicacion">
+            <summary>
+            Obtiene o establece ubicación de la oferta.
+            </summary>
+            <value>Ubicacion de la oferta.</value>
+        </member>
+        <member name="P:Library.OfertaBase.PalabrasClaves">
+            <summary>
+            Obtiene palabras clave de la oferta, estas sirven para su futura busqueda.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.OfertaBase.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaBase"/>.
+            </summary>
+            <param name="nombreoferta">Nombre de la oferta a crear.</param>
+            <param name="empresa">Empresa que crea la oferta.</param>
+            <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
+            <param name="calle">Calle donde esta la oferta.</param>
+            <param name="nombreMaterial">Nombre del material a ofertar.</param>
+            <param name="clasificacion">Clasificación del material.</param>
+            <param name="cantidad">Cantidad a ofertar.</param>
+            <param name="unidad">Unidad del material.</param>
+            <param name="valor">Valor de la oferta.</param>
+        </member>
+        <member name="P:Library.OfertaBase.Habilitaciones">
+            <summary>
+            Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.OfertaBase.AddHabilitacion(Library.Habilitacion)">
+            <summary>
+            Añade habilitaciones a la lista.
+            </summary>
+            <param name="habilitacion">Habilitaciones necesarias para adquirir la oferta.</param>
+        </member>
+        <member name="M:Library.OfertaBase.AddPalabraClave(System.String)">
+            <summary>
+            Añade palabras clave a la lista.
+            </summary>
+            <param name="palabraClave">Palabras clave para buscar la oferta.</param>
         </member>
         <member name="T:Library.OfertaRecurrente">
             <summary>
