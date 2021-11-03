@@ -204,14 +204,14 @@
         </member>
         <member name="T:Library.Busqueda">
             <summary>
-            Singleton clase busqueda.
+            Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
             </summary>
         </member>
         <member name="P:Library.Busqueda.Instancia">
             <summary>
-            Singleton de la clase busqueda. Se asegura de que solo haya una instancia de la misma.
+            Obtiene una instancia de la clase Busqueda y si no existe una, crea una nueva.
             </summary>
-            <value></value>
+            <value>una instancia de busqueda.</value>
         </member>
         <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,System.String,Library.Contenedor)">
             <summary>
@@ -219,27 +219,36 @@
             revisa cada oferta para ver si las palabras claves coinciden.
             Luego comprueba si el emprendedor tiene las habilitaciones necesarias para acceder a la oferta.
             Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-            
-            Contenedor basededatos se usa como una db temporal 
+            Contenedor basededatos se usa como una db temporal.
             </summary>
+            <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+            <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
+            <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+            <returns>Lista de ofertas que cumplen con los requisitos.</returns>
         </member>
         <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Ubicacion,Library.Contenedor)">
             <summary>
-            En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
-            revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
+            En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar.
+            revisa cada oferta para ver si la ubicacion coincide con ubicación buscada.
             Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-            
-            Contenedor basededatos se usa como una db temporal
+            Contenedor basededatos se usa como una db temporal.
             </summary>
+            <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+            <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
+            <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+            <returns>Lista de ofertas que cumplen con los requisitos.</returns>
         </member>
         <member name="M:Library.Busqueda.BuscarOferta(Library.Emprendedor,Library.Clasificacion,Library.Contenedor)">
             <summary>
-            En este caso la funcion busqueda recibe clasificacion del material
-            revisa la clasificacion de los materiales de cada oferta para ver si son iguales
+            En este caso la funcion busqueda recibe clasificacion del material.
+            revisa la clasificacion de los materiales de cada oferta para ver si son iguales.
             Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-            
-            Contenedor basededatos se usa como una db temporal
+            Contenedor basededatos se usa como una db temporal.
             </summary>
+            <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+            <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
+            <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+            <returns>Lista de ofertas que cumplen con los requisitos.</returns>
         </member>
         <member name="T:Library.Material">
             <summary>
