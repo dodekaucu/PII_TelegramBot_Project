@@ -12,7 +12,9 @@ namespace ConsoleApplication
     /// </summary>
     public static class Program
     {
-
+        /// <summary>
+        /// Main vacío.
+        /// </summary>
         public static void Main()
         {
         }
