@@ -189,34 +189,34 @@
         </member>
         <member name="T:Library.Rubro">
             <summary>
-            Clase que representa los rubros
+            Clase que representa los rubros.
             </summary>
         </member>
         <member name="M:Library.Rubro.#ctor(System.String,System.String,System.String)">
             <summary>
-            Inicializa una instancia de la clase Rubro
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Rubro"/>.
             </summary>
-            <param name="nombre"></param>
-            <param name="area"></param>
-            <param name="descripcion"></param>
+            <param name="nombre">El nombre del rubro.</param>
+            <param name="area">El area del Rubro.</param>
+            <param name="descripcion">La descripcion del rubro.</param>
         </member>
         <member name="P:Library.Rubro.Nombre">
             <summary>
-            Devuelve un valor que indica el nombre del rubro
+            Obtiene un valor que indica el nombre del rubro.
             </summary>
-            <value></value>
+            <value>El nombre del Rubro.</value>
         </member>
         <member name="P:Library.Rubro.Area">
             <summary>
-            Devuelve un valor que indica el area del rubro
+            Obtiene un valor que indica el area del rubro.
             </summary>
-            <value></value>
+            <value>El area del Rubro.</value>
         </member>
         <member name="P:Library.Rubro.Descripcion">
             <summary>
-            Devuelve un valor que indica la descripcion del rubro
+            Obtiene un valor que indica la descripcion del rubro.
             </summary>
-            <value></value>
+            <value>La descripcion del Rubro.</value>
         </member>
         <member name="T:Library.IChat">
             <summary>
@@ -302,23 +302,58 @@
         </member>
         <member name="T:Library.Material">
             <summary>
-            Clase que representa los materiales
+            Clase que representa al Material.
             </summary>
+        </member>
+        <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
+            </summary>
+            <param name="nombre">El nombre del material.</param>
+            <param name="clasificacion">La clasificacion del material.</param>
+            <param name="cantidad">La cantidad de la unidad.</param>
+            <param name="unidad">La unidad del material.</param>
+            <param name="valor">El valor de la unidad.</param>
+        </member>
+        <member name="P:Library.Material.Clasificacion">
+            <summary>
+            Obtiene la clasificacion del material.
+            </summary>
+            <value>la clasificacion del material.</value>
+        </member>
+        <member name="P:Library.Material.Cantidad">
+            <summary>
+            Obtiene un valor que indica la cantidad del material.
+            </summary>
+            <value>la cantidad de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Unidad">
+            <summary>
+            Obtiene un valor que indica la unidad del material.
+            </summary>
+            <value>la unidad en la cual se va a medir.</value>
+        </member>
+        <member name="P:Library.Material.Valor">
+            <summary>
+            Obtiene un valor que indica el valor del material.
+            </summary>
+            <value>el valor de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Nombre">
+            <summary>
+            Obtiene un valor que indica el nombre del material.
+            </summary>
+            <value>el nombre del material.</value>
         </member>
         <member name="T:Library.Oferta">
             <summary>
             Esta clase representa una oferta.
             </summary>
         </member>
-        <member name="P:Library.Oferta.FechadeGeneracion">
-            <summary>
-            Obtiene o establece cuando la oferta va a ser generada.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.DateTime)">
             <summary>
-            Inicializa una instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Oferta"/>.
             </summary>
             <param name="nombreoferta">parametro nombre de la oferta.</param>
             <param name="empresa">parametro empresa que oferta.</param>
@@ -330,6 +365,7 @@
             <param name="unidad">unidad del material.</param>
             <param name="valor">valor del material.</param>
             <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
+        </member>
         </member>
         <member name="T:Library.OfertaRecurrente">
             <summary>
