@@ -9,167 +9,167 @@
             Esta clase representa una clasificación de un material.
             </summary>
         </member>
+        <member name="M:Library.Clasificacion.#ctor(System.String,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Clasificacion"/>.
+            </summary>
+            <param name="nombre"> parametro nombre recibido por el constructor.</param>
+            <param name="descripcion">parametro descripcion recibido por el constructor.</param>
+        </member>
         <member name="P:Library.Clasificacion.Nombre">
             <summary>
             Obtiene un valor que indica el nombre de la clasificación.
             </summary>
-            <value></value>
+            <value>this.nombre.</value>
         </member>
         <member name="P:Library.Clasificacion.Descripcion">
             <summary>
             Obtiene un valor que indica la descripcion de la clasificación.
             </summary>
-            <value></value>
-        </member>
-        <member name="M:Library.Clasificacion.#ctor(System.String,System.String)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Clasificacion"/>.
-            </summary>
-            <param name="nombre"></param>
-            <param name="descripcion"></param>
+            <value>this.descripcion.</value>
         </member>
         <member name="T:Library.Contenedor">
             <summary>
-            Esta clase representa un contenedor de las diferentes clases del bot
+            Esta clase representa un contenedor de las diferentes clases del bot.
             </summary>
         </member>
         <member name="P:Library.Contenedor.Instancia">
             <summary>
-            Devuelve una instancia de la clase Contenedor y si no existe la crea
+            Obtiene una instancia de la clase Contenedor y si no existe la crea.
             </summary>
-            <value></value>
+            <value>this.contenedor.</value>
         </member>
         <member name="P:Library.Contenedor.Habilitaciones">
             <summary>
-            Devuelve un valor con la habilitacion correspondiente al nombre
+            Devuelve un valor con la habilitacion correspondiente.
             </summary>
-            <value></value>
+            <value>this.habilitaciones.</value>
         </member>
         <member name="P:Library.Contenedor.Rubros">
             <summary>
-            Devuelve un valor con la lista de rubros
+            Devuelve un valor con la lista de rubros.
             </summary>
-            <value></value>
+            <value>this.rubros.</value>
         </member>
         <member name="P:Library.Contenedor.Clasificaciones">
             <summary>
-            Devuelve un valor con la lista de clasificaciones
+            Devuelve un valor con la lista de clasificaciones.
             </summary>
-            <value></value>
+            <value>this.clasificaciones.</value>
         </member>
         <member name="P:Library.Contenedor.Ofertas">
             <summary>
-            Devuelve un valor con la lista de las ofertas
+            Devuelve un valor con la lista de las ofertas.
             </summary>
-            <value></value>
+            <value>this.ofertas.</value>
         </member>
         <member name="P:Library.Contenedor.Emprendedores">
             <summary>
-            Devuelve un valor con la lista de los Emprendedores
+            Devuelve un valor con la lista de los Emprendedores.
             </summary>
-            <value></value>
+            <value>this.emprendedores.</value>
         </member>
         <member name="P:Library.Contenedor.Empresas">
             <summary>
-            Devuelve un valro con la lsita de las Empresas
+            Devuelve un valro con la lsita de las Empresas.
             </summary>
-            <value></value>
+            <value>this.empresas.</value>
         </member>
         <member name="M:Library.Contenedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
-            Añiade una habilitacion a la lista de habilitaciones
+            Añiade una habilitacion a la lista de habilitaciones.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitacion que recibe AddHabilitacion.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveHabiltiacion(Library.Habilitacion)">
             <summary>
-            Remueve una habilitacion de la lista de habilitaciones
+            Remueve una habilitacion de la lista de habilitaciones.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitacion que recibe RemoveHabilitacion.</param>
         </member>
         <member name="M:Library.Contenedor.AddRubro(Library.Rubro)">
             <summary>
-            Añiade un rubro a la lista de rubros
+            Añiade un rubro a la lista de rubros.
             </summary>
-            <param name="rubro"></param>
+            <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveRubro(Library.Rubro)">
             <summary>
-            Remueve un rubro de la lista de rubros
+            Remueve un rubro de la lista de rubros.
             </summary>
-            <param name="rubro"></param>
+            <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
         </member>
         <member name="M:Library.Contenedor.AddClasificacion(Library.Clasificacion)">
             <summary>
-            Añiade una clasificacion a la lista de clasificaciones
+            Añiade una clasificacion a la lista de clasificaciones.
             </summary>
-            <param name="clasificacion"></param>
+            <param name="clasificacion">parametro clasificacion que recibe AddClasificacion.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveClasificacion(Library.Clasificacion)">
             <summary>
-            Remueve una clasificacion de la lista de clasificaciones
+            Remueve una clasificacion de la lista de clasificaciones.
             </summary>
-            <param name="clasificacion"></param>
+            <param name="clasificacion">parametro clasificacion que recibe Removelasificacion.</param>
         </member>
         <member name="M:Library.Contenedor.AddOferta(Library.Oferta)">
             <summary>
-            Añiade una oferta a la lista de ofertas
+            Añiade una oferta a la lista de ofertas.
             </summary>
-            <param name="oferta"></param>
+            <param name="oferta">parametro oferta recibido por el metodo AddOferta.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveOferta(Library.Oferta)">
             <summary>
-            Remueve una oferta de la lista de ofertas
+            Remueve una oferta de la lista de ofertas.
             </summary>
-            <param name="oferta"></param>
+            <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
         </member>
         <member name="M:Library.Contenedor.AddEmprendedor(Library.Emprendedor)">
             <summary>
-            Añiade un Emprendedor a la lista de emprendedores
+            Agrega un Emprendedor a la lista de emprendedores.
             </summary>
-            <param name="emprendedor"></param>
+            <param name="emprendedor">parametro oferta recibido por el metodo RemoverOferta.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmprendedor(Library.Emprendedor)">
             <summary>
-            Remueve un emprendedor de la lista de emprendedores
+            Remueve un emprendedor de la lista de emprendedores.
             </summary>
-            <param name="emprendedor"></param>
+            <param name="emprendedor">parametro emprendedor recibido por el metodo RemoverEmprendedor.</param>
         </member>
         <member name="M:Library.Contenedor.AddEmpresa(Library.Empresa)">
             <summary>
-            Añiade una empresa a la lista de empresas
+            Añiade una empresa a la lista de empresas.
             </summary>
-            <param name="empresa"></param>
+            <param name="empresa">parametro empresa recibido por el metodo AgregarEmpresa.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmpresa(Library.Empresa)">
             <summary>
-            Remueve una empresa de la lista de empresas
+            Remueve una empresa de la lista de empresas.
             </summary>
-            <param name="empresa"></param>
+            <param name="empresa">parametro empresa recibido por el metodo RemoveEmpresa.</param>
         </member>
         <member name="T:Library.Habilitacion">
             <summary>
-            Esta clase representa una Habilitacion basica
+            Esta clase representa una Habilitacion basica.
             </summary>
-        </member>
-        <member name="P:Library.Habilitacion.Name">
-            <summary>
-            Obtiene un valor que indica el nombre de la habilitacion
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Habilitacion.Descripcion">
-            <summary>
-            Obtiene un valor que indica la descripcion de la habilitacion
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
             <summary>
-            Inicializa una nueva instancia de la clase Habilitacion
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
             </summary>
-            <param name="name"></param>
-            <param name="descripcion"></param>
+            <param name="name">Parametro name que recibe el constructor de la habilitacion.</param>
+            <param name="descripcion">Parametro descripcion que recibe el constructor de la habilitacion.</param>
+        </member>
+        <member name="P:Library.Habilitacion.Name">
+            <summary>
+            Obtiene un valor que indica el nombre de la habilitacion.
+            </summary>
+            <value>this.name.</value>
+        </member>
+        <member name="P:Library.Habilitacion.Descripcion">
+            <summary>
+            Obtiene un valor que indica la descripcion de la habilitacion.
+            </summary>
+            <value>this.descripcion.</value>
         </member>
         <member name="T:Library.Rubro">
             <summary>
@@ -248,142 +248,141 @@
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
-            Esta clase representa una ubicacion
+            Esta clase representa una ubicacion.
             </summary>
-        </member>
-        <member name="P:Library.Ubicacion.Ciudad">
-            <summary>
-            variable del tipo string que representa la Ciudad de la Ubicacion
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Ubicacion.Calle">
-            <summary>
-            variable del tipo string que represneta la ciudad
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Ubicacion.#ctor(System.String,System.String)">
             <summary>
-            Metodo constructor de Ubicacion, recibe dos string.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Ubicacion"/>.
             </summary>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
+            <param name="ciudad">parametro ciudad que recibe el constructor.</param>
+            <param name="calle">parametro calle que recibe el constructor.</param>
+        </member>
+        <member name="P:Library.Ubicacion.Ciudad">
+            <summary>
+             Obtiene o establece la ciudad.
+            </summary>
+            <value>this.ciudad.</value>
+        </member>
+        <member name="P:Library.Ubicacion.Calle">
+            <summary>
+            Obtiene o establece la calle.
+            </summary>
+            <value>this.calle.</value>
         </member>
         <member name="T:Library.Admin">
             <summary>
-            Esta clase representa un Administrador de la aplicacion
+            Esta clase representa un Administrador de la aplicacion.
             </summary>
-        </member>
-        <member name="P:Library.Admin.Nombre">
-            <summary>
-            Obtiene un valor que indica el nombre del usuario
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Admin.#ctor(System.String)">
             <summary>
-            Inicializa una instancia de la clase Admin
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Admin"/>.
             </summary>
-            <param name="nombre"></param>
+            <param name="nombre">parametro que recibe el nombre del admin.</param>
         </member>
-        <member name="M:Library.Admin.InvitarEmpresa">
+        <member name="P:Library.Admin.Nombre">
             <summary>
-            
+            Obtiene o establece un valor que indica el nombre del admin.
             </summary>
+            <value>this.nombre.</value>
+        </member>
+        <member name="M:Library.Admin.InvitarEmpresa(System.String)">
+            <summary>
+            Invita a una Empresa.
+            </summary>
+            <param name="userEmpresa">parametro userEmpresa que represneta el usuario de la empresa a inviatr.</param>
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
-            Esta clase representa un Emprendedor
+            Esta clase representa un Emprendedor.
             </summary>
-        </member>
-        <member name="P:Library.Emprendedor.Especializacion">
-            <summary>
-            Obtiene un valor que indica la especializacion del emprendedor
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Habilitaciones">
-            <summary>
-            Obtiene el valor de las habilitaciones del emprendedor
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
             <summary>
-            Inicializa una nueva instancia de la clase Emprendedor
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Emprendedor"/>.
             </summary>
-            <param name="nombre"></param>
-            <param name="rubro"></param>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
-            <param name="especializacion"></param>
-            <returns></returns>
+            <param name="nombre">parametro nombre recibido por el constructor del emprendedor.</param>
+            <param name="rubro">parametro rubro recibido por el constructor del emprendedor.</param>
+            <param name="ciudad">parametro ciudad recibido por el constructor del emprendedor.</param>
+            <param name="calle">parametro calle recibido por el constructor del emprendedor.</param>
+            <param name="especializacion">parametro especializacion recibidio por el constructor del emprendedor.</param>
+        </member>
+        <member name="P:Library.Emprendedor.Especializacion">
+            <summary>
+            Obtiene o establece un valor que indica la especializacion del emprendedor.
+            </summary>
+            <value>this.especializacon.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Habilitaciones">
+            <summary>
+            Obtiene el valor de las habilitaciones del emprendedor.
+            </summary>
+            <value>this.habilitaciones.</value>
         </member>
         <member name="M:Library.Emprendedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
-            Agrega una habilitacion al emprendedor
+            Agrega una habilitacion al emprendedor.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitaciones que recibe el metodo AddHabilitacion.</param>
         </member>
         <member name="M:Library.Emprendedor.RemoveHabilitacion(Library.Habilitacion)">
             <summary>
-            Remueve una habilitacion al emprendedor
+            Remueve una habilitacion al emprendedor.
             </summary>
-            <param name="habilitacion"></param>
+            <param name="habilitacion">parametro habilitaciones que recibe el metodo RemoveHabilitacion.</param>
         </member>
         <member name="T:Library.Empresa">
             <summary>
-            Clase que representa una Empresa
+            Clase que representa una Empresa.
             </summary>
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             </summary>
-            <param name="nombre"></param>
-            <param name="rubro"></param>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
-            <returns></returns>
+            <param name="nombre">parametro nombre recibido por el constructor de empresa.</param>
+            <param name="rubro">parametro rubro recibido por el constructor de la empresa.</param>
+            <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
+            <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
         </member>
         <member name="T:Library.Usuario">
             <summary>
             Esta clase representa un usuario de la aplicación.
             </summary>
         </member>
+        <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Usuario"/>.
+            </summary>
+            <param name="nombre">parametro nombre recibido por el constructor del usuario.</param>
+            <param name="rubro">parametro rubro recibido por el constructor del usuario.</param>
+            <param name="ciudad">parametro ciudad recibido por el constructor del usuario.</param>
+            <param name="calle">parametro calle recibido por el constructor del usuario.</param>
+        </member>
         <member name="P:Library.Usuario.Nombre">
             <summary>
-            Obtiene un valor que indica el nombre del usuario
+            Obtiene o establece un valor el nombre del usuario.
             </summary>
-            <value></value>
+            <value>this.nombre.</value>
         </member>
         <member name="P:Library.Usuario.Rubro">
             <summary>
-            Obtiene un valor que indica el rubro del usuario
+            Obtiene o establece un valor que es el rubro del usuario.
             </summary>
-            <value></value>
+            <value>this.rubro.</value>
         </member>
         <member name="P:Library.Usuario.Ubicacion">
             <summary>
-            Obtiene un valor que indica la ubicacion del usuario
+            Obtiene o establece un valor que indica la ubicacion del usuario.
             </summary>
-            <value></value>
+            <value>this.ubicacion.</value>
         </member>
         <member name="P:Library.Usuario.RegistroUsuario">
             <summary>
-            Obtiene un valor que indica el registro que lleva el usuario
+            Obtiene un valor que indica el registro del usuario.
             </summary>
-            <value></value>
-        </member>
-        <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">
-            <summary>
-            Inicializa una instancia de la clase Usuario
-            </summary>
-            <param name="nombre"></param>
-            <param name="rubro"></param>
-            <param name="ciudad"></param>
-            <param name="calle"></param>
+            <value>this.registroUsuario.</value>
         </member>
     </members>
 </doc>
