@@ -302,10 +302,10 @@
         </member>
         <member name="T:Library.Material">
             <summary>
-            Clase que representa los materiales
+            Clase que representa al Material.
             </summary>
         </member>
-        <member name="T:Library.Oferta">
+
             <summary>
             Esta clase representa una oferta.
             </summary>

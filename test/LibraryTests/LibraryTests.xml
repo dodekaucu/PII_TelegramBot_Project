@@ -19,10 +19,11 @@
             Habilitacion para prueba.
             </summary>
         </member>
-        <member name="F:Test.Tests.testClasifciacion">
+
             <summary>
             Clasificacion para prueba.
             </summary>
+            
         </member>
         <member name="M:Test.Tests.Setup">
             <summary>
