@@ -46,7 +46,12 @@
         </member>
         <member name="M:Test.Tests.TestDisponibilidadMateriales">
             <summary>
-            Test Disponibilidad Materiales.
+            Prueba la Disponibilidad Materiales de manera mensual.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestDisponibilidadUnica">
+            <summary>
+            Prueba que dada un oferta que se genera de manera unica, se le asigne la fecha correcta.
             </summary>
         </member>
         <member name="M:Test.Tests.TestHabilitacionesEmprendedor">
@@ -87,6 +92,16 @@
         <member name="M:Test.Tests.TestBusquedaCategoria">
             <summary>
             Test de la clase busqeuda, realiza una busqueda por categoria de material.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestRegistroEmpresa">
+            <summary>
+            Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determinado.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestRegistroEmprendedor">
+            <summary>
+            Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo determinado.
             </summary>
         </member>
     </members>

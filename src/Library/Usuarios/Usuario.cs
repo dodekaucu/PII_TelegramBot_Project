@@ -14,7 +14,7 @@ namespace Library
     /// </summary>
     public abstract class Usuario
     {
-        private List<Oferta> registroUsuario = new List<Oferta>();
+        private List<OfertaBase> registroUsuario = new List<OfertaBase>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Usuario"/>.
@@ -62,12 +62,40 @@ namespace Library
         /// Obtiene un valor que indica el registro del usuario.
         /// </summary>
         /// <value>this.registroUsuario.</value>
-        public List<Oferta> RegistroUsuario
+        public List<OfertaBase> RegistroUsuario
         {
             get
             {
                 return this.registroUsuario;
             }
+        }
+
+        /// <summary>
+        /// Añiade al registro del usuario la oferta.
+        /// </summary>
+        /// <param name="oferta">Parametro</param>
+
+        public void AddToRegister(OfertaBase oferta)
+        {
+            this.registroUsuario.Add(oferta);
+        }
+
+        /// <summary>
+        /// Busca en el registro del usuario.
+        /// </summary>
+        /// <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
+        /// <returns>una lista de ofertas llamada resultado.</returns>
+        public List<OfertaBase> BuscarEnRegistro(DateTime fechaDesde)
+        {
+            List<OfertaBase> resultado = new List<OfertaBase>();
+            foreach (OfertaBase oferta in this.registroUsuario)
+            {
+                if (oferta.FechaVenta.Date >= fechaDesde.Date)
+                {
+                    resultado.Add(oferta);
+                }
+            }
+            return resultado;
         }
     }
 }
