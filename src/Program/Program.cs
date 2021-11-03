@@ -6,7 +6,6 @@
 
 namespace ConsoleApplication
 {
-
     /// <summary>
     /// Program vacío.
     /// </summary>
@@ -18,6 +17,5 @@ namespace ConsoleApplication
         public static void Main()
         {
         }
-
     }
 }

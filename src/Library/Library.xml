@@ -306,6 +306,7 @@
             </summary>
         </member>
         <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
             </summary>
@@ -365,11 +366,6 @@
             <param name="valor">valor del material.</param>
             <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
         </member>
-        <member name="P:Library.Oferta.FechadeGeneracion">
-            <summary>
-            Obtiene o establece cuando la oferta va a ser generada.
-            </summary>
-            <value>La fecha de la generacion.</value>
         </member>
         <member name="T:Library.OfertaRecurrente">
             <summary>
