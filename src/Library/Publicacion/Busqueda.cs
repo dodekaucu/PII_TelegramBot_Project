@@ -1,31 +1,39 @@
-using System;
+//--------------------------------------------------------------------------------
+// <copyright file="Busqueda.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
+
 using System.Collections.Generic;
 
 namespace Library
 {
     /// <summary>
-    /// Singleton clase busqueda.
+    /// Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
     /// </summary>
     public class Busqueda
     {
         private static Busqueda busqueda;
+
+        private Busqueda()
+        {
+        }
+
         /// <summary>
-        /// Singleton de la clase busqueda. Se asegura de que solo haya una instancia de la misma.
+        /// Obtiene una instancia de la clase Busqueda y si no existe una, crea una nueva.
         /// </summary>
-        /// <value></value>
+        /// <value>una instancia de busqueda.</value>
         public static Busqueda Instancia
         {
-            get{
+            get
+            {
                 if (busqueda == null)
                 {
                     busqueda = new Busqueda();
                 }
+
                 return busqueda;
             }
-        }
-
-        private Busqueda()
-        {
         }
 
         /// <summary>
@@ -33,93 +41,117 @@ namespace Library
         /// revisa cada oferta para ver si las palabras claves coinciden.
         /// Luego comprueba si el emprendedor tiene las habilitaciones necesarias para acceder a la oferta.
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-        /// 
-        /// Contenedor basededatos se usa como una db temporal 
+        /// Contenedor basededatos se usa como una db temporal.
         /// </summary>
-        public List<Oferta> BuscarOferta(Emprendedor emprendedor, string Mensaje, Contenedor basededatos)
+        /// <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+        /// <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
+        /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+        /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
+        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
         {
-            List<Oferta> ListaOfertas = new List<Oferta>();
-            bool valido = true; 
-            foreach (Oferta Oferta in basededatos.Ofertas)
+            List<Oferta> listaOfertas = new List<Oferta>();
+            bool valido = true;
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (Oferta.PalabrasClaves.Contains(Mensaje))
+                if (oferta.PalabrasClaves.Contains(mensaje))
                 {
-                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                     {
-                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        if (emprendedor.Habilitaciones.Contains(habilitacion))
                         {
                         }
-                        else{
+                        else
+                        {
                             valido = false;
                         }
                     }
+
                     if (valido == true)
-                    {ListaOfertas.Add(Oferta);}
+                    {
+                        listaOfertas.Add(oferta);
+                    }
                 }
             }
-            return ListaOfertas;
+
+            return listaOfertas;
         }
 
         /// <summary>
-        /// En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar
-        /// revisa cada oferta para ver si la ubicacion coincide con ubicación buscada 
+        /// En este caso la funcion busqueda recibe la ubicación en la que se quiere buscar.
+        /// revisa cada oferta para ver si la ubicacion coincide con ubicación buscada.
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-        /// 
-        /// Contenedor basededatos se usa como una db temporal
+        /// Contenedor basededatos se usa como una db temporal.
         /// </summary>
-        public List<Oferta> BuscarOferta(Emprendedor emprendedor,Ubicacion ubicacion, Contenedor basededatos)
+        /// <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+        /// <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
+        /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+        /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
+        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
         {
-            List<Oferta> ListaOfertas = new List<Oferta>();
-            bool valido = true; 
-            foreach (Oferta Oferta in basededatos.Ofertas)
+            List<Oferta> listaOfertas = new List<Oferta>();
+            bool valido = true;
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (Oferta.Ubicacion == ubicacion)
+                if (oferta.Ubicacion == ubicacion)
                 {
-                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                     {
-                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        if (emprendedor.Habilitaciones.Contains(habilitacion))
                         {
                         }
-                        else{
+                        else
+                        {
                             valido = false;
                         }
                     }
+
                     if (valido == true)
-                    {ListaOfertas.Add(Oferta);}
+                    {
+                        listaOfertas.Add(oferta);
+                    }
                 }
-            } 
-            return ListaOfertas;
+            }
+
+            return listaOfertas;
         }
 
         /// <summary>
-        /// En este caso la funcion busqueda recibe clasificacion del material
-        /// revisa la clasificacion de los materiales de cada oferta para ver si son iguales
+        /// En este caso la funcion busqueda recibe clasificacion del material.
+        /// revisa la clasificacion de los materiales de cada oferta para ver si son iguales.
         /// Retornando una lista temporal para que el usuario reciba solo las ofertas que coincidan.
-        /// 
-        /// Contenedor basededatos se usa como una db temporal
+        /// Contenedor basededatos se usa como una db temporal.
         /// </summary>
-        public List<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
+        /// <param name="emprendedor">Es el usuario que busca las ofertas.</param>
+        /// <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
+        /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
+        /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
+        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
-            List<Oferta> ListaOfertas = new List<Oferta>();
-            bool valido = true; 
-            foreach (Oferta Oferta in basededatos.Ofertas)
+            List<Oferta> listaOfertas = new List<Oferta>();
+            bool valido = true;
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (Oferta.Material.Clasificacion == clasificacion)
+                if (oferta.Material.Clasificacion == clasificacion)
                 {
-                    foreach (Habilitacion habilitacion in Oferta.Habilitaciones)
+                    foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                     {
-                        if(emprendedor.Habilitaciones.Contains(habilitacion))
+                        if (emprendedor.Habilitaciones.Contains(habilitacion))
                         {
                         }
-                        else{
+                        else
+                        {
                             valido = false;
                         }
                     }
+
                     if (valido == true)
-                    {ListaOfertas.Add(Oferta);}
+                    {
+                        listaOfertas.Add(oferta);
+                    }
                 }
             }
-            return ListaOfertas;
+
+            return listaOfertas;
         }
     }
 }

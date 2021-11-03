@@ -6,18 +6,18 @@
     <members>
         <member name="T:Tests.Test">
             <summary>
-            Pruebas de las diferentes clases de la libreria
+            Pruebas de las diferentes clases de la libreria.
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearEmpresa">
             <summary>
-            Prueba que se cree la empresa
+            Prueba que se cree la empresa.
             </summary>
         </member>
 
         <member name="M:Tests.Test.TestCrearOferta">
             <summary>
-            Prueba que se cree una Oferta
+            Prueba que se cree una Oferta.
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearHabilitacion">
@@ -27,27 +27,27 @@
         </member>
         <member name="M:Tests.Test.TestCrearEmprendedor">
             <summary>
-            Prueba que se cree el emprendedor
+            Prueba que se cree el emprendedor.
             </summary>
         </member>
         <member name="M:Tests.Test.TestPalabrasClave">
             <summary>
-            Prueba que se creen palabras clave
+            Prueba que se creen palabras clave.
             </summary>
         </member>
         <member name="M:Tests.Test.HabilitacionesEmprendedor">
             <summary>
-            Prueba que se agruegue una habilitacion a un emprendedor
+            Prueba que se agruegue una habilitacion a un emprendedor.
             </summary>
         </member>
         <member name="M:Tests.Test.ThrowNameException">
             <summary>
-            Prueba que las excepcioens del constructor funcionen correctamente
+            Prueba que las excepcioens del constructor funcionen correctamente.
             </summary>
         </member>
         <member name="M:Tests.Test.TestBusqueda">
             <summary>
-            Test de la clase busqueda
+            Test de la clase busqueda.
             </summary>
         </member>
     </members>
