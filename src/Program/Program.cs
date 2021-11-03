@@ -6,10 +6,16 @@
 
 namespace ConsoleApplication
 {
+
     /// <summary>
     /// Program vacío.
     /// </summary>
     public static class Program
     {
+
+        public static void Main()
+        {
+        }
+
     }
 }

@@ -14,16 +14,7 @@
             Prueba que se cree la empresa.
             </summary>
         </member>
-        <member name="M:Tests.Test.TestCrearMateriales">
-            <summary>
-             Prueba que se crea materiales.
-            </summary>
-        </member>
-        <member name="M:Tests.Test.TestDisponibilidadMateriales">
-            <summary>
-            Test Disponibilidad Materiales.
-            </summary>
-        </member>
+
         <member name="M:Tests.Test.TestCrearOferta">
             <summary>
             Prueba que se cree una Oferta.
@@ -31,7 +22,7 @@
         </member>
         <member name="M:Tests.Test.TestCrearHabilitacion">
             <summary>
-            Prueba que se cree una Habilitacion.
+
             </summary>
         </member>
         <member name="M:Tests.Test.TestCrearEmprendedor">
