@@ -17,7 +17,7 @@ namespace Library
         private List<Habilitacion> habilitaciones = new List<Habilitacion>();
         private List<Rubro> rubros = new List<Rubro>();
         private List<Clasificacion> clasificaciones = new List<Clasificacion>();
-        private List<Oferta> ofertas = new List<Oferta>();
+        private List<OfertaBase> ofertas = new List<OfertaBase>();
         private List<Emprendedor> emprendedores = new List<Emprendedor>();
         private List<Empresa> empresas = new List<Empresa>();
 
@@ -82,7 +82,7 @@ namespace Library
         /// Devuelve un valor con la lista de las ofertas.
         /// </summary>
         /// <value>this.ofertas.</value>
-        public List<Oferta> Ofertas
+        public List<OfertaBase> Ofertas
         {
             get
             {

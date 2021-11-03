@@ -305,6 +305,58 @@
             Clase que representa los materiales
             </summary>
         </member>
+        <member name="T:Library.Oferta">
+            <summary>
+            Esta clase representa una oferta.
+            </summary>
+        </member>
+        <member name="P:Library.Oferta.FechadeGeneracion">
+            <summary>
+            Obtiene o establece cuando la oferta va a ser generada.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.DateTime)">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            </summary>
+            <param name="nombreoferta">parametro nombre de la oferta.</param>
+            <param name="empresa">parametro empresa que oferta.</param>
+            <param name="ciudad">ciuadad donde se encuentra la oferta.</param>
+            <param name="calle">callle donde se encuentra la oferta.</param>
+            <param name="nombreMaterial">nombre del material donde se encuentra la oferta.</param>
+            <param name="clasificacion">clasificacion del material.</param>
+            <param name="cantidad">cantidad del material.</param>
+            <param name="unidad">unidad del material.</param>
+            <param name="valor">valor del material.</param>
+            <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
+        </member>
+        <member name="T:Library.OfertaRecurrente">
+            <summary>
+            Esta clase representa una oferta recurrente.
+            </summary>
+        </member>
+        <member name="P:Library.OfertaRecurrente.RecurrenciaMensual">
+            <summary>
+            Obtiene o establece el número de veces que se repite la oferta en un mes.
+            </summary>
+            <value>this.RecurrenciaMensual.</value>
+        </member>
+        <member name="M:Library.OfertaRecurrente.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32)">
+            <summary>
+            Inicializa una instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            </summary>
+            <param name="nombreoferta">parametro nombre de la oferta.</param>
+            <param name="empresa">parametro empresa que oferta.</param>
+            <param name="ciudad">ciuadad donde se encuentra la oferta.</param>
+            <param name="calle">callle donde se encuentra la oferta.</param>
+            <param name="nombreMaterial">nombre del material donde se encuentra la oferta.</param>
+            <param name="clasificacion">clasificacion del material.</param>
+            <param name="cantidad">cantidad del material.</param>
+            <param name="unidad">unidad del material.</param>
+            <param name="valor">valor del material.</param>
+            <param name="recurrenciaMensual">cuantas veces se repite en un mes.</param>
+        </member>
         <member name="T:Library.Ubicacion">
             <summary>
             Esta clase representa una ubicacion.
@@ -442,6 +494,19 @@
             Obtiene un valor que indica el registro del usuario.
             </summary>
             <value>this.registroUsuario.</value>
+        </member>
+        <member name="M:Library.Usuario.AddToRegister(Library.OfertaBase)">
+            <summary>
+            Añiade al registro del usuario la oferta.
+            </summary>
+            <param name="oferta">Parametro</param>
+        </member>
+        <member name="M:Library.Usuario.BuscarEnRegistro(System.DateTime)">
+            <summary>
+            Busca en el registro del usuario.
+            </summary>
+            <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
+            <returns>una lista de ofertas llamada resultado.</returns>
         </member>
     </members>
 </doc>
