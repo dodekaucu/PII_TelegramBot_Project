@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -48,9 +49,9 @@ namespace Library
         /// <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -94,9 +95,9 @@ namespace Library
         /// <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -151,9 +152,9 @@ namespace Library
         /// <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
