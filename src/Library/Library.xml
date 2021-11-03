@@ -75,7 +75,7 @@
         </member>
         <member name="P:Library.Contenedor.Ofertas">
             <summary>
-            Devuelve un valor con la lista de las ofertas.
+            Obtiene un valor con la lista de las ofertas.
             </summary>
             <value>this.ofertas.</value>
         </member>

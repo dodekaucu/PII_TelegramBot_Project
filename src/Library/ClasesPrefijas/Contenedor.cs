@@ -3,7 +3,7 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
 namespace Library
@@ -17,7 +17,7 @@ namespace Library
         private List<Habilitacion> habilitaciones = new List<Habilitacion>();
         private List<Rubro> rubros = new List<Rubro>();
         private List<Clasificacion> clasificaciones = new List<Clasificacion>();
-        private List<OfertaBase> ofertas = new List<OfertaBase>();
+        private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
         private List<Emprendedor> emprendedores = new List<Emprendedor>();
         private List<Empresa> empresas = new List<Empresa>();
 
@@ -79,10 +79,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de las ofertas.
+        /// Obtiene un valor con la lista de las ofertas.
         /// </summary>
         /// <value>this.ofertas.</value>
-        public List<OfertaBase> Ofertas
+        public Collection<OfertaBase> Ofertas
         {
             get
             {
