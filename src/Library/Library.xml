@@ -243,8 +243,48 @@
         </member>
         <member name="T:Library.Material">
             <summary>
-            Clase que representa los materiales
+            Clase que representa al Material.
             </summary>
+        </member>
+        <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
+            </summary>
+            <param name="nombre">El nombre del material.</param>
+            <param name="clasificacion">La clasificacion del material.</param>
+            <param name="cantidad">La cantidad de la unidad.</param>
+            <param name="unidad">La unidad del material.</param>
+            <param name="valor">El valor de la unidad.</param>
+        </member>
+        <member name="P:Library.Material.Clasificacion">
+            <summary>
+            Obtiene la clasificacion del material.
+            </summary>
+            <value>la clasificacion del material.</value>
+        </member>
+        <member name="P:Library.Material.Cantidad">
+            <summary>
+            Obtiene un valor que indica la cantidad del material.
+            </summary>
+            <value>la cantidad de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Unidad">
+            <summary>
+            Obtiene un valor que indica la unidad del material.
+            </summary>
+            <value>la unidad en la cual se va a medir.</value>
+        </member>
+        <member name="P:Library.Material.Valor">
+            <summary>
+            Obtiene un valor que indica el valor del material.
+            </summary>
+            <value>el valor de la unidad.</value>
+        </member>
+        <member name="P:Library.Material.Nombre">
+            <summary>
+            Obtiene un valor que indica el nombre del material.
+            </summary>
+            <value>el nombre del material.</value>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>

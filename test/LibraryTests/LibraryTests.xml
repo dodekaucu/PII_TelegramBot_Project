@@ -19,10 +19,16 @@
              Prueba que se crea materiales
             </summary>
         </member>
+        <member name="M:Tests.Test.TestDisponibilidadMateriales">
+            <summary>
+            Test Disponibilidad Materiales
+            </summary>
+        </member>
         <member name="M:Tests.Test.TestCrearOferta">
             <summary>
             Prueba que se cree una Oferta
             </summary>
+            
         </member>
         <member name="M:Tests.Test.TestCrearHabilitacion">
             <summary>
