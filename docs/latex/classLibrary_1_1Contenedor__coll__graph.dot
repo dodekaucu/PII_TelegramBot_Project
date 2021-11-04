@@ -1,8 +1,0 @@
-digraph "Library.Contenedor"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{Library.Contenedor\n|+ Instancia\l+ Habilitaciones\l+ Rubros\l+ Clasificaciones\l+ Ofertas\l+ Emprendedores\l+ Empresas\l|+ AddHabilitacion()\l+ RemoveHabiltiacion()\l+ AddRubro()\l+ RemoveRubro()\l+ AddClasificacion()\l+ RemoveClasificacion()\l+ AddOferta()\l+ RemoveOferta()\l+ AddEmprendedor()\l+ RemoveEmprendedor()\l+ AddEmpresa()\l+ RemoveEmpresa()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Esta clase representa un contenedor de las diferentes clases del bot. Utilzia el patron de diseño Sin..."];
-}
