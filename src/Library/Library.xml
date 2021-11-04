@@ -47,6 +47,9 @@
         <member name="T:Library.Contenedor">
             <summary>
             Esta clase representa un contenedor de las diferentes clases del bot.
+            Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+            Es la clase EXPERTA en contener las diferentes instancias del programa.
+            Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
             </summary>
         </member>
         <member name="P:Library.Contenedor.Instancia">
@@ -220,7 +223,11 @@
         </member>
         <member name="T:Library.IChat">
             <summary>
-            Interface que representa la firma de los metodos de IChat.
+            Interface que representa la firma de los metodos de IChat. Se utiliza una interface, pues la idea
+            detras es poseer una interfaz que posea todos los metodos que se necesitan para el funcionamiento 
+            de un chat, pero a su vez que la clase que dependa de esta interfaz no este forzada a implmenetarlos 
+            de una manera determinada impidiendo asi que sea necesario modificar cualquier clase del tipo IChat
+            dependiendo de las necesidades del usuario.
             </summary>
         </member>
         <member name="M:Library.IChat.EnviarMensaje(System.String)">
@@ -255,6 +262,8 @@
         <member name="T:Library.Busqueda">
             <summary>
             Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
+            Se utilzia el principio SRP, donde la unica razon para cambiar de la clase es que se modifique la forma en que se busca la informacion.
+            Ademas se usa el patron Singleton pues solo se debe tener una instancia de esta clase.
             </summary>
         </member>
         <member name="P:Library.Busqueda.Instancia">
@@ -303,6 +312,7 @@
         <member name="T:Library.Material">
             <summary>
             Clase que representa al Material.
+            Es una clase experta en crear materiales. Y tiene la sola responsabilidad de crear materiales. (SRP).
             </summary>
         </member>
         <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
@@ -347,7 +357,8 @@
         </member>
         <member name="T:Library.Oferta">
             <summary>
-            Esta clase representa una oferta.
+            Esta clase representa una oferta. Es una subclase de OfertaBase
+            Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
             </summary>
         </member>
         <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.DateTime)">
@@ -373,7 +384,13 @@
         </member>
         <member name="T:Library.OfertaBase">
             <summary>
-            Clase abstracta que representa la base de oferta.
+            Clase abstracta que representa la base de oferta. 
+            Es experta en la creación de ofertas.
+            Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta.
+            Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
+            Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa,
+            con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
+            Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
             </summary>
         </member>
         <member name="M:Library.OfertaBase.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
@@ -446,7 +463,8 @@
         </member>
         <member name="T:Library.OfertaRecurrente">
             <summary>
-            Esta clase representa una oferta recurrente.
+            Esta clase representa una oferta recurrente. Es una subclase de OfertaBase
+            Esto se debe a porque al ser una oferta recurrente necesita una property que es recurrenciaMensual.
             </summary>
         </member>
         <member name="M:Library.OfertaRecurrente.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32)">
@@ -520,6 +538,8 @@
         <member name="T:Library.Emprendedor">
             <summary>
             Esta clase representa un Emprendedor.
+            Patrones y principios utilizados:
+            EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
             </summary>
         </member>
         <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
@@ -559,6 +579,8 @@
         <member name="T:Library.Empresa">
             <summary>
             Clase que representa una Empresa.
+            Patrones y principios utilizados:
+            EXPERT, porque conoce toda la informacion que debe conocer una empresa.
             </summary>
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
@@ -573,6 +595,8 @@
         <member name="T:Library.Usuario">
             <summary>
             Esta clase representa un usuario de la aplicación.
+            Es una clase abstracta, por lo que no puede ser instanciada.
+            Representa a un usuario de la aplicación de manera general.
             </summary>
         </member>
         <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">

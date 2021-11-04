@@ -1,0 +1,238 @@
+\hypertarget{classLibrary_1_1OfertaBase}{}\doxysection{Library.\+Oferta\+Base Class Reference}
+\label{classLibrary_1_1OfertaBase}\index{Library.OfertaBase@{Library.OfertaBase}}
+
+
+Clase abstracta que representa la base de oferta. Es experta en la creación de ofertas. Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta. Pues oferta usa de forma muy cercana los materiales. =$>$ oferta tiene la responsabilidad de crear materiales. Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa, con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo. Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}.  
+
+
+
+
+Inheritance diagram for Library.\+Oferta\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Library.\+Oferta\+Base\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLibrary_1_1OfertaBase_a2f9cdf607f501ad7be427011df5552e9}{Add\+Habilitacion}} (\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}} habilitacion)
+\begin{DoxyCompactList}\small\item\em Añade habilitaciones a la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1OfertaBase_a6d450bc9e9cd351b81a08db1fd7aba5a}{Add\+Palabra\+Clave}} (string palabra\+Clave)
+\begin{DoxyCompactList}\small\item\em Añade palabras clave a la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLibrary_1_1OfertaBase_a33297977a7c12fd53410b9a6aa52903d}{Oferta\+Base}} (string nombreoferta, \mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} empresa, string ciudad, string calle, string nombre\+Material, \mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}} clasificacion, int cantidad, string unidad, double valor)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classLibrary_1_1OfertaBase_a526894cc48a6acd49ec45e4933e4d3d6}{Nombreoferta}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el nombre de la oferta. \end{DoxyCompactList}\item 
+Date\+Time \mbox{\hyperlink{classLibrary_1_1OfertaBase_af732320a1dc7a62152fb6fa85a8a8e98}{Fecha\+Venta}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece fecha en la cual se realizo la venta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLibrary_1_1Material}{Material}} \mbox{\hyperlink{classLibrary_1_1OfertaBase_a040ee4d7c981af6ca5e1a259c57e96db}{Material}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece material ofertado en la oferta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} \mbox{\hyperlink{classLibrary_1_1OfertaBase_a8efabd4b6d1a2ea3a147d0249961ccc0}{Empresa}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene empresa que realiza la oferta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLibrary_1_1Ubicacion}{Ubicacion}} \mbox{\hyperlink{classLibrary_1_1OfertaBase_a15293b198f1570baecad6e17379f0e6f}{Ubicacion}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece ubicación de la oferta. \end{DoxyCompactList}\item 
+Collection$<$ string $>$ \mbox{\hyperlink{classLibrary_1_1OfertaBase_a6b575796867f13e92edf65e6a984aa20}{Palabras\+Claves}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene palabras clave de la oferta, estas sirven para su futura busqueda. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}} $>$ \mbox{\hyperlink{classLibrary_1_1OfertaBase_ad982a40f3445d0f111f50c8816b64ef6}{Habilitaciones}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase abstracta que representa la base de oferta. Es experta en la creación de ofertas. Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta. Pues oferta usa de forma muy cercana los materiales. =$>$ oferta tiene la responsabilidad de crear materiales. Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa, con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo. Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}. 
+
+
+
+Definition at line 22 of file Oferta\+Base.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a33297977a7c12fd53410b9a6aa52903d}\label{classLibrary_1_1OfertaBase_a33297977a7c12fd53410b9a6aa52903d}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!OfertaBase@{OfertaBase}}
+\index{OfertaBase@{OfertaBase}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{OfertaBase()}{OfertaBase()}}
+{\footnotesize\ttfamily Library.\+Oferta\+Base.\+Oferta\+Base (\begin{DoxyParamCaption}\item[{string}]{nombreoferta,  }\item[{\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}}}]{empresa,  }\item[{string}]{ciudad,  }\item[{string}]{calle,  }\item[{string}]{nombre\+Material,  }\item[{\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}}}]{clasificacion,  }\item[{int}]{cantidad,  }\item[{string}]{unidad,  }\item[{double}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Inicializa una nueva instancia de la clase \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombreoferta} & Nombre de la oferta a crear.\\
+\hline
+{\em empresa} & \mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} que crea la oferta.\\
+\hline
+{\em ciudad} & Ciudad donde se encuentra la oferta.\\
+\hline
+{\em calle} & Calle donde esta la oferta.\\
+\hline
+{\em nombre\+Material} & Nombre del material a ofertar.\\
+\hline
+{\em clasificacion} & Clasificación del material.\\
+\hline
+{\em cantidad} & Cantidad a ofertar.\\
+\hline
+{\em unidad} & Unidad del material.\\
+\hline
+{\em valor} & Valor de la oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Oferta\+Base.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a2f9cdf607f501ad7be427011df5552e9}\label{classLibrary_1_1OfertaBase_a2f9cdf607f501ad7be427011df5552e9}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!AddHabilitacion@{AddHabilitacion}}
+\index{AddHabilitacion@{AddHabilitacion}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{AddHabilitacion()}{AddHabilitacion()}}
+{\footnotesize\ttfamily void Library.\+Oferta\+Base.\+Add\+Habilitacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}}}]{habilitacion }\end{DoxyParamCaption})}
+
+
+
+Añade habilitaciones a la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em habilitacion} & Habilitaciones necesarias para adquirir la oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 110 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a6d450bc9e9cd351b81a08db1fd7aba5a}\label{classLibrary_1_1OfertaBase_a6d450bc9e9cd351b81a08db1fd7aba5a}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!AddPalabraClave@{AddPalabraClave}}
+\index{AddPalabraClave@{AddPalabraClave}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{AddPalabraClave()}{AddPalabraClave()}}
+{\footnotesize\ttfamily void Library.\+Oferta\+Base.\+Add\+Palabra\+Clave (\begin{DoxyParamCaption}\item[{string}]{palabra\+Clave }\end{DoxyParamCaption})}
+
+
+
+Añade palabras clave a la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em palabra\+Clave} & Palabras clave para buscar la oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file Oferta\+Base.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a8efabd4b6d1a2ea3a147d0249961ccc0}\label{classLibrary_1_1OfertaBase_a8efabd4b6d1a2ea3a147d0249961ccc0}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!Empresa@{Empresa}}
+\index{Empresa@{Empresa}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{Empresa}{Empresa}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} Library.\+Oferta\+Base.\+Empresa\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene empresa que realiza la oferta. 
+
+\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} que oferta.
+
+Definition at line 74 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_af732320a1dc7a62152fb6fa85a8a8e98}\label{classLibrary_1_1OfertaBase_af732320a1dc7a62152fb6fa85a8a8e98}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!FechaVenta@{FechaVenta}}
+\index{FechaVenta@{FechaVenta}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{FechaVenta}{FechaVenta}}
+{\footnotesize\ttfamily Date\+Time Library.\+Oferta\+Base.\+Fecha\+Venta\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece fecha en la cual se realizo la venta. 
+
+Fecha de la venta.
+
+Definition at line 62 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_ad982a40f3445d0f111f50c8816b64ef6}\label{classLibrary_1_1OfertaBase_ad982a40f3445d0f111f50c8816b64ef6}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!Habilitaciones@{Habilitaciones}}
+\index{Habilitaciones@{Habilitaciones}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{Habilitaciones}{Habilitaciones}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}}$>$ Library.\+Oferta\+Base.\+Habilitaciones\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta. 
+
+retorna this.\+habilitaciones.
+
+Definition at line 98 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a040ee4d7c981af6ca5e1a259c57e96db}\label{classLibrary_1_1OfertaBase_a040ee4d7c981af6ca5e1a259c57e96db}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!Material@{Material}}
+\index{Material@{Material}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{Material}{Material}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Material}{Material}} Library.\+Oferta\+Base.\+Material\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece material ofertado en la oferta. 
+
+\mbox{\hyperlink{classLibrary_1_1Material}{Material}} ofrecido.
+
+Definition at line 68 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a526894cc48a6acd49ec45e4933e4d3d6}\label{classLibrary_1_1OfertaBase_a526894cc48a6acd49ec45e4933e4d3d6}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!Nombreoferta@{Nombreoferta}}
+\index{Nombreoferta@{Nombreoferta}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{Nombreoferta}{Nombreoferta}}
+{\footnotesize\ttfamily string Library.\+Oferta\+Base.\+Nombreoferta\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece el nombre de la oferta. 
+
+Nombre de la oferta.
+
+Definition at line 56 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a6b575796867f13e92edf65e6a984aa20}\label{classLibrary_1_1OfertaBase_a6b575796867f13e92edf65e6a984aa20}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!PalabrasClaves@{PalabrasClaves}}
+\index{PalabrasClaves@{PalabrasClaves}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{PalabrasClaves}{PalabrasClaves}}
+{\footnotesize\ttfamily Collection$<$string$>$ Library.\+Oferta\+Base.\+Palabras\+Claves\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene palabras clave de la oferta, estas sirven para su futura busqueda. 
+
+Palabras clave de la oferta.
+
+Definition at line 86 of file Oferta\+Base.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1OfertaBase_a15293b198f1570baecad6e17379f0e6f}\label{classLibrary_1_1OfertaBase_a15293b198f1570baecad6e17379f0e6f}} 
+\index{Library.OfertaBase@{Library.OfertaBase}!Ubicacion@{Ubicacion}}
+\index{Ubicacion@{Ubicacion}!Library.OfertaBase@{Library.OfertaBase}}
+\doxysubsubsection{\texorpdfstring{Ubicacion}{Ubicacion}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Ubicacion}{Ubicacion}} Library.\+Oferta\+Base.\+Ubicacion\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece ubicación de la oferta. 
+
+\mbox{\hyperlink{classLibrary_1_1Ubicacion}{Ubicacion}} de la oferta.
+
+Definition at line 80 of file Oferta\+Base.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PII\+\_\+\+Telegram\+Bot\+\_\+\+Project/src/\+Library/\+Publicacion/Oferta\+Base.\+cs\end{DoxyCompactItemize}

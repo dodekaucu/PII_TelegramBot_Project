@@ -1,0 +1,8 @@
+digraph "Library.OfertaBase"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.OfertaBase\n|+ Nombreoferta\l+ FechaVenta\l+ Material\l+ Empresa\l+ Ubicacion\l+ PalabrasClaves\l+ Habilitaciones\l|+ AddHabilitacion()\l+ AddPalabraClave()\l# OfertaBase()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Clase abstracta que representa la base de oferta. Es experta en la creación de ofertas...."];
+}

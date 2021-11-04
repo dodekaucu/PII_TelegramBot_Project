@@ -10,7 +10,8 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    /// Esta clase representa una oferta recurrente.
+    /// Esta clase representa una oferta recurrente. Es una subclase de OfertaBase
+    /// Esto se debe a porque al ser una oferta recurrente necesita una property que es recurrenciaMensual.
     /// </summary>
     public class OfertaRecurrente : OfertaBase
     {

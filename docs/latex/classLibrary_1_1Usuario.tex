@@ -1,0 +1,183 @@
+\hypertarget{classLibrary_1_1Usuario}{}\doxysection{Library.\+Usuario Class Reference}
+\label{classLibrary_1_1Usuario}\index{Library.Usuario@{Library.Usuario}}
+
+
+Esta clase representa un usuario de la aplicación. Es una clase abstracta, por lo que no puede ser instanciada. Representa a un usuario de la aplicación de manera general.  
+
+
+
+
+Inheritance diagram for Library.\+Usuario\+:
+% FIG 0
+
+
+Collaboration diagram for Library.\+Usuario\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLibrary_1_1Usuario_a77dd5a6812ac065743e11d2b04aa32d8}{Add\+To\+Register}} (\mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}} oferta)
+\begin{DoxyCompactList}\small\item\em Añiade al registro del usuario la oferta. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}} $>$ \mbox{\hyperlink{classLibrary_1_1Usuario_ad7b4a04115c93be91692f7fba37dda19}{Buscar\+En\+Registro}} (Date\+Time fecha\+Desde)
+\begin{DoxyCompactList}\small\item\em Busca en el registro del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLibrary_1_1Usuario_a3787dcf231e02f34f8193ab613bace38}{Usuario}} (string nombre, \mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} rubro, string ciudad, string calle)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \mbox{\hyperlink{classLibrary_1_1Usuario}{Usuario}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classLibrary_1_1Usuario_a1441fe46f4b64533b65a2964d589dcd9}{Nombre}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece un valor el nombre del usuario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} \mbox{\hyperlink{classLibrary_1_1Usuario_a0e5fa4a4466cd7e04ea0f02feadf0c41}{Rubro}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece un valor que es el rubro del usuario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLibrary_1_1Ubicacion}{Ubicacion}} \mbox{\hyperlink{classLibrary_1_1Usuario_ac179b8be570b519b2569580bde34cc14}{Ubicacion}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece un valor que indica la ubicacion del usuario. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}} $>$ \mbox{\hyperlink{classLibrary_1_1Usuario_acc1fd000427aa6905d2227993ef2efcd}{Registro\+Usuario}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor que indica el registro del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase representa un usuario de la aplicación. Es una clase abstracta, por lo que no puede ser instanciada. Representa a un usuario de la aplicación de manera general. 
+
+
+
+Definition at line 18 of file Usuario.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLibrary_1_1Usuario_a3787dcf231e02f34f8193ab613bace38}\label{classLibrary_1_1Usuario_a3787dcf231e02f34f8193ab613bace38}} 
+\index{Library.Usuario@{Library.Usuario}!Usuario@{Usuario}}
+\index{Usuario@{Usuario}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{Usuario()}{Usuario()}}
+{\footnotesize\ttfamily Library.\+Usuario.\+Usuario (\begin{DoxyParamCaption}\item[{string}]{nombre,  }\item[{\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}}}]{rubro,  }\item[{string}]{ciudad,  }\item[{string}]{calle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Inicializa una nueva instancia de la clase \mbox{\hyperlink{classLibrary_1_1Usuario}{Usuario}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & parametro nombre recibido por el constructor del usuario.\\
+\hline
+{\em rubro} & parametro rubro recibido por el constructor del usuario.\\
+\hline
+{\em ciudad} & parametro ciudad recibido por el constructor del usuario.\\
+\hline
+{\em calle} & parametro calle recibido por el constructor del usuario.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file Usuario.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLibrary_1_1Usuario_a77dd5a6812ac065743e11d2b04aa32d8}\label{classLibrary_1_1Usuario_a77dd5a6812ac065743e11d2b04aa32d8}} 
+\index{Library.Usuario@{Library.Usuario}!AddToRegister@{AddToRegister}}
+\index{AddToRegister@{AddToRegister}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{AddToRegister()}{AddToRegister()}}
+{\footnotesize\ttfamily void Library.\+Usuario.\+Add\+To\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}}]{oferta }\end{DoxyParamCaption})}
+
+
+
+Añiade al registro del usuario la oferta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em oferta} & Parametro.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file Usuario.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Usuario_ad7b4a04115c93be91692f7fba37dda19}\label{classLibrary_1_1Usuario_ad7b4a04115c93be91692f7fba37dda19}} 
+\index{Library.Usuario@{Library.Usuario}!BuscarEnRegistro@{BuscarEnRegistro}}
+\index{BuscarEnRegistro@{BuscarEnRegistro}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{BuscarEnRegistro()}{BuscarEnRegistro()}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}$>$ Library.\+Usuario.\+Buscar\+En\+Registro (\begin{DoxyParamCaption}\item[{Date\+Time}]{fecha\+Desde }\end{DoxyParamCaption})}
+
+
+
+Busca en el registro del usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fecha\+Desde} & Parametro que indica la fecha\+Desde donde se desea buscar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+una lista de ofertas llamada resultado.
+\end{DoxyReturn}
+
+
+Definition at line 90 of file Usuario.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classLibrary_1_1Usuario_a1441fe46f4b64533b65a2964d589dcd9}\label{classLibrary_1_1Usuario_a1441fe46f4b64533b65a2964d589dcd9}} 
+\index{Library.Usuario@{Library.Usuario}!Nombre@{Nombre}}
+\index{Nombre@{Nombre}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{Nombre}{Nombre}}
+{\footnotesize\ttfamily string Library.\+Usuario.\+Nombre\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece un valor el nombre del usuario. 
+
+this.\+nombre.
+
+Definition at line 50 of file Usuario.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Usuario_acc1fd000427aa6905d2227993ef2efcd}\label{classLibrary_1_1Usuario_acc1fd000427aa6905d2227993ef2efcd}} 
+\index{Library.Usuario@{Library.Usuario}!RegistroUsuario@{RegistroUsuario}}
+\index{RegistroUsuario@{RegistroUsuario}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{RegistroUsuario}{RegistroUsuario}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}$>$ Library.\+Usuario.\+Registro\+Usuario\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor que indica el registro del usuario. 
+
+this.\+registro\+Usuario.
+
+Definition at line 68 of file Usuario.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Usuario_a0e5fa4a4466cd7e04ea0f02feadf0c41}\label{classLibrary_1_1Usuario_a0e5fa4a4466cd7e04ea0f02feadf0c41}} 
+\index{Library.Usuario@{Library.Usuario}!Rubro@{Rubro}}
+\index{Rubro@{Rubro}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{Rubro}{Rubro}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} Library.\+Usuario.\+Rubro\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece un valor que es el rubro del usuario. 
+
+this.\+rubro.
+
+Definition at line 56 of file Usuario.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Usuario_ac179b8be570b519b2569580bde34cc14}\label{classLibrary_1_1Usuario_ac179b8be570b519b2569580bde34cc14}} 
+\index{Library.Usuario@{Library.Usuario}!Ubicacion@{Ubicacion}}
+\index{Ubicacion@{Ubicacion}!Library.Usuario@{Library.Usuario}}
+\doxysubsubsection{\texorpdfstring{Ubicacion}{Ubicacion}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Ubicacion}{Ubicacion}} Library.\+Usuario.\+Ubicacion\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Obtiene o establece un valor que indica la ubicacion del usuario. 
+
+this.\+ubicacion.
+
+Definition at line 62 of file Usuario.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PII\+\_\+\+Telegram\+Bot\+\_\+\+Project/src/\+Library/\+Usuarios/Usuario.\+cs\end{DoxyCompactItemize}

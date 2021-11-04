@@ -8,6 +8,7 @@ namespace Library
 {
     /// <summary>
     /// Clase que representa al Material.
+    /// Es una clase experta en crear materiales. Y tiene la sola responsabilidad de crear materiales. (SRP).
     /// </summary>
     public class Material
     {

@@ -12,6 +12,8 @@ namespace Library
 {
     /// <summary>
     /// Esta clase representa un usuario de la aplicación.
+    /// Es una clase abstracta, por lo que no puede ser instanciada.
+    /// Representa a un usuario de la aplicación de manera general.
     /// </summary>
     public abstract class Usuario
     {

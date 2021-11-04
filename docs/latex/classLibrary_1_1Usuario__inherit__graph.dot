@@ -1,0 +1,12 @@
+digraph "Library.Usuario"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.Usuario\n|+ Nombre\l+ Rubro\l+ Ubicacion\l+ RegistroUsuario\l|+ AddToRegister()\l+ BuscarEnRegistro()\l# Usuario()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Esta clase representa un usuario de la aplicación. Es una clase abstracta, por lo que no puede ser in..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{Library.Emprendedor\n|+ Especializacion\l+ Habilitaciones\l|+ Emprendedor()\l+ AddHabilitacion()\l+ RemoveHabilitacion()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Emprendedor.html",tooltip="Esta clase representa un Emprendedor. Patrones y principios utilizados: EXPERT, porque el emprendedor..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node3 [label="{Library.Empresa\n||+ Empresa()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Empresa.html",tooltip="Clase que representa una Empresa. Patrones y principios utilizados: EXPERT, porque conoce toda la inf..."];
+}
