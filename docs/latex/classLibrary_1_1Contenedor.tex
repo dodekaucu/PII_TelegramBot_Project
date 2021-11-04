@@ -1,0 +1,401 @@
+\hypertarget{classLibrary_1_1Contenedor}{}\doxysection{Library.\+Contenedor Class Reference}
+\label{classLibrary_1_1Contenedor}\index{Library.Contenedor@{Library.Contenedor}}
+
+
+Esta clase representa un contenedor de las diferentes clases del bot. Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase. Es la clase EXPERTA en contener las diferentes instancias del programa. Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.  
+
+
+
+
+Collaboration diagram for Library.\+Contenedor\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_a4298f2512306916b33cefb319b84d15f}{Add\+Habilitacion}} (\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}} habilitacion)
+\begin{DoxyCompactList}\small\item\em Añiade una habilitacion a la lista de habilitaciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_ac529d2a63cf0685bbe0af9168feca12a}{Remove\+Habiltiacion}} (\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}} habilitacion)
+\begin{DoxyCompactList}\small\item\em Remueve una habilitacion de la lista de habilitaciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_aa951b364d9bedb1426f5d84636c2b16a}{Add\+Rubro}} (\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} rubro)
+\begin{DoxyCompactList}\small\item\em Añiade un rubro a la lista de rubros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_adb3dcea1701c22b2a315260f13bfeefd}{Remove\+Rubro}} (\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} rubro)
+\begin{DoxyCompactList}\small\item\em Remueve un rubro de la lista de rubros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_a1143db9074e7b8d9d38a659f29285fc1}{Add\+Clasificacion}} (\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}} clasificacion)
+\begin{DoxyCompactList}\small\item\em Añiade una clasificacion a la lista de clasificaciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_aa57e38daabef7bbff7051b07caa6b428}{Remove\+Clasificacion}} (\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}} clasificacion)
+\begin{DoxyCompactList}\small\item\em Remueve una clasificacion de la lista de clasificaciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_ad4e4bb01cb25c788a9260f7756821ae2}{Add\+Oferta}} (\mbox{\hyperlink{classLibrary_1_1Oferta}{Oferta}} oferta)
+\begin{DoxyCompactList}\small\item\em Añiade una oferta a la lista de ofertas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_aa24e3e80232efcaa4ac4f820660bd9e3}{Remove\+Oferta}} (\mbox{\hyperlink{classLibrary_1_1Oferta}{Oferta}} oferta)
+\begin{DoxyCompactList}\small\item\em Remueve una oferta de la lista de ofertas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_a2808b0fa6d39a83cbb5e3465bf8efde4}{Add\+Emprendedor}} (\mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}} emprendedor)
+\begin{DoxyCompactList}\small\item\em Agrega un \mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}} a la lista de emprendedores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_a922f6dcabf68875ba85e112f8179883e}{Remove\+Emprendedor}} (\mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}} emprendedor)
+\begin{DoxyCompactList}\small\item\em Remueve un emprendedor de la lista de emprendedores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_a33a1719216ced2774bc9174c36705b65}{Add\+Empresa}} (\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} empresa)
+\begin{DoxyCompactList}\small\item\em Añiade una empresa a la lista de empresas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLibrary_1_1Contenedor_ad6dc14bfb57c94da27ed76c26085b44c}{Remove\+Empresa}} (\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} empresa)
+\begin{DoxyCompactList}\small\item\em Remueve una empresa de la lista de empresas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLibrary_1_1Contenedor}{Contenedor}} \mbox{\hyperlink{classLibrary_1_1Contenedor_adafe7de0e79126a28c2837d96e631c98}{Instancia}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene una instancia de la clase \mbox{\hyperlink{classLibrary_1_1Contenedor}{Contenedor}} y si no existe la crea. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a2ffe15559f332639a927fa1884fb6485}{Habilitaciones}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor con la habilitacion correspondiente. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a9028b48deb9552d826ba6ffc315f2b06}{Rubros}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor con la lista de rubros. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a7b99accc9d9beb56872d21ab770a0834}{Clasificaciones}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor con la lista de clasificaciones. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a4b286cc2095632165c00aa23c665207c}{Ofertas}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor con la lista de las ofertas. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a654e770b18eb8da4e5f29f2bccd4b278}{Emprendedores}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor con la lista de los Emprendedores. \end{DoxyCompactList}\item 
+Collection$<$ \mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}} $>$ \mbox{\hyperlink{classLibrary_1_1Contenedor_a7b3133477852e85b88e80f3023e1efb5}{Empresas}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valro con la lsita de las Empresas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase representa un contenedor de las diferentes clases del bot. Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase. Es la clase EXPERTA en contener las diferentes instancias del programa. Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias. 
+
+
+
+Definition at line 17 of file Contenedor.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a1143db9074e7b8d9d38a659f29285fc1}\label{classLibrary_1_1Contenedor_a1143db9074e7b8d9d38a659f29285fc1}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddClasificacion@{AddClasificacion}}
+\index{AddClasificacion@{AddClasificacion}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddClasificacion()}{AddClasificacion()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Clasificacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}}}]{clasificacion }\end{DoxyParamCaption})}
+
+
+
+Añiade una clasificacion a la lista de clasificaciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clasificacion} & parametro clasificacion que recibe Add\+Clasificacion.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 160 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a2808b0fa6d39a83cbb5e3465bf8efde4}\label{classLibrary_1_1Contenedor_a2808b0fa6d39a83cbb5e3465bf8efde4}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddEmprendedor@{AddEmprendedor}}
+\index{AddEmprendedor@{AddEmprendedor}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddEmprendedor()}{AddEmprendedor()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Emprendedor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}}}]{emprendedor }\end{DoxyParamCaption})}
+
+
+
+Agrega un \mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}} a la lista de emprendedores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em emprendedor} & parametro oferta recibido por el metodo Remover\+Oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 196 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a33a1719216ced2774bc9174c36705b65}\label{classLibrary_1_1Contenedor_a33a1719216ced2774bc9174c36705b65}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddEmpresa@{AddEmpresa}}
+\index{AddEmpresa@{AddEmpresa}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddEmpresa()}{AddEmpresa()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Empresa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}}}]{empresa }\end{DoxyParamCaption})}
+
+
+
+Añiade una empresa a la lista de empresas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em empresa} & parametro empresa recibido por el metodo Agregar\+Empresa.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 214 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a4298f2512306916b33cefb319b84d15f}\label{classLibrary_1_1Contenedor_a4298f2512306916b33cefb319b84d15f}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddHabilitacion@{AddHabilitacion}}
+\index{AddHabilitacion@{AddHabilitacion}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddHabilitacion()}{AddHabilitacion()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Habilitacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}}}]{habilitacion }\end{DoxyParamCaption})}
+
+
+
+Añiade una habilitacion a la lista de habilitaciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em habilitacion} & parametro habilitacion que recibe Add\+Habilitacion.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 124 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_ad4e4bb01cb25c788a9260f7756821ae2}\label{classLibrary_1_1Contenedor_ad4e4bb01cb25c788a9260f7756821ae2}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddOferta@{AddOferta}}
+\index{AddOferta@{AddOferta}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddOferta()}{AddOferta()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Oferta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Oferta}{Oferta}}}]{oferta }\end{DoxyParamCaption})}
+
+
+
+Añiade una oferta a la lista de ofertas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em oferta} & parametro oferta recibido por el metodo Add\+Oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_aa951b364d9bedb1426f5d84636c2b16a}\label{classLibrary_1_1Contenedor_aa951b364d9bedb1426f5d84636c2b16a}} 
+\index{Library.Contenedor@{Library.Contenedor}!AddRubro@{AddRubro}}
+\index{AddRubro@{AddRubro}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{AddRubro()}{AddRubro()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Add\+Rubro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}}}]{rubro }\end{DoxyParamCaption})}
+
+
+
+Añiade un rubro a la lista de rubros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rubro} & parametro rubro que recibe Remove\+Rubro.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_aa57e38daabef7bbff7051b07caa6b428}\label{classLibrary_1_1Contenedor_aa57e38daabef7bbff7051b07caa6b428}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveClasificacion@{RemoveClasificacion}}
+\index{RemoveClasificacion@{RemoveClasificacion}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveClasificacion()}{RemoveClasificacion()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Clasificacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}}}]{clasificacion }\end{DoxyParamCaption})}
+
+
+
+Remueve una clasificacion de la lista de clasificaciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clasificacion} & parametro clasificacion que recibe Removelasificacion.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 169 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a922f6dcabf68875ba85e112f8179883e}\label{classLibrary_1_1Contenedor_a922f6dcabf68875ba85e112f8179883e}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveEmprendedor@{RemoveEmprendedor}}
+\index{RemoveEmprendedor@{RemoveEmprendedor}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveEmprendedor()}{RemoveEmprendedor()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Emprendedor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}}}]{emprendedor }\end{DoxyParamCaption})}
+
+
+
+Remueve un emprendedor de la lista de emprendedores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em emprendedor} & parametro emprendedor recibido por el metodo Remover\+Emprendedor.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 205 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_ad6dc14bfb57c94da27ed76c26085b44c}\label{classLibrary_1_1Contenedor_ad6dc14bfb57c94da27ed76c26085b44c}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveEmpresa@{RemoveEmpresa}}
+\index{RemoveEmpresa@{RemoveEmpresa}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveEmpresa()}{RemoveEmpresa()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Empresa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}}}]{empresa }\end{DoxyParamCaption})}
+
+
+
+Remueve una empresa de la lista de empresas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em empresa} & parametro empresa recibido por el metodo Remove\+Empresa.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 223 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_ac529d2a63cf0685bbe0af9168feca12a}\label{classLibrary_1_1Contenedor_ac529d2a63cf0685bbe0af9168feca12a}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveHabiltiacion@{RemoveHabiltiacion}}
+\index{RemoveHabiltiacion@{RemoveHabiltiacion}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveHabiltiacion()}{RemoveHabiltiacion()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Habiltiacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}}}]{habilitacion }\end{DoxyParamCaption})}
+
+
+
+Remueve una habilitacion de la lista de habilitaciones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em habilitacion} & parametro habilitacion que recibe Remove\+Habilitacion.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_aa24e3e80232efcaa4ac4f820660bd9e3}\label{classLibrary_1_1Contenedor_aa24e3e80232efcaa4ac4f820660bd9e3}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveOferta@{RemoveOferta}}
+\index{RemoveOferta@{RemoveOferta}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveOferta()}{RemoveOferta()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Oferta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Oferta}{Oferta}}}]{oferta }\end{DoxyParamCaption})}
+
+
+
+Remueve una oferta de la lista de ofertas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em oferta} & parametro oferta recibido por el metodo Remove\+Oferta.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 187 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_adb3dcea1701c22b2a315260f13bfeefd}\label{classLibrary_1_1Contenedor_adb3dcea1701c22b2a315260f13bfeefd}} 
+\index{Library.Contenedor@{Library.Contenedor}!RemoveRubro@{RemoveRubro}}
+\index{RemoveRubro@{RemoveRubro}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{RemoveRubro()}{RemoveRubro()}}
+{\footnotesize\ttfamily void Library.\+Contenedor.\+Remove\+Rubro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}}}]{rubro }\end{DoxyParamCaption})}
+
+
+
+Remueve un rubro de la lista de rubros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rubro} & parametro rubro que recibe Remove\+Rubro.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 151 of file Contenedor.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a7b99accc9d9beb56872d21ab770a0834}\label{classLibrary_1_1Contenedor_a7b99accc9d9beb56872d21ab770a0834}} 
+\index{Library.Contenedor@{Library.Contenedor}!Clasificaciones@{Clasificaciones}}
+\index{Clasificaciones@{Clasificaciones}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Clasificaciones}{Clasificaciones}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Clasificacion}{Clasificacion}}$>$ Library.\+Contenedor.\+Clasificaciones\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor con la lista de clasificaciones. 
+
+this.\+clasificaciones.
+
+Definition at line 76 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a654e770b18eb8da4e5f29f2bccd4b278}\label{classLibrary_1_1Contenedor_a654e770b18eb8da4e5f29f2bccd4b278}} 
+\index{Library.Contenedor@{Library.Contenedor}!Emprendedores@{Emprendedores}}
+\index{Emprendedores@{Emprendedores}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Emprendedores}{Emprendedores}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Emprendedor}{Emprendedor}}$>$ Library.\+Contenedor.\+Emprendedores\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor con la lista de los Emprendedores. 
+
+this.\+emprendedores.
+
+Definition at line 100 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a7b3133477852e85b88e80f3023e1efb5}\label{classLibrary_1_1Contenedor_a7b3133477852e85b88e80f3023e1efb5}} 
+\index{Library.Contenedor@{Library.Contenedor}!Empresas@{Empresas}}
+\index{Empresas@{Empresas}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Empresas}{Empresas}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Empresa}{Empresa}}$>$ Library.\+Contenedor.\+Empresas\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valro con la lsita de las Empresas. 
+
+this.\+empresas.
+
+Definition at line 112 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a2ffe15559f332639a927fa1884fb6485}\label{classLibrary_1_1Contenedor_a2ffe15559f332639a927fa1884fb6485}} 
+\index{Library.Contenedor@{Library.Contenedor}!Habilitaciones@{Habilitaciones}}
+\index{Habilitaciones@{Habilitaciones}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Habilitaciones}{Habilitaciones}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Habilitacion}{Habilitacion}}$>$ Library.\+Contenedor.\+Habilitaciones\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor con la habilitacion correspondiente. 
+
+this.\+habilitaciones.
+
+Definition at line 52 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_adafe7de0e79126a28c2837d96e631c98}\label{classLibrary_1_1Contenedor_adafe7de0e79126a28c2837d96e631c98}} 
+\index{Library.Contenedor@{Library.Contenedor}!Instancia@{Instancia}}
+\index{Instancia@{Instancia}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Instancia}{Instancia}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLibrary_1_1Contenedor}{Contenedor}} Library.\+Contenedor.\+Instancia\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Obtiene una instancia de la clase \mbox{\hyperlink{classLibrary_1_1Contenedor}{Contenedor}} y si no existe la crea. 
+
+this.\+contenedor.
+
+Definition at line 35 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a4b286cc2095632165c00aa23c665207c}\label{classLibrary_1_1Contenedor_a4b286cc2095632165c00aa23c665207c}} 
+\index{Library.Contenedor@{Library.Contenedor}!Ofertas@{Ofertas}}
+\index{Ofertas@{Ofertas}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Ofertas}{Ofertas}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1OfertaBase}{Oferta\+Base}}$>$ Library.\+Contenedor.\+Ofertas\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor con la lista de las ofertas. 
+
+this.\+ofertas.
+
+Definition at line 88 of file Contenedor.\+cs.
+
+\mbox{\Hypertarget{classLibrary_1_1Contenedor_a9028b48deb9552d826ba6ffc315f2b06}\label{classLibrary_1_1Contenedor_a9028b48deb9552d826ba6ffc315f2b06}} 
+\index{Library.Contenedor@{Library.Contenedor}!Rubros@{Rubros}}
+\index{Rubros@{Rubros}!Library.Contenedor@{Library.Contenedor}}
+\doxysubsubsection{\texorpdfstring{Rubros}{Rubros}}
+{\footnotesize\ttfamily Collection$<$\mbox{\hyperlink{classLibrary_1_1Rubro}{Rubro}}$>$ Library.\+Contenedor.\+Rubros\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un valor con la lista de rubros. 
+
+this.\+rubros.
+
+Definition at line 64 of file Contenedor.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PII\+\_\+\+Telegram\+Bot\+\_\+\+Project/src/\+Library/\+Clases\+Prefijas/Contenedor.\+cs\end{DoxyCompactItemize}

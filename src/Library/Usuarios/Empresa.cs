@@ -10,6 +10,8 @@ namespace Library
 {
     /// <summary>
     /// Clase que representa una Empresa.
+    /// Patrones y principios utilizados:
+    /// EXPERT, porque conoce toda la informacion que debe conocer una empresa.
     /// </summary>
     public class Empresa : Usuario
     {

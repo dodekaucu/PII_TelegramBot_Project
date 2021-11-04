@@ -10,6 +10,9 @@ namespace Library
 {
     /// <summary>
     /// Esta clase representa un contenedor de las diferentes clases del bot.
+    /// Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+    /// Es la clase EXPERTA en contener las diferentes instancias del programa.
+    /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
     /// </summary>
     public class Contenedor
     {

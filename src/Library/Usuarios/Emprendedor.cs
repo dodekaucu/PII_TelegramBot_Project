@@ -12,6 +12,8 @@ namespace Library
 {
     /// <summary>
     /// Esta clase representa un Emprendedor.
+    /// Patrones y principios utilizados:
+    /// EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
     /// </summary>
     public class Emprendedor : Usuario
     {

@@ -12,6 +12,8 @@ namespace Library
 {
     /// <summary>
     /// Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
+    /// Se utilzia el principio SRP, donde la unica razon para cambiar de la clase es que se modifique la forma en que se busca la informacion.
+    /// Ademas se usa el patron Singleton pues solo se debe tener una instancia de esta clase.
     /// </summary>
     public class Busqueda
     {

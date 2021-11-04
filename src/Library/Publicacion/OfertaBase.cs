@@ -11,7 +11,13 @@ using System.Collections.ObjectModel;
 namespace Library
 {
     /// <summary>
-    /// Clase abstracta que representa la base de oferta.
+    /// Clase abstracta que representa la base de oferta. 
+    /// Es experta en la creación de ofertas.
+    /// Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta.
+    /// Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
+    /// Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa,
+    /// con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
+    /// Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
     /// </summary>
     public abstract class OfertaBase
     {
