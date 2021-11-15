@@ -1,70 +1,258 @@
+//--------------------------------------------------------------------------------
+// <copyright file="Contenedor.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa un contenedor de las diferentes clases del bot.
+    /// Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+    /// Es la clase EXPERTA en contener las diferentes instancias del programa.
+    /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
+    /// </summary>
     public class Contenedor
     {
-        private List<Habilitacion> habilitaciones = new List<Habilitacion>();
+        private static Contenedor contenedor;
+        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
+        private Collection<Rubro> rubros = new Collection<Rubro>();
+        private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
+        private Collection<Emprendedor> emprendedores = new Collection<Emprendedor>();
+        private Collection<Empresa> empresas = new Collection<Empresa>();
 
-        public List<Habilitacion> Habilitaciones 
+        private Collection<string> administradores = new Collection<string>() { "1454175798" };
+
+        private Collection<string> invitados = new Collection<string> ();
+
+        private Contenedor()
         {
-            get{
+        }
+
+        /// <summary>
+        /// Obtiene una instancia de la clase Contenedor y si no existe la crea.
+        /// </summary>
+        /// <value>this.contenedor.</value>
+        public static Contenedor Instancia
+        {
+            get
+            {
+                if (contenedor == null)
+                {
+                    contenedor = new Contenedor();
+                }
+
+                return contenedor;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene un valor con la habilitacion correspondiente.
+        /// </summary>
+        /// <value>this.habilitaciones.</value>
+        public Collection<Habilitacion> Habilitaciones
+        {
+            get
+            {
                 return this.habilitaciones;
             }
-            set{
-                this.habilitaciones=value;
-            }
         }
-        private List<Rubro> rubros = new List<Rubro>();
-        public List<Rubro> Rubros
+
+        /// <summary>
+        /// Obtiene un valor con la lista de rubros.
+        /// </summary>
+        /// <value>this.rubros.</value>
+        public Collection<Rubro> Rubros
         {
-            get{
+            get
+            {
                 return this.rubros;
             }
-            set{
-                this.rubros=value;
-            }
         }
-        private List<Clasificacion> clasificaciones = new List<Clasificacion>();
-        public List<Clasificacion> Clasificaciones
+
+        /// <summary>
+        /// Obtiene un valor con la lista de clasificaciones.
+        /// </summary>
+        /// <value>this.clasificaciones.</value>
+        public Collection<Clasificacion> Clasificaciones
         {
-            get{
+            get
+            {
                 return this.clasificaciones;
             }
-            set{
-                this.clasificaciones=value;
+        }
+
+        /// <summary>
+        /// Obtiene un valor con la lista de las ofertas.
+        /// </summary>
+        /// <value>this.ofertas.</value>
+        public Collection<OfertaBase> Ofertas
+        {
+            get
+            {
+                return this.ofertas;
             }
         }
 
-        public void AddHabilitacion(string name, string descripcion)
+        /// <summary>
+        /// Obtiene un valor con la lista de los Emprendedores.
+        /// </summary>
+        /// <value>this.emprendedores.</value>
+        public Collection<Emprendedor> Emprendedores
         {
-            Habilitacion habilitacion = new Habilitacion(name,descripcion);
-            this.Habilitaciones.Add(habilitacion);
+            get
+            {
+                return this.emprendedores;
+            }
         }
 
+        /// <summary>
+        /// Obtiene un valro con la lsita de las Empresas.
+        /// </summary>
+        /// <value>this.empresas.</value>
+        public Collection<Empresa> Empresas
+        {
+            get
+            {
+                return this.empresas;
+            }
+        }
+
+        public Collection<string> Invitados
+        {
+            get
+            {
+                return this.invitados;
+            }
+        }
+
+        public Collection<string> Administradores
+        {
+            get
+            {
+                return this.administradores;
+            }
+        }
+
+        /// <summary>
+        /// Añiade una habilitacion a la lista de habilitaciones.
+        /// </summary>
+        /// <param name="habilitacion">parametro habilitacion que recibe AddHabilitacion.</param>
+        public void AddHabilitacion(Habilitacion habilitacion)
+        {
+            this.habilitaciones.Add(habilitacion);
+        }
+
+        /// <summary>
+        /// Remueve una habilitacion de la lista de habilitaciones.
+        /// </summary>
+        /// <param name="habilitacion">parametro habilitacion que recibe RemoveHabilitacion.</param>
         public void RemoveHabiltiacion(Habilitacion habilitacion)
         {
-            this.Habilitaciones.Remove(habilitacion);
+            this.habilitaciones.Remove(habilitacion);
         }
 
-        public void AddRubro(string nombre, string area, string descripcion)
+        /// <summary>
+        /// Añiade un rubro a la lista de rubros.
+        /// </summary>
+        /// <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
+        public void AddRubro(Rubro rubro)
         {
-            Rubro rubro = new Rubro(nombre,area,descripcion);
-            this.Rubros.Add(rubro);
+            this.rubros.Add(rubro);
         }
+
+        /// <summary>
+        /// Remueve un rubro de la lista de rubros.
+        /// </summary>
+        /// <param name="rubro">parametro rubro que recibe RemoveRubro.</param>
         public void RemoveRubro(Rubro rubro)
         {
-            this.Rubros.Add(rubro);
+            this.rubros.Remove(rubro);
         }
-        
-        public void AddClasificacion(string nombre, string descripcion)
+
+        /// <summary>
+        /// Añiade una clasificacion a la lista de clasificaciones.
+        /// </summary>
+        /// <param name="clasificacion">parametro clasificacion que recibe AddClasificacion.</param>
+        public void AddClasificacion(Clasificacion clasificacion)
         {
-            Clasificacion clasificacion = new Clasificacion(nombre,descripcion);
-            this.Clasificaciones.Add(clasificacion);
+            this.clasificaciones.Add(clasificacion);
         }
+
+        /// <summary>
+        /// Remueve una clasificacion de la lista de clasificaciones.
+        /// </summary>
+        /// <param name="clasificacion">parametro clasificacion que recibe Removelasificacion.</param>
         public void RemoveClasificacion(Clasificacion clasificacion)
         {
-            this.Clasificaciones.Remove(clasificacion);
+            this.clasificaciones.Remove(clasificacion);
+        }
+
+        /// <summary>
+        /// Añiade una oferta a la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta">parametro oferta recibido por el metodo AddOferta.</param>
+        public void AddOferta(Oferta oferta)
+        {
+            this.ofertas.Add(oferta);
+        }
+
+        /// <summary>
+        /// Remueve una oferta de la lista de ofertas.
+        /// </summary>
+        /// <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
+        public void RemoveOferta(Oferta oferta)
+        {
+            this.ofertas.Remove(oferta);
+        }
+
+        /// <summary>
+        /// Agrega un Emprendedor a la lista de emprendedores.
+        /// </summary>
+        /// <param name="emprendedor">parametro oferta recibido por el metodo RemoverOferta.</param>
+        public void AddEmprendedor(Emprendedor emprendedor)
+        {
+            this.emprendedores.Add(emprendedor);
+        }
+
+        /// <summary>
+        /// Remueve un emprendedor de la lista de emprendedores.
+        /// </summary>
+        /// <param name="emprendedor">parametro emprendedor recibido por el metodo RemoverEmprendedor.</param>
+        public void RemoveEmprendedor(Emprendedor emprendedor)
+        {
+            this.emprendedores.Remove(emprendedor);
+        }
+
+        /// <summary>
+        /// Añiade una empresa a la lista de empresas.
+        /// </summary>
+        /// <param name="empresa">parametro empresa recibido por el metodo AgregarEmpresa.</param>
+        public void AddEmpresa(Empresa empresa)
+        {
+            this.empresas.Add(empresa);
+        }
+
+        /// <summary>
+        /// Remueve una empresa de la lista de empresas.
+        /// </summary>
+        /// <param name="empresa">parametro empresa recibido por el metodo RemoveEmpresa.</param>
+        public void RemoveEmpresa(Empresa empresa)
+        {
+            this.empresas.Remove(empresa);
+        }
+
+        public void AddInvitado(string ID)
+        {
+            this.invitados.Add(ID);
+        }
+
+        public void AddAdministrador(string ID)
+        {
+            this.administradores.Add(ID);
         }
     }
 }
