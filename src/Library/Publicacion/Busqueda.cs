@@ -51,9 +51,9 @@ namespace Library
         /// <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
         {
-            Collection<Oferta> listaOfertas = new Collection<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -97,9 +97,9 @@ namespace Library
         /// <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
         {
-            Collection<Oferta> listaOfertas = new Collection<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -154,9 +154,9 @@ namespace Library
         /// <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
-            Collection<Oferta> listaOfertas = new Collection<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {

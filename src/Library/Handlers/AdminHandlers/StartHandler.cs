@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 using System.Linq;
 using Library;
 
-namespace Ucu.Poo.TelegramBot
+namespace Handlers
 {
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/start".

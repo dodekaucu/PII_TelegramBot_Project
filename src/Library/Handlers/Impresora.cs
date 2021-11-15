@@ -44,7 +44,7 @@ namespace Handlers
         /// </summary>
         /// <param name="lista">lista buscada.</param>
         /// <returns></returns>
-        public string Imprimir(Collection<Oferta> lista)
+        public string Imprimir(Collection<OfertaBase> lista)
         {  
             if (lista.Count == 0)
             {

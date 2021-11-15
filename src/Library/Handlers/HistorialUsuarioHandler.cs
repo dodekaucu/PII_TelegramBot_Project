@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 using System.Linq;
 using Library;
 
-namespace Ucu.Poo.TelegramBot
+namespace Handlers
 {
     public class HistorialUsuarioHandler : BaseHandler   // cambiar nombre a historial
     {
