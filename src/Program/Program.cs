@@ -22,7 +22,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "2141751067:AAGLpHZdn-gNPP2Khdll8MABqdXWf8P6Z4E";
+        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
 
         private static IHandler firstHandler;
 
@@ -49,11 +49,25 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.AddHabilitacion(msp);
             db.AddOferta(uno);
             db.AddOferta(dos);
+            
+
+            emprendedor.ID = "1454175798";
+            uno.FechaVenta = DateTime.Parse("15/10/2021");
+            emprendedor.AddToRegister(uno);
+            db.AddEmprendedor(emprendedor);
+
 
             firstHandler =
                 new HelloHandler(
                 new GoodByeHandler(
-                new BuscarHandler(null, buscador, emprendedor, db)
+                new BuscarHandler(
+                new BuscarUbiHandler(
+                new AdminInvitationHandler(
+                new StartHandler(
+                new AddAdminHandler(
+                new HistorialUsuarioHandler(
+                new HelpHandler(null),db),db),db),db)
+                ,buscador, emprendedor, db), buscador, emprendedor, db)
                 ));
 
             var cts = new CancellationTokenSource();
