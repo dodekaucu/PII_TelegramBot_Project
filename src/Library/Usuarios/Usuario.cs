@@ -50,6 +50,12 @@ namespace Library
         public string Nombre { get; set; }
 
         /// <summary>
+        /// Obtiene o establece el id del usuario.
+        /// </summary>
+        /// <value></value>
+        public string ID { get; set; }
+
+        /// <summary>
         /// Obtiene o establece un valor que es el rubro del usuario.
         /// </summary>
         /// <value>this.rubro.</value>
