@@ -3,23 +3,30 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un contenedor de las diferentes clases del bot.
+    /// Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+    /// Es la clase EXPERTA en contener las diferentes instancias del programa.
+    /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
     /// </summary>
     public class Contenedor
     {
         private static Contenedor contenedor;
-        private List<Habilitacion> habilitaciones = new List<Habilitacion>();
-        private List<Rubro> rubros = new List<Rubro>();
-        private List<Clasificacion> clasificaciones = new List<Clasificacion>();
-        private List<OfertaBase> ofertas = new List<OfertaBase>();
-        private List<Emprendedor> emprendedores = new List<Emprendedor>();
-        private List<Empresa> empresas = new List<Empresa>();
+        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
+        private Collection<Rubro> rubros = new Collection<Rubro>();
+        private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
+        private Collection<Emprendedor> emprendedores = new Collection<Emprendedor>();
+        private Collection<Empresa> empresas = new Collection<Empresa>();
+
+        private Collection<string> administradores = new Collection<string>() { "1454175798" };
+
+        private Collection<string> invitados = new Collection<string> ();
 
         private Contenedor()
         {
@@ -43,10 +50,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la habilitacion correspondiente.
+        /// Obtiene un valor con la habilitacion correspondiente.
         /// </summary>
         /// <value>this.habilitaciones.</value>
-        public List<Habilitacion> Habilitaciones
+        public Collection<Habilitacion> Habilitaciones
         {
             get
             {
@@ -55,10 +62,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de rubros.
+        /// Obtiene un valor con la lista de rubros.
         /// </summary>
         /// <value>this.rubros.</value>
-        public List<Rubro> Rubros
+        public Collection<Rubro> Rubros
         {
             get
             {
@@ -67,10 +74,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de clasificaciones.
+        /// Obtiene un valor con la lista de clasificaciones.
         /// </summary>
         /// <value>this.clasificaciones.</value>
-        public List<Clasificacion> Clasificaciones
+        public Collection<Clasificacion> Clasificaciones
         {
             get
             {
@@ -79,10 +86,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de las ofertas.
+        /// Obtiene un valor con la lista de las ofertas.
         /// </summary>
         /// <value>this.ofertas.</value>
-        public List<OfertaBase> Ofertas
+        public Collection<OfertaBase> Ofertas
         {
             get
             {
@@ -91,10 +98,10 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valor con la lista de los Emprendedores.
+        /// Obtiene un valor con la lista de los Emprendedores.
         /// </summary>
         /// <value>this.emprendedores.</value>
-        public List<Emprendedor> Emprendedores
+        public Collection<Emprendedor> Emprendedores
         {
             get
             {
@@ -103,14 +110,30 @@ namespace Library
         }
 
         /// <summary>
-        /// Devuelve un valro con la lsita de las Empresas.
+        /// Obtiene un valro con la lsita de las Empresas.
         /// </summary>
         /// <value>this.empresas.</value>
-        public List<Empresa> Empresas
+        public Collection<Empresa> Empresas
         {
             get
             {
                 return this.empresas;
+            }
+        }
+
+        public Collection<string> Invitados
+        {
+            get
+            {
+                return this.invitados;
+            }
+        }
+
+        public Collection<string> Administradores
+        {
+            get
+            {
+                return this.administradores;
             }
         }
 
@@ -220,6 +243,16 @@ namespace Library
         public void RemoveEmpresa(Empresa empresa)
         {
             this.empresas.Remove(empresa);
+        }
+
+        public void AddInvitado(string ID)
+        {
+            this.invitados.Add(ID);
+        }
+
+        public void AddAdministrador(string ID)
+        {
+            this.administradores.Add(ID);
         }
     }
 }

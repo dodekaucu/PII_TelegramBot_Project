@@ -6,14 +6,49 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     /// <summary>
-    /// Clase abstracta que representa la base de oferta.
+    /// Clase abstracta que representa la base de oferta. 
+    /// Es experta en la creación de ofertas.
+    /// Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta.
+    /// Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
+    /// Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa,
+    /// con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
+    /// Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
     /// </summary>
     public abstract class OfertaBase
     {
+        private Collection<string> palabrasClaves = new Collection<string>();
+        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
+
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="OfertaBase"/>.
+        /// </summary>
+        /// <param name="nombreoferta">Nombre de la oferta a crear.</param>
+        /// <param name="empresa">Empresa que crea la oferta.</param>
+        /// <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
+        /// <param name="calle">Calle donde esta la oferta.</param>
+        /// <param name="nombreMaterial">Nombre del material a ofertar.</param>
+        /// <param name="clasificacion">Clasificación del material.</param>
+        /// <param name="cantidad">Cantidad a ofertar.</param>
+        /// <param name="unidad">Unidad del material.</param>
+        /// <param name="valor">Valor de la oferta.</param>
+        protected OfertaBase(string nombreoferta, Empresa empresa, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor)
+        {
+            Material material = new Material(nombreMaterial, clasificacion, cantidad, unidad, valor);
+            this.Material = material;
+            this.Nombreoferta = nombreoferta;
+            this.Empresa = empresa;
+            Ubicacion ubicacion = new Ubicacion(ciudad, calle);
+            this.Ubicacion = ubicacion;
+            this.PalabrasClaves.Add(this.Nombreoferta);
+            this.PalabrasClaves.Add(this.Empresa.Nombre);
+            this.PalabrasClaves.Add(this.Material.Nombre);
+        }
+
         /// <summary>
         /// Obtiene o establece el nombre de la oferta.
         /// </summary>
@@ -43,52 +78,29 @@ namespace Library
         /// </summary>
         /// <value>Ubicacion de la oferta.</value>
         public Ubicacion Ubicacion { get; set; }
-        private List<string> palabrasClaves = new List<string>();
 
         /// <summary>
         /// Obtiene palabras clave de la oferta, estas sirven para su futura busqueda.
         /// </summary>
-        /// <value></value>
-        public List<string> PalabrasClaves
+        /// <value>Palabras clave de la oferta.</value>
+        public Collection<string> PalabrasClaves
         {
-            get { return palabrasClaves; }
-        }
-
-        private List<Habilitacion> habilitaciones = new List<Habilitacion>();
-
-        /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="OfertaBase"/>.
-        /// </summary>
-        /// <param name="nombreoferta">Nombre de la oferta a crear.</param>
-        /// <param name="empresa">Empresa que crea la oferta.</param>
-        /// <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
-        /// <param name="calle">Calle donde esta la oferta.</param>
-        /// <param name="nombreMaterial">Nombre del material a ofertar.</param>
-        /// <param name="clasificacion">Clasificación del material.</param>
-        /// <param name="cantidad">Cantidad a ofertar.</param>
-        /// <param name="unidad">Unidad del material.</param>
-        /// <param name="valor">Valor de la oferta.</param>
-        protected OfertaBase(string nombreoferta, Empresa empresa, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor)
-        {
-            Material material = new Material(nombreMaterial, clasificacion, cantidad, unidad, valor);
-            this.Material = material;
-            this.Nombreoferta = nombreoferta;
-            this.Empresa = empresa;
-            Ubicacion ubicacion = new Ubicacion(ciudad, calle);
-            this.Ubicacion = ubicacion;
-
-            this.PalabrasClaves.Add(this.Nombreoferta);
-            this.PalabrasClaves.Add(this.Empresa.Nombre);
-            this.PalabrasClaves.Add(this.Material.Nombre);
+            get
+            {
+                return this.palabrasClaves;
+            }
         }
 
         /// <summary>
         /// Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta.
         /// </summary>
-        /// <value></value>
-        public List<Habilitacion> Habilitaciones
+        /// <value>retorna this.habilitaciones.</value>
+        public Collection<Habilitacion> Habilitaciones
         {
-            get { return this.habilitaciones; }
+            get
+            {
+                return this.habilitaciones;
+            }
         }
 
         /// <summary>

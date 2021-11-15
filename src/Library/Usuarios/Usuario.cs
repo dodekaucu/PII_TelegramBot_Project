@@ -6,15 +6,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un usuario de la aplicación.
+    /// Es una clase abstracta, por lo que no puede ser instanciada.
+    /// Representa a un usuario de la aplicación de manera general.
     /// </summary>
     public abstract class Usuario
     {
-        private List<OfertaBase> registroUsuario = new List<OfertaBase>();
+        private Collection<OfertaBase> registroUsuario = new Collection<OfertaBase>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Usuario"/>.
@@ -47,6 +50,12 @@ namespace Library
         public string Nombre { get; set; }
 
         /// <summary>
+        /// Obtiene o establece el id del usuario.
+        /// </summary>
+        /// <value></value>
+        public string ID { get; set; }
+
+        /// <summary>
         /// Obtiene o establece un valor que es el rubro del usuario.
         /// </summary>
         /// <value>this.rubro.</value>
@@ -62,7 +71,7 @@ namespace Library
         /// Obtiene un valor que indica el registro del usuario.
         /// </summary>
         /// <value>this.registroUsuario.</value>
-        public List<OfertaBase> RegistroUsuario
+        public Collection<OfertaBase> RegistroUsuario
         {
             get
             {
@@ -73,8 +82,7 @@ namespace Library
         /// <summary>
         /// Añiade al registro del usuario la oferta.
         /// </summary>
-        /// <param name="oferta">Parametro</param>
-
+        /// <param name="oferta">Parametro.</param>
         public void AddToRegister(OfertaBase oferta)
         {
             this.registroUsuario.Add(oferta);
@@ -85,9 +93,9 @@ namespace Library
         /// </summary>
         /// <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
         /// <returns>una lista de ofertas llamada resultado.</returns>
-        public List<OfertaBase> BuscarEnRegistro(DateTime fechaDesde)
+        public Collection<OfertaBase> BuscarEnRegistro(DateTime fechaDesde)
         {
-            List<OfertaBase> resultado = new List<OfertaBase>();
+            Collection<OfertaBase> resultado = new Collection<OfertaBase>();
             foreach (OfertaBase oferta in this.registroUsuario)
             {
                 if (oferta.FechaVenta.Date >= fechaDesde.Date)
@@ -95,6 +103,7 @@ namespace Library
                     resultado.Add(oferta);
                 }
             }
+
             return resultado;
         }
     }

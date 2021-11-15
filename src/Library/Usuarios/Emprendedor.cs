@@ -6,15 +6,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un Emprendedor.
+    /// Patrones y principios utilizados:
+    /// EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
     /// </summary>
     public class Emprendedor : Usuario
     {
-        private List<Habilitacion> habilitaciones = new List<Habilitacion>();
+        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Emprendedor"/>.
@@ -24,7 +27,7 @@ namespace Library
         /// <param name="ciudad">parametro ciudad recibido por el constructor del emprendedor.</param>
         /// <param name="calle">parametro calle recibido por el constructor del emprendedor.</param>
         /// <param name="especializacion">parametro especializacion recibidio por el constructor del emprendedor.</param>
-        public Emprendedor(string nombre, Rubro rubro, string ciudad, string calle, string especializacion) 
+        public Emprendedor(string nombre, Rubro rubro, string ciudad, string calle, string especializacion)
         : base(nombre, rubro, ciudad, calle)
         {
             this.Especializacion = especializacion;
@@ -40,7 +43,7 @@ namespace Library
         /// Obtiene el valor de las habilitaciones del emprendedor.
         /// </summary>
         /// <value>this.habilitaciones.</value>
-        public List<Habilitacion> Habilitaciones
+        public Collection<Habilitacion> Habilitaciones
         {
             get
             {

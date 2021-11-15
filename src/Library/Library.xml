@@ -47,6 +47,9 @@
         <member name="T:Library.Contenedor">
             <summary>
             Esta clase representa un contenedor de las diferentes clases del bot.
+            Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+            Es la clase EXPERTA en contener las diferentes instancias del programa.
+            Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
             </summary>
         </member>
         <member name="P:Library.Contenedor.Instancia">
@@ -57,37 +60,37 @@
         </member>
         <member name="P:Library.Contenedor.Habilitaciones">
             <summary>
-            Devuelve un valor con la habilitacion correspondiente.
+            Obtiene un valor con la habilitacion correspondiente.
             </summary>
             <value>this.habilitaciones.</value>
         </member>
         <member name="P:Library.Contenedor.Rubros">
             <summary>
-            Devuelve un valor con la lista de rubros.
+            Obtiene un valor con la lista de rubros.
             </summary>
             <value>this.rubros.</value>
         </member>
         <member name="P:Library.Contenedor.Clasificaciones">
             <summary>
-            Devuelve un valor con la lista de clasificaciones.
+            Obtiene un valor con la lista de clasificaciones.
             </summary>
             <value>this.clasificaciones.</value>
         </member>
         <member name="P:Library.Contenedor.Ofertas">
             <summary>
-            Devuelve un valor con la lista de las ofertas.
+            Obtiene un valor con la lista de las ofertas.
             </summary>
             <value>this.ofertas.</value>
         </member>
         <member name="P:Library.Contenedor.Emprendedores">
             <summary>
-            Devuelve un valor con la lista de los Emprendedores.
+            Obtiene un valor con la lista de los Emprendedores.
             </summary>
             <value>this.emprendedores.</value>
         </member>
         <member name="P:Library.Contenedor.Empresas">
             <summary>
-            Devuelve un valro con la lsita de las Empresas.
+            Obtiene un valro con la lsita de las Empresas.
             </summary>
             <value>this.empresas.</value>
         </member>
@@ -189,38 +192,42 @@
         </member>
         <member name="T:Library.Rubro">
             <summary>
-            Clase que representa los rubros
+            Clase que representa los rubros.
             </summary>
         </member>
         <member name="M:Library.Rubro.#ctor(System.String,System.String,System.String)">
             <summary>
-            Inicializa una instancia de la clase Rubro
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Rubro"/>.
             </summary>
-            <param name="nombre"></param>
-            <param name="area"></param>
-            <param name="descripcion"></param>
+            <param name="nombre">El nombre del rubro.</param>
+            <param name="area">El area del Rubro.</param>
+            <param name="descripcion">La descripcion del rubro.</param>
         </member>
         <member name="P:Library.Rubro.Nombre">
             <summary>
-            Devuelve un valor que indica el nombre del rubro
+            Obtiene un valor que indica el nombre del rubro.
             </summary>
-            <value></value>
+            <value>El nombre del Rubro.</value>
         </member>
         <member name="P:Library.Rubro.Area">
             <summary>
-            Devuelve un valor que indica el area del rubro
+            Obtiene un valor que indica el area del rubro.
             </summary>
-            <value></value>
+            <value>El area del Rubro.</value>
         </member>
         <member name="P:Library.Rubro.Descripcion">
             <summary>
-            Devuelve un valor que indica la descripcion del rubro
+            Obtiene un valor que indica la descripcion del rubro.
             </summary>
-            <value></value>
+            <value>La descripcion del Rubro.</value>
         </member>
         <member name="T:Library.IChat">
             <summary>
-            Interface que representa la firma de los metodos de IChat.
+            Interface que representa la firma de los metodos de IChat. Se utiliza una interface, pues la idea
+            detras es poseer una interfaz que posea todos los metodos que se necesitan para el funcionamiento 
+            de un chat, pero a su vez que la clase que dependa de esta interfaz no este forzada a implmenetarlos 
+            de una manera determinada impidiendo asi que sea necesario modificar cualquier clase del tipo IChat
+            dependiendo de las necesidades del usuario.
             </summary>
         </member>
         <member name="M:Library.IChat.EnviarMensaje(System.String)">
@@ -255,6 +262,8 @@
         <member name="T:Library.Busqueda">
             <summary>
             Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
+            Se utilzia el principio SRP, donde la unica razon para cambiar de la clase es que se modifique la forma en que se busca la informacion.
+            Ademas se usa el patron Singleton pues solo se debe tener una instancia de esta clase.
             </summary>
         </member>
         <member name="P:Library.Busqueda.Instancia">
@@ -303,6 +312,7 @@
         <member name="T:Library.Material">
             <summary>
             Clase que representa al Material.
+            Es una clase experta en crear materiales. Y tiene la sola responsabilidad de crear materiales. (SRP).
             </summary>
         </member>
         <member name="M:Library.Material.#ctor(System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
@@ -347,18 +357,13 @@
         </member>
         <member name="T:Library.Oferta">
             <summary>
-            Esta clase representa una oferta.
+            Esta clase representa una oferta. Es una subclase de OfertaBase
+            Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
             </summary>
-        </member>
-        <member name="P:Library.Oferta.FechadeGeneracion">
-            <summary>
-            Obtiene o establece cuando la oferta va a ser generada.
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.DateTime)">
             <summary>
-            Inicializa una instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Oferta"/>.
             </summary>
             <param name="nombreoferta">parametro nombre de la oferta.</param>
             <param name="empresa">parametro empresa que oferta.</param>
@@ -371,10 +376,36 @@
             <param name="valor">valor del material.</param>
             <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
         </member>
+        <member name="P:Library.Oferta.FechadeGeneracion">
+            <summary>
+            Obtiene o establece cuando la oferta va a ser generada.
+            </summary>
+            <value>La fecha de la generacion.</value>
+        </member>
         <member name="T:Library.OfertaBase">
             <summary>
-            Clase abstracta que representa la base de oferta.
+            Clase abstracta que representa la base de oferta. 
+            Es experta en la creación de ofertas.
+            Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta.
+            Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
+            Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa,
+            con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
+            Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
             </summary>
+        </member>
+        <member name="M:Library.OfertaBase.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaBase"/>.
+            </summary>
+            <param name="nombreoferta">Nombre de la oferta a crear.</param>
+            <param name="empresa">Empresa que crea la oferta.</param>
+            <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
+            <param name="calle">Calle donde esta la oferta.</param>
+            <param name="nombreMaterial">Nombre del material a ofertar.</param>
+            <param name="clasificacion">Clasificación del material.</param>
+            <param name="cantidad">Cantidad a ofertar.</param>
+            <param name="unidad">Unidad del material.</param>
+            <param name="valor">Valor de la oferta.</param>
         </member>
         <member name="P:Library.OfertaBase.Nombreoferta">
             <summary>
@@ -410,27 +441,13 @@
             <summary>
             Obtiene palabras clave de la oferta, estas sirven para su futura busqueda.
             </summary>
-            <value></value>
-        </member>
-        <member name="M:Library.OfertaBase.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaBase"/>.
-            </summary>
-            <param name="nombreoferta">Nombre de la oferta a crear.</param>
-            <param name="empresa">Empresa que crea la oferta.</param>
-            <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
-            <param name="calle">Calle donde esta la oferta.</param>
-            <param name="nombreMaterial">Nombre del material a ofertar.</param>
-            <param name="clasificacion">Clasificación del material.</param>
-            <param name="cantidad">Cantidad a ofertar.</param>
-            <param name="unidad">Unidad del material.</param>
-            <param name="valor">Valor de la oferta.</param>
+            <value>Palabras clave de la oferta.</value>
         </member>
         <member name="P:Library.OfertaBase.Habilitaciones">
             <summary>
             Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta.
             </summary>
-            <value></value>
+            <value>retorna this.habilitaciones.</value>
         </member>
         <member name="M:Library.OfertaBase.AddHabilitacion(Library.Habilitacion)">
             <summary>
@@ -446,18 +463,13 @@
         </member>
         <member name="T:Library.OfertaRecurrente">
             <summary>
-            Esta clase representa una oferta recurrente.
+            Esta clase representa una oferta recurrente. Es una subclase de OfertaBase
+            Esto se debe a porque al ser una oferta recurrente necesita una property que es recurrenciaMensual.
             </summary>
-        </member>
-        <member name="P:Library.OfertaRecurrente.RecurrenciaMensual">
-            <summary>
-            Obtiene o establece el número de veces que se repite la oferta en un mes.
-            </summary>
-            <value>this.RecurrenciaMensual.</value>
         </member>
         <member name="M:Library.OfertaRecurrente.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32)">
             <summary>
-            Inicializa una instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
             </summary>
             <param name="nombreoferta">parametro nombre de la oferta.</param>
             <param name="empresa">parametro empresa que oferta.</param>
@@ -469,6 +481,12 @@
             <param name="unidad">unidad del material.</param>
             <param name="valor">valor del material.</param>
             <param name="recurrenciaMensual">cuantas veces se repite en un mes.</param>
+        </member>
+        <member name="P:Library.OfertaRecurrente.RecurrenciaMensual">
+            <summary>
+            Obtiene o establece el número de veces que se repite la oferta en un mes.
+            </summary>
+            <value>this.RecurrenciaMensual.</value>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
@@ -520,6 +538,8 @@
         <member name="T:Library.Emprendedor">
             <summary>
             Esta clase representa un Emprendedor.
+            Patrones y principios utilizados:
+            EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
             </summary>
         </member>
         <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
@@ -559,6 +579,8 @@
         <member name="T:Library.Empresa">
             <summary>
             Clase que representa una Empresa.
+            Patrones y principios utilizados:
+            EXPERT, porque conoce toda la informacion que debe conocer una empresa.
             </summary>
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
@@ -573,6 +595,8 @@
         <member name="T:Library.Usuario">
             <summary>
             Esta clase representa un usuario de la aplicación.
+            Es una clase abstracta, por lo que no puede ser instanciada.
+            Representa a un usuario de la aplicación de manera general.
             </summary>
         </member>
         <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">
@@ -612,7 +636,7 @@
             <summary>
             Añiade al registro del usuario la oferta.
             </summary>
-            <param name="oferta">Parametro</param>
+            <param name="oferta">Parametro.</param>
         </member>
         <member name="M:Library.Usuario.BuscarEnRegistro(System.DateTime)">
             <summary>
@@ -620,6 +644,288 @@
             </summary>
             <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
             <returns>una lista de ofertas llamada resultado.</returns>
+        </member>
+        <member name="T:Handlers.BaseHandler">
+            <summary>
+            Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
+            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
+            pasa al siguiente. Esta clase base implmementa la responsabilidad de recibir el mensaje y pasarlo al siguiente
+            "handler" en caso que el mensaje no sea procesado. La responsabilidad de decidir si el mensaje se procesa o no, y
+            de procesarlo, se delega a las clases sucesoras de esta clase base.
+            </summary>
+        </member>
+        <member name="P:Handlers.BaseHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="P:Handlers.BaseHandler.Keywords">
+            <summary>
+            Obtiene o asigna el conjunto de palabras clave que este "handler" puede procesar.
+            </summary>
+            <value>Un array de palabras clave.</value>
+        </member>
+        <member name="M:Handlers.BaseHandler.#ctor(Handlers.IHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.BaseHandler"/>.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.BaseHandler.#ctor(System.String[],Handlers.IHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.BaseHandler"/> con una lista de comandos.
+            </summary>
+            <param name="keywords">La lista de comandos.</param>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.BaseHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y retorna
+            true o no lo procesa y retorna false.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="responder">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario</returns>
+        </member>
+        <member name="M:Handlers.BaseHandler.InternalCancel">
+            <summary>
+            Este método puede ser sobreescrito en las clases sucesores que procesan varios mensajes cambiando de estado
+            entre mensajes deben sobreescribir este método para volver al estado inicial. En la clase base no hace nada.
+            </summary>
+        </member>
+        <member name="M:Handlers.BaseHandler.CanHandle(Handlers.IMessage)">
+            <summary>
+            Determina si este "handler" puede procesar el mensaje. En la clase base se utiliza el array
+            <see cref="P:Handlers.BaseHandler.Keywords"/> para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las
+            clases sucesores pueden sobreescribir este método para proveer otro mecanismo para determina si procesan o no
+            un mensaje.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
+        </member>
+        <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Handlers.BaseHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial. En los "handler" sin estado no hace nada. Los "handlers" que
+            procesan varios mensajes cambiando de estado entre mensajes deben sobreescribir este método para volver al
+            estado inicial.
+            </summary>
+        </member>
+        <member name="T:Handlers.BuscarHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarHandler.emprendedor">
+            <summary>
+            El usuario que busca ofertas.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarHandler.db">
+            <summary>
+            base de datos.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarHandler.buscador">
+            <summary>
+            Buscador de ofertas.
+            </summary>
+        </member>
+        <member name="M:Handlers.BuscarHandler.#ctor(Handlers.BaseHandler,Library.Busqueda,Library.Emprendedor,Library.Contenedor)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.BuscarHandler"/>. Esta clase procesa el mensaje "chau"
+            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+            <param name="emprendedor">El emprendedor.</param>
+            <param name="db">El contenedor de datos.</param>
+            <param name="buscador">El buscador.</param>
+        </member>
+        <member name="M:Handlers.BuscarHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.BuscarUbiHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarUbiHandler.emprendedor">
+            <summary>
+            El usuario que busca ofertas.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarUbiHandler.db">
+            <summary>
+            base de datos.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarUbiHandler.buscador">
+            <summary>
+            Buscador de ofertas.
+            </summary>
+        </member>
+        <member name="M:Handlers.BuscarUbiHandler.#ctor(Handlers.BaseHandler,Library.Busqueda,Library.Emprendedor,Library.Contenedor)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.BuscarHandler"/>. Esta clase procesa el mensaje "chau"
+            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+            <param name="emprendedor">El emprendedor.</param>
+            <param name="db">El contenedor de datos.</param>
+            <param name="buscador">El buscador.</param>
+        </member>
+        <member name="M:Handlers.BuscarUbiHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.GoodByeHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            </summary>
+        </member>
+        <member name="M:Handlers.GoodByeHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.GoodByeHandler"/>. Esta clase procesa el mensaje "chau"
+            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.GoodByeHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.HelloHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "hola".
+            </summary>
+        </member>
+        <member name="M:Handlers.HelloHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.HelloHandler"/>. Esta clase procesa el mensaje "hola".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.IHandler">
+            <summary>
+            Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
+            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
+            pasa al siguiente. Esta interfaz define un atributo para definir el próximo "handler" y una una operación para
+            recibir el mensaje y pasarlo al siguiente "handler" en caso que el mensaje no sea procesado. La responsabilidad de
+            decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz.
+            <remarks>
+            La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de
+            responsabilidad, que pueden ser concretos, no dependan de una clase "handler" que potencialmente es abstracta.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Handlers.IHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="M:Handlers.IHandler.Handle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Handlers.IHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
+            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
+            caso de error por ejemplo.
+            </summary>
+        </member>
+        <member name="T:Handlers.IMessage">
+            <summary>
+            Interfaz de mensajes.
+            </summary>
+        </member>
+        <member name="P:Handlers.IMessage.ID">
+            <summary>
+            Id del usuario.
+            </summary>
+        </member>
+        <member name="P:Handlers.IMessage.Text">
+            <summary>
+            Mensaje.
+            </summary>
+        </member>
+        <member name="T:Handlers.Impresora">
+            <summary>
+            Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+            </summary>
+        </member>
+        <member name="F:Handlers.Impresora.texto">
+            <summary>
+            Texto que se va a imprimir.
+            </summary>
+        </member>
+        <member name="P:Handlers.Impresora.Instancia">
+            <summary>
+            Obtiene una instancia de la clase impresora y si no existe una, crea una nueva.
+            </summary>
+            <value>una instancia de impresora.</value>
+        </member>
+        <member name="M:Handlers.Impresora.Imprimir(System.Collections.ObjectModel.Collection{Library.Oferta})">
+            <summary>
+            Funcion que recibe la lista de ofertas para imprimir.
+            </summary>
+            <param name="lista">lista buscada.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Handlers.TelegramMSGadapter">
+            <summary>
+            Adaptador de mensajes de Telegram a mensajes de la interfaz de usuario.
+            </summary>
+        </member>
+        <member name="M:Handlers.TelegramMSGadapter.#ctor(Telegram.Bot.Types.Message)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.TelegramMSGadapter"/>.
+            </summary>
+            <param name="message">mensaje recibido.</param>
+        </member>
+        <member name="P:Handlers.TelegramMSGadapter.Text">
+            <summary>
+            Mensaje recibido.
+            </summary>
+        </member>
+        <member name="P:Handlers.TelegramMSGadapter.ID">
+            <summary>
+            Identificador del usuario que envió el mensaje.
+            </summary>
         </member>
     </members>
 </doc>

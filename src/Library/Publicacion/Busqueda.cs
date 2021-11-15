@@ -6,11 +6,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa la busqueda de ofertas a partir de palabras claves, ubicacion y clasificacion.
+    /// Se utilzia el principio SRP, donde la unica razon para cambiar de la clase es que se modifique la forma en que se busca la informacion.
+    /// Ademas se usa el patron Singleton pues solo se debe tener una instancia de esta clase.
     /// </summary>
     public class Busqueda
     {
@@ -48,9 +51,9 @@ namespace Library
         /// <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -94,9 +97,9 @@ namespace Library
         /// <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
@@ -151,9 +154,9 @@ namespace Library
         /// <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public IList<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
+        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
-            List<Oferta> listaOfertas = new List<Oferta>();
+            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {

@@ -32,7 +32,7 @@ namespace Library
         /// <param name="userEmpresa">parametro userEmpresa que represneta el usuario de la empresa a inviatr.</param>
         public void InvitarEmpresa(string userEmpresa)
         {
-            // Invitar a una empresa a unirse a la plataforma
+            throw new System.NotImplementedException();
         }
     }
 }
