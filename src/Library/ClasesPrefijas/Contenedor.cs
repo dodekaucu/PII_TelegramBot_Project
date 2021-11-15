@@ -24,6 +24,10 @@ namespace Library
         private Collection<Emprendedor> emprendedores = new Collection<Emprendedor>();
         private Collection<Empresa> empresas = new Collection<Empresa>();
 
+        private Collection<string> administradores = new Collection<string>() { "1454175798" };
+
+        private Collection<string> invitados = new Collection<string> ();
+
         private Contenedor()
         {
         }
@@ -114,6 +118,22 @@ namespace Library
             get
             {
                 return this.empresas;
+            }
+        }
+
+        public Collection<string> Invitados
+        {
+            get
+            {
+                return this.invitados;
+            }
+        }
+
+        public Collection<string> Administradores
+        {
+            get
+            {
+                return this.administradores;
             }
         }
 
@@ -223,6 +243,16 @@ namespace Library
         public void RemoveEmpresa(Empresa empresa)
         {
             this.empresas.Remove(empresa);
+        }
+
+        public void AddInvitado(string ID)
+        {
+            this.invitados.Add(ID);
+        }
+
+        public void AddAdministrador(string ID)
+        {
+            this.administradores.Add(ID);
         }
     }
 }
