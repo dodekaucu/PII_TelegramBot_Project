@@ -22,15 +22,9 @@ namespace Handlers
                 DateTime fechaDesde = DateTime.Parse(fecha);
                 this.impresora= Impresora.Instancia;
                     
-                if(this.contenedor.Emprendedores.ContainsKey(message.ID))
+                if(this.contenedor.Usuarios.ContainsKey(message.ID))
                 {
-                    string coso = impresora.Imprimir(this.contenedor.Emprendedores[message.ID].BuscarEnRegistro(fechaDesde)); 
-                    response = $"{coso}";
-                    return true;
-                }
-                else if (this.contenedor.Empresas.ContainsKey(message.ID))
-                {
-                    string coso = impresora.Imprimir(this.contenedor.Empresas[message.ID].BuscarEnRegistro(fechaDesde)); 
+                    string coso = impresora.Imprimir(this.contenedor.Usuarios[message.ID].BuscarEnRegistro(fechaDesde)); 
                     response = $"{coso}";
                     return true;
                 }

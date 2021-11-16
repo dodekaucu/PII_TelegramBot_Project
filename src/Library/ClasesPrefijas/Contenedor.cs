@@ -21,8 +21,7 @@ namespace Library
         private Collection<Rubro> rubros = new Collection<Rubro>();
         private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
         private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
-        private Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
-        private Dictionary<string,Empresa> empresas = new Dictionary<string,Empresa>();
+        private Dictionary<string,Usuario> usuarios = new Dictionary<string, Usuario>();
 
         private Collection<string> administradores = new Collection<string>() { "1454175798" };
 
@@ -101,23 +100,11 @@ namespace Library
         /// Obtiene un valor con la lista de los Emprendedores.
         /// </summary>
         /// <value>this.emprendedores.</value>
-        public Dictionary<string,Emprendedor> Emprendedores
+        public Dictionary<string,Usuario> Usuarios
         {
             get
             {
-                return this.emprendedores;
-            }
-        }
-
-        /// <summary>
-        /// Obtiene un valro con la lsita de las Empresas.
-        /// </summary>
-        /// <value>this.empresas.</value>
-        public Dictionary<string,Empresa> Empresas
-        {
-            get
-            {
-                return this.empresas;
+                return this.usuarios;
             }
         }
 
@@ -209,40 +196,14 @@ namespace Library
             this.ofertas.Remove(oferta);
         }
 
-        /// <summary>
-        /// Agrega un Emprendedor a la lista de emprendedores.
-        /// </summary>
-        /// <param name="emprendedor">parametro oferta recibido por el metodo RemoverOferta.</param>
-        public void AddEmprendedor(string ID, Emprendedor emprendedor)
+        public void AddUsuario(string ID, Usuario usuario)
         {
-            this.emprendedores.Add(ID,emprendedor);
+            this.usuarios.Add(ID,usuario);
         }
 
-        /// <summary>
-        /// Remueve un emprendedor de la lista de emprendedores.
-        /// </summary>
-        /// <param name="emprendedor">parametro emprendedor recibido por el metodo RemoverEmprendedor.</param>
-        public void RemoveEmprendedor(string ID)
+        public void RemoveUsuario(string ID)
         {
-            this.emprendedores.Remove(ID);  
-        }
-
-        /// <summary>
-        /// Añiade una empresa a la lista de empresas.
-        /// </summary>
-        /// <param name="empresa">parametro empresa recibido por el metodo AgregarEmpresa.</param>
-        public void AddEmpresa(string ID, Empresa empresa)
-        {
-            this.empresas.Add(ID,empresa);
-        }
-
-        /// <summary>
-        /// Remueve una empresa de la lista de empresas.
-        /// </summary>
-        /// <param name="empresa">parametro empresa recibido por el metodo RemoveEmpresa.</param>
-        public void RemoveEmpresa(string ID)
-        {
-            this.empresas.Remove(ID);
+            this.usuarios.Remove(ID);
         }
 
         public void AddInvitado(string ID)
