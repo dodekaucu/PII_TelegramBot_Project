@@ -118,7 +118,7 @@ namespace Library
         /// <param name="palabraClave">Palabras clave para buscar la oferta.</param>
         public void AddPalabraClave(string palabraClave)
         {
-            this.PalabrasClaves.Add(palabraClave);
+            this.PalabrasClaves.Add(palabraClave.ToLower());
         }
     }
 }

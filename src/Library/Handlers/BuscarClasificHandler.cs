@@ -7,7 +7,7 @@ namespace Handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
     /// </summary>
-    public class BuscarUbiHandler : BaseHandler
+    public class BuscarClasificHandler : BaseHandler
     {
         /// <summary>
         /// El usuario que busca ofertas.
@@ -33,9 +33,9 @@ namespace Handlers
         /// <param name="emprendedor">El emprendedor.</param>
         /// <param name="db">El contenedor de datos.</param>
         /// <param name="buscador">El buscador.</param>
-        public BuscarUbiHandler(BaseHandler next, Busqueda buscador, Emprendedor emprendedor, Contenedor db) : base(next)
+        public BuscarClasificHandler(BaseHandler next, Busqueda buscador, Emprendedor emprendedor, Contenedor db) : base(next)
         {
-            this.Keywords = new string[] { "/BUbicacion" };
+            this.Keywords = new string[] { "/BClasificacion" };
             this.emprendedor = emprendedor;
             this.db = db;
             this.buscador = buscador;
@@ -51,11 +51,11 @@ namespace Handlers
         {
             if (this.CanHandle(message))
             {
-                string busca = message.Text.Remove(0,11);
-                string[] ubicacion = busca.Split(',');
+                string busca = message.Text.Remove(0,15);
+                char[] inicio = {' '};
+                Clasificacion buscarclas = new Clasificacion(busca.TrimStart(inicio),"Descripción");
                 this.impresora = Impresora.Instancia;
-                Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
-                string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,ubicacionbuscar,this.db));
+                string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,buscarclas,this.db));
                 response = $"{OfertasValidas}";
                 return true;
             }
