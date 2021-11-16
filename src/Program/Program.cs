@@ -57,7 +57,7 @@ namespace Ucu.Poo.TelegramBot
             db.AddEmprendedor("1599425094",emprendedor);
             Console.WriteLine(db.Emprendedores["1599425094"]);
 
-
+            
             firstHandler =
                 new HelloHandler(
                 new GoodByeHandler(
@@ -68,9 +68,8 @@ namespace Ucu.Poo.TelegramBot
                 new AddAdminHandler(
                 new HistorialUsuarioHandler(
                 new BuscarClasificHandler(
-                new HelpHandler(null),buscador, emprendedor, db),db),db),db),db)
-                ,buscador, emprendedor, db), buscador, emprendedor, db)
-                ));
+                new HelpHandler(null)
+                )))))))));
 
             var cts = new CancellationTokenSource();
 

@@ -50,6 +50,7 @@ namespace Handlers
         /// true o no lo procesa y retorna false.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="responder">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario</returns>
         protected virtual bool InternalHandle(IMessage message, IMessage ID, out string responder)
@@ -73,6 +74,7 @@ namespace Handlers
         /// un mensaje.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         protected virtual bool CanHandle(IMessage message, IMessage ID)
         {
@@ -92,6 +94,7 @@ namespace Handlers
         /// Procesa el mensaje o la pasa al siguiente "handler" si existe.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
         public IHandler Handle(IMessage message, IMessage ID, out string response)
