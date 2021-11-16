@@ -142,25 +142,25 @@
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmprendedor(Library.Emprendedor)">
+        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
             <summary>
             Agrega un Emprendedor a la lista de emprendedores.
             </summary>
             <param name="emprendedor">parametro oferta recibido por el metodo RemoverOferta.</param>
         </member>
-        <member name="M:Library.Contenedor.RemoveEmprendedor(Library.Emprendedor)">
+        <member name="M:Library.Contenedor.RemoveEmprendedor(System.String)">
             <summary>
             Remueve un emprendedor de la lista de emprendedores.
             </summary>
             <param name="emprendedor">parametro emprendedor recibido por el metodo RemoverEmprendedor.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmpresa(Library.Empresa)">
+        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
             <summary>
             Añiade una empresa a la lista de empresas.
             </summary>
             <param name="empresa">parametro empresa recibido por el metodo AgregarEmpresa.</param>
         </member>
-        <member name="M:Library.Contenedor.RemoveEmpresa(Library.Empresa)">
+        <member name="M:Library.Contenedor.RemoveEmpresa(System.String)">
             <summary>
             Remueve una empresa de la lista de empresas.
             </summary>
@@ -656,7 +656,7 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
             </summary>
         </member>
-        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -677,7 +677,7 @@
             <param name="contenedor">el contenedor que contiene todas las instancias del programa.</param>
             <returns></returns>
         </member>
-        <member name="M:Handlers.StartHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.StartHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/start" y evalua si el usuario que envia el mensaje esta  
             retorna true; retorna false en caso de que no se pueda procesar el mensaje.
@@ -720,7 +720,7 @@
             <param name="keywords">La lista de comandos.</param>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.BaseHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BaseHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y retorna
             true o no lo procesa y retorna false.
@@ -735,7 +735,7 @@
             entre mensajes deben sobreescribir este método para volver al estado inicial. En la clase base no hace nada.
             </summary>
         </member>
-        <member name="M:Handlers.BaseHandler.CanHandle(Handlers.IMessage)">
+        <member name="M:Handlers.BaseHandler.CanHandle(Handlers.IMessage,Handlers.IMessage)">
             <summary>
             Determina si este "handler" puede procesar el mensaje. En la clase base se utiliza el array
             <see cref="P:Handlers.BaseHandler.Keywords"/> para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las
@@ -745,7 +745,7 @@
             <param name="message">El mensaje a procesar.</param>
             <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         </member>
-        <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
@@ -790,7 +790,7 @@
             <param name="db">El contenedor de datos.</param>
             <param name="buscador">El buscador.</param>
         </member>
-        <member name="M:Handlers.BuscarClasificHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarClasificHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -828,7 +828,7 @@
             <param name="db">El contenedor de datos.</param>
             <param name="buscador">El buscador.</param>
         </member>
-        <member name="M:Handlers.BuscarHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -866,7 +866,7 @@
             <param name="db">El contenedor de datos.</param>
             <param name="buscador">El buscador.</param>
         </member>
-        <member name="M:Handlers.BuscarUbiHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarUbiHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -886,7 +886,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.GoodByeHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.GoodByeHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -905,7 +905,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
@@ -924,7 +924,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.HelpHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.HelpHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el comando "/ayuda" y retorna true; retorna false en caso contrario.
             </summary>
@@ -951,7 +951,7 @@
             </summary>
             <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
         </member>
-        <member name="M:Handlers.IHandler.Handle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.IHandler.Handle(Handlers.IMessage,Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>

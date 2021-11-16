@@ -27,7 +27,7 @@ namespace Handlers
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        IHandler Handle(IMessage message, out string response);
+        IHandler Handle(IMessage message, IMessage ID, out string response);
 
         /// <summary>
         /// Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los

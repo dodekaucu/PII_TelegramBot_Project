@@ -54,7 +54,8 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.ID = "1454175798";
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            db.AddEmprendedor(emprendedor);
+            db.AddEmprendedor("1599425094",emprendedor);
+            Console.WriteLine(db.Emprendedores["1599425094"]);
 
 
             firstHandler =
@@ -125,7 +126,7 @@ namespace Ucu.Poo.TelegramBot
 
             string response = string.Empty;
 
-            firstHandler.Handle(new TelegramMSGadapter(message), out response);
+            firstHandler.Handle(new TelegramMSGadapter(message), new TelegramMSGadapter(message), out response);
 
             if (!string.IsNullOrEmpty(response))
             {

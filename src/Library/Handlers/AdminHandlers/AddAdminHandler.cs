@@ -15,9 +15,9 @@ namespace Handlers
             this.contenedor = contenedor;
         }
 
-        protected override bool InternalHandle(IMessage message, out string response)  
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)  
         {
-            if (this.CanHandle(message))
+            if (this.CanHandle(message, ID))
             {
                 if (this.contenedor.Administradores.Contains(message.ID))
                 {
@@ -37,7 +37,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message)
+        protected override bool CanHandle(IMessage message, IMessage ID)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {

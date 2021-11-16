@@ -47,16 +47,20 @@ namespace Handlers
         /// <param name="message">El mensaje a procesar.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
-            if (this.CanHandle(message))
+            if (this.CanHandle(message, ID))
             {
-                string busca = message.Text.Remove(0,7);
-                char[] inicio = {' '};
-                this.impresora = Impresora.Instancia;
-                string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,busca.TrimStart(inicio),this.db));
-                response = $"{OfertasValidas}";
+                if (db.Emprendedores.ContainsKey(ID.ToString()))
+                {
+                    string busca = message.Text.Remove(0,7);
+                    char[] inicio = {' '};
+                    this.impresora = Impresora.Instancia;
+                    string emprend = ID.ToString();
+                    string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(db.Emprendedores[emprend],busca.TrimStart(inicio),this.db));
+                    response = "HOLA";
                 return true;
+                }
             }
             response = string.Empty;
             return false;
