@@ -54,8 +54,8 @@ namespace Handlers
                 string busca = message.Text.Remove(0,7);
                 char[] inicio = {' '};
                 this.impresora = Impresora.Instancia;
-                string coso = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,busca.TrimStart(inicio),this.db));
-                response = $"{coso}";
+                string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,busca.TrimStart(inicio),this.db));
+                response = $"{OfertasValidas}";
                 return true;
             }
             response = string.Empty;

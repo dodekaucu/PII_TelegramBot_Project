@@ -22,7 +22,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
+        private static string Token = "2141751067:AAGLpHZdn-gNPP2Khdll8MABqdXWf8P6Z4E";
 
         private static IHandler firstHandler;
 
@@ -43,8 +43,8 @@ namespace Ucu.Poo.TelegramBot
             Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
             Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San Bautista", "Ruta 6", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
-            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San Bautista", "Ruta 6", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
             uno.AddHabilitacion(msp);
             emprendedor.AddHabilitacion(msp);
             db.AddOferta(uno);
@@ -66,7 +66,8 @@ namespace Ucu.Poo.TelegramBot
                 new StartHandler(
                 new AddAdminHandler(
                 new HistorialUsuarioHandler(
-                new HelpHandler(null),db),db),db),db)
+                new BuscarClasificHandler(
+                new HelpHandler(null),buscador, emprendedor, db),db),db),db),db)
                 ,buscador, emprendedor, db), buscador, emprendedor, db)
                 ));
 

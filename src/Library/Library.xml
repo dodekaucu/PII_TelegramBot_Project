@@ -760,6 +760,44 @@
             estado inicial.
             </summary>
         </member>
+        <member name="T:Handlers.BuscarClasificHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarClasificHandler.emprendedor">
+            <summary>
+            El usuario que busca ofertas.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarClasificHandler.db">
+            <summary>
+            base de datos.
+            </summary>
+        </member>
+        <member name="F:Handlers.BuscarClasificHandler.buscador">
+            <summary>
+            Buscador de ofertas.
+            </summary>
+        </member>
+        <member name="M:Handlers.BuscarClasificHandler.#ctor(Handlers.BaseHandler,Library.Busqueda,Library.Emprendedor,Library.Contenedor)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.BuscarHandler"/>. Esta clase procesa el mensaje "chau"
+            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
+            </summary>
+            <param name="next">El próximo "handler".</param>
+            <param name="emprendedor">El emprendedor.</param>
+            <param name="db">El contenedor de datos.</param>
+            <param name="buscador">El buscador.</param>
+        </member>
+        <member name="M:Handlers.BuscarClasificHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Handlers.BuscarHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
@@ -870,6 +908,25 @@
         <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.HelpHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/ayuda".
+            </summary>
+        </member>
+        <member name="M:Handlers.HelpHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.HelpHandler"/>. Esta clase procesa el comando "/ayuda".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.HelpHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/ayuda" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
