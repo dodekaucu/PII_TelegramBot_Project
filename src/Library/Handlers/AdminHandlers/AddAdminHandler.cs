@@ -8,21 +8,20 @@ namespace Handlers
     public class AddAdminHandler : BaseHandler
     {
         private Contenedor contenedor;
-        public AddAdminHandler(BaseHandler next, Contenedor contenedor) : base(next)
+        public AddAdminHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/AñadirAdmin" };
-
-            this.contenedor = contenedor;
         }
 
-        protected override bool InternalHandle(IMessage message, out string response)  
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)  
         {
-            if (this.CanHandle(message))
+            Contenedor db = Contenedor.Instancia;
+            if (this.CanHandle(message, ID))
             {
-                if (this.contenedor.Administradores.Contains(message.ID))
+                if (db.Administradores.Contains(message.ID.ToString()))
                 {
                     string newAdmin = message.Text.Replace("/AñadirAdmin ","").Trim();
-                    this.contenedor.AddAdministrador(newAdmin); 
+                    db.AddAdministrador(newAdmin); 
                     response = "Se ha asignado como admin al usuario con ID: " + newAdmin;
                     return true;
                 }
@@ -37,7 +36,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message)
+        protected override bool CanHandle(IMessage message, IMessage ID)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {

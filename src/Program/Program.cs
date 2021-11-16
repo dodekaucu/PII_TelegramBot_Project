@@ -54,9 +54,10 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.ID = "1454175798";
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            db.AddEmprendedor(emprendedor);
+            db.AddEmprendedor("1599425094",emprendedor);
+            Console.WriteLine(db.Emprendedores["1599425094"]);
 
-
+            
             firstHandler =
                 new HelloHandler(
                 new GoodByeHandler(
@@ -67,9 +68,8 @@ namespace Ucu.Poo.TelegramBot
                 new AddAdminHandler(
                 new HistorialUsuarioHandler(
                 new BuscarClasificHandler(
-                new HelpHandler(null),buscador, emprendedor, db),db),db),db),db)
-                ,buscador, emprendedor, db), buscador, emprendedor, db)
-                ));
+                new HelpHandler(null)
+                )))))))));
 
             var cts = new CancellationTokenSource();
 
@@ -125,7 +125,7 @@ namespace Ucu.Poo.TelegramBot
 
             string response = string.Empty;
 
-            firstHandler.Handle(new TelegramMSGadapter(message), out response);
+            firstHandler.Handle(new TelegramMSGadapter(message), new TelegramMSGadapter(message), out response);
 
             if (!string.IsNullOrEmpty(response))
             {

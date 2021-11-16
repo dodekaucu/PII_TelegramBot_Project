@@ -160,8 +160,8 @@ namespace Library
             Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
-            { //, StringComparison.OrdinalIgnoreCase
-                if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre))
+            {
+                if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre, StringComparison.OrdinalIgnoreCase))
                 {
                     if (oferta.Habilitaciones.Count >= 1)
                     {

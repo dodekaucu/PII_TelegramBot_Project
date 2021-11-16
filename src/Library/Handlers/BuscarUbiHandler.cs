@@ -30,34 +30,40 @@ namespace Handlers
         /// y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        /// <param name="emprendedor">El emprendedor.</param>
-        /// <param name="db">El contenedor de datos.</param>
-        /// <param name="buscador">El buscador.</param>
-        public BuscarUbiHandler(BaseHandler next, Busqueda buscador, Emprendedor emprendedor, Contenedor db) : base(next)
+        public BuscarUbiHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/BUbicacion" };
-            this.emprendedor = emprendedor;
-            this.db = db;
-            this.buscador = buscador;
         }
 
         /// <summary>
         /// Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El Id del usuario.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
-            if (this.CanHandle(message))
+            Contenedor db = Contenedor.Instancia;
+            Busqueda buscador = Busqueda.Instancia;
+            Impresora impresora = Impresora.Instancia;
+            if (this.CanHandle(message, ID))
             {
-                string busca = message.Text.Remove(0,11);
-                string[] ubicacion = busca.Split(',');
-                this.impresora = Impresora.Instancia;
-                Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
-                string OfertasValidas = impresora.Imprimir(this.buscador.BuscarOferta(this.emprendedor,ubicacionbuscar,this.db));
-                response = $"{OfertasValidas}";
-                return true;
+                if (db.Emprendedores.ContainsKey(message.ID.ToString()))
+                {
+                    string busca = message.Text.Remove(0,11);
+                    string[] ubicacion = busca.Split(',');
+                    string emprend = message.ID.ToString();
+                    Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
+                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],ubicacionbuscar,db));
+                    response = $"{OfertasValidas}";
+                    return true;
+                }
+                else
+                {
+                    response = "No estas registrado como emprendedor";
+                    return false;
+                }
             }
             response = string.Empty;
             return false;

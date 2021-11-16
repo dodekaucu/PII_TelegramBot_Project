@@ -9,7 +9,7 @@ namespace Handlers
     public class TelegramMSGadapter : IMessage
     {
         private Message message;
-        private string id;
+        private int id;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="TelegramMSGadapter"/>.
@@ -18,6 +18,7 @@ namespace Handlers
         public TelegramMSGadapter(Message message)
         {
             this.message = message;
+            this.id = message.From.Id;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Handlers
         {
             get
             {
-                return this.message.Chat.Id.ToString();
+                return this.id.ToString();
             }
         }
         

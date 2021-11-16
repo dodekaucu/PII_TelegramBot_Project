@@ -17,12 +17,10 @@ namespace Handlers
         /// Inicializa una instancia de la clase <see cref="StartHandler"/>. Esta clase procesa el mensaje "/start".
         /// </summary>
         /// <param name="next">el proximo handler.</param>
-        /// <param name="contenedor">el contenedor que contiene todas las instancias del programa.</param>
         /// <returns></returns>
-        public StartHandler(BaseHandler next, Contenedor contenedor) : base(next)
+        public StartHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/start" };
-            this.contenedor = contenedor;
         }
 
         /// <summary>
@@ -30,18 +28,20 @@ namespace Handlers
         /// retorna true; retorna false en caso de que no se pueda procesar el mensaje.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
-            if (this.CanHandle(message))
+            Contenedor db = Contenedor.Instancia;
+            if (this.CanHandle(message, ID))
             {
-                if (this.contenedor.Invitados.Contains(message.ID))  // ver como referenciar a la clase contenedor
+                if (db.Invitados.Contains(message.ID.ToString()))  // ver como referenciar a la clase contenedor
                 {
                     response = "Usted se encuentra en la lista de empresas invitadas, se procedera con el registro";
                     return true;
                 }
-                else if (this.contenedor.Administradores.Contains(message.ID))
+                else if (db.Administradores.Contains(message.ID.ToString()))
                 {
                     response = "sos admin";
                     return true;
@@ -58,7 +58,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message)
+        protected override bool CanHandle(IMessage message, IMessage ID)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {
