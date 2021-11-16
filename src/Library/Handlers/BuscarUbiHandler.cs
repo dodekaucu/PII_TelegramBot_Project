@@ -62,7 +62,7 @@ namespace Handlers
                 else
                 {
                     response = "No estas registrado como emprendedor";
-                    return false;
+                    return true;
                 }
             }
             response = string.Empty;
