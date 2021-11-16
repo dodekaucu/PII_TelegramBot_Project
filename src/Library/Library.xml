@@ -661,6 +661,7 @@
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -682,6 +683,7 @@
             retorna true; retorna false en caso de que no se pueda procesar el mensaje.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -725,6 +727,7 @@
             true o no lo procesa y retorna false.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="responder">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario</returns>
         </member>
@@ -742,6 +745,7 @@
             un mensaje.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         </member>
         <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,Handlers.IMessage,System.String@)">
@@ -749,6 +753,7 @@
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
         </member>
@@ -884,6 +889,7 @@
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -903,6 +909,7 @@
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envia el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -922,6 +929,7 @@
             Procesa el comando "/ayuda" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envia el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -949,6 +957,7 @@
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
             <param name="message">El mensaje a procesar.</param>
+            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
         </member>

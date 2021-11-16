@@ -10,7 +10,7 @@ namespace Handlers
         private Contenedor contenedor;
         public AddAdminHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/AñadirAdmin" };
+            this.Keywords = new string[] { "/AnadirAdmin" };
         }
 
         protected override bool InternalHandle(IMessage message, IMessage ID, out string response)  
@@ -20,7 +20,7 @@ namespace Handlers
             {
                 if (db.Administradores.Contains(message.ID.ToString()))
                 {
-                    string newAdmin = message.Text.Replace("/AñadirAdmin ","").Trim();
+                    string newAdmin = message.Text.Replace("/AnadirAdmin ","").Trim();
                     db.AddAdministrador(newAdmin); 
                     response = "Se ha asignado como admin al usuario con ID: " + newAdmin;
                     return true;
