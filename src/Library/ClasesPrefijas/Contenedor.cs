@@ -21,7 +21,9 @@ namespace Library
         private Collection<Rubro> rubros = new Collection<Rubro>();
         private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
         private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
-        private Dictionary<string,Usuario> usuarios = new Dictionary<string, Usuario>();
+        private Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
+
+        private Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
 
         private Collection<string> administradores = new Collection<string>() { "1454175798" };
 
@@ -100,14 +102,21 @@ namespace Library
         /// Obtiene un valor con la lista de los Emprendedores.
         /// </summary>
         /// <value>this.emprendedores.</value>
-        public Dictionary<string,Usuario> Usuarios
+        public Dictionary<string,Emprendedor> Emprendedores
         {
             get
             {
-                return this.usuarios;
+                return this.emprendedores;
             }
         }
 
+        public Dictionary<string,Empresa> Empresas
+        {
+            get
+            {
+                return this.empresas;
+            }
+        }
         public Collection<string> Invitados
         {
             get
@@ -196,14 +205,24 @@ namespace Library
             this.ofertas.Remove(oferta);
         }
 
-        public void AddUsuario(string ID, Usuario usuario)
+        public void AddEmprendedor(string ID, Emprendedor emprendedor)
         {
-            this.usuarios.Add(ID,usuario);
+            this.emprendedores.Add(ID,emprendedor);
         }
 
-        public void RemoveUsuario(string ID)
+        public void RemoveEmprendedor(string ID)
         {
-            this.usuarios.Remove(ID);
+            this.emprendedores.Remove(ID);
+        }
+
+        public void AddEmpresa(string ID, Empresa empresa)
+        {
+            this.empresas.Add(ID,empresa);
+        }
+
+        public void RemoveEmmpresa(string ID)
+        {
+            this.empresas.Remove(ID);
         }
 
         public void AddInvitado(string ID)
