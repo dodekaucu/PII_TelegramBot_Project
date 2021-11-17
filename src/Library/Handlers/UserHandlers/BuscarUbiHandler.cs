@@ -51,12 +51,20 @@ namespace Handlers
                 if (db.Emprendedores.ContainsKey(message.ID))
                 {
                     string busca = message.Text.Remove(0,11);
+                    if (busca.Length < 0)
+                    {
+                        response = "No se ha ingresado ningun criterio de busqueda. Use /bubicacion \"Ciudad, Calle\"";
+                        return true;
+                    }
+                    else
+                    {
                     string[] ubicacion = busca.Split(',');
                     string emprend = message.ID.ToString();
                     Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
                     string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],ubicacionbuscar,db));
                     response = $"{OfertasValidas}";
                     return true;
+                    }
                 }
                 else
                 {

@@ -45,6 +45,7 @@ namespace Ucu.Poo.TelegramBot
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
             Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
             Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            db.AddClasificacion(madera);
             uno.AddHabilitacion(msp);
             emprendedor.AddHabilitacion(msp);
             db.AddOferta(uno);

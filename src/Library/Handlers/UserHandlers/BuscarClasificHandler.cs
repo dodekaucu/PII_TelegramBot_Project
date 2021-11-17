@@ -39,7 +39,6 @@ namespace Handlers
         /// Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El ID del usuario que envió el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override bool InternalHandle(IMessage message, out string response)
@@ -52,11 +51,25 @@ namespace Handlers
                 if (db.Emprendedores.ContainsKey(message.ID))
                 {
                     string busca = message.Text.Remove(0,15);
-                    Clasificacion buscarclas = new Clasificacion(busca.Trim(),"Descripción");
-                    string emprend = message.ID.ToString();
-                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],buscarclas,db));
-                    response = $"{OfertasValidas}";
-                    return true;
+                    busca = busca.Trim();
+                    if (busca.Length <= 0)
+                    {
+                        response = "No se ha ingresado ningun criterio de busqueda. Use /bclasificacion \"Clasificacion\"";
+                        return true;
+                    }
+                    else
+                    {
+                    foreach (Clasificacion clasificacion in db.Clasificaciones)
+                    {
+                        if (clasificacion.Nombre.Equals(busca, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            string emprend = message.ID.ToString();
+                            string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],clasificacion,db));
+                            response = $"{OfertasValidas}";
+                            return true;
+                        }
+                    }
+                    }
                 }
                 else
                 {

@@ -88,6 +88,23 @@
             </summary>
             <value>this.emprendedores.</value>
         </member>
+        <member name="P:Library.Contenedor.Empresas">
+            <summary>
+            Obtiene el diccionario de Empresas registradas.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Contenedor.Invitados">
+            <summary>
+            Obtiene la lista de usuarios invitados.
+            </summary>
+        </member>
+        <member name="P:Library.Contenedor.Administradores">
+            <summary>
+            Obtiene la lista de administradores.
+            </summary>
+            <value></value>
+        </member>
         <member name="M:Library.Contenedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
             Añiade una habilitacion a la lista de habilitaciones.
@@ -135,6 +152,45 @@
             Remueve una oferta de la lista de ofertas.
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
+        </member>
+        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
+            <summary>
+            Añade un emprendedor al diccionario de emprendedores.
+            Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+            <param name="emprendedor">Instancia de clase emprendedor.</param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveEmprendedor(System.String)">
+            <summary>
+            Remueve un emprendedor del diccionario de emprendedores.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
+            <summary>
+            Agrega una empresa al diccioanrio de empresas.
+            </summary>
+            <param name="ID">ID del usuario</param>
+            <param name="empresa">Instancia de la clase empresa.</param>
+        </member>
+        <member name="M:Library.Contenedor.RemoveEmmpresa(System.String)">
+            <summary>
+            Remueve una empresa del diccionario de empresas.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.Contenedor.AddInvitado(System.String)">
+            <summary>
+            Agrega a un usuario a la lista de invitados.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.Contenedor.AddAdministrador(System.String)">
+            <summary>
+            Agrega a un administrador a la lista de admins.
+            </summary>
+            <param name="ID">ID del usuario.</param>
         </member>
         <member name="T:Library.Habilitacion">
             <summary>
@@ -621,17 +677,52 @@
             <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
             <returns>una lista de ofertas llamada resultado.</returns>
         </member>
+        <member name="T:Handlers.IMessage">
+            <summary>
+            Interfaz de mensajes.
+            </summary>
+        </member>
+        <member name="P:Handlers.IMessage.ID">
+            <summary>
+            Id del usuario.
+            </summary>
+        </member>
+        <member name="P:Handlers.IMessage.Text">
+            <summary>
+            Mensaje.
+            </summary>
+        </member>
+        <member name="T:Handlers.TelegramMSGadapter">
+            <summary>
+            Adaptador de mensajes de Telegram a mensajes de la interfaz de usuario.
+            </summary>
+        </member>
+        <member name="M:Handlers.TelegramMSGadapter.#ctor(Telegram.Bot.Types.Message)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.TelegramMSGadapter"/>.
+            </summary>
+            <param name="message">mensaje recibido.</param>
+        </member>
+        <member name="P:Handlers.TelegramMSGadapter.Text">
+            <summary>
+            Mensaje recibido.
+            </summary>
+        </member>
+        <member name="P:Handlers.TelegramMSGadapter.ID">
+            <summary>
+            Identificador del usuario que envió el mensaje.
+            </summary>
+        </member>
         <member name="T:Handlers.AdminInvitationHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
             </summary>
         </member>
-        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -647,7 +738,7 @@
             <param name="next">el proximo handler.</param>
             <returns></returns>
         </member>
-        <member name="M:Handlers.StartHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.StartHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "/start" y evalua si el usuario que envia el mensaje esta  
             retorna true; retorna false en caso de que no se pueda procesar el mensaje.
@@ -691,13 +782,12 @@
             <param name="keywords">La lista de comandos.</param>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.BaseHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BaseHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y retorna
             true o no lo procesa y retorna false.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="responder">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario</returns>
         </member>
@@ -707,7 +797,7 @@
             entre mensajes deben sobreescribir este método para volver al estado inicial. En la clase base no hace nada.
             </summary>
         </member>
-        <member name="M:Handlers.BaseHandler.CanHandle(Handlers.IMessage,Handlers.IMessage)">
+        <member name="M:Handlers.BaseHandler.CanHandle(Handlers.IMessage)">
             <summary>
             Determina si este "handler" puede procesar el mensaje. En la clase base se utiliza el array
             <see cref="P:Handlers.BaseHandler.Keywords"/> para buscar el texto en el mensaje ignorando mayúsculas y minúsculas. Las
@@ -715,10 +805,9 @@
             un mensaje.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
         </member>
-        <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BaseHandler.Handle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
@@ -733,6 +822,63 @@
             procesan varios mensajes cambiando de estado entre mensajes deben sobreescribir este método para volver al
             estado inicial.
             </summary>
+        </member>
+        <member name="T:Handlers.IHandler">
+            <summary>
+            Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
+            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
+            pasa al siguiente. Esta interfaz define un atributo para definir el próximo "handler" y una una operación para
+            recibir el mensaje y pasarlo al siguiente "handler" en caso que el mensaje no sea procesado. La responsabilidad de
+            decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz.
+            <remarks>
+            La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de
+            responsabilidad, que pueden ser concretos, no dependan de una clase "handler" que potencialmente es abstracta.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Handlers.IHandler.Next">
+            <summary>
+            Obtiene el próximo "handler".
+            </summary>
+            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
+        </member>
+        <member name="M:Handlers.IHandler.Handle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje o la pasa al siguiente "handler" si existe.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
+        </member>
+        <member name="M:Handlers.IHandler.Cancel">
+            <summary>
+            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
+            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
+            caso de error por ejemplo.
+            </summary>
+        </member>
+        <member name="T:Handlers.Impresora">
+            <summary>
+            Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+            </summary>
+        </member>
+        <member name="F:Handlers.Impresora.texto">
+            <summary>
+            Texto que se va a imprimir.
+            </summary>
+        </member>
+        <member name="P:Handlers.Impresora.Instancia">
+            <summary>
+            Obtiene una instancia de la clase impresora y si no existe una, crea una nueva.
+            </summary>
+            <value>una instancia de impresora.</value>
+        </member>
+        <member name="M:Handlers.Impresora.Imprimir(System.Collections.ObjectModel.Collection{Library.OfertaBase})">
+            <summary>
+            Funcion que recibe la lista de ofertas para imprimir.
+            </summary>
+            <param name="lista">lista buscada.</param>
+            <returns></returns>
         </member>
         <member name="T:Handlers.BuscarClasificHandler">
             <summary>
@@ -761,7 +907,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.BuscarClasificHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarClasificHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
@@ -797,12 +943,11 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.BuscarHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -833,12 +978,11 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.BuscarUbiHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.BuscarUbiHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El Id del usuario.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -854,12 +998,11 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.GoodByeHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.GoodByeHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -874,7 +1017,7 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.HelloHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
@@ -894,108 +1037,13 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.HelpHandler.InternalHandle(Handlers.IMessage,Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.HelpHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el comando "/ayuda" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envia el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        </member>
-        <member name="T:Handlers.IHandler">
-            <summary>
-            Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a través de una
-            cadena de "handlers" que pueden procesar o no el mensaje. Cada "handler" decide si procesa el mensaje, o si se lo
-            pasa al siguiente. Esta interfaz define un atributo para definir el próximo "handler" y una una operación para
-            recibir el mensaje y pasarlo al siguiente "handler" en caso que el mensaje no sea procesado. La responsabilidad de
-            decidir si el mensaje se procesa o no, y de procesarlo, se realiza en las clases que implementan esta interfaz.
-            <remarks>
-            La interfaz se crea en función del principio de inversión de dependencias, para que los clientes de la cadena de
-            responsabilidad, que pueden ser concretos, no dependan de una clase "handler" que potencialmente es abstracta.
-            </remarks>
-            </summary>
-        </member>
-        <member name="P:Handlers.IHandler.Next">
-            <summary>
-            Obtiene el próximo "handler".
-            </summary>
-            <value>El "handler" que será invocado si este "handler" no procesa el mensaje.</value>
-        </member>
-        <member name="M:Handlers.IHandler.Handle(Handlers.IMessage,Handlers.IMessage,System.String@)">
-            <summary>
-            Procesa el mensaje o la pasa al siguiente "handler" si existe.
-            </summary>
-            <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
-            <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        </member>
-        <member name="M:Handlers.IHandler.Cancel">
-            <summary>
-            Retorna este "handler" al estado inicial y cancela el próximo "handler" si existe. Es utilizado para que los
-            "handlers" que procesan varios mensajes cambiando de estado entre mensajes puedan volver al estado inicial en
-            caso de error por ejemplo.
-            </summary>
-        </member>
-        <member name="T:Handlers.IMessage">
-            <summary>
-            Interfaz de mensajes.
-            </summary>
-        </member>
-        <member name="P:Handlers.IMessage.ID">
-            <summary>
-            Id del usuario.
-            </summary>
-        </member>
-        <member name="P:Handlers.IMessage.Text">
-            <summary>
-            Mensaje.
-            </summary>
-        </member>
-        <member name="T:Handlers.Impresora">
-            <summary>
-            Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
-            </summary>
-        </member>
-        <member name="F:Handlers.Impresora.texto">
-            <summary>
-            Texto que se va a imprimir.
-            </summary>
-        </member>
-        <member name="P:Handlers.Impresora.Instancia">
-            <summary>
-            Obtiene una instancia de la clase impresora y si no existe una, crea una nueva.
-            </summary>
-            <value>una instancia de impresora.</value>
-        </member>
-        <member name="M:Handlers.Impresora.Imprimir(System.Collections.ObjectModel.Collection{Library.OfertaBase})">
-            <summary>
-            Funcion que recibe la lista de ofertas para imprimir.
-            </summary>
-            <param name="lista">lista buscada.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Handlers.TelegramMSGadapter">
-            <summary>
-            Adaptador de mensajes de Telegram a mensajes de la interfaz de usuario.
-            </summary>
-        </member>
-        <member name="M:Handlers.TelegramMSGadapter.#ctor(Telegram.Bot.Types.Message)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Handlers.TelegramMSGadapter"/>.
-            </summary>
-            <param name="message">mensaje recibido.</param>
-        </member>
-        <member name="P:Handlers.TelegramMSGadapter.Text">
-            <summary>
-            Mensaje recibido.
-            </summary>
-        </member>
-        <member name="P:Handlers.TelegramMSGadapter.ID">
-            <summary>
-            Identificador del usuario que envió el mensaje.
-            </summary>
         </member>
     </members>
 </doc>
