@@ -125,7 +125,7 @@ namespace Ucu.Poo.TelegramBot
 
             string response = string.Empty;
 
-            firstHandler.Handle(new TelegramMSGadapter(message), new TelegramMSGadapter(message), out response);
+            firstHandler.Handle(new TelegramMSGadapter(message), out response);
 
             if (!string.IsNullOrEmpty(response))
             {

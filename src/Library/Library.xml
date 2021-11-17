@@ -88,12 +88,6 @@
             </summary>
             <value>this.emprendedores.</value>
         </member>
-        <member name="P:Library.Contenedor.Empresas">
-            <summary>
-            Obtiene un valro con la lsita de las Empresas.
-            </summary>
-            <value>this.empresas.</value>
-        </member>
         <member name="M:Library.Contenedor.AddHabilitacion(Library.Habilitacion)">
             <summary>
             Añiade una habilitacion a la lista de habilitaciones.
@@ -141,30 +135,6 @@
             Remueve una oferta de la lista de ofertas.
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
-        </member>
-        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
-            <summary>
-            Agrega un Emprendedor a la lista de emprendedores.
-            </summary>
-            <param name="emprendedor">parametro oferta recibido por el metodo RemoverOferta.</param>
-        </member>
-        <member name="M:Library.Contenedor.RemoveEmprendedor(System.String)">
-            <summary>
-            Remueve un emprendedor de la lista de emprendedores.
-            </summary>
-            <param name="emprendedor">parametro emprendedor recibido por el metodo RemoverEmprendedor.</param>
-        </member>
-        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
-            <summary>
-            Añiade una empresa a la lista de empresas.
-            </summary>
-            <param name="empresa">parametro empresa recibido por el metodo AgregarEmpresa.</param>
-        </member>
-        <member name="M:Library.Contenedor.RemoveEmpresa(System.String)">
-            <summary>
-            Remueve una empresa de la lista de empresas.
-            </summary>
-            <param name="empresa">parametro empresa recibido por el metodo RemoveEmpresa.</param>
         </member>
         <member name="T:Library.Habilitacion">
             <summary>

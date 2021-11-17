@@ -42,14 +42,14 @@ namespace Handlers
         /// <param name="ID">El ID del usuario que envió el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             Contenedor db = Contenedor.Instancia;
             Busqueda buscador = Busqueda.Instancia;
             Impresora impresora = Impresora.Instancia;
-            if (this.CanHandle(message, ID))
+            if (this.CanHandle(message))
             {
-                if (db.Emprendedores.ContainsKey(message.ID.ToString()))
+                if (db.Emprendedores.ContainsKey(message.ID))
                 {
                     string busca = message.Text.Remove(0,15);
                     Clasificacion buscarclas = new Clasificacion(busca.Trim(),"Descripción");

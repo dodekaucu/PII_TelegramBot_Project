@@ -7,7 +7,7 @@ namespace Handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
     /// </summary>
-    public class BuscarUbiHandler : BaseHandler
+    public class BuscarHandler : BaseHandler
     {
         /// <summary>
         /// El usuario que busca ofertas.
@@ -30,32 +30,29 @@ namespace Handlers
         /// y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public BuscarUbiHandler(BaseHandler next) : base(next)
+        public BuscarHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/BUbicacion" };
+            this.Keywords = new string[] { "/buscar" };
         }
 
         /// <summary>
         /// Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El Id del usuario.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             Contenedor db = Contenedor.Instancia;
             Busqueda buscador = Busqueda.Instancia;
             Impresora impresora = Impresora.Instancia;
-            if (this.CanHandle(message, ID))
+            if (this.CanHandle(message))
             {
-                if (db.Emprendedores.ContainsKey(message.ID.ToString()))
+                if (db.Emprendedores.ContainsKey(message.ID))
                 {
-                    string busca = message.Text.Remove(0,11);
-                    string[] ubicacion = busca.Split(',');
+                    string busca = message.Text.Remove(0,7);
                     string emprend = message.ID.ToString();
-                    Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
-                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],ubicacionbuscar,db));
+                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca.Trim(),db));
                     response = $"{OfertasValidas}";
                     return true;
                 }
