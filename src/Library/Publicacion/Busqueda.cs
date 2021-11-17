@@ -55,6 +55,7 @@ namespace Library
         {
             Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
             bool valido = true;
+            mensaje = mensaje.ToLower();
             foreach (Oferta oferta in basededatos.Ofertas)
             {
                 if (oferta.PalabrasClaves.Contains(mensaje))
@@ -103,9 +104,9 @@ namespace Library
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (String.Equals(oferta.Ubicacion.Ciudad, ubicacion.Ciudad))
+                if (String.Equals(oferta.Ubicacion.Ciudad, ubicacion.Ciudad, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (String.Equals(oferta.Ubicacion.Calle, ubicacion.Calle))
+                    if (String.Equals(oferta.Ubicacion.Calle, ubicacion.Calle, StringComparison.OrdinalIgnoreCase))
                     {
                         if (oferta.Habilitaciones.Count >= 1)
                         {
@@ -160,7 +161,7 @@ namespace Library
             bool valido = true;
             foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre))
+                if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre, StringComparison.OrdinalIgnoreCase))
                 {
                     if (oferta.Habilitaciones.Count >= 1)
                     {

@@ -7,7 +7,7 @@ namespace Handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
     /// </summary>
-    public class BuscarUbiHandler : BaseHandler
+    public class BuscarClasificHandler : BaseHandler
     {
         /// <summary>
         /// El usuario que busca ofertas.
@@ -30,16 +30,16 @@ namespace Handlers
         /// y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public BuscarUbiHandler(BaseHandler next) : base(next)
+        public BuscarClasificHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] { "/BUbicacion" };
+            this.Keywords = new string[] { "/BClasificacion" };
         }
 
         /// <summary>
         /// Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El Id del usuario.</param>
+        /// <param name="ID">El ID del usuario que envió el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
@@ -51,17 +51,16 @@ namespace Handlers
             {
                 if (db.Emprendedores.ContainsKey(message.ID.ToString()))
                 {
-                    string busca = message.Text.Remove(0,11);
-                    string[] ubicacion = busca.Split(',');
+                    string busca = message.Text.Remove(0,15);
+                    Clasificacion buscarclas = new Clasificacion(busca.Trim(),"Descripción");
                     string emprend = message.ID.ToString();
-                    Ubicacion ubicacionbuscar = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
-                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],ubicacionbuscar,db));
+                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],buscarclas,db));
                     response = $"{OfertasValidas}";
                     return true;
                 }
                 else
                 {
-                    response = "No estas registrado como emprendedor";
+                    response = "No estás registrado como emprendedor";
                     return true;
                 }
             }

@@ -19,11 +19,12 @@ namespace Handlers
         /// Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
-            if (this.CanHandle(message))
+            if (this.CanHandle(message, ID))
             {
                 response = "¡Chau! ¡Qué andes bien!";
                 return true;

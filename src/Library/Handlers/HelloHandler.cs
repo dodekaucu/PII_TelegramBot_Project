@@ -20,9 +20,10 @@ namespace Handlers
         /// Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
+        /// <param name="ID">El ID del usuario que envia el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
             if (message.Text.ToLower().Equals("hola"))
             {

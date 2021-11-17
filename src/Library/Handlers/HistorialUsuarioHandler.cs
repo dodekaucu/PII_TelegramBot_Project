@@ -9,23 +9,24 @@ namespace Handlers
     {
         private Impresora impresora;
         private Contenedor contenedor;
-        public HistorialUsuarioHandler(BaseHandler next, Contenedor contenedor) : base(next)
+        public HistorialUsuarioHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/historialDesde" };
-            this.contenedor = contenedor;
         }
-        protected override bool InternalHandle(IMessage message, out string response)
+        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
         {
-            if (this.CanHandle(message))
+            Contenedor db = Contenedor.Instancia;
+            Impresora impresora = Impresora.Instancia;
+            if (this.CanHandle(message, ID))
             {
                 string fecha = message.Text.Replace("/historialDesde ","").Trim();
                 DateTime fechaDesde = DateTime.Parse(fecha);
-                this.impresora= Impresora.Instancia;
                     
                 if(this.contenedor.Usuarios.ContainsKey(message.ID))
                 {
-                    string coso = impresora.Imprimir(this.contenedor.Usuarios[message.ID].BuscarEnRegistro(fechaDesde)); 
-                    response = $"{coso}";
+                    string RegistrosValidos = impresora.Imprimir(this.contenedor.Usuarios[message.ID].BuscarEnRegistro(fechaDesde)); 
+                    response = $"{RegistrosValidos}";
+
                     return true;
                 }
 
@@ -35,7 +36,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message)
+        protected override bool CanHandle(IMessage message, IMessage ID)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {

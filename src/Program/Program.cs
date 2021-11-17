@@ -22,7 +22,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
+        private static string Token = "2084958009:AAEjaP2ycdqowj9CE3oalnHVacK4x_JwO-8";
 
         private static IHandler firstHandler;
 
@@ -43,8 +43,8 @@ namespace Ucu.Poo.TelegramBot
             Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
             Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San Bautista", "Ruta 6", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
-            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San Bautista", "Ruta 6", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
             uno.AddHabilitacion(msp);
             emprendedor.AddHabilitacion(msp);
             db.AddOferta(uno);
@@ -54,9 +54,10 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.ID = "1454175798";
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            db.AddEmprendedor(emprendedor);
+            //Añadir emprendedor (Poner ID de usuario y emprendedor)
+            db.AddEmprendedor("1599425094",emprendedor);
 
-
+            
             firstHandler =
                 new HelloHandler(
                 new GoodByeHandler(
@@ -66,9 +67,9 @@ namespace Ucu.Poo.TelegramBot
                 new StartHandler(
                 new AddAdminHandler(
                 new HistorialUsuarioHandler(
-                new HelpHandler(null),db),db),db),db)
-                ,buscador, emprendedor, db), buscador, emprendedor, db)
-                ));
+                new BuscarClasificHandler(
+                new HelpHandler(null)
+                )))))))));
 
             var cts = new CancellationTokenSource();
 
@@ -124,7 +125,7 @@ namespace Ucu.Poo.TelegramBot
 
             string response = string.Empty;
 
-            firstHandler.Handle(new TelegramMSGadapter(message), out response);
+            firstHandler.Handle(new TelegramMSGadapter(message), new TelegramMSGadapter(message), out response);
 
             if (!string.IsNullOrEmpty(response))
             {
