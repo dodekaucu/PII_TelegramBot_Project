@@ -7,8 +7,6 @@ namespace Handlers
 {
     public class HistorialUsuarioHandler : BaseHandler   // cambiar nombre a historial
     {
-        private Impresora impresora;
-        private Contenedor contenedor;
         public HistorialUsuarioHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/historialDesde" };
@@ -22,9 +20,17 @@ namespace Handlers
                 string fecha = message.Text.Replace("/historialDesde ","").Trim();
                 DateTime fechaDesde = DateTime.Parse(fecha);
                     
-                if(this.contenedor.Usuarios.ContainsKey(message.ID))
+                if(db.Emprendedores.ContainsKey(message.ID))
                 {
-                    string RegistrosValidos = impresora.Imprimir(this.contenedor.Usuarios[message.ID].BuscarEnRegistro(fechaDesde)); 
+                    string RegistrosValidos = impresora.Imprimir(db.Emprendedores[message.ID].BuscarEnRegistro(fechaDesde)); 
+                    response = $"{RegistrosValidos}";
+
+                    return true;
+                }
+
+                else if (db.Empresas.ContainsKey(message.ID))
+                {
+                    string RegistrosValidos = impresora.Imprimir(db.Empresas[message.ID].BuscarEnRegistro(fechaDesde)); 
                     response = $"{RegistrosValidos}";
 
                     return true;
