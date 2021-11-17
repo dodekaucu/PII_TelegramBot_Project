@@ -22,16 +22,11 @@ namespace Handlers
                 string fecha = message.Text.Replace("/historialDesde ","").Trim();
                 DateTime fechaDesde = DateTime.Parse(fecha);
                     
-                if(this.contenedor.Emprendedores.ContainsKey(message.ID.ToString()))
+                if(this.contenedor.Usuarios.ContainsKey(message.ID))
                 {
-                    string RegistrosValidos = impresora.Imprimir(db.Emprendedores[message.ID.ToString()].BuscarEnRegistro(fechaDesde)); 
+                    string RegistrosValidos = impresora.Imprimir(this.contenedor.Usuarios[message.ID].BuscarEnRegistro(fechaDesde)); 
                     response = $"{RegistrosValidos}";
-                    return true;
-                }
-                else if (this.contenedor.Empresas.ContainsKey(message.ID.ToString()))
-                {
-                    string RegistrosValidos = impresora.Imprimir(db.Empresas[message.ID.ToString()].BuscarEnRegistro(fechaDesde)); 
-                    response = $"{RegistrosValidos}";
+
                     return true;
                 }
 
