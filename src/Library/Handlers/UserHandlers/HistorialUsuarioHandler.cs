@@ -7,8 +7,6 @@ namespace Handlers
 {
     public class HistorialUsuarioHandler : BaseHandler   // cambiar nombre a historial
     {
-        private Impresora impresora;
-        private Contenedor contenedor;
         public HistorialUsuarioHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] { "/historialDesde" };

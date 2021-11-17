@@ -125,6 +125,7 @@ namespace Library
         /// <summary>
         /// Obtiene la lista de usuarios invitados.
         /// </summary>
+
         public Collection<string> Invitados
         {
             get
@@ -223,6 +224,7 @@ namespace Library
         /// </summary>
         /// <param name="ID">ID del usuario.</param>
         /// <param name="emprendedor">Instancia de clase emprendedor.</param>
+
         public void AddEmprendedor(string ID, Emprendedor emprendedor)
         {
             this.emprendedores.Add(ID,emprendedor);
@@ -232,6 +234,7 @@ namespace Library
         /// Remueve un emprendedor del diccionario de emprendedores.
         /// </summary>
         /// <param name="ID">ID del usuario.</param>
+
         public void RemoveEmprendedor(string ID)
         {
             this.emprendedores.Remove(ID);
@@ -242,10 +245,12 @@ namespace Library
         /// </summary>
         /// <param name="ID">ID del usuario</param>
         /// <param name="empresa">Instancia de la clase empresa.</param>
+
         public void AddEmpresa(string ID, Empresa empresa)
         {
             this.empresas.Add(ID,empresa);
         }
+
 
         /// <summary>
         /// Remueve una empresa del diccionario de empresas.
