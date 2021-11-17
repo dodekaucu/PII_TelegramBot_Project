@@ -31,10 +31,10 @@ namespace Handlers
         /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
-        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             Contenedor db = Contenedor.Instancia;
-            if (this.CanHandle(message, ID))
+            if (this.CanHandle(message))
             {
                 if (db.Invitados.Contains(message.ID.ToString()))  // ver como referenciar a la clase contenedor
                 {
@@ -58,7 +58,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message, IMessage ID)
+        protected override bool CanHandle(IMessage message)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {

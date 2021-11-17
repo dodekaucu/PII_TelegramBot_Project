@@ -110,6 +110,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Obtiene el diccionario de Empresas registradas.
+        /// </summary>
+        /// <value></value>
         public Dictionary<string,Empresa> Empresas
         {
             get
@@ -117,6 +121,11 @@ namespace Library
                 return this.empresas;
             }
         }
+
+        /// <summary>
+        /// Obtiene la lista de usuarios invitados.
+        /// </summary>
+
         public Collection<string> Invitados
         {
             get
@@ -125,6 +134,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Obtiene la lista de administradores.
+        /// </summary>
+        /// <value></value>
         public Collection<string> Administradores
         {
             get
@@ -205,30 +218,62 @@ namespace Library
             this.ofertas.Remove(oferta);
         }
 
+        /// <summary>
+        /// Añade un emprendedor al diccionario de emprendedores.
+        /// Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
+        /// <param name="emprendedor">Instancia de clase emprendedor.</param>
+
         public void AddEmprendedor(string ID, Emprendedor emprendedor)
         {
             this.emprendedores.Add(ID,emprendedor);
         }
+
+        /// <summary>
+        /// Remueve un emprendedor del diccionario de emprendedores.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
 
         public void RemoveEmprendedor(string ID)
         {
             this.emprendedores.Remove(ID);
         }
 
+        /// <summary>
+        /// Agrega una empresa al diccioanrio de empresas.
+        /// </summary>
+        /// <param name="ID">ID del usuario</param>
+        /// <param name="empresa">Instancia de la clase empresa.</param>
+
         public void AddEmpresa(string ID, Empresa empresa)
         {
             this.empresas.Add(ID,empresa);
         }
 
+
+        /// <summary>
+        /// Remueve una empresa del diccionario de empresas.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
         public void RemoveEmmpresa(string ID)
         {
             this.empresas.Remove(ID);
         }
 
+        /// <summary>
+        /// Agrega a un usuario a la lista de invitados.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
         public void AddInvitado(string ID)
         {
             this.invitados.Add(ID);
         }
+
+        /// <summary>
+        /// Agrega a un administrador a la lista de admins.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
 
         public void AddAdministrador(string ID)
         {
