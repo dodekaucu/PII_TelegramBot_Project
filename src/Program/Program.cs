@@ -55,7 +55,7 @@ namespace Ucu.Poo.TelegramBot
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
-            db.AddEmprendedor("1599425094",emprendedor);
+            db.AddUsuario("1599425094",emprendedor);
 
             
             firstHandler =
