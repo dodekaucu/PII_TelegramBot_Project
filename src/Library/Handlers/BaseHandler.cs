@@ -50,10 +50,9 @@ namespace Handlers
         /// true o no lo procesa y retorna false.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="responder">La respuesta al mensaje procesado.</param>
         /// <returns>true si el mensaje fue procesado; false en caso contrario</returns>
-        protected virtual bool InternalHandle(IMessage message, IMessage ID, out string responder)
+        protected virtual bool InternalHandle(IMessage message, out string responder)
         {
             throw new InvalidOperationException("Este método debe ser sobrescrito");
         }
@@ -74,9 +73,8 @@ namespace Handlers
         /// un mensaje.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <returns>true si el mensaje puede ser pocesado; false en caso contrario.</returns>
-        protected virtual bool CanHandle(IMessage message, IMessage ID)
+        protected virtual bool CanHandle(IMessage message)
         {
             // Cuando no hay palabras clave este método debe ser sobreescrito por las clases sucesoras y por lo tanto
             // este método no debería haberse invocado.
@@ -97,15 +95,15 @@ namespace Handlers
         /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
-        public IHandler Handle(IMessage message, IMessage ID, out string response)
+        public IHandler Handle(IMessage message, out string response)
         {
-            if (this.InternalHandle(message, ID, out response))
+            if (this.InternalHandle(message, out response))
             {
                 return this;
             }
             else if (this.Next != null)
             {
-                return this.Next.Handle(message, ID, out response);
+                return this.Next.Handle(message, out response);
             }
             else
             {

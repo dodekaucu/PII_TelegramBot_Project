@@ -11,11 +11,11 @@ namespace Handlers
         {
             this.Keywords = new string[] { "/historialDesde" };
         }
-        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)
+        protected override bool InternalHandle(IMessage message, out string response)
         {
             Contenedor db = Contenedor.Instancia;
             Impresora impresora = Impresora.Instancia;
-            if (this.CanHandle(message, ID))
+            if (this.CanHandle(message))
             {
                 string fecha = message.Text.Replace("/historialDesde ","").Trim();
                 DateTime fechaDesde = DateTime.Parse(fecha);
@@ -28,21 +28,20 @@ namespace Handlers
                     return true;
                 }
 
-                else if (db.Empresas.ContainsKey(message.ID))
+                else if(db.Empresas.ContainsKey(message.ID))
                 {
                     string RegistrosValidos = impresora.Imprimir(db.Empresas[message.ID].BuscarEnRegistro(fechaDesde)); 
                     response = $"{RegistrosValidos}";
 
                     return true;
                 }
-
             }
 
             response = string.Empty;
             return false;
         }
 
-        protected override bool CanHandle(IMessage message, IMessage ID)
+        protected override bool CanHandle(IMessage message)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {

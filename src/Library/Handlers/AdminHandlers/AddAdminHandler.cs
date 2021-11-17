@@ -13,10 +13,10 @@ namespace Handlers
             this.Keywords = new string[] { "/AnadirAdmin" };
         }
 
-        protected override bool InternalHandle(IMessage message, IMessage ID, out string response)  
+        protected override bool InternalHandle(IMessage message, out string response)  
         {
             Contenedor db = Contenedor.Instancia;
-            if (this.CanHandle(message, ID))
+            if (this.CanHandle(message))
             {
                 if (db.Administradores.Contains(message.ID.ToString()))
                 {
@@ -36,7 +36,7 @@ namespace Handlers
             return false;
         }
 
-        protected override bool CanHandle(IMessage message, IMessage ID)
+        protected override bool CanHandle(IMessage message)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
             {
