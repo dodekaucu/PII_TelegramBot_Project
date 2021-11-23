@@ -204,7 +204,7 @@ namespace Library
         /// Añiade una oferta a la lista de ofertas.
         /// </summary>
         /// <param name="oferta">parametro oferta recibido por el metodo AddOferta.</param>
-        public void AddOferta(Oferta oferta)
+        public void AddOferta(OfertaBase oferta)
         {
             this.ofertas.Add(oferta);
         }
