@@ -247,6 +247,36 @@
             </summary>
             <value>La descripcion del Rubro.</value>
         </member>
+        <member name="T:Library.DatosTemporales">
+            <summary>
+            Datos temporales del usuario.
+            </summary>
+        </member>
+        <member name="P:Library.DatosTemporales.Instancia">
+            <summary>
+            Singleton datos.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.DatosTemporales.DataTemporal">
+            <summary>
+            Data temp.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.DatosTemporales.AddKeyUser(System.String)">
+            <summary>
+            Add key.
+            </summary>
+            <param name="ID"></param>
+        </member>
+        <member name="M:Library.DatosTemporales.AddDato(System.String,System.String)">
+            <summary>
+            Add dato.
+            </summary>
+            <param name="chatId"></param>
+            <param name="dato"></param>
+        </member>
         <member name="T:Library.IChat">
             <summary>
             Interface que representa la firma de los metodos de IChat. Se utiliza una interface, pues la idea
@@ -744,7 +774,6 @@
             retorna true; retorna false en caso de que no se pueda procesar el mensaje.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -812,7 +841,6 @@
             Procesa el mensaje o la pasa al siguiente "handler" si existe.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envía el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
         </member>
@@ -912,7 +940,6 @@
             Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envió el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
@@ -1022,7 +1049,6 @@
             Procesa el mensaje "hola" y retorna true; retorna false en caso contrario.
             </summary>
             <param name="message">El mensaje a procesar.</param>
-            <param name="ID">El ID del usuario que envia el mensaje.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         </member>
