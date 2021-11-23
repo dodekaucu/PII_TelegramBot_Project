@@ -92,7 +92,6 @@ namespace Handlers
         /// Procesa el mensaje o la pasa al siguiente "handler" si existe.
         /// </summary>
         /// <param name="message">El mensaje a procesar.</param>
-        /// <param name="ID">El ID del usuario que envía el mensaje.</param>
         /// <param name="response">La respuesta al mensaje procesado.</param>
         /// <returns>El "handler" que procesó el mensaje si el mensaje fue procesado; null en caso contrario.</returns>
         public IHandler Handle(IMessage message, out string response)
