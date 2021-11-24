@@ -18,16 +18,20 @@ namespace Handlers
             Contenedor db = Contenedor.Instancia;
             DatosTemporales dt = DatosTemporales.Instancia;
             StatusManager sm = StatusManager.Instancia;
+            if(!sm.UserStatusChat.ContainsKey(message.ID))
+            {
+                sm.AddKeyUser(message.ID);
+            }
             if (this.CanHandle(message))
             {
-                if(sm.UserStatusChat.ContainsKey(message.ID))
+                if(sm.UserStatusChat[message.ID]=="AddPalabrasClave")
                 {
                     response= "Actualmente se encuentra el proceso " + sm.UserStatusChat[message.ID]+" activo, porfavor, si desea activar otro comando cancele el actual con /cancel";
                     return true;
                 }
                 if(db.Emprendedores.ContainsKey(message.ID))
                 {
-                    response = "este comando solo puede ser ejecutado por una empresa";
+                    response = "Este comando solo puede ser ejecutado por una empresa";
                 }
                 if(db.Empresas.ContainsKey(message.ID))
                 {
