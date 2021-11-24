@@ -96,11 +96,21 @@ namespace Library
         public Collection<OfertaBase> BuscarEnRegistro(DateTime fechaDesde)
         {
             Collection<OfertaBase> resultado = new Collection<OfertaBase>();
-            foreach (OfertaBase oferta in this.registroUsuario)
+            foreach (Oferta oferta in this.registroUsuario)
             {
-                if (oferta.FechaVenta.Date >= fechaDesde.Date)
+                if (oferta.FechaCompra.FechaCompra.Date >= fechaDesde.Date)
                 {
                     resultado.Add(oferta);
+                }
+            }
+            foreach (OfertaRecurrente oferta in this.registroUsuario)
+            {
+                foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
+                {
+                    if (fecha.FechaCompra.Date >= fechaDesde.Date)
+                        {
+                            resultado.Add(oferta);
+                        }
                 }
             }
 

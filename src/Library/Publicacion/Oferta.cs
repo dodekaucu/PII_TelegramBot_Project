@@ -55,6 +55,14 @@ namespace Library
             }
         }
 
+        public FechaCompraOferta FechaCompra 
+        {
+            get
+            {
+                return this.fechaCompra;
+            }
+        }
+
         public void AddComprador(string id,DateTime fechaventa)
         {
             FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -63,9 +64,25 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.AddToRegister(uno);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
 
-            db.AddEmpresa("1599425094",maderaslr);
+            db.AddEmpresa("1454175798",maderaslr);
 
-
+            Oferta oferta1 = new Oferta("mostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            oferta1.AddComprador("1234",DateTime.Parse("24/11/2021"));
+            db.AddOferta(oferta1);
+            Oferta oferta2 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            oferta1.AddComprador("1234",DateTime.Parse("24/10/2021"));
+            db.AddOferta(oferta2);
+            OfertaRecurrente oferta3 = new OfertaRecurrente ("recurrente",maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000,1);
+            oferta3.AddFechaVenta("1234", DateTime.Parse("23/11/2021"));
+            oferta3.AddFechaVenta("1234", DateTime.Parse("23/10/2021"));
+            maderaslr.AddToRegister(oferta1); 
+            maderaslr.AddToRegister(oferta2); 
+            maderaslr.AddToRegister(oferta3);
+            Collection<OfertaBase> rest = maderaslr.BuscarEnRegistro(DateTime.Parse("01/11/2021"));
+            foreach(OfertaBase ofertaz in rest )
+            {
+                Console.WriteLine(ofertaz.Nombreoferta);
+            }
             
             firstHandler =
                 new HelloHandler(
@@ -81,8 +98,9 @@ namespace Ucu.Poo.TelegramBot
                 new AddPalabraClaveHandler(
                 new Registro(
                 new AddHabilitacionHandler(
-                new PublicarOfertaHandler(null)
-                )))))))))))));
+                new PublicarOfertaHandler(
+                new HistorialUsuarioHandler(null)
+                ))))))))))))));
 
             var cts = new CancellationTokenSource();
 
