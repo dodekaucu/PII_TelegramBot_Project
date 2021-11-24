@@ -229,6 +229,11 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddHabilitacion".
             </summary>
         </member>
+        <member name="T:Handlers.AddPalabraClaveHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddHabilitacion".
+            </summary>
+        </member>
         <member name="T:Handlers.BuscarClasificHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".

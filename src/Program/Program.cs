@@ -22,7 +22,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
+        private static string Token = "2084958009:AAE1hEAd8wvW6BOk12II8kc5vNcbKotjNeU";
 
         private static IHandler firstHandler;
 

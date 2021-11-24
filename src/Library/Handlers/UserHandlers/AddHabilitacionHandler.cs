@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System;
 using Library;
 
 namespace Handlers
@@ -22,6 +23,12 @@ namespace Handlers
             {
                 if (db.Emprendedores.ContainsKey(message.ID))
                 {
+                    response = "funciona";
+                    return true;
+                    /*
+                    sm.AddKeyUser(message.ID);
+                    sm.AddUserStatus(message.ID,"/AddHabilitacion");
+                    dt.AddKeyUser(message.ID);
                     string opciones ="";
                     int i=0;
                     // revisar como hacer esta mierda !!!
@@ -35,14 +42,12 @@ namespace Handlers
                             i++;
                         }
                     }
-                    response = "seleccione su habilitacion (escriba el número correspondiente)\n"+opciones;
-                    sm.AddKeyUser(message.ID);
-                    sm.AddUserStatus(message.ID,"/AddHabilitacion");
-                    dt.AddKeyUser(message.ID);
-                    //dt.DataTemporal()*/
+                    response = "Seleccione su habilitacion (escriba el número correspondiente)\n"+ opciones;
                     return true;
+                    */
                 }
-                if(db.Empresas.ContainsKey(message.ID))
+                /*
+                else if(db.Empresas.ContainsKey(message.ID))
                 {
                     //AÑADIR UNA HABILITACION A LA OFERTA
                     string opciones ="";
@@ -57,26 +62,27 @@ namespace Handlers
                         }
                     }
                     response = "Seleccione la oferta ha añadir una habilitacion";
-                    sm.AddKeyUser(message.ID);
                     sm.AddUserStatus(message.ID,"/AddHabilitacion");
                     return true;
                 }
-                if(sm.UserStatusChat.ContainsKey(message.ID))
+                else if(sm.UserStatusChat.ContainsKey(message.ID))
                 {
                     response = "Actualmente se encuentra el proceso " + sm.UserStatusChat[message.ID]+" activo, porfavor, si desea activar otro comando cancele el actual con /cancel";
                     return true;
                 }
+                */
                 else
                 {
                     response = "Usted no se encuentra registrado en la plataforma";
                     return true;
                 }
             }
-            if(sm.UserStatusChat[message.ID]=="/AddHabilitacion" && dt.DataTemporal[message.ID].Count==0)
+            /*
+            else if(sm.UserStatusChat[message.ID]=="/AddHabilitacion" && dt.DataTemporal[message.ID].Count==0)
             {
                 
             }
-
+            */
             response = string.Empty;
             return false;
         }
