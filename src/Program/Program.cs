@@ -34,12 +34,13 @@ namespace Ucu.Poo.TelegramBot
             Bot = new TelegramBotClient(Token);
             
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
-            Habilitacion testHabilitacion = new Habilitacion("UNIT", "9001");
+            Habilitacion unit = new Habilitacion("UNIT", "9001");
             Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
             Contenedor db = Contenedor.Instancia;
             Busqueda buscador = Busqueda.Instancia;
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
+            Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
             Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
             Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
@@ -47,10 +48,12 @@ namespace Ucu.Poo.TelegramBot
             Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
             db.AddClasificacion(madera);
             uno.AddHabilitacion(msp);
+            db.AddHabilitacion(unit);
             emprendedor.AddHabilitacion(msp);
             //db.AddOferta(uno);
             //db.AddOferta(dos);
             db.AddRubro(rubro);
+            db.AddRubro(rubro2);
             db.AddHabilitacion(msp);
             
 
@@ -60,7 +63,7 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.AddToRegister(uno);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
 
-            //db.AddEmprendedor("1599425094",emprendedor);
+            db.AddEmpresa("1599425094",maderaslr);
 
 
             

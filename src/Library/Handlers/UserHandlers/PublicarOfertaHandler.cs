@@ -17,6 +17,10 @@ namespace Handlers
             Contenedor db = Contenedor.Instancia;
             StatusManager sm = StatusManager.Instancia;
             DatosTemporales dt = DatosTemporales.Instancia;
+            if(!sm.UserStatusChat.ContainsKey(message.ID))
+            {
+                sm.AddKeyUser(message.ID);
+            }
             if (this.CanHandle(message))
             {
                 if (!db.Empresas.ContainsKey(message.ID))
@@ -26,127 +30,126 @@ namespace Handlers
                 }
                 else  
                 {
-                    if(sm.UserStatusChat.ContainsKey(message.ID))
+                    if(sm.UserStatusChat[message.ID]=="PublicarOferta")
                     {
                         response = "Ya hay un proceso activo, por favor termine el proceso actual o cancelelo con /cancel";
                         return true;
                     }
-                    response = "se procedera con la publicacion, primero indique el tipo de oferta que desea crear:\n1-Oferta normal\n2-OfertaRecurrente";
-                    sm.AddKeyUser(message.ID);
-                    sm.AddUserStatus(message.ID,"/PublicarOferta");
+                    response = "Se procedera con la publicacion, primero indique el tipo de oferta que desea crear:\n1 - Oferta Única \n2 - Oferta Recurrente";
+                    sm.AddUserStatus(message.ID,"PublicarOferta");
                     dt.AddKeyUser(message.ID);
                     return true;           
                 }
                 
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count==0)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count==0)
             {
                 switch(message.Text)
                 {
                     case "1":
-                    response ="Usted eliguio crear una Oferta normal, ahora ingrese el nombre de la oferta";
+                    response ="Usted eligió crear una Oferta Única"+"\n \n"+"Ingrese el nombre de la oferta:";
                     dt.AddDato(message.ID,message.Text);
                     return true;
 
                     case "2":
-                    response="Usted eliguio crear una Oferta Recurrente, ahora ingrese el nombre de la oferta";
+                    response="Usted eligió crear una Oferta Recurrente"+"\n \n"+"Ingrese el nombre de la oferta";
                     dt.AddDato(message.ID,message.Text);
                     return true;
 
                     default:
-                    response ="No ha ingresado una opcion correcta, por favor digite (1 o 2) nuevamente";
+                    response ="No ha ingresado una opcion correcta, por favor ingrese 1 o 2";
                     return true;
                 }
             }
 
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==1)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==1)
             {
                 dt.AddDato(message.ID,message.Text);
-                response= "el nombre de la oferta es: "+message.Text+", Ahora ingrese la ciudad donde se encuentra la oferta: ";
+                response= "El nombre de la oferta es: "+message.Text+"\n \n" +"Ingrese la ciudad donde se encuentra la oferta:";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==2)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==2)
             {
                 dt.AddDato(message.ID,message.Text);
-                response= "la ciudad de la oferta es: "+message.Text+", Ahora ingrese la calle donde se encuentra la oferta: ";
+                response= "La ciudad de la oferta es: "+message.Text+"\n \n"+"Ingrese la calle donde se encuentra la oferta:";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==3)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==3)
             {
                 dt.AddDato(message.ID,message.Text);
-                response= "la calle de la oferta es: "+message.Text+", Ahora ingrese el nombre del material del que esta compuesto la oferta";
+                response= "La calle de la oferta es: "+message.Text+"\n \n"+"Ahora ingrese el nombre del material que quiere ofertar:";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==4)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==4)
             {
                 dt.AddDato(message.ID,message.Text);
                 string opciones = "";
                 int i =0;
                 foreach (Clasificacion clasificacion in db.Clasificaciones)
                 {
-                    opciones = i.ToString() + " - " + opciones + clasificacion.Nombre +"\n";
+                    opciones = opciones + i.ToString() + " - " + clasificacion.Nombre +"\n";
                     i++;
                 }
-                response = "el nombre del material es: "+ message.Text + "Ahora seleccione (marcando con el numero correspondiente)\n"+opciones;
+                response = "El nombre del material es: "+ message.Text +"\n \n" +"Ahora seleccione la clasificación del mismo. (Ingresando el numero correspondiente)\n"+opciones;
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==5)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==5)
             {
                 int num;
                 if(!Int32.TryParse(message.Text,out num))
                 {
-                    response = "no se ha ingresado un numero, ingrese un numero correspondiente.";
+                    response = "No se ha ingresado un numero, ingrese un numero válido.";
                     return true;
                 }
                 if(Int32.Parse(message.Text) >=  db.Clasificaciones.Count)     
                 {
-                    response = "usted ha ingresado un numero incorrecto, por favor vuelva a intentarlo";
+                    response = "Usted ha ingresado un numero incorrecto, por favor vuelva a intentarlo.";
                     return true;
                 }
                 dt.AddDato(message.ID,message.Text);
                 Console.WriteLine(dt.DataTemporal[message.ID].Count);
-                response= "Ahora agrege la cantidad del material";
+                response= "Ahora indique la cantidad de material: \n (A continuación le pediremos la unidad)";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==6) //se muere aca XD?
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==6) //se muere aca XD?
             {
                 int num;
                 if(!Int32.TryParse(message.Text,out num))
                 {
-                    response = "no se ha ingresado un numero, ingrese un numero correspondiente.";
+                    response = "No se ha ingresado un número, ingrese un número correspondiente.";
                     return true;
                 }
                 dt.AddDato(message.ID,message.Text);
-                response = "Ahora ingrese la unidad";
+                response = "Ahora ingrese la unidad de medida correspondiente:";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==7)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==7)
             {
                 dt.AddDato(message.ID,message.Text);
-                response=message.Text+"es la unidad seleccionada, ahora ingrese el valor que desea darle a la oferta";
+                response=message.Text+" Es la unidad seleccionada, ahora ingrese el valor ($U) que desea darle a la oferta:";
                 return true;
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count ==8)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count ==8)
             {
                 double num;
                 if(!Double.TryParse(message.Text,out num))
                 {
-                    response = "no se ha ingresado un numero, ingrese un numero correspondiente.";
+                    response = "No se ha ingresado un número. Ingrese un número válido.";
                     return true;
                 }
                 dt.AddDato(message.ID,message.Text);
                 switch(dt.DataTemporal[message.ID][0])
                 {
                     case "1":
-                    response ="Como usted selecciono una oferta Normal, ingrese la fecha puntual en la que la oferta es generada (recuerde que debe tener la forma xx/xx/xxxx)";
+                    response ="Como usted selecciono una Oferta Única, ingrese la fecha puntual en la que la oferta es (o fue) generada \n (Debe tener la forma dd/mm/aaaa)";
                     return true;
 
                     case "2":
-                    response="Como usted selecciono una oferta Recurrente, ingrese la periocidad mensual con la que se genera la misma";
+                    response="Como usted selecciono una Oferta Recurrente, ingrese la periocidad mensual con la que se genera la misma";
                     return true;
                 }
             }
-            if(sm.UserStatusChat[message.ID]=="/PublicarOferta" && dt.DataTemporal[message.ID].Count==9)
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count==9)
             {
                 switch(dt.DataTemporal[message.ID][0])
                 {
@@ -154,7 +157,7 @@ namespace Handlers
                     DateTime fecha;
                     if (!DateTime.TryParse(message.Text,out fecha))
                     {
-                        response = "La fecha no es valida, recuerda que debe tener el formato xx/xx/xxxx";
+                        response = "La fecha no es valida, recuerda que debe tener el formato dd/mmm/aaaa";
                         return true;
                     }
                     dt.AddDato(message.ID,message.Text);
@@ -175,14 +178,14 @@ namespace Handlers
                     db.AddOferta(oferta);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta.Nombreoferta} a nombre de la empresa {oferta.Empresa.Nombre}.\nCARACTERISTICAS:\n{oferta.Material.Nombre}\n{oferta.Material.Cantidad} {oferta.Material.Unidad}\nFECHA DE GENERACION: {oferta.FechadeGeneracion}";
+                    response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
                     return true;
 
                     case "2":
                     int num;
                     if(!Int32.TryParse(message.Text,out num))
                     {
-                        response = "La periocidad no es valida, recuerda que debe ser un numero";
+                        response = "La periocidad no es válida, recuerda que debe ser un número";
                         return true;
                     }
                     dt.AddDato(message.ID,message.Text);
@@ -199,7 +202,7 @@ namespace Handlers
                     db.AddOferta(oferta2);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\nCARACTERISTICAS:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\nPERIOCIDAD MENSUAL: {oferta2.RecurrenciaMensual}";
+                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}";
                     return true;
                 }
             }
