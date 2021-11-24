@@ -17,7 +17,7 @@ namespace Handlers
             Contenedor db = Contenedor.Instancia;
             if (this.CanHandle(message))
             {
-                if (db.Invitados.Contains(message.ID))
+                if (db.Invitados.Contains(message.ID) && !sm.UserStatusChat.ContainsKey(message.ID))
                 {
                     response = "Su ID se encuentra en la lista de invitados para registrarse como Empresa"+"\n"+"Ingrese el nombre de la empresa:";
                     sm.AddKeyUser(message.ID);
@@ -101,8 +101,10 @@ namespace Handlers
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
                         Empresa empresa = new Empresa(name,rubro,ciudad,calle);
+                        empresa.ID=message.ID;
                         db.AddEmpresa(message.ID,empresa);
                         dt.DataTemporal.Remove(message.ID);
+                        sm.UserStatusChat.Remove(message.ID);
                         response = $"{db.Empresas[message.ID].Nombre} has sido registrado correctamente!"+"\n"+$"su domicilio a sido fijado a {db.Empresas[message.ID].Ubicacion.Calle}, {db.Empresas[message.ID].Ubicacion.Ciudad}";
                         return true;
                     }
@@ -121,49 +123,16 @@ namespace Handlers
                         Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion);
                         db.AddEmprendedor(message.ID,emprendedor);
                         dt.DataTemporal.Remove(message.ID);
-                        response = $"Emprendedor {db.Emprendedores[message.ID].Nombre} del rubro {db.Emprendedores[message.ID].Rubro.Nombre} ha sido registrado correctamente!"+"\n"+$"Su domicilio a sido fijado a {db.Emprendedores[message.ID].Ubicacion.Calle}, {db.Emprendedores[message.ID].Ubicacion.Ciudad}" + "\n" + "\n" + "Recuerda que si desea agregar una habilitacion, debera utilizar el comando /habilitacion";
-                        return true;
-                }
-                else if(sm.UserStatusChat[message.ID]=="HabilitacionStatus")
-                {
-                    int num;
-                    if(!Int32.TryParse(message.Text,out num))
-                    {
-                        response = "No se ha ingresado un numero, ingrese un numero correspondiente.";
-                        return true;
-                    }
-                    else if(Int32.Parse(message.Text) >=  db.Habilitaciones.Count)     
-                    {
-                        response = "Usted ha ingresado un numero incorrecto, por favor vuelva a intentarlo";
-                        return true;
-                    }
-                    else
-                    {
-                        int opcion = Int32.Parse(message.Text);
-                        db.Emprendedores[message.ID].AddHabilitacion(db.Habilitaciones[opcion]);
                         sm.UserStatusChat.Remove(message.ID);
-                        response= "Se ha agreagado la habilitacion "+ db.Habilitaciones[opcion].Name;
+                        System.Console.WriteLine(db.Emprendedores[message.ID].Nombre);
+                        response = $"Emprendedor {db.Emprendedores[message.ID].Nombre} del rubro {db.Emprendedores[message.ID].Rubro.Nombre} ha sido registrado correctamente!"+"\n"+$"Su domicilio a sido fijado a {db.Emprendedores[message.ID].Ubicacion.Calle}, {db.Emprendedores[message.ID].Ubicacion.Ciudad}" + "\n" + "\n" + "Recuerda que si desea agregar una habilitacion, debera utilizar el comando /AddHabilitacion";
                         return true;
-                    }
                 }
                 else if(!sm.UserStatusChat.ContainsKey(message.ID))
                 {
                     response = "No hay ningún proceso activo";
                     return true;
                 }
-            }
-            else if(message.Text.ToLower()=="/habilitación")
-            {
-                sm.AddUserStatus(message.ID,"HabilitacionStatus");
-                string opciones = "";
-                int i =0;
-                foreach (Habilitacion habilitacion in db.Habilitaciones)
-                {
-                    opciones = i.ToString() + " - " + opciones + habilitacion.Name +"\n";
-                    i++;
-                }
-                response = "Seleccione una habilitación:\n" + opciones;
-                return true;
             }
             response = string.Empty;
             return false;

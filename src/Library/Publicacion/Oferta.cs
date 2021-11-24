@@ -15,6 +15,9 @@ namespace Library
     /// </summary>
     public class Oferta : OfertaBase
     {
+        private FechaCompraOferta fechaCompra;
+        private bool disponible;
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Oferta"/>.
         /// </summary>
@@ -39,5 +42,22 @@ namespace Library
         /// </summary>
         /// <value>La fecha de la generacion.</value>
         public DateTime FechadeGeneracion { get; set; }
+
+        public bool Disponible
+        {
+            get
+            {
+                if(fechaCompra == null)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public void AddComprador(string id,DateTime fechaventa)
+        {
+            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
+        }
     }
 }
