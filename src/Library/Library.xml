@@ -564,30 +564,6 @@
             </summary>
             <param name="ID">ID del usuario.</param>
         </member>
-        <member name="T:Library.Habilitacion">
-            <summary>
-            Esta clase representa una Habilitacion basica.
-            </summary>
-        </member>
-        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
-            </summary>
-            <param name="name">Parametro name que recibe el constructor de la habilitacion.</param>
-            <param name="descripcion">Parametro descripcion que recibe el constructor de la habilitacion.</param>
-        </member>
-        <member name="P:Library.Habilitacion.Name">
-            <summary>
-            Obtiene un valor que indica el nombre de la habilitacion.
-            </summary>
-            <value>this.name.</value>
-        </member>
-        <member name="P:Library.Habilitacion.Descripcion">
-            <summary>
-            Obtiene un valor que indica la descripcion de la habilitacion.
-            </summary>
-            <value>this.descripcion.</value>
-        </member>
         <member name="T:Library.DatosTemporales">
             <summary>
             Datos temporales del usuario.
@@ -617,6 +593,30 @@
             </summary>
             <param name="chatId"></param>
             <param name="dato"></param>
+        </member>
+        <member name="T:Library.Habilitacion">
+            <summary>
+            Esta clase representa una Habilitacion basica.
+            </summary>
+        </member>
+        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
+            </summary>
+            <param name="name">Parametro name que recibe el constructor de la habilitacion.</param>
+            <param name="descripcion">Parametro descripcion que recibe el constructor de la habilitacion.</param>
+        </member>
+        <member name="P:Library.Habilitacion.Name">
+            <summary>
+            Obtiene un valor que indica el nombre de la habilitacion.
+            </summary>
+            <value>this.name.</value>
+        </member>
+        <member name="P:Library.Habilitacion.Descripcion">
+            <summary>
+            Obtiene un valor que indica la descripcion de la habilitacion.
+            </summary>
+            <value>this.descripcion.</value>
         </member>
         <member name="T:Library.IManejoDeDatos">
             <summary>

@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 using System.Linq;
 using Library;
 
-namespace Handlers
+/*namespace Handlers
 {
     public class HistorialUsuarioHandler : BaseHandler   // cambiar nombre a historial
     {
@@ -51,4 +51,4 @@ namespace Handlers
             return this.Keywords.Any(s => message.Text.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
         }
     }
-}
+}*/

@@ -59,7 +59,7 @@ namespace Library
         /// Obtiene o establece fecha en la cual se realizo la venta.
         /// </summary>
         /// <value>Fecha de la venta.</value>
-        public DateTime FechaVenta { get; set; }
+        public DateTime FechaVenta { get; set; } //BORRARLA --> NO SIRVE MAS
 
         /// <summary>
         /// Obtiene o establece material ofertado en la oferta.

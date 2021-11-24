@@ -55,7 +55,7 @@ namespace Ucu.Poo.TelegramBot
             
 
             //emprendedor.ID = "1454175798";
-            db.AddInvitado("1454175798");
+            //db.AddInvitado("1454175798");
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
@@ -73,12 +73,13 @@ namespace Ucu.Poo.TelegramBot
                 new AdminInvitationHandler(
                 new StartHandler(
                 new AddAdminHandler(
-                new HistorialUsuarioHandler(
                 new BuscarClasificHandler(
                 new HelpHandler(
+                new AddPalabraClaveHandler(
                 new Registro(
+                new AddHabilitacionHandler(
                 new PublicarOfertaHandler(null)
-                ))))))))))));
+                )))))))))))));
 
             var cts = new CancellationTokenSource();
 

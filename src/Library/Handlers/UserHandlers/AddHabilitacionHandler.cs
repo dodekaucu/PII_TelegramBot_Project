@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Library;
 
 namespace Handlers
@@ -16,24 +17,64 @@ namespace Handlers
         {
             Contenedor db = Contenedor.Instancia;
             DatosTemporales dt = DatosTemporales.Instancia;
-            StatusManager statusManager = StatusManager.Instancia;
+            StatusManager sm = StatusManager.Instancia;
             if (this.CanHandle(message))
             {
-                if (db.Empresas.ContainsKey(message.ID))
+                if (db.Emprendedores.ContainsKey(message.ID))
                 {
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    string opciones ="";
+                    int i=0;
+                    // revisar como hacer esta mierda !!!
+                    Collection<Habilitacion> habilitacionsDisponibles = new Collection<Habilitacion> ();
+                    foreach(Habilitacion habilitacion in db.Habilitaciones)
                     {
-                        if(oferta.Empresa.ID == message.ID) //VER COMO MEJORAR ESTO!!!!! 
+                        if(!db.Emprendedores[message.ID].Habilitaciones.Contains(habilitacion))
                         {
-                            
+                            opciones = i.ToString() + " - " + opciones + habilitacion.Name +"\n";
+                            habilitacionsDisponibles.Add(habilitacion);
+                            i++;
                         }
                     }
+                    response = "seleccione su habilitacion (escriba el número correspondiente)\n"+opciones;
+                    sm.AddKeyUser(message.ID);
+                    sm.AddUserStatus(message.ID,"/AddHabilitacion");
+                    dt.AddKeyUser(message.ID);
+                    //dt.DataTemporal()*/
+                    return true;
+                }
+                if(db.Empresas.ContainsKey(message.ID))
+                {
+                    //AÑADIR UNA HABILITACION A LA OFERTA
+                    string opciones ="";
+                    int i=0;
+                    foreach (OfertaBase oferta in db.Ofertas)
+                    {
+                        if(message.ID==oferta.Empresa.ID)
+                        {
+                            //aca van a estar las ofertas que posee la empresa
+                            opciones = i.ToString() + " - " + opciones + oferta.Nombreoferta +"\n";
+                            i++;
+                        }
+                    }
+                    response = "Seleccione la oferta ha añadir una habilitacion";
+                    sm.AddKeyUser(message.ID);
+                    sm.AddUserStatus(message.ID,"/AddHabilitacion");
+                    return true;
+                }
+                if(sm.UserStatusChat.ContainsKey(message.ID))
+                {
+                    response = "Actualmente se encuentra el proceso " + sm.UserStatusChat[message.ID]+" activo, porfavor, si desea activar otro comando cancele el actual con /cancel";
+                    return true;
                 }
                 else
                 {
-                    response = "Usted no se encuentra registrado como empresa, para registrarse comuniquese con un Administrador";
+                    response = "Usted no se encuentra registrado en la plataforma";
                     return true;
                 }
+            }
+            if(sm.UserStatusChat[message.ID]=="/AddHabilitacion" && dt.DataTemporal[message.ID].Count==0)
+            {
+                
             }
 
             response = string.Empty;
