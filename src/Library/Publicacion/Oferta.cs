@@ -35,6 +35,8 @@ namespace Library
         : base(nombreoferta, empresa, ciudad, calle, nombreMaterial, clasificacion, cantidad, unidad, valor)
         {
             this.FechadeGeneracion = fechaDeGeneracion;
+            //Contenedor db = Contenedor.Instancia;
+            //this.identificador = db.Ofertas.Count;
         }
 
         /// <summary>
@@ -43,6 +45,11 @@ namespace Library
         /// <value>La fecha de la generacion.</value>
         public DateTime FechadeGeneracion { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        
         public bool Disponible
         {
             get
