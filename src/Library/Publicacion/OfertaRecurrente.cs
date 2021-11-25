@@ -44,10 +44,14 @@ namespace Library
         /// <value>this.RecurrenciaMensual.</value>
         public int RecurrenciaMensual { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <value></value>
+        public Collection<FechaCompraOferta> RegistroVentas
+        {
+            get
+            {
+                return this.registroVentas;
+            }
+        }
+
 
         public void AddFechaVenta(string id, DateTime fechaCompra)
         {

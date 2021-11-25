@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -22,7 +23,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "2084958009:AAE1hEAd8wvW6BOk12II8kc5vNcbKotjNeU";
+        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
 
         private static IHandler firstHandler;
 
@@ -62,12 +63,41 @@ namespace Ucu.Poo.TelegramBot
             //db.AddInvitado("1454175798");
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            //Añadir Empresa (Poner ID de usuario y emprendedor)
-            db.AddEmpresa("1599425094",maderaslr);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
-            //db.AddEmprendedor("1599425094",emprendedor);
 
+            db.AddEmpresa("1454175798",maderaslr); //Rafa
+            maderaslr.ID="1454175798"; //Rafa
+            //Añadir Empresa (Poner ID de usuario y emprendedor)
+            //db.AddEmpresa("1599425094",maderaslr); //Guille
+            //Añadir emprendedor (Poner ID de usuario y emprendedor)
+            //db.AddEmprendedor("1599425094",emprendedor); //Guille
 
+            Oferta oferta1 = new Oferta("oferta1", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            oferta1.AddComprador("5",DateTime.Parse("24/11/2021"));
+            maderaslr.AddToRegister(oferta1);
+
+            Oferta oferta2 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            oferta2.AddComprador("5",DateTime.Parse("02/11/2021"));
+            maderaslr.AddToRegister(oferta2);
+
+            Oferta oferta3 = new Oferta("oferta3", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            oferta3.AddComprador("5",DateTime.Parse("21/11/2021"));
+            maderaslr.AddToRegister(oferta3);
+            
+            OfertaRecurrente oferta4 = new OfertaRecurrente("oferta4", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5);
+            oferta4.AddFechaVenta("1454175798",DateTime.Parse("21/11/2021"));
+            maderaslr.AddToRegister(oferta4);
+
+            OfertaRecurrente oferta5 = new OfertaRecurrente("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5);
+            oferta5.AddFechaVenta("0000",DateTime.Parse("21/11/2021"));
+            maderaslr.AddToRegister(oferta5);
+
+            Collection<OfertaBase> rest = maderaslr.BuscarEnHistorial(DateTime.Parse("20/11/2021"));
+            Console.WriteLine(rest.Count);
+            foreach(OfertaBase ofertaz in rest )
+            {
+                Console.WriteLine(ofertaz.Nombreoferta);
+            }
             
             firstHandler =
                 new HelloHandler(
@@ -83,8 +113,9 @@ namespace Ucu.Poo.TelegramBot
                 new AddPalabraClaveHandler(
                 new Registro(
                 new AddHabilitacionHandler(
-                new PublicarOfertaHandler(null)
-                )))))))))))));
+                new PublicarOfertaHandler(
+                new HistorialUsuarioHandler(null)
+                ))))))))))))));
 
             var cts = new CancellationTokenSource();
 

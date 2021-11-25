@@ -54,17 +54,22 @@ namespace Library
         {
             get
             {
-                if(fechaCompra == null)
-                {
-                    return true;
-                }
-                return false;
+                return fechaCompra == null;
+            }
+        }
+
+        public FechaCompraOferta FechaCompra 
+        {
+            get
+            {
+                return this.fechaCompra;
             }
         }
 
         public void AddComprador(string id,DateTime fechaventa)
         {
             FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
+            this.fechaCompra = fechaCompra;
         }
     }
 }
