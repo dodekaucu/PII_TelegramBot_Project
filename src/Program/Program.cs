@@ -43,15 +43,16 @@ namespace Ucu.Poo.TelegramBot
             Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
             Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
             Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
             Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            db.AddOferta(uno);
             Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            db.AddOferta(dos);
             db.AddClasificacion(madera);
             uno.AddHabilitacion(msp);
             db.AddHabilitacion(unit);
             emprendedor.AddHabilitacion(msp);
-            //db.AddOferta(uno);
-            //db.AddOferta(dos);
             db.AddRubro(rubro);
             db.AddRubro(rubro2);
             db.AddHabilitacion(msp);
@@ -61,9 +62,10 @@ namespace Ucu.Poo.TelegramBot
             //db.AddInvitado("1454175798");
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            //Añadir emprendedor (Poner ID de usuario y emprendedor)
-
+            //Añadir Empresa (Poner ID de usuario y emprendedor)
             db.AddEmpresa("1599425094",maderaslr);
+            //Añadir emprendedor (Poner ID de usuario y emprendedor)
+            //db.AddEmprendedor("1599425094",emprendedor);
 
 
             

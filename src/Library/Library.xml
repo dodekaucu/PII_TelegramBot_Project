@@ -40,18 +40,47 @@
             Identificador del usuario que envió el mensaje.
             </summary>
         </member>
-        <member name="T:Handlers.AdminInvitationHandler">
+        <member name="T:Handlers.AddAdminHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddAdmin".
             </summary>
         </member>
-        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AddAdminHandler.#ctor(Handlers.BaseHandler)">
             <summary>
-            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AddAdminHandler"/>. Esta clase procesa el mensaje "/AddAdmin".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.AddAdminHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/AddAdmin", Si es ejecutado por un Administrador entonces se procede a añadir como administrador
+            al usuario ingresado. El valor que se ingresa debe ser el ID del usuario, en este caso es el ID de Telegram.
+            El ID del usuario se debe preguntar a la persona que se agrega, hay un bot que te lo dice (@userinfobot).
+            En el caso de que el usuario que ejecute el comando no sea Admin se le informa que no tiene permisos para hacerlo.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.AdminInvitationHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/Invitar".
+            </summary>
+        </member>
+        <member name="M:Handlers.AdminInvitationHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AdminInvitationHandler"/>. Esta clase procesa el mensaje "/Invitar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/Invitar", Si es ejecutado por un Administrador entonces se procede a invitar
+            al usuario ingresado. El valor que se ingresa debe ser el ID del usuario, en este caso es el ID de Telegram.
+            El ID del usuario se debe preguntar a la persona que se invita, hay un bot que te lo dice (@userinfobot).
+            En el caso de que el que ejecute el comando no sea Admin se le informa que no tiene permisos para hacerlo.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
         </member>
         <member name="T:Handlers.StartHandler">
             <summary>
@@ -788,6 +817,12 @@
             </summary>
             <value>La fecha de la generacion.</value>
         </member>
+        <member name="P:Library.Oferta.Disponible">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Library.OfertaBase">
             <summary>
             Clase abstracta que representa la base de oferta. 
@@ -893,6 +928,12 @@
             Obtiene o establece el número de veces que se repite la oferta en un mes.
             </summary>
             <value>this.RecurrenciaMensual.</value>
+        </member>
+        <member name="M:Library.OfertaRecurrente.AddFechaVenta(System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <value></value>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>

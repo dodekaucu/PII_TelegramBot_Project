@@ -27,7 +27,6 @@ namespace Handlers
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="BuscarHandler"/>. Esta clase procesa el mensaje "chau"
-        /// y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public BuscarHandler(BaseHandler next) : base(next)
