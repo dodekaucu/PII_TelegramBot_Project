@@ -3,15 +3,26 @@ using Library;
 
 namespace Handlers
 {
-
+    /// <summary>
+    /// /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/PublicarOferta".
+    /// </summary>
     public class PublicarOfertaHandler : BaseHandler
     {
-
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="PublicarOfertaHandler"/>. Esta clase procesa el comando "/PublicarOferta".
+        /// </summary>
+        /// <param name="next">El próximo "handler".</param>
         public PublicarOfertaHandler(BaseHandler next) : base(next)
         {
             this.Keywords = new string[] {"/PublicarOferta"};
         }
 
+        /// <summary>
+        /// Procesa el mensaje "/PublicarOferta" y retorna true; retorna false en caso contrario.
+        /// </summary>
+        /// <param name="message">Mensaje a procesar.</param>
+        /// <param name="response">>La respuesta al mensaje procesado.</param>
+        /// <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
         protected override bool InternalHandle(IMessage message, out string response)
         {
             Contenedor db = Contenedor.Instancia;

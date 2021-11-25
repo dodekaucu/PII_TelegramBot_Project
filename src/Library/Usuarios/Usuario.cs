@@ -19,6 +19,8 @@ namespace Library
     {
         private Collection<OfertaBase> registroUsuario = new Collection<OfertaBase>();
 
+        
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Usuario"/>.
         /// </summary>
@@ -93,24 +95,36 @@ namespace Library
         /// </summary>
         /// <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
         /// <returns>una lista de ofertas llamada resultado.</returns>
-        public Collection<OfertaBase> BuscarEnRegistro(DateTime fechaDesde)
+        public Collection<OfertaBase> BuscarEnHistorial(DateTime fechaDesde)
         {
             Collection<OfertaBase> resultado = new Collection<OfertaBase>();
-            foreach (Oferta oferta in this.registroUsuario)
+            foreach (OfertaBase oferta in this.registroUsuario)
             {
-                if (oferta.FechaCompra.FechaCompra.Date >= fechaDesde.Date)
+                /*Oferta o;
+                if (oferta as Oferta != null)
                 {
-                    resultado.Add(oferta);
-                }
-            }
-            foreach (OfertaRecurrente oferta in this.registroUsuario)
-            {
-                foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
+                    o = oferta as Oferta;
+
+                }*/
+
+                switch(oferta)
                 {
-                    if (fecha.FechaCompra.Date >= fechaDesde.Date)
+                    case Oferta o:
+                        if (!o.Disponible && o.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }
+                        break;
+                    
+                    case OfertaRecurrente o:
+                        foreach (FechaCompraOferta fecha in o.RegistroVentas)
+                        {
+                            if (fecha.FechaCompra >= fechaDesde && fecha.IdComprador == this.ID)
+                            {
+                                resultado.Add(oferta);
+                            }
+                        }
+                        break;
                 }
             }
 

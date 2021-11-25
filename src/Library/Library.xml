@@ -437,6 +437,17 @@
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
+        <member name="T:Handlers.PublicarOfertaHandler">
+            <summary>
+            /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/PublicarOferta".
+            </summary>
+        </member>
+        <member name="M:Handlers.PublicarOfertaHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
         <member name="T:Handlers.Registro">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/registro".
@@ -1121,7 +1132,7 @@
             </summary>
             <param name="oferta">Parametro.</param>
         </member>
-        <member name="M:Library.Usuario.BuscarEnRegistro(System.DateTime)">
+        <member name="M:Library.Usuario.BuscarEnHistorial(System.DateTime)">
             <summary>
             Busca en el registro del usuario.
             </summary>

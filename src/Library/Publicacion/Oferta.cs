@@ -47,11 +47,7 @@ namespace Library
         {
             get
             {
-                if(fechaCompra == null)
-                {
-                    return true;
-                }
-                return false;
+                return fechaCompra == null;
             }
         }
 
@@ -66,6 +62,7 @@ namespace Library
         public void AddComprador(string id,DateTime fechaventa)
         {
             FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
+            this.fechaCompra = fechaCompra;
         }
     }
 }
