@@ -34,6 +34,8 @@ namespace Library
         : base(nombreoferta, empresa, ciudad, calle, nombreMaterial, clasificacion, cantidad, unidad, valor)
         {
             this.RecurrenciaMensual = recurrenciaMensual;
+            //Contenedor db = Contenedor.Instancia;
+            //this.identificador = db.Ofertas.Count;
         }
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace Library
                 return this.registroVentas;
             }
         }
+
 
         public void AddFechaVenta(string id, DateTime fechaCompra)
         {

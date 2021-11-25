@@ -53,13 +53,14 @@ namespace Handlers
             else
             {
                 texto = "OFERTAS DISPONIBLES: \n";
-                foreach (Oferta oferta in lista)
+                foreach (OfertaBase oferta in lista)
                 {
                 texto += "\n";
                 texto += "Nombre: " + oferta.Nombreoferta + "\n";
                 texto += "Material: " + oferta.Material.Nombre + "\n";
                 texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
                 texto += "Precio: $" + oferta.Material.Valor + "\n";
+                texto += "Identificador: " + oferta.Identificador + "\n";
                 texto += "\n";
                 texto += "---------------------------------------" + "\n";
                 }   

@@ -65,6 +65,7 @@
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/Invitar".
             </summary>
+            <param name="next">El próximo "handler".</param>
         </member>
         <member name="M:Handlers.AdminInvitationHandler.#ctor(Handlers.BaseHandler)">
             <summary>
@@ -839,6 +840,12 @@
             </summary>
             <value>La fecha de la generacion.</value>
         </member>
+        <member name="P:Library.Oferta.Disponible">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Library.OfertaBase">
             <summary>
             Clase abstracta que representa la base de oferta. 
@@ -944,6 +951,12 @@
             Obtiene o establece el número de veces que se repite la oferta en un mes.
             </summary>
             <value>this.RecurrenciaMensual.</value>
+        </member>
+        <member name="M:Library.OfertaRecurrente.AddFechaVenta(System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <value></value>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
