@@ -7,13 +7,14 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Library;
 using Handlers;
+using System.IO;
 
 namespace Ucu.Poo.TelegramBot
 {
     /// <summary>
     /// Un programa que implementa un bot de Telegram.
     /// </summary>
-    public static class Program
+    public class Program
     {
         // La instancia del bot.
         private static TelegramBotClient Bot;
@@ -21,8 +22,8 @@ namespace Ucu.Poo.TelegramBot
         // El token provisto por Telegram al crear el bot.
         //
         // *Importante*:
-        // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
-        private static string Token = "";
+        // Para probar este ejemplo, crea un bot nuevo y reemplaza este token por el de tu bot.
+        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
 
         private static IHandler firstHandler;
 
@@ -89,7 +90,48 @@ namespace Ucu.Poo.TelegramBot
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
-
+            Contenedor contenedor = Contenedor.Instancia;
+            contenedor.Serializar();
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaEmprendedor.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaEmprendedor.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmprendedor.Json", contenedor.jsonemprendedor);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaOferta.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaOferta.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaOferta.Json", contenedor.jsonoferta);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaRubro.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaRubro.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaRubro.Json", contenedor.jsonrubro);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaHabilitacion.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaHabilitacion.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaHabilitacion.Json", contenedor.jsonhabilitacion);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaClasificacion.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaClasificacion.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaClasificacion.Json", contenedor.jsonclasificacion);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaEmpresa.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaEmpresa.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmpresa.Json", contenedor.jsonempresa);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaAdmin.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaAdmin.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaAdmin.Json", contenedor.jsonadmin);
+            }
+            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaInvitados.Json"))
+            {
+                System.IO.File.Create(@"..\..\Listas_Json\ListaInvitados.Json");
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaInvitados.Json", contenedor.jsoninvitado);
+            }
             // Terminamos el bot.
             cts.Cancel();
         }
