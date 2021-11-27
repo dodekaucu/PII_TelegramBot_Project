@@ -17,7 +17,7 @@ namespace Handlers
             Contenedor db = Contenedor.Instancia;
             if (this.CanHandle(message))
             {
-                if (db.Invitados.Contains(message.ID))
+                if (db.Invitados.Contains(message.ID) && !sm.UserStatusChat.ContainsKey(message.ID))
                 {
                     response = "Su ID se encuentra en la lista de invitados para registrarse como Empresa"+"\n"+"Ingrese el nombre de la empresa:";
                     sm.AddKeyUser(message.ID);
@@ -101,6 +101,7 @@ namespace Handlers
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
                         Empresa empresa = new Empresa(name,rubro,ciudad,calle);
+                        empresa.ID=message.ID;
                         db.AddEmpresa(message.ID,empresa);
                         dt.DataTemporal.Remove(message.ID);
                         response = $"{db.Empresas[message.ID].Nombre} has sido registrado correctamente!"+"\n"+$"su domicilio a sido fijado a {db.Empresas[message.ID].Ubicacion.Calle}, {db.Empresas[message.ID].Ubicacion.Ciudad}";
