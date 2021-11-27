@@ -78,6 +78,17 @@ namespace Ucu.Poo.TelegramBot
 
             var cts = new CancellationTokenSource();
 
+            Contenedor contenedor = Contenedor.Instancia;
+            string deserializaradmin = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaAdmin.Json");
+            string deserializarhabilitacion = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaHabilitacion.Json");
+            string deserializarrubro = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaRubro.Json");
+            string deserializarclasificacion = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaClasificacion.Json");
+            string deserializaroferta = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaOferta.Json");
+            string deserializaremprendedor = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmprendedor.Json");
+            string deserializarempresa = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmpresa.Json");
+            string deserializarinvitado = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaInvitados.Json");
+            contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaroferta, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado);
+
             // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
             // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync
             // es invocado cuando ocurre un error.
@@ -90,48 +101,16 @@ namespace Ucu.Poo.TelegramBot
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
-            Contenedor contenedor = Contenedor.Instancia;
+            contenedor = Contenedor.Instancia;
             contenedor.Serializar();
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaEmprendedor.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaEmprendedor.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmprendedor.Json", contenedor.jsonemprendedor);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaOferta.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaOferta.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaOferta.Json", contenedor.jsonoferta);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaRubro.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaRubro.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaRubro.Json", contenedor.jsonrubro);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaHabilitacion.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaHabilitacion.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaHabilitacion.Json", contenedor.jsonhabilitacion);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaClasificacion.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaClasificacion.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaClasificacion.Json", contenedor.jsonclasificacion);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaEmpresa.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaEmpresa.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmpresa.Json", contenedor.jsonempresa);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaAdmin.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaAdmin.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaAdmin.Json", contenedor.jsonadmin);
-            }
-            if (!System.IO.File.Exists(@"..\..\Listas_Json\ListaInvitados.Json"))
-            {
-                System.IO.File.Create(@"..\..\Listas_Json\ListaInvitados.Json");
                 System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaInvitados.Json", contenedor.jsoninvitado);
-            }
             // Terminamos el bot.
             cts.Cancel();
         }
