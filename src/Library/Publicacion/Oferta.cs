@@ -6,6 +6,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -13,7 +15,7 @@ namespace Library
     /// Esta clase representa una oferta. Es una subclase de OfertaBase
     /// Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
     /// </summary>
-    public class Oferta : OfertaBase
+    public class Oferta : OfertaBase, IJsonSerialize
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Oferta"/>.
@@ -39,5 +41,15 @@ namespace Library
         /// </summary>
         /// <value>La fecha de la generacion.</value>
         public DateTime FechadeGeneracion { get; set; }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
+        }
     }
 }

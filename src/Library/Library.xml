@@ -297,23 +297,16 @@
             Recibe el mensaje del usuario.
             </summary>
         </member>
-        <member name="T:Library.IManejoDeDatos">
+        <member name="T:Library.IJsonSerialize">
             <summary>
             Interface con la firma de los métodos que debe tener un manejador de datos.
             </summary>
         </member>
-        <member name="M:Library.IManejoDeDatos.GuardarInfo(System.String,System.String)">
+        <member name="M:Library.IJsonSerialize.ConvertToJson">
             <summary>
-            Guarda los datos en un archivo.
+            Método que serializa un objeto en formato Json.
             </summary>
-            <param name="dondeGuardar">parametro que indica donde se va a guardar el archivo.</param>
-            <param name="nombreArchivo">parametro que indica el nombre del archivo a guardar.</param>
-        </member>
-        <member name="M:Library.IManejoDeDatos.DevolverInfo(System.String)">
-            <summary>
-            Devuelve los datos de un archivo.
-            </summary>
-            <param name="dondeBuscar">parametro que indica donde va a buscar el archivo.</param>
+            <returns>String con el objeto serializado en formato Json.</returns>
         </member>
         <member name="T:Library.Busqueda">
             <summary>

@@ -3,13 +3,15 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Clase que representa los rubros.
     /// </summary>
-    public class Rubro
+    public class Rubro: IJsonSerialize
     {
         private string nombre;
         private string area;
@@ -62,6 +64,16 @@ namespace Library
             {
                 return this.descripcion;
             }
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
         }
     }
 }
