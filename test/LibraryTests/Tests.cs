@@ -4,7 +4,7 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 
-using System;
+/*using System;
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -309,4 +309,4 @@ namespace Test
             Assert.AreEqual(expectedRegister2, emprendedor.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
         }
     }
-}
+}*/

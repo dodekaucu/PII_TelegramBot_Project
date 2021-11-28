@@ -4,104 +4,25 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Test.Tests">
+        <member name="T:ProgramTests.InvitarHandlerTests">
             <summary>
-            Pruebas de las diferentes Users story.
+            Esta clase prueba el Handler AdminInvitarHandler.
             </summary>
         </member>
-        <member name="F:Test.Tests.testRubro">
+        <member name="M:ProgramTests.InvitarHandlerTests.Setup">
             <summary>
-            Rubro para pruebas.
+            Crea una instancia de contenedor, el handler a probar, el message asi como asignarle una ID. Y ademas
+            crea una instancia de TelegramMSG adapter.
             </summary>
         </member>
-        <member name="F:Test.Tests.testHabilitacion">
+        <member name="M:ProgramTests.InvitarHandlerTests.TestInvitaraEmpresaNOvalido">
             <summary>
-            Habilitacion para prueba.
+            Este test prueba como se procesa el mensaje cuando el usuario no es administrador.
             </summary>
         </member>
-        <member name="F:Test.Tests.testClasifciacion">
+        <member name="M:ProgramTests.InvitarHandlerTests.TestInvitaraEmpresaValido">
             <summary>
-            Clasificacion para prueba.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.Setup">
-            <summary>
-            Crea un Rubro, una habilitacion y una clasificacion para pruebas.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestCrearEmpresa">
-            <summary>
-            Prueba que se cree la empresa.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestCrearMateriales">
-            <summary>
-             Prueba que se crea materiales.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestCrearOferta">
-            <summary>
-            Prueba que se cree una Oferta.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestDisponibilidadMateriales">
-            <summary>
-            Prueba la Disponibilidad Materiales de manera mensual.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestDisponibilidadUnica">
-            <summary>
-            Prueba que dada un oferta que se genera de manera unica, se le asigne la fecha correcta.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestHabilitacionesEmprendedor">
-            <summary>
-            Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestPalabrasClaveOferta">
-            <summary>
-            Prueba que se agreguen las palabras claves a la oferta.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestCrearEmprendedor">
-            <summary>
-            Prueba que se cree el emprendedor.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.HabilitacionesEmprendedor">
-            <summary>
-            Prueba que se agruegue una habilitacion a un emprendedor.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.ThrowNameException">
-            <summary>
-            Prueba que las excepcioens del constructor Usuario funcionen correctamente.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestBusquedaPalabrasClave">
-            <summary>
-            Test de la clase busqueda, realiza una busqueda por palabras claves.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestBusquedaUbicacion">
-            <summary>
-            Test de la clase busqueda, realiza una busqueda por Ubicacion.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestBusquedaCategoria">
-            <summary>
-            Test de la clase busqeuda, realiza una busqueda por categoria de material.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestRegistroEmpresa">
-            <summary>
-            Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determinado.
-            </summary>
-        </member>
-        <member name="M:Test.Tests.TestRegistroEmprendedor">
-            <summary>
-            Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo determinado.
+            Este test prueba como se procesa el mensaje cuando el usuario es administrador.
             </summary>
         </member>
     </members>

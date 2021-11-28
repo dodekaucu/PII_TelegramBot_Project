@@ -5,6 +5,9 @@ using Telegram.Bot.Types;
 
 namespace ProgramTests
 {
+    /// <summary>
+    /// Esta clase prueba el handler Registro.
+    /// </summary>
     public class RegistroHandlerTests
     {
         Registro handler;
@@ -13,12 +16,15 @@ namespace ProgramTests
         TelegramMSGadapter msj;
         Contenedor db;
         Rubro rubroTest;
-        StatusManager sm;
 
+
+        /// <summary>
+        ///Crea una instancia de contenedor, el handler a probar, un rubro, el message asi como asignarle una ID. Y ademas
+        /// crea una instancia de TelegramMSG adapter.
+        /// </summary>
         [SetUp]
         public void Setup() //Deberiamos hacer uno por mensage o uno por proceso????
         {
-            sm = StatusManager.Instancia;
             Rubro rubroTest = new Rubro("Prueba","Prueba","Prueba");
             db = Contenedor.Instancia;
             db.AddRubro(rubroTest);
@@ -29,6 +35,10 @@ namespace ProgramTests
             msj = new TelegramMSGadapter(message);
         }
 
+        /// <summary>
+        /// Este test prueba como se procesan los mensajes para el registro de un emprendedor (usuario con una ID
+        /// no invitada).
+        /// </summary>
         [Test]
         public void TestRegistroEmprendedorHandle()
         {
@@ -99,6 +109,10 @@ namespace ProgramTests
                 ));
         }
 
+        /// <summary>
+        /// Este test prueba como se procesan los mensajes para realizar el registro de una Empresa (usuario con una ID
+        /// invitada).
+        /// </summary>
         [Test]
         public void TestRegistroEmpresaHandle()
         {
@@ -149,6 +163,9 @@ namespace ProgramTests
                 ));
         }
 
+        /// <summary>
+        /// Este test representa lo que sucede cuando el usuario intenta registrarse otra vez.
+        /// </summary>
         [Test]
 
         public void TestRegistroUsuarioRegistrado()
@@ -164,37 +181,6 @@ namespace ProgramTests
                 "Usted ya se encuentra registrado."
                 ));
         }
-
-        /*[Test]
-
-        public void TestProcesoActivo() REVISAR!!!!
-        {
-            message.Text=handler.Keywords[0];
-            sm.UserStatusChat["1454175798"] ="RegistroStatus";
-            string response;
-
-            IHandler result = handler.Handle(msj, out response);
-
-            Assert.That(result, Is.Not.Null);
-            Assert.That(response, Is.EqualTo(
-                "Ya hay un proceso activo, por favor termine el proceso actual o cancelelo con /cancel"
-                ));
-        }*/
-
-        /*[Test]
-
-        public void TestNOProcesoActivo()
-        {
-            sm.UserStatusChat.Remove("1454175798");
-            string response;
-
-            IHandler result = handler.Handle(msj, out response);
-
-            Assert.That(result, Is.Not.Null);
-            Assert.That(response, Is.EqualTo(
-                "No hay ningún proceso activo"
-                ));
-        }*/
 
     }
 }

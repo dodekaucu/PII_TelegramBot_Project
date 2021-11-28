@@ -5,6 +5,9 @@ using Telegram.Bot.Types;
 
 namespace ProgramTests
 {
+    /// <summary>
+    /// Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
+    /// </summary>
     public class PublicarOfertaHandlerTests
     {
         PublicarOfertaHandler handler;
@@ -18,6 +21,10 @@ namespace ProgramTests
 
         Rubro rubroTest;
 
+        /// <summary>
+        /// Crea una instancia de clasificacion, de rubro, de contenedor, el handler a utilizar, un message junto a
+        /// un user que se le agrega la ID asi como el msj Adapter. Por ultimo se crea la empresa a publicar la oferta.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -33,6 +40,10 @@ namespace ProgramTests
             empresaTest = new Empresa("EmpresaTest",rubroTest,"Montevideo","calle 13");
             db.AddEmpresa("12",empresaTest);
         }
+
+        /// <summary>
+        /// Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta única.
+        /// </summary>
         [Test]
         public void TestPublicarOfertaNormalHandler()
         {
@@ -88,21 +99,21 @@ namespace ProgramTests
                 "El nombre del material es: "+ "NombreMaterial" +"\n \n" +"Ahora seleccione la clasificación del mismo. (Ingresando el numero correspondiente)\n"+opciones
                 ));
             
-            message.Text = "asdfadfs";
+            message.Text = "asdfadfs";  //el usuario no ingresa un numero
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
                 "No se ha ingresado un numero, ingrese un numero válido."
                 ));
             
-            message.Text = "8";
+            message.Text = "8";     // el usuario ingresa un numero no valido
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
                 "Usted ha ingresado un numero incorrecto, por favor vuelva a intentarlo."
                 ));
             
-            message.Text = "0";
+            message.Text = "0";     // el usuario ingreso el numero correcto
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
@@ -130,14 +141,14 @@ namespace ProgramTests
                 "Como usted selecciono una Oferta Única, ingrese la fecha puntual en la que la oferta es (o fue) generada \n (Debe tener la forma dd/mm/aaaa)"
                 ));
 
-            message.Text="Fechaaaaa";
+            message.Text="Fechaaaaa";   // el usuario no ingreso una fecha con el formato correcto
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
                 "La fecha no es valida, recuerda que debe tener el formato dd/mmm/aaaa"
                 ));
             
-            message.Text="20/06/2022";
+            message.Text="20/06/2022";  // el usuario ingreso la fecha correctamente
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(

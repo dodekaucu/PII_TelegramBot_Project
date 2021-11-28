@@ -5,6 +5,9 @@ using Telegram.Bot.Types;
 
 namespace ProgramTests
 {
+    /// <summary>
+    /// Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta recurrente.
+    /// </summary>
     public class PublicarOfertaRecurrenteTests
     {
         PublicarOfertaHandler handler;
@@ -18,6 +21,10 @@ namespace ProgramTests
 
         Rubro rubroTest;
 
+        /// <summary>
+        /// Crea una instancia de clasificacion, de rubro, de contenedor, el handler a utilizar, un message junto a
+        /// un user que se le agrega la ID asi como el msj Adapter. Por ultimo se crea la empresa a publicar la oferta.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -34,6 +41,9 @@ namespace ProgramTests
             db.AddEmpresa("13",empresaTest);
         }
 
+        /// <summary>
+        /// Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta recurrente.
+        /// </summary>
         [Test]
         public void TestPublicarOfertaRecurrenteHandler()
         {

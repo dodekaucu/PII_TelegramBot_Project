@@ -86,7 +86,7 @@ namespace Handlers
                 {
                 dt.AddDato(message.ID,message.Text);
                 int numoferta = Int32.Parse(message.Text);
-                response = $"Ingrese palabra clave para añadir a la oferta {db.Ofertas[numoferta]}:";
+                response = $"Ingrese palabra clave para añadir a la oferta {db.Ofertas[numoferta].Nombreoferta}:";
                 return true;
                 }
             }
