@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+using System.Linq;
 using System;
 using Library;
 
@@ -54,13 +54,13 @@ namespace Handlers
                         opciones = opciones + i.ToString() + " - " + habilitacion.Name +"\n";
                         i++;
                     }
-                    response = "Seleccione su habilitacion (escriba el número correspondiente)\n"+ opciones;
+                    response = "Seleccione su habilitación (escriba el número correspondiente)\n"+ opciones;
                     return true;
                 }
                 
                 else if(db.Empresas.ContainsKey(message.ID))
                 {
-                    //AÑADIR UNA PALABRA CLAVE A LA OFERTA
+                    //AÑADIR UNA HABILITACION A LA OFERTA
                     sm.UserStatusChat.Remove(message.ID);
                     dt.DataTemporal.Remove(message.ID);
                     dt.AddKeyUser(message.ID);
@@ -127,7 +127,7 @@ namespace Handlers
                 }
                 else if(Int32.Parse(message.Text) >=  db.Ofertas.Count)     
                 {
-                    response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo";
+                    response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo.";
                     return true;
                 }
                 else
@@ -137,8 +137,8 @@ namespace Handlers
                     int numerohab = Int32.Parse(message.Text);
                     if (db.Ofertas[numeroferta].Habilitaciones.Contains(db.Habilitaciones[numerohab]))
                     {
-                        response = "Esta oferta ya posee esta habilitacion."+"\n"+"\n"+"Ingrese /addhabilitacion para añadir otra.";
-                        sm.UserStatusChat.Remove(message.ID);
+                        response = "Esta oferta ya posee esta habilitación."+"\n"+"\n"+"Ingrese un número válido o /cancelar para salir del menú.";
+                        dt.RemoveDato(message.ID,message.Text);
                         return true;
                     }
                     else
@@ -162,7 +162,7 @@ namespace Handlers
                 }
                 else if(Int32.Parse(message.Text) >=  db.Habilitaciones.Count)     
                 {
-                    response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo";
+                    response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo.";
                     return true;
                 }
                 else
@@ -170,8 +170,8 @@ namespace Handlers
                     dt.AddDato(message.ID,message.Text);
                     if (db.Emprendedores[message.ID].Habilitaciones.Contains(db.Habilitaciones[Int32.Parse(dt.DataTemporal[message.ID][0])]))
                     {
-                        response = "Usted ya posee esta habilitacion."+"\n"+"\n"+"Ingrese /addhabilitacion para añadir otra.";
-                        sm.UserStatusChat.Remove(message.ID);
+                        response = "Usted ya posee esta habilitacion."+"\n"+"\n"+"Ingrese un número válido para añadir otra o /cancelar para salir del menú.";
+                        dt.RemoveDato(message.ID,message.Text);
                         return true;
                     }
                     else if (!db.Emprendedores[message.ID].Habilitaciones.Contains(db.Habilitaciones[Int32.Parse(dt.DataTemporal[message.ID][0])]))
