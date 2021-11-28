@@ -786,6 +786,13 @@
             <param name="chatId"></param>
             <param name="dato"></param>
         </member>
+        <member name="M:Library.DatosTemporales.RemoveDato(System.String,System.String)">
+            <summary>
+            Remove dato.
+            </summary>
+            <param name="chatId"></param>
+            <param name="dato"></param>
+        </member>
         <member name="T:Library.Habilitacion">
             <summary>
             Esta clase representa una Habilitacion basica.
