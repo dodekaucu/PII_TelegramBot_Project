@@ -717,13 +717,17 @@
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
+        <member name="M:Library.Contenedor.AddEmprendedor(System.String,System.String,Library.Rubro,System.String,System.String,System.String)">
             <summary>
             Añade un emprendedor al diccionario de emprendedores.
             Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
             </summary>
-            <param name="ID">ID del usuario.</param>
-            <param name="emprendedor">Instancia de clase emprendedor.</param>
+            <param name="ID">ID del usuario</param>
+            <param name="nombre">nombre del emprendedor.</param>
+            <param name="rubro">rubro del emprendedor.</param>
+            <param name="ciudad">ciudad del emprendedor.</param>
+            <param name="calle">calle del emprendedor.</param>
+            <param name="especializacion">especializacion del emprendedor.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmprendedor(System.String)">
             <summary>
@@ -731,12 +735,16 @@
             </summary>
             <param name="ID">ID del usuario.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
+        <member name="M:Library.Contenedor.AddEmpresa(System.String,System.String,Library.Rubro,System.String,System.String)">
             <summary>
-            Agrega una empresa al diccioanrio de empresas.
+            Añade una empresa al diccionario de empresa.
+            se utiliza un diccionario porque es mas facil buscarlo por Id.
             </summary>
             <param name="ID">ID del usuario</param>
-            <param name="empresa">Instancia de la clase empresa.</param>
+            <param name="nombre">nombre de la empresa.</param>
+            <param name="rubro">rubro de la empresa.</param>
+            <param name="ciudad">ciudad de la empresa.</param>
+            <param name="calle">calle de la empresa.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmmpresa(System.String)">
             <summary>
@@ -987,12 +995,6 @@
             Obtiene o establece el nombre de la oferta.
             </summary>
             <value>Nombre de la oferta.</value>
-        </member>
-        <member name="P:Library.OfertaBase.FechaVenta">
-            <summary>
-            Obtiene o establece fecha en la cual se realizo la venta.
-            </summary>
-            <value>Fecha de la venta.</value>
         </member>
         <member name="P:Library.OfertaBase.Material">
             <summary>

@@ -38,7 +38,7 @@ namespace ProgramTests
             message.From.Id = 13;
             msj = new TelegramMSGadapter(message);
             empresaTest = new Empresa("EmpresaTest",rubroTest,"Montevideo","calle 13");
-            db.AddEmpresa("13",empresaTest);
+            db.Empresas["13"]=empresaTest;
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Se a creado la oferta NombreOferta a nombre de la empresa EmpresaTest.\n Características:\nNombreMaterial\n45 kg\n Periocidad mensual: 1"
+                "Se a creado la oferta NombreOferta a nombre de la empresa EmpresaTest\nCaracterísticas:\n-NombreMaterial\n-45 kg\n-$40\nPeriocidad mensual: 1"
                 ));
         }
     }

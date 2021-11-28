@@ -115,9 +115,8 @@ namespace Handlers
                         Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
-                        Empresa empresa = new Empresa(name,rubro,ciudad,calle);
-                        empresa.ID=message.ID;
-                        db.AddEmpresa(message.ID,empresa);
+
+                        db.AddEmpresa(message.ID,name,rubro,ciudad,calle);
                         dt.DataTemporal.Remove(message.ID);
                         sm.UserStatusChat.Remove(message.ID);
                         response = $"{db.Empresas[message.ID].Nombre} has sido registrado correctamente!"+"\n"+$"su domicilio a sido fijado a {db.Empresas[message.ID].Ubicacion.Calle}, {db.Empresas[message.ID].Ubicacion.Ciudad}";
@@ -137,8 +136,7 @@ namespace Handlers
                     string ciudad = dt.DataTemporal[message.ID][2];
                     string calle = dt.DataTemporal[message.ID][3];
                     string especializacion = dt.DataTemporal[message.ID][4];
-                    Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion);
-                    db.AddEmprendedor(message.ID,emprendedor);
+                    db.AddEmprendedor(message.ID,name,rubro,ciudad,calle,especializacion);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
                     System.Console.WriteLine(db.Emprendedores[message.ID].Nombre);

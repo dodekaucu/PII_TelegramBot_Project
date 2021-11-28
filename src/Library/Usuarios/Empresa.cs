@@ -26,5 +26,25 @@ namespace Library
         : base(nombre, rubro, ciudad, calle)
         {
         }
+
+        public void CrearOfertaUnica(
+            string nombre,string ciudad,string calle,string nombreMaterial,Clasificacion clasificacion,
+            int cantidad,string unidad, double valor, DateTime fechaDeGeneracion
+        )
+        {
+            Oferta oferta = new Oferta
+            (nombre, this, ciudad, calle, nombreMaterial,clasificacion,cantidad,unidad,valor,fechaDeGeneracion);
+            Contenedor.Instancia.AddOferta(oferta);
+        }
+
+        public void CrearOfertaRecurrente(
+            string nombre,string ciudad,string calle,string nombreMaterial,Clasificacion clasificacion,
+            int cantidad,string unidad, double valor, int recurrencia
+        )
+        {
+            OfertaRecurrente oferta = new OfertaRecurrente
+            (nombre, this, ciudad, calle, nombreMaterial,clasificacion,cantidad,unidad,valor,recurrencia);
+            Contenedor.Instancia.AddOferta(oferta);
+        }
     }
 }

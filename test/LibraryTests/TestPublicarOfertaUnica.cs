@@ -38,14 +38,14 @@ namespace ProgramTests
             message.From.Id = 12;
             msj = new TelegramMSGadapter(message);
             empresaTest = new Empresa("EmpresaTest",rubroTest,"Montevideo","calle 13");
-            db.AddEmpresa("12",empresaTest);
+            db.Empresas["12"]=empresaTest;
         }
 
         /// <summary>
         /// Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta única.
         /// </summary>
         [Test]
-        public void TestPublicarOfertaNormalHandler()
+        public void TestPublicarOfertaUnicaHandler()
         {
             message.Text = handler.Keywords[0];
             string response;
@@ -152,7 +152,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Se a creado la oferta \"NombreOferta\" a nombre de la empresa EmpresaTest.\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/6/2022 0:00:00"
+                "Se a creado la oferta NombreOferta a nombre de la empresa EmpresaTest\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/6/2022 0:00:00"
                 ));
 
         }

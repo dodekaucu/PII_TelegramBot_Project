@@ -222,11 +222,17 @@ namespace Library
         /// Añade un emprendedor al diccionario de emprendedores.
         /// Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
         /// </summary>
-        /// <param name="ID">ID del usuario.</param>
-        /// <param name="emprendedor">Instancia de clase emprendedor.</param>
+        /// <param name="ID">ID del usuario</param>
+        /// <param name="nombre">nombre del emprendedor.</param>
+        /// <param name="rubro">rubro del emprendedor.</param>
+        /// <param name="ciudad">ciudad del emprendedor.</param>
+        /// <param name="calle">calle del emprendedor.</param>
+        /// <param name="especializacion">especializacion del emprendedor.</param>
 
-        public void AddEmprendedor(string ID, Emprendedor emprendedor)
+        public void AddEmprendedor(string ID, string nombre, Rubro rubro, string ciudad, string calle, string especializacion)
         {
+            Emprendedor emprendedor = new Emprendedor(nombre,rubro,ciudad,calle,especializacion);
+            emprendedor.ID=ID;
             this.emprendedores.Add(ID,emprendedor);
         }
 
@@ -241,13 +247,19 @@ namespace Library
         }
 
         /// <summary>
-        /// Agrega una empresa al diccioanrio de empresas.
+        /// Añade una empresa al diccionario de empresa.
+        /// se utiliza un diccionario porque es mas facil buscarlo por Id.
         /// </summary>
         /// <param name="ID">ID del usuario</param>
-        /// <param name="empresa">Instancia de la clase empresa.</param>
+        /// <param name="nombre">nombre de la empresa.</param>
+        /// <param name="rubro">rubro de la empresa.</param>
+        /// <param name="ciudad">ciudad de la empresa.</param>
+        /// <param name="calle">calle de la empresa.</param>
 
-        public void AddEmpresa(string ID, Empresa empresa)
+        public void AddEmpresa(string ID, string nombre, Rubro rubro, string ciudad, string calle)
         {
+            Empresa empresa = new Empresa(nombre,rubro,ciudad,calle);
+            empresa.ID = ID;
             this.empresas.Add(ID,empresa);
         }
 

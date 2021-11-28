@@ -181,15 +181,15 @@ namespace Handlers
                     string unidad = dt.DataTemporal[message.ID][7];
                     double valor = double.Parse(dt.DataTemporal[message.ID][8]);
                     DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
-                    Oferta oferta = new Oferta(name,db.Empresas[message.ID],ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,fechageneracion);
+                    db.Empresas[message.ID].CrearOfertaUnica(name,ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,fechageneracion);
                     /*if(!db.Ofertas.ContainsKey(message.ID))
                     {
                         db.AddOfertaKey(message.ID);
                     }*/
-                    db.AddOferta(oferta);
+                    
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
+                    response = "Se a creado la oferta "+name+" a nombre de la empresa "+db.Empresas[message.ID].Nombre+"\nCaracterísticas:\n-"+nombreMaterial+"\n-"+cantidad+" "+unidad+"\n-$"+valor+"\nFecha de generación: "+fechageneracion;
                     return true;
 
                     case "2":
@@ -209,11 +209,10 @@ namespace Handlers
                     string unidad2 = dt.DataTemporal[message.ID][7];
                     double valor2 = double.Parse(dt.DataTemporal[message.ID][8]);
                     int periocidad = Int32.Parse(dt.DataTemporal[message.ID][9]);
-                    OfertaRecurrente oferta2 = new OfertaRecurrente(name2,db.Empresas[message.ID],ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad);
-                    db.AddOferta(oferta2);
+                    db.Empresas[message.ID].CrearOfertaRecurrente(name2,ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}";
+                    response = "Se a creado la oferta "+name2+" a nombre de la empresa "+db.Empresas[message.ID].Nombre+"\nCaracterísticas:\n-"+nombreMaterial2+"\n-"+cantidad2+" "+unidad2+"\n-$"+valor2+"\nPeriocidad mensual: "+periocidad;
                     return true;
                 }
             }

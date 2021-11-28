@@ -61,12 +61,11 @@ namespace Ucu.Poo.TelegramBot
 
             emprendedor.ID = "1234";
             //db.AddInvitado("1454175798");
-            uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
-            db.AddEmprendedor("1234",emprendedor);
+            db.AddEmprendedor("1234","Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
 
-            db.AddEmpresa("1454175798",maderaslr); //Rafa
+            db.AddEmpresa("1454175798","Madera SRL", rubro, "San Bautista", "Ruta 6"); //Rafa
             maderaslr.ID="1454175798"; //Rafa
             //Añadir Empresa (Poner ID de usuario y emprendedor)
             //db.AddEmpresa("1599425094",maderaslr); //Guille
