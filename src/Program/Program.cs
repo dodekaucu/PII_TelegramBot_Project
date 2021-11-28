@@ -147,7 +147,7 @@ namespace Ucu.Poo.TelegramBot
                 // Sólo respondemos a mensajes de texto
                 if (update.Type == UpdateType.Message)
                 {
-                    await HandleMessageReceived(update.Message);
+                    await HandleMessageReceived((new TelegramMSGadapter(update.Message));
                 }
             }
             catch(Exception e)
@@ -165,9 +165,9 @@ namespace Ucu.Poo.TelegramBot
         /// </summary>
         /// <param name="message">El mensaje recibido</param>
         /// <returns></returns>
-        private static async Task HandleMessageReceived(Message message)
+        private static async Task HandleMessageReceived(IMessage message)
         {
-            Console.WriteLine($"Received a message from {message.From.FirstName} saying: {message.Text}");
+            Console.WriteLine($"Received a message from {message.ID} saying: {message.Text}");
 
             string response = string.Empty;
 
@@ -175,7 +175,7 @@ namespace Ucu.Poo.TelegramBot
 
             if (!string.IsNullOrEmpty(response))
             {
-                await Bot.SendTextMessageAsync(message.Chat.Id, response);
+                await Bot.SendTextMessageAsync(message.ID, response);
             }
         }
 
