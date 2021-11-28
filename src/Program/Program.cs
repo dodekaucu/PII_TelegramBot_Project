@@ -59,10 +59,11 @@ namespace Ucu.Poo.TelegramBot
             db.AddHabilitacion(msp);
             
 
-            //emprendedor.ID = "1454175798";
+            emprendedor.ID = "1234";
             //db.AddInvitado("1454175798");
             uno.FechaVenta = DateTime.Parse("15/10/2021");
             emprendedor.AddToRegister(uno);
+            db.AddEmprendedor("1234",emprendedor);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
 
             db.AddEmpresa("1454175798",maderaslr); //Rafa
@@ -101,6 +102,7 @@ namespace Ucu.Poo.TelegramBot
             
             firstHandler =
                 new HelloHandler(
+                new InfoUsuarioHandler(
                 new CancelHandler(
                 new GoodByeHandler(
                 new BuscarHandler(
@@ -114,8 +116,10 @@ namespace Ucu.Poo.TelegramBot
                 new Registro(
                 new AddHabilitacionHandler(
                 new PublicarOfertaHandler(
+                new MisPublicacionesHandler(
+                new AñadirCompradorHandler(
                 new HistorialUsuarioHandler(null)
-                ))))))))))))));
+                )))))))))))))))));
 
             var cts = new CancellationTokenSource();
 
@@ -147,7 +151,7 @@ namespace Ucu.Poo.TelegramBot
                 // Sólo respondemos a mensajes de texto
                 if (update.Type == UpdateType.Message)
                 {
-                    await HandleMessageReceived((new TelegramMSGadapter(update.Message));
+                    await HandleMessageReceived((new TelegramMSGadapter(update.Message)));
                 }
             }
             catch(Exception e)
@@ -171,7 +175,7 @@ namespace Ucu.Poo.TelegramBot
 
             string response = string.Empty;
 
-            firstHandler.Handle(new TelegramMSGadapter(message), out response);
+            firstHandler.Handle(message, out response);
 
             if (!string.IsNullOrEmpty(response))
             {
