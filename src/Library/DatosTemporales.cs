@@ -65,5 +65,15 @@ namespace Library
         {
             dataTemporal[chatId].Add(dato);
         }
+        /// <summary>
+        /// Remove dato.
+        /// </summary>
+        /// <param name="chatId"></param>
+        /// <param name="dato"></param>
+
+        public void RemoveDato(string chatId, string dato)
+        {
+            dataTemporal[chatId].Remove(dato);
+        }
     }
 }
