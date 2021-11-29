@@ -38,13 +38,14 @@ namespace Library
         /// <param name="id">parametro id recibido por el constructor de la empresa.</param>
         
         [JsonConstructor]
-        public Empresa(string nombre, Rubro rubro, string ciudad, string calle, string id)
+        public Empresa(string nombre, Rubro rubro, string ciudad, string calle, string id, string telefono)
         {
             this.Nombre = nombre;
             this.Rubro = rubro;
             this.Ciudad = ciudad;
             this.Calle = calle;
             this.ID = id;
+            this.Telefono = telefono;
             
             if (nombre == null)
             {
@@ -80,6 +81,8 @@ namespace Library
         /// Obtiene o establece la ciudad donde se ubica la empresa.
         /// </summary>
         public string Ciudad {get;set;}
+
+        public string Telefono { get; set; }
 
         /// <summary>
         /// Obtiene o establece un valor que es el rubro del usuario.

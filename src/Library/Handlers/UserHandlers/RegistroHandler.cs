@@ -115,7 +115,7 @@ namespace Handlers
                         Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
-                        Empresa empresa = new Empresa(name,rubro,ciudad,calle,message.ID);
+                        Empresa empresa = new Empresa(name,rubro,ciudad,calle,message.ID, "091453933");
                         empresa.ID=message.ID;
                         db.AddEmpresa(message.ID,empresa);
                         dt.DataTemporal.Remove(message.ID);
@@ -155,5 +155,4 @@ namespace Handlers
         }
     }
 }
-
 

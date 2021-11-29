@@ -72,6 +72,7 @@ namespace Handlers
                     texto += textorecurrente + "\n";
                     texto += "Identificador: " + oferta.Identificador + "\n";
                     texto += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
+                    texto += "Teléfono de contacto: " + oferta.Empresa.Telefono+"\n";
                     texto += "\n";
                     texto += "---------------------------------------" + "\n";
                 }   

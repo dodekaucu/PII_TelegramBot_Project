@@ -1386,7 +1386,7 @@
             Constructor de empresa vacío para deserialización.
             </summary>
         </member>
-        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
+        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             </summary>

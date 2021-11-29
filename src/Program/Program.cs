@@ -139,31 +139,36 @@ namespace Ucu.Poo.TelegramBot
             contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado, deserializaroferta);
 
             /*
-            Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
             Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
             Contenedor db = Contenedor.Instancia;
             Busqueda buscador = Busqueda.Instancia;
             Habilitacion msp = new Habilitacion("MSP", "msp");
-            Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
-            Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento","1581849977");
-            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6","1599425094");
-            //Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Rubro rubrocarpinteria = new Rubro("Carpinteria", "Carpinteria", "Recursos");
+            Rubro rubrotextil = new Rubro("Téxtil", "Téxtil", "Telas y afines");
+            Rubro rubrotecnologia = new Rubro("Computación", "Tecnología", "Informática en general");
+            Rubro rubrometalurgica = new Rubro("Metalurgica", "Metales", "Metales en general");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubrocarpinteria, "San Ramon", "Ruta 12", "Emprendimiento","1581849977");
+            Empresa maderaslr = new Empresa("Madera SRL", rubrocarpinteria, "San Bautista", "Ruta 6","1599425094","6859595");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
+            Clasificacion tecnologia = new Clasificacion("Tecnologia", "Material informatico");
+            Clasificacion metales = new Clasificacion("Metales", "Metales");
             Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(uno);
-            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Madera OSB", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(dos);
             db.AddClasificacion(madera);
+            db.AddClasificacion(tecnologia);
+            db.AddClasificacion(metales);
             db.AddHabilitacion(unit);
             emprendedor.AddHabilitacion(msp);
-            db.AddRubro(rubro);
-            db.AddRubro(rubro2);
+            db.AddRubro(rubrocarpinteria);
+            db.AddRubro(rubrotecnologia);
+            db.AddRubro(rubrometalurgica);
             db.AddHabilitacion(msp);
-            db.AddEmpresa("1599425094",maderaslr);
-            db.AddEmprendedor("1581849977",emprendedor);
+            db.AddInvitado("1599425094");
             */
+            
             
             
             
