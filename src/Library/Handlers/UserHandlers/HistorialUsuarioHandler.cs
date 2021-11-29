@@ -77,7 +77,7 @@ namespace Handlers
                         }
                         foreach (Oferta oferta in db.Emprendedores[message.ID].BuscarEnHistorial(fechaDesde))
                         {
-                            if (oferta.RecurrenciaMensual == 0)
+                            if (oferta.RecurrenciaSemanal == 0)
                             {
                                 Oferta o = oferta;
                                 if (oferta as Oferta != null)
@@ -86,7 +86,7 @@ namespace Handlers
                                     opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
                                 }
                             }
-                            else if (oferta.RecurrenciaMensual > 0)
+                            else if (oferta.RecurrenciaSemanal > 0)
                             {
                                 Oferta o1 = oferta;
                                 if(oferta as Oferta != null)
@@ -117,7 +117,7 @@ namespace Handlers
                         }
                         foreach (Oferta oferta in db.Empresas[message.ID].BuscarEnHistorial(fechaDesde)) 
                         {
-                            if (oferta.RecurrenciaMensual == 0)
+                            if (oferta.RecurrenciaSemanal == 0)
                             {
                                 Oferta o = oferta;
                                 if (oferta as Oferta != null)
@@ -126,7 +126,7 @@ namespace Handlers
                                     opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
                                 }
                             }
-                            else if (oferta.RecurrenciaMensual > 0)
+                            else if (oferta.RecurrenciaSemanal > 0)
                             {
                                 Oferta o1 = oferta;
                                 if(oferta as Oferta != null)

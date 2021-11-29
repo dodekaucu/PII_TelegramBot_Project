@@ -59,9 +59,10 @@ namespace Library
             string[] palabrasbuscar = mensaje.Split(" ");
             foreach (Oferta oferta in basededatos.Ofertas)
             {
-                //foreach (string palabra in palabrasbuscar)
-                //{
-                    if (oferta.PalabrasClaves.Contains(mensaje))
+                foreach (string palabra in palabrasbuscar)
+                {
+                    Console.WriteLine(palabra);
+                    if (oferta.PalabrasClaves.Contains(palabra))
                     {
                         if (oferta.Habilitaciones.Count >= 1)
                         {
@@ -86,7 +87,7 @@ namespace Library
                             listaOfertas.Add(oferta);
                         }
                     }
-                //}
+                }
             }
 
             return listaOfertas;

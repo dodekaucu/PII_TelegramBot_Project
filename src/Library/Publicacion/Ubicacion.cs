@@ -14,6 +14,9 @@ namespace Library
     /// </summary>
     public class Ubicacion
     {
+        /// <summary>
+        /// Constructor vacío para la serialización.
+        /// </summary>
         public Ubicacion()
         {
 
@@ -42,6 +45,10 @@ namespace Library
         /// <value>this.calle.</value>
         public string Calle { get; set; }
 
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>    
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

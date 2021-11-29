@@ -22,6 +22,9 @@ namespace Library
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
         private Collection<Oferta> registroUsuario = new Collection<Oferta>();
 
+        /// <summary>
+        /// Constructor vacío para deserialización.
+        /// </summary>
         public Emprendedor()
         {
 
@@ -35,13 +38,13 @@ namespace Library
         /// <param name="ciudad">parametro ciudad recibido por el constructor del emprendedor.</param>
         /// <param name="calle">parametro calle recibido por el constructor del emprendedor.</param>
         /// <param name="especializacion">parametro especializacion recibidio por el constructor del emprendedor.</param>
-
+        /// <param name="id">parametro id del emprendedor que se registra.</param>
         public Emprendedor(string nombre, Rubro rubro, string ciudad, string calle, string especializacion, string id)
         {
             this.Nombre = nombre;
             this.Rubro = rubro;
-            //this.Ciudad = ciudad;
-            //this.Calle = calle;
+            this.Ciudad = ciudad;
+            this.Calle = calle;
 
             if (nombre == null)
             {
@@ -62,31 +65,36 @@ namespace Library
         /// <summary>
         /// Obtiene o establece un valor el nombre del usuario.
         /// </summary>
-        /// <value>this.nombre.</value>
         public string Nombre { get; set; }
 
         /// <summary>
         /// Obtiene o establece el id del usuario.
         /// </summary>
-        /// <value></value>
         public string ID { get; set; }
 
         /// <summary>
         /// Obtiene o establece un valor que es el rubro del usuario.
         /// </summary>
-        /// <value>this.rubro.</value>
         public Rubro Rubro { get; set; }
+        /// <summary>
+        /// Obtiene o establece la ciudad donde esta ubicado el emprendedor.
+        /// </summary>
+        public string Ciudad { get; set; }
+        /// <summary>
+        /// Obtiene o establece la calle donde esta ubicado el emprendedor.
+        /// </summary>
+        /// <value></value>
+        public string Calle { get; set; }
 
         /// <summary>
         /// Obtiene o establece un valor que indica la ubicacion del usuario.
         /// </summary>
-        /// <value>this.ubicacion.</value>
         public Ubicacion Ubicacion { get; set; }
 
         /// <summary>
         /// Obtiene un valor que indica el registro del usuario.
         /// </summary>
-        /// <value>this.registroUsuario.</value>
+
         [JsonInclude]
         public Collection<Oferta> RegistroUsuario
         {
@@ -115,20 +123,14 @@ namespace Library
             Collection<Oferta> resultado = new Collection<Oferta>();
             foreach (Oferta oferta in this.registroUsuario)
             {
-                /*Oferta o;
-                if (oferta as Oferta != null)
-                {
-                    o = oferta as Oferta;
-
-                }*/
-                if (oferta.RecurrenciaMensual == 0)
+                if (oferta.RecurrenciaSemanal == 0)
                     {
                         if (!oferta.Disponible && oferta.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }
                     }
-                else if (oferta.RecurrenciaMensual > 0)
+                else if (oferta.RecurrenciaSemanal > 0)
                 {
                     
                     foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
@@ -180,6 +182,11 @@ namespace Library
         {
             this.Habilitaciones.Remove(habilitacion);
         }
+
+        /// <summary>
+        /// Convert To Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

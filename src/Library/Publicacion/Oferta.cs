@@ -17,6 +17,7 @@ namespace Library
     /// </summary>
     public class Oferta : IJsonSerialize
     {
+        Contenedor db = Contenedor.Instancia;
         private FechaCompraOferta fechaCompra;
         private Collection<FechaCompraOferta> registroVentas = new Collection<FechaCompraOferta> ();
         private bool disponible;
@@ -24,6 +25,9 @@ namespace Library
         private Collection<string> palabrasClaves = new Collection<string>();
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
+        /// <summary>
+        /// Constructor de oferta vacío para la deserialización.
+        /// </summary>
         public Oferta()
         {
 
@@ -41,9 +45,10 @@ namespace Library
         /// <param name="cantidad">cantidad del material.</param>
         /// <param name="unidad">unidad del material.</param>
         /// <param name="valor">valor del material.</param>
+        /// <param name="recurrenciaSemanal">Cada cuantas semanas se renueva la oferta.</param>
         /// <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
         [JsonConstructor]
-        public Oferta(string nombreoferta, Empresa empresa, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor, int recurrenciaMensual, DateTime fechaDeGeneracion)
+        public Oferta(string nombreoferta, Empresa empresa, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor, int recurrenciaSemanal, DateTime fechaDeGeneracion)
         {
             
             this.Empresa = empresa;
@@ -54,7 +59,7 @@ namespace Library
             this.Cantidad = cantidad;
             this.Unidad = unidad;
             this.Valor = valor;
-            this.RecurrenciaMensual = recurrenciaMensual;
+            this.RecurrenciaSemanal = recurrenciaSemanal;
             this.FechadeGeneracion = fechaDeGeneracion;
             this.Nombreoferta = nombreoferta;
 
@@ -62,14 +67,18 @@ namespace Library
             this.Material = material;
             Ubicacion ubicacion = new Ubicacion(ciudad, calle);
             this.Ubicacion = ubicacion;
-            this.PalabrasClaves.Add(this.Nombreoferta);
-            this.PalabrasClaves.Add(this.Empresa.Nombre);
-            this.PalabrasClaves.Add(this.Material.Nombre);
+            this.AddPalabraClave(this.Nombreoferta);
+            this.AddPalabraClave(this.Empresa.Nombre);
+            this.AddPalabraClave(this.Material.Nombre);
             Contenedor db = Contenedor.Instancia;
             this.identificador = db.Ofertas.Count;
         }
 
-        public int RecurrenciaMensual { get; set; }
+        /// <summary>
+        /// Recurrencia semanal. Esto es un int de cada cuantas semanas se repite la oferta.
+        /// </summary>
+        /// <value></value>
+        public int RecurrenciaSemanal { get; set; }
 
         /// <summary>
         /// Obtiene o establece cuando la oferta va a ser generada.
@@ -90,14 +99,48 @@ namespace Library
         /// <value>Nombre de la oferta.</value>
         public string Nombreoferta { get; set; }
 
+        /// <summary>
+        /// Obtiene o establece la calles donde se encuentra la oferta.
+        /// </summary>
+        /// <value></value>
         public string Calle {get;set;}
+
+        /// <summary>
+        /// Obtiene o establece la ciudad donde se encuentra la oferta.
+        /// </summary>
+        /// <value></value>
         public string Ciudad {get;set;}
+
+        /// <summary>
+        /// Obtiene o establece el nombre del materia de la oferta.
+        /// </summary>
+        /// <value></value>
         public string Nombrematerial {get;set;}
+
+        /// <summary>
+        /// Obtiene o establece la clasificacion del material.
+        /// </summary>
+        /// <value></value>
         public Clasificacion Clasificacion {get;set;}
+
+        /// <summary>
+        /// Obtiene o establece la cantidad de material.
+        /// </summary>
+        /// <value></value>
 
         public int Cantidad {get;set;}
 
+        /// <summary>
+        /// Obtiene o establece la unidad del material.
+        /// </summary>
+        /// <value></value>
+
         public string Unidad {get;set;}
+
+        /// <summary>
+        /// Obtiene o establece el precio de la oferta.
+        /// </summary>
+        /// <value></value>
 
         public double Valor {get;set;}
 
@@ -175,8 +218,10 @@ namespace Library
         }
         
         
-        //No recurrente
-        
+        /// <summary>
+        /// Obtiene si la oferta esta disponible o no PARA OFERTAS ÚNICAS.
+        /// </summary>
+        /// <value></value>
         public bool Disponible
         {
             get
@@ -184,7 +229,10 @@ namespace Library
                 return fechaCompra == null;
             }
         }
-
+        /// <summary>
+        /// Obtiene la fecha de compra PARA OFERTAS ÚNICAS.
+        /// </summary>
+        /// <value></value>
         public FechaCompraOferta FechaCompra 
         {
             get
@@ -193,15 +241,19 @@ namespace Library
             }
         }
         
-
+        /// <summary>
+        /// Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
+        /// </summary>
+        /// <param name="id">ID del usuario.</param>
+        /// <param name="fechaventa">Fecha de venta.</param>
         public void AddComprador(string id,DateTime fechaventa)
         {
-            if (this.RecurrenciaMensual == 0)
+            if (this.RecurrenciaSemanal == 0)
             {
             FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
             this.fechaCompra = fechaCompra;
             }
-            if (this.RecurrenciaMensual > 0)
+            if (this.RecurrenciaSemanal > 0)
             {
             FechaCompraOferta venta = new FechaCompraOferta(id,fechaventa);
             this.registroVentas.Add(venta);
@@ -209,6 +261,10 @@ namespace Library
         }
 
         //Recurrente
+        /// <summary>
+        /// Obtiene el registro de ventas PARA OFERTAS RECURRENTES.
+        /// </summary>
+        /// <value></value>
         [JsonInclude]
         public Collection<FechaCompraOferta> RegistroVentas
         {
@@ -218,7 +274,10 @@ namespace Library
             }
         }
 
-
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

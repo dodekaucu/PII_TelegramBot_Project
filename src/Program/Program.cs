@@ -24,7 +24,7 @@ namespace Ucu.Poo.TelegramBot
         //
         // *Importante*:
         // Para probar este ejemplo, crea un bot nuevo y reemplaza este token por el de tu bot.
-        private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
+        private static string Token = "2084958009:AAE-GVhiDbuo_AinJ5rnMsH3e7-5Bs7vQf8";
 
         private static IHandler firstHandler;
 
@@ -138,6 +138,7 @@ namespace Ucu.Poo.TelegramBot
             string deserializarinvitado = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaInvitados.Json");
             contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado, deserializaroferta);
 
+            /*
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
             Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
@@ -146,9 +147,9 @@ namespace Ucu.Poo.TelegramBot
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
             Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
-            Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento","1581849977");
+            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6","1599425094");
+            //Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
             Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(uno);
@@ -160,7 +161,12 @@ namespace Ucu.Poo.TelegramBot
             db.AddRubro(rubro);
             db.AddRubro(rubro2);
             db.AddHabilitacion(msp);
-            //db.AddEmpresa("1599425094",maderaslr);
+            db.AddEmpresa("1599425094",maderaslr);
+            db.AddEmprendedor("1581849977",emprendedor);
+            */
+            
+            
+            
             
             // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
             // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync

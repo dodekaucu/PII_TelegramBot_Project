@@ -55,14 +55,25 @@ namespace Handlers
                 texto = "OFERTAS DISPONIBLES: \n";
                 foreach (Oferta oferta in lista)
                 {
-                texto += "\n";
-                texto += "Nombre: " + oferta.Nombreoferta + "\n";
-                texto += "Material: " + oferta.Material.Nombre + "\n";
-                texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
-                texto += "Precio: $" + oferta.Material.Valor + "\n";
-                texto += "Identificador: " + oferta.Identificador + "\n";
-                texto += "\n";
-                texto += "---------------------------------------" + "\n";
+                    string textorecurrente = "";
+                    if (oferta.RecurrenciaSemanal == 0)
+                    {
+                        textorecurrente = "Oferta única";
+                    }
+                    else if (oferta.RecurrenciaSemanal > 0)
+                    {
+                        textorecurrente = "Oferta recurrente cada " + oferta.RecurrenciaSemanal + " semanas";
+                    }
+                    texto += "\n";
+                    texto += "Nombre: " + oferta.Nombreoferta + "\n";
+                    texto += "Material: " + oferta.Material.Nombre + "\n";
+                    texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
+                    texto += "Precio: $" + oferta.Material.Valor + "\n";
+                    texto += textorecurrente + "\n";
+                    texto += "Identificador: " + oferta.Identificador + "\n";
+                    texto += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
+                    texto += "\n";
+                    texto += "---------------------------------------" + "\n";
                 }   
             }
             return texto;

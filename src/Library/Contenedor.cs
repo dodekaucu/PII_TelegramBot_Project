@@ -18,26 +18,52 @@ namespace Library
     /// </summary>
     public class Contenedor: IJsonSerialize
     {
+        /// <summary>
+        /// Contenedor.
+        /// </summary>
         public static Contenedor contenedor;
 
+        /// <summary>
+        /// Colleción de habilitaciones disponibles.
+        /// </summary>
         public Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
+        /// <summary>
+        /// Colección de rubros disponibles.
+        /// </summary>
         public Collection<Rubro> rubros = new Collection<Rubro>();
 
-        public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        /// <summary>
+        /// Colección de clasificaciones disponibles.
+        /// </summary>
 
+        public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        /// <summary>
+        /// Colección de ofertas.
+        /// </summary>
         public Collection<Oferta> ofertas = new Collection<Oferta>();
+        /// <summary>
+        /// Diccionario de emprendedores registrados, guarda el ID como key y un objeto emprendedor.
+        /// </summary>
 
         public Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
+        /// <summary>
+        /// Diccionario de empresas registradas, guarda el ID como key y un objeto empresa.
+        /// </summary>
 
         public Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
-
-
+        /// <summary>
+        /// Lista de administradores, solo guarda su ID.
+        /// </summary>
         public Collection<string> administradores = new Collection<string>() { "1454175798" };
-
-
+        /// <summary>
+        /// Lista de invitados, solo guarda su ID.
+        /// </summary>
         public Collection<string> invitados = new Collection<string> ();
 
+        /// <summary>
+        /// Constructor vacío de contenedor.
+        /// </summary>
         public Contenedor()
         {
         }

@@ -17,6 +17,9 @@ namespace Library
         private string area;
         private string descripcion;
 
+        /// <summary>
+        /// Constructor vacío de rubro para la deserialización
+        /// </summary>
         public Rubro()
         {
 
@@ -71,6 +74,11 @@ namespace Library
                 return this.descripcion;
             }
         }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

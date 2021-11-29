@@ -115,7 +115,7 @@ namespace Handlers
                         Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
-                        Empresa empresa = new Empresa(name,rubro,ciudad,calle);
+                        Empresa empresa = new Empresa(name,rubro,ciudad,calle,message.ID);
                         empresa.ID=message.ID;
                         db.AddEmpresa(message.ID,empresa);
                         dt.DataTemporal.Remove(message.ID);
@@ -137,7 +137,7 @@ namespace Handlers
                     string ciudad = dt.DataTemporal[message.ID][2];
                     string calle = dt.DataTemporal[message.ID][3];
                     string especializacion = dt.DataTemporal[message.ID][4];
-                    Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion);
+                    Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion,message.ID);
                     db.AddEmprendedor(message.ID,emprendedor);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);

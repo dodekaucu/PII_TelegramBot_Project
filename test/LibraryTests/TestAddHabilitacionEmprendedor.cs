@@ -31,7 +31,7 @@ namespace ProgramTests
         public void Setup()
         {
             Rubro rubroMadera = new Rubro("Madera", "Forestal", "Madera de todo tipo");
-            emprendedor = new Emprendedor("Gaston Pereira", rubroMadera, "San Ramon", "Ruta 12", "Emprendimiento");
+            emprendedor = new Emprendedor("Gaston Pereira", rubroMadera, "San Ramon", "Ruta 12", "Emprendimiento","1555");
             Habilitacion msp = new Habilitacion("MSP", "Habilitación del Ministerio de salud publica");
             Habilitacion unit = new Habilitacion("UNIT", "Habilitación Instituto Uruguayo de Normas Técnicas");
             Habilitacion iso = new Habilitacion("ISO 9000", "Habilitación ISO 9000");

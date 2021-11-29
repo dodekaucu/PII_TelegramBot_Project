@@ -106,7 +106,7 @@ namespace Handlers
                     int numoferta = Int32.Parse(dt.DataTemporal[message.ID][0]);
                     string idComprador = dt.DataTemporal[message.ID][1];
                     DateTime fechaCompra = DateTime.Parse(message.Text);
-                    if (db.Ofertas[numoferta].RecurrenciaMensual == 0)
+                    if (db.Ofertas[numoferta].RecurrenciaSemanal == 0)
                     {
                         Oferta o = db.Ofertas[numoferta];
                         if(!o.Disponible)
@@ -122,7 +122,7 @@ namespace Handlers
                         dt.DataTemporal.Remove(message.ID);
                         return true;
                     }
-                    if (db.Ofertas[numoferta].RecurrenciaMensual > 0)
+                    if (db.Ofertas[numoferta].RecurrenciaSemanal > 0)
                     {
                         Oferta o = db.Ofertas[numoferta];
                         o.AddComprador(idComprador,fechaCompra);

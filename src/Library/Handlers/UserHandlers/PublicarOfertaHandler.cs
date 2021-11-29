@@ -187,7 +187,7 @@ namespace Handlers
                             db.AddOferta(oferta);
                             dt.DataTemporal.Remove(message.ID);
                             sm.UserStatusChat.Remove(message.ID);
-                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
+                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\"a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
                             return true;
                         }
                     case "2":
@@ -201,7 +201,7 @@ namespace Handlers
                     {
                         dt.AddDato(message.ID,message.Text);
                         DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
-                        response = $"Fecha inicial: {dt.DataTemporal[message.ID][9]}, ahora ingrese la periocidad mensual:";
+                        response = $"Fecha inicial: {dt.DataTemporal[message.ID][9]}, ahora ingrese la recurrencia semanal (Cada cúantas semanas vuelve a estar disponible la oferta.):";
                         return true;
                     }
                 }
@@ -223,7 +223,7 @@ namespace Handlers
                     db.AddOferta(oferta2);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}";
+                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Recurrencia: cada {oferta2.RecurrenciaSemanal} semanas.";
                     return true;
             }
             response = string.Empty;

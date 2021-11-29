@@ -20,6 +20,10 @@ namespace Library
     {
         
         private Collection<Oferta> registroUsuario = new Collection<Oferta>();
+
+        /// <summary>
+        /// Constructor de empresa vacío para deserialización.
+        /// </summary>
         public Empresa()
         {
 
@@ -31,6 +35,7 @@ namespace Library
         /// <param name="rubro">parametro rubro recibido por el constructor de la empresa.</param>
         /// <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
         /// <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
+        /// <param name="id">parametro id recibido por el constructor de la empresa.</param>
         
         [JsonConstructor]
         public Empresa(string nombre, Rubro rubro, string ciudad, string calle, string id)
@@ -67,9 +72,13 @@ namespace Library
         /// </summary>
         /// <value>this.nombre.</value>
         public string Nombre { get; set; }
-
+        /// <summary>
+        /// Obtiene o establece la calle donde se ubica la empresa.
+        /// </summary>
         public string Calle {get;set;}
-
+        /// <summary>
+        /// Obtiene o establece la ciudad donde se ubica la empresa.
+        /// </summary>
         public string Ciudad {get;set;}
 
         /// <summary>
@@ -122,14 +131,14 @@ namespace Library
                     o = oferta as Oferta;
 
                 }
-                if (oferta.RecurrenciaMensual == 0)
+                if (oferta.RecurrenciaSemanal == 0)
                     {
                         if (!oferta.Disponible && oferta.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }
                     }
-                else if (oferta.RecurrenciaMensual > 0)
+                else if (oferta.RecurrenciaSemanal > 0)
                 {
                     
                     foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
@@ -144,6 +153,10 @@ namespace Library
 
             return resultado;
         }
+        /// <summary>
+        /// Convert to json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

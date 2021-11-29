@@ -12,7 +12,10 @@ namespace Library
     /// Esta clase representa una clasificación de un material.
     /// </summary>
     public class Clasificacion: IJsonSerialize
-    {
+    {   
+        /// <summary>
+        /// Constructor vacío para la serialización.
+        /// </summary>
         public Clasificacion()
         {
             
@@ -40,6 +43,11 @@ namespace Library
         /// </summary>
         /// <value>this.descripcion.</value>
         public string Descripcion { get; }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

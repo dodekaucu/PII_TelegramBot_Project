@@ -13,8 +13,9 @@ namespace Library
     /// </summary>
     public class Habilitacion: IJsonSerialize
     {
-        public string Name { get; }
-        public string Descripcion { get; }
+        /// <summary>
+        /// Constructor vacío para la deserialización.
+        /// </summary>
         public Habilitacion()
         {
 
@@ -34,14 +35,17 @@ namespace Library
         /// <summary>
         /// Obtiene un valor que indica el nombre de la habilitacion.
         /// </summary>
-        /// <value>this.name.</value>
-        //public string Name { get; }
+        public string Name { get; }
 
         /// <summary>
         /// Obtiene un valor que indica la descripcion de la habilitacion.
         /// </summary>
-        /// <value>this.descripcion.</value>
-        //public string Descripcion { get; }
+        public string Descripcion { get; }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

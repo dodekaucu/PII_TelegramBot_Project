@@ -36,6 +36,11 @@ namespace Library
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
