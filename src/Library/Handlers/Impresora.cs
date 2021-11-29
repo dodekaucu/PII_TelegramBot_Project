@@ -63,6 +63,7 @@ namespace Handlers
                 texto += "Identificador: " + oferta.Identificador + "\n";
                 texto += "Vendedor: " + oferta.Empresa.Nombre + "\n";
                 texto += "Telefono de contacto: "+ oferta.Empresa.Telefono + "\n";
+                texto += "Id de la oferta: " + oferta.Identificador + "\n";
                 texto += "\n";
                 texto += "---------------------------------------" + "\n";
                 }   

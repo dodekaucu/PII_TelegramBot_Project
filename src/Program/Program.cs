@@ -34,6 +34,8 @@ namespace Ucu.Poo.TelegramBot
         {
             Bot = new TelegramBotClient(Token);
 
+            LocationApiClient client = new LocationApiClient();
+
             Contenedor db = Contenedor.Instancia;
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
@@ -57,6 +59,8 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.ID = "1566613690";
             db.AddEmprendedor("1566613690",emprendedor);
 
+            Oferta oferta = new Oferta ("madera",empresa,"Montevideo","Av 8 de Octubre 2738","madera de roble",madera,150,"kg",150,DateTime.Parse("28/11/2021"));
+            db.AddOferta(oferta)
             
             
             firstHandler =
@@ -64,7 +68,6 @@ namespace Ucu.Poo.TelegramBot
                 new InfoUsuarioHandler(
                 new CancelHandler(
                 new GoodByeHandler(
-                new BuscarHandler(
                 new BuscarUbiHandler(
                 new AdminInvitationHandler(
                 new StartHandler(
@@ -77,7 +80,8 @@ namespace Ucu.Poo.TelegramBot
                 new PublicarOfertaHandler(
                 new MisPublicacionesHandler(
                 new AñadirCompradorHandler(
-                new HistorialUsuarioHandler(null)
+                new HistorialUsuarioHandler(
+                new BuscarHandler(new DistanceCalculator(client),null)
                 )))))))))))))))));
 
             var cts = new CancellationTokenSource();

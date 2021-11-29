@@ -25,6 +25,8 @@ namespace Handlers
         /// </summary>
         public Busqueda buscador;
 
+        
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="BuscarHandler"/>. Esta clase procesa el mensaje "chau"
         /// </summary>
@@ -44,7 +46,10 @@ namespace Handlers
         {
             Contenedor db = Contenedor.Instancia;
             Busqueda buscador = Busqueda.Instancia;
+            StatusManager sm = StatusManager.Instancia;
+            DatosTemporales dt = DatosTemporales.Instancia;
             Impresora impresora = Impresora.Instancia;
+
             if (this.CanHandle(message))
             {
                 if (db.Emprendedores.ContainsKey(message.ID))
@@ -59,7 +64,10 @@ namespace Handlers
                     {
                     string emprend = message.ID.ToString();
                     string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca.Trim(),db));
-                    response = $"{OfertasValidas}";
+                    string texto = "¿  Le interesa alguna oferta ? (digite el numero de la ID de la oferta, en caso contrario digite /cancel)";
+                    response = $"{OfertasValidas} "+texto;
+                    sm.AddUserStatus(message.ID,"BuscarStatus");
+                    dt.AddKeyUser(message.ID);
                     return true;
                     }
                 }
@@ -69,6 +77,31 @@ namespace Handlers
                     return true;
                 }
             }
+            if (sm.UserStatusChat[message.ID]=="BuscarStatus" && dt.DataTemporal[message.ID].Count==0)
+            {
+                int num;
+                if(!Int32.TryParse(message.Text,out num))
+                {
+                    response = "No se ha ingresado un número, ingrese un numero válido.";
+                    return true;
+                }
+                else if(Int32.Parse(message.Text) >=  db.Ofertas.Count)     
+                {
+                    response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo";
+                    return true;
+                }
+                int numofert = Int32.Parse(message.Text);
+                string UbicacionEmprendedor = db.Emprendedores[message.ID].Ubicacion.Ciudad + "," + db.Emprendedores[message.ID].Ubicacion.Calle;
+                string UbicacionOferta = db.Ofertas[numofert].Ubicacion.Ciudad + ", "+db.Ofertas[numofert].Ubicacion.Calle;
+                Distance distance = new Distance();
+                
+                // temgo todo menos como unirlo
+                dt.DataTemporal.Remove(message.ID);
+                sm.UserStatusChat.Remove(message.ID);
+                response = $"lo de la location {distance.GetDistance(UbicacionEmprendedor,UbicacionOferta)}";
+                return true;
+            }
+
             response = string.Empty;
             return false;
         }
