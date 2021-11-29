@@ -61,6 +61,8 @@ namespace Handlers
                 texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
                 texto += "Precio: $" + oferta.Material.Valor + "\n";
                 texto += "Identificador: " + oferta.Identificador + "\n";
+                texto += "Vendedor: " + oferta.Empresa.Nombre + "\n";
+                texto += "Telefono de contacto: "+ oferta.Empresa.Telefono + "\n";
                 texto += "\n";
                 texto += "---------------------------------------" + "\n";
                 }   

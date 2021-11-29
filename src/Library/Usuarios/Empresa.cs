@@ -22,9 +22,12 @@ namespace Library
         /// <param name="rubro">parametro rubro recibido por el constructor de la empresa.</param>
         /// <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
         /// <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
-        public Empresa(string nombre, Rubro rubro, string ciudad, string calle)
+        public Empresa(string nombre, Rubro rubro, string ciudad, string calle,string telefono)
         : base(nombre, rubro, ciudad, calle)
         {
+            this.Telefono = telefono;
         }
+
+        public string Telefono { get; set; }
     }
 }

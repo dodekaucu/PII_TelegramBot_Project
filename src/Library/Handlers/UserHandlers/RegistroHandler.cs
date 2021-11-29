@@ -110,12 +110,27 @@ namespace Handlers
                     dt.AddDato(message.ID,message.Text);
                     if(db.Invitados.Contains(message.ID))   //Acá termina el registro para la empresa.
                     {
+                        response = "Su calle es: " + message.Text + "\n"+"\n"+"Ahora ingrese su numero de teléfono para que los interesados en sus ofertas lo contacten:";
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Su calle es: " + message.Text + "\n"+"\n"+"Ahora ingrese su especialización:";
+                        return true;
+                    }
+                }
+            else if(sm.UserStatusChat[message.ID]=="RegistroStatus" && dt.DataTemporal[message.ID].Count==4)
+                {
+                    if (db.Invitados.Contains(message.ID))
+                    {
                         sm.UserStatusChat.Remove(message.ID);
+                        dt.AddDato(message.ID,message.Text);
                         string name = dt.DataTemporal[message.ID][0];
                         Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
                         string ciudad = dt.DataTemporal[message.ID][2];
                         string calle = dt.DataTemporal[message.ID][3];
-                        Empresa empresa = new Empresa(name,rubro,ciudad,calle);
+                        string telefono = dt.DataTemporal[message.ID][4];
+                        Empresa empresa = new Empresa(name,rubro,ciudad,calle,telefono);
                         empresa.ID=message.ID;
                         db.AddEmpresa(message.ID,empresa);
                         dt.DataTemporal.Remove(message.ID);
@@ -125,25 +140,20 @@ namespace Handlers
                     }
                     else
                     {
-                    response = "Su calle es: " + message.Text + "\n"+"\n"+"Ahora ingrese su especialización:";
-                    return true;
+                        dt.AddDato(message.ID,message.Text);
+                        string name = dt.DataTemporal[message.ID][0];
+                        Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
+                        string ciudad = dt.DataTemporal[message.ID][2];
+                        string calle = dt.DataTemporal[message.ID][3];
+                        string especializacion = dt.DataTemporal[message.ID][4];
+                        Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion);
+                        db.AddEmprendedor(message.ID,emprendedor);
+                        dt.DataTemporal.Remove(message.ID);
+                        sm.UserStatusChat.Remove(message.ID);
+                        System.Console.WriteLine(db.Emprendedores[message.ID].Nombre);
+                        response = $"Emprendedor {db.Emprendedores[message.ID].Nombre} del rubro {db.Emprendedores[message.ID].Rubro.Nombre} ha sido registrado correctamente!"+"\n"+$"Su domicilio a sido fijado a {db.Emprendedores[message.ID].Ubicacion.Ciudad}, {db.Emprendedores[message.ID].Ubicacion.Calle}" + "\n" + "\n" + "Recuerda que si desea agregar una habilitacion, debera utilizar el comando /AddHabilitacion";
+                        return true;
                     }
-                }
-            else if(sm.UserStatusChat[message.ID]=="RegistroStatus" && dt.DataTemporal[message.ID].Count==4)
-                {
-                    dt.AddDato(message.ID,message.Text);
-                    string name = dt.DataTemporal[message.ID][0];
-                    Rubro rubro = db.Rubros[Int32.Parse(dt.DataTemporal[message.ID][1])];
-                    string ciudad = dt.DataTemporal[message.ID][2];
-                    string calle = dt.DataTemporal[message.ID][3];
-                    string especializacion = dt.DataTemporal[message.ID][4];
-                    Emprendedor emprendedor = new Emprendedor(name, rubro,ciudad,calle,especializacion);
-                    db.AddEmprendedor(message.ID,emprendedor);
-                    dt.DataTemporal.Remove(message.ID);
-                    sm.UserStatusChat.Remove(message.ID);
-                    System.Console.WriteLine(db.Emprendedores[message.ID].Nombre);
-                    response = $"Emprendedor {db.Emprendedores[message.ID].Nombre} del rubro {db.Emprendedores[message.ID].Rubro.Nombre} ha sido registrado correctamente!"+"\n"+$"Su domicilio a sido fijado a {db.Emprendedores[message.ID].Ubicacion.Ciudad}, {db.Emprendedores[message.ID].Ubicacion.Calle}" + "\n" + "\n" + "Recuerda que si desea agregar una habilitacion, debera utilizar el comando /AddHabilitacion";
-                    return true;
                 }
             else if(!sm.UserStatusChat.ContainsKey(message.ID))
             {

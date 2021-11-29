@@ -52,6 +52,7 @@ namespace Library
             }
         }
 
+        public string DescripcionRecurrencia { get; set; }
 
         public void AddFechaVenta(string id, DateTime fechaCompra)
         {

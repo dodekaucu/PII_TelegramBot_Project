@@ -995,12 +995,6 @@
             </summary>
             <value>Nombre de la oferta.</value>
         </member>
-        <member name="P:Library.OfertaBase.FechaVenta">
-            <summary>
-            Obtiene o establece fecha en la cual se realizo la venta.
-            </summary>
-            <value>Fecha de la venta.</value>
-        </member>
         <member name="P:Library.OfertaBase.Material">
             <summary>
             Obtiene o establece material ofertado en la oferta.
@@ -1196,7 +1190,7 @@
             EXPERT, porque conoce toda la informacion que debe conocer una empresa.
             </summary>
         </member>
-        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
+        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             </summary>

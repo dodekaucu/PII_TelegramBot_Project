@@ -65,7 +65,7 @@ namespace Handlers
                 }
                 else // ver como imprimir las fechas de compra !!!!!
                 {
-                    if(db.Emprendedores.ContainsKey(message.ID))
+                    if(db.Emprendedores.ContainsKey(message.ID))    // Mensaje para el emprendedor.
                     {
                         DateTime fechaDesde = DateTime.Parse(message.Text); 
                         string opciones = "";
@@ -82,7 +82,7 @@ namespace Handlers
                             if (oferta as Oferta != null)
                             {
                                 o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
+                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\nVENDEDOR : {o.Empresa.Nombre}"+linea+"\n";
                             }
                             if(oferta as OfertaRecurrente != null)
                             {
@@ -99,7 +99,7 @@ namespace Handlers
                         response = "Ofertas Consumidas Desde: " +message.Text+"\n\n" + opciones;
                         return true;
                     }
-                    else
+                    else    //Mensaje para la empresa
                     {
                         DateTime fechaDesde = DateTime.Parse(message.Text);
                         string opciones = "";
@@ -116,7 +116,7 @@ namespace Handlers
                             if (oferta as Oferta != null)
                             {
                                 o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
+                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\nCOMPRADOR {o.FechaCompra.IdComprador}"+linea+"\n";
                             }
                             if(oferta as OfertaRecurrente != null)
                             {

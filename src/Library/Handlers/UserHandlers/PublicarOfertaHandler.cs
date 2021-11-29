@@ -189,7 +189,7 @@ namespace Handlers
                     db.AddOferta(oferta);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
+                    response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}\nPalabras claves: {oferta.PalabrasClaves[0]} , {oferta.PalabrasClaves[1]} , {oferta.PalabrasClaves[2]}";
                     return true;
 
                     case "2":
@@ -199,7 +199,16 @@ namespace Handlers
                         response = "La periocidad no es válida, recuerda que debe ser un número";
                         return true;
                     }
+                    response= "Desea agregar una descripcion para especificar la recurrencia de  (Y/N)";
                     dt.AddDato(message.ID,message.Text);
+                    return true;
+
+                }
+            }
+            if (sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count==10)
+            {
+                if(message.Text.ToUpper() == "N")
+                {
                     string name2 = dt.DataTemporal[message.ID][1];
                     string ciudad2 = dt.DataTemporal[message.ID][2];
                     string calle2 = dt.DataTemporal[message.ID][3];
@@ -213,10 +222,42 @@ namespace Handlers
                     db.AddOferta(oferta2);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}";
+                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}\nPalabras claves: {oferta2.PalabrasClaves[0]},{oferta2.PalabrasClaves[1]},{oferta2.PalabrasClaves[2]}";
+                    return true;
+                }
+                if (message.Text.ToUpper() == "Y")
+                {
+                    response = "Ingrese su descripcion";
+                    dt.AddDato(message.ID,message.Text);
+                    return true;
+                }
+                else
+                {
+                    response = "no ha ingresado Y/N, intentelo de nuevo";
                     return true;
                 }
             }
+            if (sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count==11)
+            {
+                string name2 = dt.DataTemporal[message.ID][1];
+                string ciudad2 = dt.DataTemporal[message.ID][2];
+                string calle2 = dt.DataTemporal[message.ID][3];
+                string nombreMaterial2 = dt.DataTemporal[message.ID][4];
+                Clasificacion clasificacion2 = db.Clasificaciones[Int32.Parse(dt.DataTemporal[message.ID][5])];
+                int cantidad2 = Int32.Parse(dt.DataTemporal[message.ID][6]);
+                string unidad2 = dt.DataTemporal[message.ID][7];
+                double valor2 = double.Parse(dt.DataTemporal[message.ID][8]);
+                int periocidad = Int32.Parse(dt.DataTemporal[message.ID][9]);
+                string descripcion = message.Text;
+                OfertaRecurrente oferta2 = new OfertaRecurrente(name2,db.Empresas[message.ID],ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad);
+                oferta2.DescripcionRecurrencia = descripcion;
+                db.AddOferta(oferta2);
+                dt.DataTemporal.Remove(message.ID);
+                sm.UserStatusChat.Remove(message.ID);
+                response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}\nPalabras claves: {oferta2.PalabrasClaves[0]},{oferta2.PalabrasClaves[1]},{oferta2.PalabrasClaves[2]}";
+                return true;
+            }
+            
 
             response = string.Empty;
             return false;
