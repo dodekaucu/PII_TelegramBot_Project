@@ -5,6 +5,8 @@
 //--------------------------------------------------------------------------------
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -14,22 +16,29 @@ namespace Library
     /// Es la clase EXPERTA en contener las diferentes instancias del programa.
     /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
     /// </summary>
-    public class Contenedor
+    public class Contenedor: IJsonSerialize
     {
-        private static Contenedor contenedor;
-        private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
-        private Collection<Rubro> rubros = new Collection<Rubro>();
-        private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
-        private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
-        private Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
+        public static Contenedor contenedor;
 
-        private Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
+        public Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
-        private Collection<string> administradores = new Collection<string>() { "1454175798" };
+        public Collection<Rubro> rubros = new Collection<Rubro>();
 
-        private Collection<string> invitados = new Collection<string> ();
+        public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
 
-        private Contenedor()
+        public Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
+
+        public Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
+
+        public Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
+
+
+        public Collection<string> administradores = new Collection<string>() { "1454175798" };
+
+
+        public Collection<string> invitados = new Collection<string> ();
+
+        public Contenedor()
         {
         }
 
@@ -278,6 +287,90 @@ namespace Library
         public void AddAdministrador(string ID)
         {
             this.administradores.Add(ID);
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
+        }
+        /*public void LoadFromJson(string json)
+        {
+            Contenedor data = JsonSerializer.Deserialize<Contenedor>(json);
+            this.habilitaciones = data.habilitaciones;
+            this.rubros = data.rubros;
+            this.clasificaciones = data.clasificaciones;
+            this.ofertas = data.ofertas;
+            this.emprendedores = data.emprendedores;
+            this.empresas = data.empresas;
+            this.administradores = data.administradores;
+            this.invitados = data.invitados;
+        }*/
+        public string serializaremprendedor()
+        {
+            return JsonSerializer.Serialize(this.emprendedores);
+        }
+        public string serializarempresa()
+        {
+            return JsonSerializer.Serialize(this.empresas);
+        }
+        public string serializarhabilitacion()
+        {
+            return JsonSerializer.Serialize(this.habilitaciones);
+        }
+        public string serializarrubro()
+        {
+            return JsonSerializer.Serialize(this.rubros);
+        }
+        public string serializarclasificacion()
+        {
+            return JsonSerializer.Serialize(this.clasificaciones);
+        }
+        public string serializaroferta()
+        {
+            return JsonSerializer.Serialize(this.ofertas);
+        }
+        public string serializaradministrador()
+        {
+            return JsonSerializer.Serialize(this.administradores);
+        }
+        public string serializarinvitado()
+        {
+            return JsonSerializer.Serialize(this.invitados);
+        }
+        public string jsonemprendedor = "";
+        public string jsonempresa = "";
+        public string jsonhabilitacion = "";
+        public string jsonrubro = "";
+        public string jsonclasificacion = "";
+        public string jsonoferta = "";
+        public string jsonadmin = "";
+        public string jsoninvitado = "";
+        public void Serializar()
+        {
+            this.jsonhabilitacion = serializarhabilitacion();
+            this.jsonrubro = serializarrubro();
+            this.jsonclasificacion = serializarclasificacion();
+            this.jsonoferta = serializaroferta();
+            this.jsonemprendedor = serializaremprendedor();
+            this.jsonempresa = serializarempresa();
+            this.jsonadmin = serializaradministrador();
+            this.jsoninvitado = serializarinvitado();
+        }
+        public void Deserializar(string deserializarhabilitacion, string deserializarrubro, string deserializarclasificacion, string deserializaroferta, string deserializaremprendedor, string deserializarempresa, string deserializaradmin, string deserializarinvitado)
+        {
+            this.habilitaciones = JsonSerializer.Deserialize<Collection<Habilitacion>>(deserializarhabilitacion);
+            this.rubros = JsonSerializer.Deserialize<Collection<Rubro>>(deserializarrubro);
+            this.clasificaciones = JsonSerializer.Deserialize<Collection<Clasificacion>>(deserializarclasificacion);
+            this.ofertas = JsonSerializer.Deserialize<Collection<OfertaBase>>(deserializaroferta);
+            this.emprendedores = JsonSerializer.Deserialize<Dictionary<string, Emprendedor>>(deserializaremprendedor);
+            this.empresas = JsonSerializer.Deserialize<Dictionary<string, Empresa>>(deserializarempresa);
+            this.administradores = JsonSerializer.Deserialize<Collection<string>>(deserializaradmin);
+            this.invitados = JsonSerializer.Deserialize<Collection<string>>(deserializarinvitado);
         }
     }
 }

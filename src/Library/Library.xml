@@ -401,11 +401,17 @@
             El usuario que busca ofertas.
             </summary>
         </member>
+        <member name="T:Library.IJsonSerialize">
         <member name="F:Handlers.BuscarUbiHandler.db">
             <summary>
             base de datos.
             </summary>
         </member>
+        <member name="M:Library.IJsonSerialize.ConvertToJson">
+            <summary>
+            Método que serializa un objeto en formato Json.
+            </summary>
+            <returns>String con el objeto serializado en formato Json.</returns>
         <member name="F:Handlers.BuscarUbiHandler.buscador">
             <summary>
             Buscador de ofertas.

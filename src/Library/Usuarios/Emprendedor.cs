@@ -7,6 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -15,7 +17,7 @@ namespace Library
     /// Patrones y principios utilizados:
     /// EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
     /// </summary>
-    public class Emprendedor : Usuario
+    public class Emprendedor : Usuario, IJsonSerialize
     {
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
@@ -67,6 +69,16 @@ namespace Library
         public void RemoveHabilitacion(Habilitacion habilitacion)
         {
             this.Habilitaciones.Remove(habilitacion);
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
         }
     }
 }

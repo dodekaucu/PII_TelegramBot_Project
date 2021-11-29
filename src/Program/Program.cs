@@ -8,13 +8,14 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Library;
 using Handlers;
+using System.IO;
 
 namespace Ucu.Poo.TelegramBot
 {
     /// <summary>
     /// Un programa que implementa un bot de Telegram.
     /// </summary>
-    public static class Program
+    public class Program
     {
         // La instancia del bot.
         private static TelegramBotClient Bot;
@@ -22,7 +23,7 @@ namespace Ucu.Poo.TelegramBot
         // El token provisto por Telegram al crear el bot.
         //
         // *Importante*:
-        // Para probar este ejemplo, crea un bot nuevo y eeemplaza este token por el de tu bot.
+        // Para probar este ejemplo, crea un bot nuevo y reemplaza este token por el de tu bot.
         private static string Token = "2106731481:AAEFbR6815bETThGqpF4T3L9yjAbi4zwQDI";
 
         private static IHandler firstHandler;
@@ -123,6 +124,17 @@ namespace Ucu.Poo.TelegramBot
 
             var cts = new CancellationTokenSource();
 
+            Contenedor contenedor = Contenedor.Instancia;
+            string deserializaradmin = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaAdmin.Json");
+            string deserializarhabilitacion = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaHabilitacion.Json");
+            string deserializarrubro = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaRubro.Json");
+            string deserializarclasificacion = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaClasificacion.Json");
+            string deserializaroferta = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaOferta.Json");
+            string deserializaremprendedor = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmprendedor.Json");
+            string deserializarempresa = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmpresa.Json");
+            string deserializarinvitado = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaInvitados.Json");
+            contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaroferta, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado);
+
             // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
             // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync
             // es invocado cuando ocurre un error.
@@ -135,7 +147,16 @@ namespace Ucu.Poo.TelegramBot
 
             // Esperamos a que el usuario aprete Enter en la consola para terminar el bot.
             Console.ReadLine();
-
+            contenedor = Contenedor.Instancia;
+            contenedor.Serializar();
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmprendedor.Json", contenedor.jsonemprendedor);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaOferta.Json", contenedor.jsonoferta);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaRubro.Json", contenedor.jsonrubro);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaHabilitacion.Json", contenedor.jsonhabilitacion);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaClasificacion.Json", contenedor.jsonclasificacion);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaEmpresa.Json", contenedor.jsonempresa);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaAdmin.Json", contenedor.jsonadmin);
+                System.IO.File.WriteAllText(@"..\..\Listas_Json\ListaInvitados.Json", contenedor.jsoninvitado);
             // Terminamos el bot.
             cts.Cancel();
         }

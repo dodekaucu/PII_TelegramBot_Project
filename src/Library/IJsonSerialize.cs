@@ -8,19 +8,18 @@ namespace Library
     /// <summary>
     /// Interface con la firma de los métodos que debe tener un manejador de datos.
     /// </summary>
-    public interface IManejoDeDatos
+    public interface IJsonSerialize
     {
         /// <summary>
-        /// Guarda los datos en un archivo.
+        /// Método que serializa un objeto en formato Json.
         /// </summary>
-        /// <param name="dondeGuardar">parametro que indica donde se va a guardar el archivo.</param>
-        /// <param name="nombreArchivo">parametro que indica el nombre del archivo a guardar.</param>
-        void GuardarInfo(string dondeGuardar, string nombreArchivo);
-
+        /// <returns>String con el objeto serializado en formato Json.</returns>
+        string ConvertToJson();
+        /*
         /// <summary>
-        /// Devuelve los datos de un archivo.
+        /// Asigna las propiedades de un objeto a partir de un string en formato Json.
         /// </summary>
-        /// <param name="dondeBuscar">parametro que indica donde va a buscar el archivo.</param>
-        void DevolverInfo(string dondeBuscar);
+        /// <param name="json">El texto del cual asignamos las propiedades</param>
+        void LoadFromJson(string json);*/
     }
 }

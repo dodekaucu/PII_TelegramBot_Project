@@ -5,6 +5,8 @@
 //--------------------------------------------------------------------------------
 
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -13,7 +15,7 @@ namespace Library
     /// Patrones y principios utilizados:
     /// EXPERT, porque conoce toda la informacion que debe conocer una empresa.
     /// </summary>
-    public class Empresa : Usuario
+    public class Empresa : Usuario, IJsonSerialize
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
@@ -25,6 +27,16 @@ namespace Library
         public Empresa(string nombre, Rubro rubro, string ciudad, string calle)
         : base(nombre, rubro, ciudad, calle)
         {
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
         }
     }
 }
