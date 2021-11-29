@@ -22,11 +22,8 @@ namespace Library
         private Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
         private Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
         private Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
-
         private Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
-
         private Collection<string> administradores = new Collection<string>() { "1454175798" };
-
         private Collection<string> invitados = new Collection<string> ();
 
         private Contenedor()

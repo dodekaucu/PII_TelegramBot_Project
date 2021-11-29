@@ -33,11 +33,11 @@ namespace Ucu.Poo.TelegramBot
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
-            
+
+            Contenedor db = Contenedor.Instancia;
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
             Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
-            Contenedor db = Contenedor.Instancia;
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
             Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
@@ -57,6 +57,7 @@ namespace Ucu.Poo.TelegramBot
             emprendedor.ID = "1566613690";
             db.AddEmprendedor("1566613690",emprendedor);
 
+            
             
             firstHandler =
                 new HelloHandler(

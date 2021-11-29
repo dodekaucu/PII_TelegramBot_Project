@@ -19,7 +19,6 @@ namespace Library
     {
         private Collection<OfertaBase> registroUsuario = new Collection<OfertaBase>();
 
-        
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Usuario"/>.
