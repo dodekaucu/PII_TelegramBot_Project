@@ -25,7 +25,7 @@ namespace Library
     {
         private Collection<string> palabrasClaves = new Collection<string>();
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
-
+        private int identificador;
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="OfertaBase"/>.
         /// </summary>
@@ -49,7 +49,11 @@ namespace Library
             this.PalabrasClaves.Add(this.Nombreoferta);
             this.PalabrasClaves.Add(this.Empresa.Nombre);
             this.PalabrasClaves.Add(this.Material.Nombre);
+            Contenedor db = Contenedor.Instancia;
+            this.identificador = db.Ofertas.Count;
         }
+
+        public int Identificador { get => this.identificador; }
 
         /// <summary>
         /// Obtiene o establece el nombre de la oferta.
@@ -61,7 +65,7 @@ namespace Library
         /// Obtiene o establece fecha en la cual se realizo la venta.
         /// </summary>
         /// <value>Fecha de la venta.</value>
-        public DateTime FechaVenta { get; set; }
+        public DateTime FechaVenta { get; set; } //BORRARLA --> NO SIRVE MAS
 
         /// <summary>
         /// Obtiene o establece material ofertado en la oferta.

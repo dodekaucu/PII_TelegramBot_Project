@@ -4,7 +4,7 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 
-using System;
+/*using System;
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -289,7 +289,7 @@ namespace Test
             oferta1.FechaVenta = DateTime.Parse("01/11/2021");
             empresa.AddToRegister(oferta1);
             List<OfertaBase> expectedRegister = new List<OfertaBase>() { oferta1 };
-            Assert.AreEqual(expectedRegister, empresa.BuscarEnRegistro(DateTime.Parse("01/10/2021")));
+            Assert.AreEqual(expectedRegister, empresa.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace Test
             oferta1.FechaVenta = DateTime.Parse("01/11/2021");
             emprendedor.AddToRegister(oferta1);
             List<OfertaBase> expectedRegister2 = new List<OfertaBase>() { oferta1 };
-            Assert.AreEqual(expectedRegister2, emprendedor.BuscarEnRegistro(DateTime.Parse("01/10/2021")));
+            Assert.AreEqual(expectedRegister2, emprendedor.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
         }
     }
-}
+}*/

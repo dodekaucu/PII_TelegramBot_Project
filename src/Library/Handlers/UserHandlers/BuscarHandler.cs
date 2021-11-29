@@ -27,7 +27,6 @@ namespace Handlers
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="BuscarHandler"/>. Esta clase procesa el mensaje "chau"
-        /// y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
         public BuscarHandler(BaseHandler next) : base(next)
@@ -53,7 +52,7 @@ namespace Handlers
                     string busca = message.Text.Remove(0,7);
                     if (busca.Length < 0)
                     {
-                        response = "No se ha ingresado ningun criterio de busqueda. Use /busca \"Palabra clave\"";
+                        response = "No se ha ingresado ningun criterio de busqueda. Use /buscar \"Palabra clave\"";
                         return true;
                     }
                     else

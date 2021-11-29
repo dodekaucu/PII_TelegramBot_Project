@@ -40,18 +40,47 @@
             Identificador del usuario que envió el mensaje.
             </summary>
         </member>
-        <member name="T:Handlers.AdminInvitationHandler">
+        <member name="T:Handlers.AddAdminHandler">
             <summary>
-            Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddAdmin".
             </summary>
         </member>
-        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AddAdminHandler.#ctor(Handlers.BaseHandler)">
             <summary>
-            Procesa el mensaje "chau" y retorna true; retorna false en caso contrario.
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AddAdminHandler"/>. Esta clase procesa el mensaje "/AddAdmin".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.AddAdminHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/AddAdmin", Si es ejecutado por un Administrador entonces se procede a añadir como administrador
+            al usuario ingresado. El valor que se ingresa debe ser el ID del usuario, en este caso es el ID de Telegram.
+            El ID del usuario se debe preguntar a la persona que se agrega, hay un bot que te lo dice (@userinfobot).
+            En el caso de que el usuario que ejecute el comando no sea Admin se le informa que no tiene permisos para hacerlo.
             </summary>
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
-            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.AdminInvitationHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/Invitar".
+            </summary>
+        </member>
+        <member name="M:Handlers.AdminInvitationHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AdminInvitationHandler"/>. Esta clase procesa el mensaje "/Invitar".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.AdminInvitationHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/Invitar", Si es ejecutado por un Administrador entonces se procede a invitar
+            al usuario ingresado. El valor que se ingresa debe ser el ID del usuario, en este caso es el ID de Telegram.
+            El ID del usuario se debe preguntar a la persona que se invita, hay un bot que te lo dice (@userinfobot).
+            En el caso de que el que ejecute el comando no sea Admin se le informa que no tiene permisos para hacerlo.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
         </member>
         <member name="T:Handlers.StartHandler">
             <summary>
@@ -229,6 +258,70 @@
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddHabilitacion".
             </summary>
         </member>
+        <member name="M:Handlers.AddHabilitacionHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AddHabilitacionHandler"/>. Esta clase procesa el mensaje "/addHabilitacion".
+            </summary>
+            <param name="next">El próximo handler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Handlers.AddHabilitacionHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Este handler se ocupa de añadir una habilitación a una oferta o a un emprendedor.
+            Si es ejecutado por un emprendedor la habilitación se la agrega a si mismo, además checkea.
+            si actualmente tiene esa habilitación, en ese caso informa que ya esta añadida.
+            
+            Si es ejecutado por una empresa se le da una lista de sus ofertas y cuando elige una se le muestran.
+            las habilitaciones que se pueden añadir. Si la habilitacion ya existe en esa oferta se informa que ya esta añadida.
+            en el caso contrario esta se añade a la misma.
+            </summary>
+            <param name="message">Mensaje a procesar.</param>
+            <param name="response">Respuesta que se envia al usuario.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Handlers.AddPalabraClaveHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/AddHabilitacion".
+            </summary>
+        </member>
+        <member name="M:Handlers.AddPalabraClaveHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AddPalabraClaveHandler"/>. Esta clase procesa el mensaje "/addHabilitacion".
+            </summary>
+            <param name="next">Próximo handler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Handlers.AddPalabraClaveHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Este handler añade palabras clave a las ofertas de una empresa.
+            Cuando se ejecuta por una empresa se le muestra una lista de las ofertas que tiene publicadas.
+            Ahí se le da la opción de elegir una y luego ingresa la palabra clave a añadir.
+            
+            En el caso de que el comando sea ejecutado por un emprendedor, se informa que el comando es inválido.
+            </summary>
+            <param name="message">Mensaje a procesar.</param>
+            <param name="response">Respuesta al usaurio.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Handlers.AñadirCompradorHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/Info".
+            </summary>
+        </member>
+        <member name="M:Handlers.AñadirCompradorHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AñadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.AñadirCompradorHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/AñadirCompradorOferta" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
         <member name="T:Handlers.BuscarClasificHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "chau".
@@ -287,7 +380,6 @@
         <member name="M:Handlers.BuscarHandler.#ctor(Handlers.BaseHandler)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Handlers.BuscarHandler"/>. Esta clase procesa el mensaje "chau"
-            y el mensaje "adiós" -un ejemplo de cómo un "handler" puede procesar comandos con sinónimos.
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
@@ -397,6 +489,106 @@
             <param name="message">El mensaje a procesar.</param>
             <param name="response">La respuesta al mensaje procesado.</param>
             <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.HistorialUsuarioHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/historialDesde".
+            </summary>
+        </member>
+        <member name="M:Handlers.HistorialUsuarioHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.HistorialUsuarioHandler"/>. Esta clase procesa el comando "/historialDesde".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.HistorialUsuarioHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/historialDesde" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">Mensaje a procesar.</param>
+            <param name="response">>La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.InfoUsuarioHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/Info".
+            </summary>
+        </member>
+        <member name="M:Handlers.InfoUsuarioHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.InfoUsuarioHandler"/>. Esta clase procesa el comando "/Info".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.InfoUsuarioHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/Info" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.MisPublicacionesHandler">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/MisPublicaciones".
+            </summary>
+        </member>
+        <member name="M:Handlers.MisPublicacionesHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.MisPublicacionesHandler"/>. Esta clase procesa el comando "/MisPublicaciones".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.MisPublicacionesHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/MisPublicaciones" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">El mensaje a procesar.</param>
+            <param name="response">La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.PublicarOfertaHandler">
+            <summary>
+            /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/PublicarOferta".
+            </summary>
+        </member>
+        <member name="M:Handlers.PublicarOfertaHandler.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.PublicarOfertaHandler"/>. Esta clase procesa el comando "/PublicarOferta".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.PublicarOfertaHandler.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el mensaje "/PublicarOferta" y retorna true; retorna false en caso contrario.
+            </summary>
+            <param name="message">Mensaje a procesar.</param>
+            <param name="response">>La respuesta al mensaje procesado.</param>
+            <returns>true si el mensaje fue procesado; false en caso contrario.</returns>
+        </member>
+        <member name="T:Handlers.Registro">
+            <summary>
+            Un "handler" del patrón Chain of Responsibility que implementa el comando "/registro".
+            </summary>
+        </member>
+        <member name="M:Handlers.Registro.#ctor(Handlers.BaseHandler)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.Registro"/>. Esta clase procesa el mensaje "/registro".
+            </summary>
+            <param name="next">El próximo "handler".</param>
+        </member>
+        <member name="M:Handlers.Registro.InternalHandle(Handlers.IMessage,System.String@)">
+            <summary>
+            Procesa el comando "/registro", en el caso de que el usuario se encuentre en la lista de invitados.
+            se procede a registrarlo como empresa (se le asigna el UserStatus "RegistroStatus").
+            Y en el caso de que no esta en la lista de invitados comienza el registro como emprendedor.
+            Se asigna el mismo status pero en el caso de la Empresa termina antes ya que el Emprendedor contiene.
+            un dato que las Empresas no necesitan.
+            Y en los casos que se ejecute el comando pero la empresa/emprendedor ya esten registrados se les informa esto mismo.
+            </summary>
+            <param name="message">Mensaje a procesar.</param>
+            <param name="response">Respuesta al usuario.</param>
+            <returns></returns>
         </member>
         <member name="T:Library.Clasificacion">
             <summary>
@@ -570,30 +762,6 @@
             </summary>
             <param name="ID">ID del usuario.</param>
         </member>
-        <member name="T:Library.Habilitacion">
-            <summary>
-            Esta clase representa una Habilitacion basica.
-            </summary>
-        </member>
-        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
-            </summary>
-            <param name="name">Parametro name que recibe el constructor de la habilitacion.</param>
-            <param name="descripcion">Parametro descripcion que recibe el constructor de la habilitacion.</param>
-        </member>
-        <member name="P:Library.Habilitacion.Name">
-            <summary>
-            Obtiene un valor que indica el nombre de la habilitacion.
-            </summary>
-            <value>this.name.</value>
-        </member>
-        <member name="P:Library.Habilitacion.Descripcion">
-            <summary>
-            Obtiene un valor que indica la descripcion de la habilitacion.
-            </summary>
-            <value>this.descripcion.</value>
-        </member>
         <member name="T:Library.DatosTemporales">
             <summary>
             Datos temporales del usuario.
@@ -623,6 +791,37 @@
             </summary>
             <param name="chatId"></param>
             <param name="dato"></param>
+        </member>
+        <member name="M:Library.DatosTemporales.RemoveDato(System.String,System.String)">
+            <summary>
+            Remove dato.
+            </summary>
+            <param name="chatId"></param>
+            <param name="dato"></param>
+        </member>
+        <member name="T:Library.Habilitacion">
+            <summary>
+            Esta clase representa una Habilitacion basica.
+            </summary>
+        </member>
+        <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
+            </summary>
+            <param name="name">Parametro name que recibe el constructor de la habilitacion.</param>
+            <param name="descripcion">Parametro descripcion que recibe el constructor de la habilitacion.</param>
+        </member>
+        <member name="P:Library.Habilitacion.Name">
+            <summary>
+            Obtiene un valor que indica el nombre de la habilitacion.
+            </summary>
+            <value>this.name.</value>
+        </member>
+        <member name="P:Library.Habilitacion.Descripcion">
+            <summary>
+            Obtiene un valor que indica la descripcion de la habilitacion.
+            </summary>
+            <value>this.descripcion.</value>
         </member>
         <member name="T:Library.IManejoDeDatos">
             <summary>
@@ -764,6 +963,12 @@
             Obtiene o establece cuando la oferta va a ser generada.
             </summary>
             <value>La fecha de la generacion.</value>
+        </member>
+        <member name="P:Library.Oferta.Disponible">
+            <summary>
+            
+            </summary>
+            <value></value>
         </member>
         <member name="T:Library.OfertaBase">
             <summary>
@@ -1058,7 +1263,7 @@
             </summary>
             <param name="oferta">Parametro.</param>
         </member>
-        <member name="M:Library.Usuario.BuscarEnRegistro(System.DateTime)">
+        <member name="M:Library.Usuario.BuscarEnHistorial(System.DateTime)">
             <summary>
             Busca en el registro del usuario.
             </summary>

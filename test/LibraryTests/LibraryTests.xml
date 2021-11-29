@@ -4,104 +4,181 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:Test.Tests">
+        <member name="T:ProgramTests.TestAddHabilitacionEmprendedor">
             <summary>
-            Pruebas de las diferentes Users story.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="F:Test.Tests.testRubro">
+        <member name="M:ProgramTests.TestAddHabilitacionEmprendedor.Setup">
             <summary>
-            Rubro para pruebas.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="F:Test.Tests.testHabilitacion">
+        <member name="M:ProgramTests.TestAddHabilitacionEmprendedor.TestAddPalabras">
             <summary>
-            Habilitacion para prueba.
+            Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
-        <member name="F:Test.Tests.testClasifciacion">
+        <member name="T:ProgramTests.TestAddHabilitacionEmpresa">
             <summary>
-            Clasificacion para prueba.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="M:Test.Tests.Setup">
+        <member name="M:ProgramTests.TestAddHabilitacionEmpresa.Setup">
             <summary>
-            Crea un Rubro, una habilitacion y una clasificacion para pruebas.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestCrearEmpresa">
+        <member name="M:ProgramTests.TestAddHabilitacionEmpresa.TestAddHabilitacion">
             <summary>
-            Prueba que se cree la empresa.
+            Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestCrearMateriales">
+        <member name="T:ProgramTests.TestAddPalabrasClave">
             <summary>
-             Prueba que se crea materiales.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestCrearOferta">
+        <member name="M:ProgramTests.TestAddPalabrasClave.Setup">
             <summary>
-            Prueba que se cree una Oferta.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestDisponibilidadMateriales">
+        <member name="M:ProgramTests.TestAddPalabrasClave.TestAddPalabras">
             <summary>
-            Prueba la Disponibilidad Materiales de manera mensual.
+            Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestDisponibilidadUnica">
+        <member name="T:ProgramTests.TestBusqueda">
             <summary>
-            Prueba que dada un oferta que se genera de manera unica, se le asigne la fecha correcta.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestHabilitacionesEmprendedor">
+        <member name="M:ProgramTests.TestBusqueda.Setup">
             <summary>
-            Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestPalabrasClaveOferta">
+        <member name="M:ProgramTests.TestBusqueda.TestBusquedaPalabras">
             <summary>
-            Prueba que se agreguen las palabras claves a la oferta.
+            Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestCrearEmprendedor">
+        <member name="T:ProgramTests.TestBusquedaClasific">
             <summary>
-            Prueba que se cree el emprendedor.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="M:Test.Tests.HabilitacionesEmprendedor">
+        <member name="M:ProgramTests.TestBusquedaClasific.Setup">
             <summary>
-            Prueba que se agruegue una habilitacion a un emprendedor.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="M:Test.Tests.ThrowNameException">
+        <member name="M:ProgramTests.TestBusquedaClasific.TestBusquedaPalabras">
             <summary>
-            Prueba que las excepcioens del constructor Usuario funcionen correctamente.
+            Este test prueba la busqueda por clasificación de los materiales.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestBusquedaPalabrasClave">
+        <member name="T:ProgramTests.TestBusquedaUbi">
             <summary>
-            Test de la clase busqueda, realiza una busqueda por palabras claves.
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestBusquedaUbicacion">
+        <member name="M:ProgramTests.TestBusquedaUbi.Setup">
             <summary>
-            Test de la clase busqueda, realiza una busqueda por Ubicacion.
+            Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda.
+            estas se utilizan para el test de búsqueda a continuación.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestBusquedaCategoria">
+        <member name="M:ProgramTests.TestBusquedaUbi.TestBusquedaUbicacion">
             <summary>
-            Test de la clase busqeuda, realiza una busqueda por categoria de material.
+            Este test prueba la busqueda por ubicación.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestRegistroEmpresa">
+        <member name="T:ProgramTests.InvitarHandlerTests">
             <summary>
-            Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determinado.
+            Esta clase prueba el Handler AdminInvitarHandler.
             </summary>
         </member>
-        <member name="M:Test.Tests.TestRegistroEmprendedor">
+        <member name="M:ProgramTests.InvitarHandlerTests.Setup">
             <summary>
-            Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo determinado.
+            Crea una instancia de contenedor, el handler a probar, el message asi como asignarle una ID. Y ademas
+            crea una instancia de TelegramMSG adapter.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.InvitarHandlerTests.TestInvitaraEmpresaNOvalido">
+            <summary>
+            Este test prueba como se procesa el mensaje cuando el usuario no es administrador.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.InvitarHandlerTests.TestInvitaraEmpresaValido">
+            <summary>
+            Este test prueba como se procesa el mensaje cuando el usuario es administrador.
+            </summary>
+        </member>
+        <member name="T:ProgramTests.PublicarOfertaRecurrenteTests">
+            <summary>
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta recurrente.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.PublicarOfertaRecurrenteTests.Setup">
+            <summary>
+            Crea una instancia de clasificacion, de rubro, de contenedor, el handler a utilizar, un message junto a
+            un user que se le agrega la ID asi como el msj Adapter. Por ultimo se crea la empresa a publicar la oferta.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.PublicarOfertaRecurrenteTests.TestPublicarOfertaRecurrenteHandler">
+            <summary>
+            Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta recurrente.
+            </summary>
+        </member>
+        <member name="T:ProgramTests.PublicarOfertaHandlerTests">
+            <summary>
+            Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.PublicarOfertaHandlerTests.Setup">
+            <summary>
+            Crea una instancia de clasificacion, de rubro, de contenedor, el handler a utilizar, un message junto a
+            un user que se le agrega la ID asi como el msj Adapter. Por ultimo se crea la empresa a publicar la oferta.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.PublicarOfertaHandlerTests.TestPublicarOfertaNormalHandler">
+            <summary>
+            Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta única.
+            </summary>
+        </member>
+        <member name="T:ProgramTests.RegistroHandlerTests">
+            <summary>
+            Esta clase prueba el handler Registro.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.RegistroHandlerTests.Setup">
+             <summary>
+            Crea una instancia de contenedor, el handler a probar, un rubro, el message asi como asignarle una ID. Y ademas
+             crea una instancia de TelegramMSG adapter.
+             </summary>
+        </member>
+        <member name="M:ProgramTests.RegistroHandlerTests.TestRegistroEmprendedorHandle">
+            <summary>
+            Este test prueba como se procesan los mensajes para el registro de un emprendedor (usuario con una ID
+            no invitada).
+            </summary>
+        </member>
+        <member name="M:ProgramTests.RegistroHandlerTests.TestRegistroEmpresaHandle">
+            <summary>
+            Este test prueba como se procesan los mensajes para realizar el registro de una Empresa (usuario con una ID
+            invitada).
+            </summary>
+        </member>
+        <member name="M:ProgramTests.RegistroHandlerTests.TestRegistroUsuarioRegistrado">
+            <summary>
+            Este test representa lo que sucede cuando el usuario intenta registrarse otra vez.
             </summary>
         </member>
     </members>

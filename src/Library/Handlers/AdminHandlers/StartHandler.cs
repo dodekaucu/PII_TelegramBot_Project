@@ -42,7 +42,7 @@ namespace Handlers
                 }
                 else if (db.Administradores.Contains(message.ID.ToString()))
                 {
-                    response = "sos admin";
+                    response = "Eres admin";
                     return true;
                 }
                 else
@@ -56,7 +56,7 @@ namespace Handlers
             response = string.Empty;
             return false;
         }
-
+        /*
         protected override bool CanHandle(IMessage message)
         {
             if (this.Keywords == null || this.Keywords.Length == 0)
@@ -66,5 +66,6 @@ namespace Handlers
 
             return this.Keywords.Any(s => message.Text.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
         }
+        */
     }
 }

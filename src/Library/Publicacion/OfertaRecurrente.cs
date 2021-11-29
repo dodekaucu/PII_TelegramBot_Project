@@ -5,7 +5,7 @@
 //--------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -15,6 +15,8 @@ namespace Library
     /// </summary>
     public class OfertaRecurrente : OfertaBase
     {
+        private Collection<FechaCompraOferta> registroVentas = new Collection<FechaCompraOferta> ();
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="OfertaRecurrente"/>.
         /// </summary>
@@ -32,6 +34,8 @@ namespace Library
         : base(nombreoferta, empresa, ciudad, calle, nombreMaterial, clasificacion, cantidad, unidad, valor)
         {
             this.RecurrenciaMensual = recurrenciaMensual;
+            //Contenedor db = Contenedor.Instancia;
+            //this.identificador = db.Ofertas.Count;
         }
 
         /// <summary>
@@ -39,5 +43,20 @@ namespace Library
         /// </summary>
         /// <value>this.RecurrenciaMensual.</value>
         public int RecurrenciaMensual { get; set; }
+
+        public Collection<FechaCompraOferta> RegistroVentas
+        {
+            get
+            {
+                return this.registroVentas;
+            }
+        }
+
+
+        public void AddFechaVenta(string id, DateTime fechaCompra)
+        {
+            FechaCompraOferta venta = new FechaCompraOferta(id,fechaCompra);
+            this.registroVentas.Add(venta);
+        }
     }
 }

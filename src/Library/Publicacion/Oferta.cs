@@ -17,6 +17,9 @@ namespace Library
     /// </summary>
     public class Oferta : OfertaBase, IJsonSerialize
     {
+        private FechaCompraOferta fechaCompra;
+        private bool disponible;
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Oferta"/>.
         /// </summary>
@@ -34,6 +37,8 @@ namespace Library
         : base(nombreoferta, empresa, ciudad, calle, nombreMaterial, clasificacion, cantidad, unidad, valor)
         {
             this.FechadeGeneracion = fechaDeGeneracion;
+            //Contenedor db = Contenedor.Instancia;
+            //this.identificador = db.Ofertas.Count;
         }
 
         /// <summary>
@@ -41,6 +46,7 @@ namespace Library
         /// </summary>
         /// <value>La fecha de la generacion.</value>
         public DateTime FechadeGeneracion { get; set; }
+        
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
@@ -50,6 +56,32 @@ namespace Library
             };
             string json = JsonSerializer.Serialize(this, options);
             return json;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        
+        public bool Disponible
+        {
+            get
+            {
+                return fechaCompra == null;
+            }
+        }
+
+        public FechaCompraOferta FechaCompra 
+        {
+            get
+            {
+                return this.fechaCompra;
+            }
+        }
+
+        public void AddComprador(string id,DateTime fechaventa)
+        {
+            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
+            this.fechaCompra = fechaCompra;
         }
     }
 }
