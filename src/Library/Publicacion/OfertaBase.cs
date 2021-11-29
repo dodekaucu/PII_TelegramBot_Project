@@ -7,6 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -19,7 +21,7 @@ namespace Library
     /// con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
     /// Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
     /// </summary>
-    public abstract class OfertaBase
+    public abstract class OfertaBase: IJsonSerialize
     {
         private Collection<string> palabrasClaves = new Collection<string>();
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
@@ -123,6 +125,16 @@ namespace Library
         public void AddPalabraClave(string palabraClave)
         {
             this.PalabrasClaves.Add(palabraClave.ToLower());
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
         }
     }
 }

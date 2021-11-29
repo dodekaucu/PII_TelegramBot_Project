@@ -3,13 +3,15 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un Administrador de la aplicacion.
     /// </summary>
-    public class Admin
+    public class Admin: IJsonSerialize
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Admin"/>.
@@ -33,6 +35,16 @@ namespace Library
         public void InvitarEmpresa(string userEmpresa)
         {
             throw new System.NotImplementedException();
+        }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
         }
     }
 }

@@ -3,13 +3,15 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa una Habilitacion basica.
     /// </summary>
-    public class Habilitacion
+    public class Habilitacion: IJsonSerialize
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Habilitacion"/>.
@@ -33,5 +35,15 @@ namespace Library
         /// </summary>
         /// <value>this.descripcion.</value>
         public string Descripcion { get; }
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
+        }
     }
 }
