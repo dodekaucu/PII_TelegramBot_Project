@@ -35,9 +35,9 @@ namespace ProgramTests
             Empresa barracaFernandez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6");
             Empresa carpinteriaRodriguez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
-            Oferta uno = new Oferta("Madera tratada", barracaFernandez, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("13/09/2021"));
+            Oferta uno = new Oferta("Madera tratada", barracaFernandez, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
             db.AddOferta(uno);
-            Oferta dos = new Oferta("Madera encofrado", carpinteriaRodriguez, "Montevideo", "Bulevar Artigas", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Madera encofrado", carpinteriaRodriguez, "Montevideo", "Bulevar Artigas", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(dos);
             db.AddClasificacion(madera);
             db.AddRubro(rubroMadera);
@@ -61,7 +61,7 @@ namespace ProgramTests
 
             string mensaje = message.Text.Remove(0,15);
             Clasificacion clasificacionBuscar = new Clasificacion(mensaje.Trim(),"descripcion");
-            Collection<OfertaBase> ofertasvalidas = buscador.BuscarOferta(emprendedor, clasificacionBuscar, db);
+            Collection<Oferta> ofertasvalidas = buscador.BuscarOferta(emprendedor, clasificacionBuscar, db);
             if (ofertasvalidas.Count == 0)
             {
                 respuestaesperada = "No hay ofertas disponibles";
@@ -69,7 +69,7 @@ namespace ProgramTests
             else
             {
                 respuestaesperada = "OFERTAS DISPONIBLES: \n";
-                foreach (OfertaBase oferta in ofertasvalidas)
+                foreach (Oferta oferta in ofertasvalidas)
                 {
                 respuestaesperada += "\n";
                 respuestaesperada += "Nombre: " + oferta.Nombreoferta + "\n";

@@ -65,7 +65,7 @@ namespace Handlers
                     dt.DataTemporal.Remove(message.ID);
                     dt.AddKeyUser(message.ID);
                     string opciones ="";
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    foreach (Oferta oferta in db.Ofertas)
                     {
                         if(db.Empresas[message.ID]==oferta.Empresa)
                         {

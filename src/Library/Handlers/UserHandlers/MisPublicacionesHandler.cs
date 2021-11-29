@@ -1,4 +1,5 @@
 using Library;
+using System;
 
 namespace Handlers
 {
@@ -31,21 +32,27 @@ namespace Handlers
                 {
                     string opciones = "";
                     string linea = "\n-------------------------\n";
-                    foreach(OfertaBase oferta in db.Ofertas)
+                    foreach(Oferta oferta in db.Ofertas)
                     {
-                        if (db.Empresas[message.ID]==oferta.Empresa)
+                        if (db.Empresas[message.ID].Nombre==oferta.Empresa.Nombre)
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaMensual == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+o.FechadeGeneracion+"\n"+"Estado de la oferta: "+o.Disponible.ToString()+linea;
+                                Oferta o = oferta;
+                                if (oferta as Oferta != null)
+                                {
+                                    o = oferta as Oferta;
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+o.FechadeGeneracion+"\n"+"Estado de la oferta: "+o.Disponible.ToString()+linea;
+                                }
                             }
-                            if(oferta as OfertaRecurrente != null)
+                            else if (oferta.RecurrenciaMensual > 0)
                             {
-                                o1= oferta as OfertaRecurrente;
-                                opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: "+ o1.RecurrenciaMensual+"\n"+linea;
+                                Oferta o1 = oferta;
+                                if(oferta as Oferta != null)
+                                {
+                                    o1 = oferta as Oferta;
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: "+ o1.RecurrenciaMensual+"\n"+linea;
+                                }
                             }
                         }
                     }

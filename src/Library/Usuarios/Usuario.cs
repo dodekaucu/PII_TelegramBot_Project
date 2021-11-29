@@ -3,10 +3,12 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-
+/*
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -17,7 +19,7 @@ namespace Library
     /// </summary>
     public abstract class Usuario
     {
-        private Collection<OfertaBase> registroUsuario = new Collection<OfertaBase>();
+        private Collection<Oferta> registroUsuario = new Collection<Oferta>();
 
         
 
@@ -73,7 +75,7 @@ namespace Library
         /// Obtiene un valor que indica el registro del usuario.
         /// </summary>
         /// <value>this.registroUsuario.</value>
-        public Collection<OfertaBase> RegistroUsuario
+        public Collection<Oferta> RegistroUsuario
         {
             get
             {
@@ -85,7 +87,7 @@ namespace Library
         /// Añiade al registro del usuario la oferta.
         /// </summary>
         /// <param name="oferta">Parametro.</param>
-        public void AddToRegister(OfertaBase oferta)
+        public void AddToRegister(Oferta oferta)
         {
             this.registroUsuario.Add(oferta);
         }
@@ -95,36 +97,34 @@ namespace Library
         /// </summary>
         /// <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
         /// <returns>una lista de ofertas llamada resultado.</returns>
-        public Collection<OfertaBase> BuscarEnHistorial(DateTime fechaDesde)
+        public Collection<Oferta> BuscarEnHistorial(DateTime fechaDesde)
         {
-            Collection<OfertaBase> resultado = new Collection<OfertaBase>();
-            foreach (OfertaBase oferta in this.registroUsuario)
+            Collection<Oferta> resultado = new Collection<Oferta>();
+            foreach (Oferta oferta in this.registroUsuario)
             {
                 /*Oferta o;
                 if (oferta as Oferta != null)
                 {
                     o = oferta as Oferta;
 
-                }*/
-
-                switch(oferta)
-                {
-                    case Oferta o:
-                        if (!o.Disponible && o.FechaCompra.FechaCompra >= fechaDesde)
+                }
+                if (oferta.RecurrenciaMensual == 0)
+                    {
+                        if (!oferta.Disponible && oferta.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }
-                        break;
+                    }
+                else if (oferta.RecurrenciaMensual > 0)
+                {
                     
-                    case OfertaRecurrente o:
-                        foreach (FechaCompraOferta fecha in o.RegistroVentas)
+                    foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
+                    {
+                        if (fecha.FechaCompra >= fechaDesde && fecha.IdComprador == this.ID)
                         {
-                            if (fecha.FechaCompra >= fechaDesde && fecha.IdComprador == this.ID)
-                            {
-                                resultado.Add(oferta);
-                            }
+                            resultado.Add(oferta);
                         }
-                        break;
+                    }
                 }
             }
 
@@ -132,3 +132,4 @@ namespace Library
         }
     }
 }
+*/

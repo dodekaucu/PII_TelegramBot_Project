@@ -4,6 +4,9 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 namespace Library
 {
     /// <summary>
@@ -11,11 +14,16 @@ namespace Library
     /// </summary>
     public class Ubicacion
     {
+        public Ubicacion()
+        {
+
+        }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Ubicacion"/>.
         /// </summary>
         /// <param name="ciudad">parametro ciudad que recibe el constructor.</param>
         /// <param name="calle">parametro calle que recibe el constructor.</param>
+        [JsonConstructor]
         public Ubicacion(string ciudad, string calle)
         {
             this.Ciudad = ciudad;
@@ -33,5 +41,16 @@ namespace Library
         /// </summary>
         /// <value>this.calle.</value>
         public string Calle { get; set; }
+
+        public string ConvertToJson()
+        {
+            JsonSerializerOptions options = new()
+            {
+                ReferenceHandler = MyReferenceHandler.Instance, 
+                WriteIndented = true
+            };
+            string json = JsonSerializer.Serialize(this, options);
+            return json;
+        }
     }
 }

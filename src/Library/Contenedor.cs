@@ -26,7 +26,7 @@ namespace Library
 
         public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
 
-        public Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
+        public Collection<Oferta> ofertas = new Collection<Oferta>();
 
         public Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
 
@@ -99,7 +99,7 @@ namespace Library
         /// Obtiene un valor con la lista de las ofertas.
         /// </summary>
         /// <value>this.ofertas.</value>
-        public Collection<OfertaBase> Ofertas
+        public Collection<Oferta> Ofertas
         {
             get
             {
@@ -213,7 +213,7 @@ namespace Library
         /// Añiade una oferta a la lista de ofertas.
         /// </summary>
         /// <param name="oferta">parametro oferta recibido por el metodo AddOferta.</param>
-        public void AddOferta(OfertaBase oferta)
+        public void AddOferta(Oferta oferta)
         {
             this.ofertas.Add(oferta);
         }
@@ -297,8 +297,9 @@ namespace Library
             };
             string json = JsonSerializer.Serialize(this, options);
             return json;
-        }
-        /*public void LoadFromJson(string json)
+        }  
+        /*
+        public void LoadFromJson(string json)
         {
             Contenedor data = JsonSerializer.Deserialize<Contenedor>(json);
             this.habilitaciones = data.habilitaciones;
@@ -361,12 +362,12 @@ namespace Library
             this.jsonadmin = serializaradministrador();
             this.jsoninvitado = serializarinvitado();
         }
-        public void Deserializar(string deserializarhabilitacion, string deserializarrubro, string deserializarclasificacion, string deserializaroferta, string deserializaremprendedor, string deserializarempresa, string deserializaradmin, string deserializarinvitado)
+        public void Deserializar(string deserializarhabilitacion, string deserializarrubro, string deserializarclasificacion, string deserializaremprendedor, string deserializarempresa, string deserializaradmin, string deserializarinvitado, string deserializaroferta)
         {
             this.habilitaciones = JsonSerializer.Deserialize<Collection<Habilitacion>>(deserializarhabilitacion);
             this.rubros = JsonSerializer.Deserialize<Collection<Rubro>>(deserializarrubro);
             this.clasificaciones = JsonSerializer.Deserialize<Collection<Clasificacion>>(deserializarclasificacion);
-            this.ofertas = JsonSerializer.Deserialize<Collection<OfertaBase>>(deserializaroferta);
+            this.ofertas = JsonSerializer.Deserialize<Collection<Oferta>>(deserializaroferta);
             this.emprendedores = JsonSerializer.Deserialize<Dictionary<string, Emprendedor>>(deserializaremprendedor);
             this.empresas = JsonSerializer.Deserialize<Dictionary<string, Empresa>>(deserializarempresa);
             this.administradores = JsonSerializer.Deserialize<Collection<string>>(deserializaradmin);

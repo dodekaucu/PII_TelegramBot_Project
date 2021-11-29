@@ -33,7 +33,7 @@ namespace ProgramTests
             Rubro rubroMadera = new Rubro("Madera", "Forestal", "Madera de todo tipo");
             Empresa empresa = new Empresa("Barraca Fernandez", rubroMadera, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
-            Oferta uno = new Oferta("Madera tratada", empresa, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("13/09/2021"));
+            Oferta uno = new Oferta("Madera tratada", empresa, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
             db.AddOferta(uno);
             Habilitacion msp = new Habilitacion("MSP", "Habilitación del Ministerio de salud publica");
             Habilitacion unit = new Habilitacion("UNIT", "Habilitación Instituto Uruguayo de Normas Técnicas");
@@ -62,7 +62,7 @@ namespace ProgramTests
             IHandler result = handler.Handle(msj, out response);
 
             string opciones ="";
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    foreach (Oferta oferta in db.Ofertas)
                     {
                         if(db.Empresas[msj.ID]==oferta.Empresa)
                         {

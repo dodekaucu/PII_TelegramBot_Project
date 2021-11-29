@@ -44,7 +44,7 @@ namespace Handlers
         /// </summary>
         /// <param name="lista">lista buscada.</param>
         /// <returns></returns>
-        public string Imprimir(Collection<OfertaBase> lista)
+        public string Imprimir(Collection<Oferta> lista)
         {  
             if (lista.Count == 0)
             {
@@ -53,7 +53,7 @@ namespace Handlers
             else
             {
                 texto = "OFERTAS DISPONIBLES: \n";
-                foreach (OfertaBase oferta in lista)
+                foreach (Oferta oferta in lista)
                 {
                 texto += "\n";
                 texto += "Nombre: " + oferta.Nombreoferta + "\n";

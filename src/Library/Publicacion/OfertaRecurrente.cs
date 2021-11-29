@@ -3,7 +3,7 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-
+/*
 using System;
 using System.Collections.ObjectModel;
 
@@ -60,3 +60,4 @@ namespace Library
         }
     }
 }
+*/

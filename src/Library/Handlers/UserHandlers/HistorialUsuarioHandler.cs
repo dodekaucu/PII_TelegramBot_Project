@@ -75,23 +75,29 @@ namespace Handlers
                             response = "No hay ninguna oferta comprada desde el "+message.Text;
                             return true;
                         }
-                        foreach (OfertaBase oferta in db.Emprendedores[message.ID].BuscarEnHistorial(fechaDesde))
+                        foreach (Oferta oferta in db.Emprendedores[message.ID].BuscarEnHistorial(fechaDesde))
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaMensual == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
-                            }
-                            if(oferta as OfertaRecurrente != null)
-                            {
-                                o1= oferta as OfertaRecurrente;
-                                foreach (FechaCompraOferta item in o1.RegistroVentas)
+                                Oferta o = oferta;
+                                if (oferta as Oferta != null)
                                 {
-                                    if(item.IdComprador == message.ID)
+                                    o = oferta as Oferta;
+                                    opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
+                                }
+                            }
+                            else if (oferta.RecurrenciaMensual > 0)
+                            {
+                                Oferta o1 = oferta;
+                                if(oferta as Oferta != null)
+                                {
+                                    o1= oferta as Oferta;
+                                    foreach (FechaCompraOferta item in o1.RegistroVentas)
                                     {
-                                        opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        if(item.IdComprador == message.ID)
+                                        {
+                                            opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        }
                                     }
                                 }
                             }
@@ -109,23 +115,29 @@ namespace Handlers
                             response = "No hay ninguna oferta vendida desde el "+message.Text;
                             return true;
                         }
-                        foreach (OfertaBase oferta in db.Empresas[message.ID].BuscarEnHistorial(fechaDesde)) 
+                        foreach (Oferta oferta in db.Empresas[message.ID].BuscarEnHistorial(fechaDesde)) 
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaMensual == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
-                            }
-                            if(oferta as OfertaRecurrente != null)
-                            {
-                                o1= oferta as OfertaRecurrente;
-                                foreach (FechaCompraOferta item in o1.RegistroVentas)
+                                Oferta o = oferta;
+                                if (oferta as Oferta != null)
                                 {
-                                    if(item.IdComprador == message.ID)
+                                    o = oferta as Oferta;
+                                    opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
+                                }
+                            }
+                            else if (oferta.RecurrenciaMensual > 0)
+                            {
+                                Oferta o1 = oferta;
+                                if(oferta as Oferta != null)
+                                {
+                                    o1= oferta as Oferta;
+                                    foreach (FechaCompraOferta item in o1.RegistroVentas)
                                     {
-                                        opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        if(item.IdComprador == message.ID)
+                                        {
+                                            opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        }
                                     }
                                 }
                             }

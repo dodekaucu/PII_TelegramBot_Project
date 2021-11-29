@@ -13,11 +13,16 @@ namespace Library
     /// </summary>
     public class Clasificacion: IJsonSerialize
     {
+        public Clasificacion()
+        {
+            
+        }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Clasificacion"/>.
         /// </summary>
         /// <param name="nombre"> parametro nombre recibido por el constructor.</param>
         /// <param name="descripcion">parametro descripcion recibido por el constructor.</param>
+        [JsonConstructor]
         public Clasificacion(string nombre, string descripcion)
         {
             this.Nombre = nombre;

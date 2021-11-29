@@ -58,7 +58,7 @@ namespace Handlers
                     else
                     {
                     string emprend = message.ID.ToString();
-                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca.Trim(),db));
+                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca,db));
                     response = $"{OfertasValidas}";
                     return true;
                     }

@@ -33,7 +33,7 @@ namespace Handlers
                 if (db.Empresas.ContainsKey(message.ID))
                 {
                     string opciones ="";
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    foreach (Oferta oferta in db.Ofertas)
                     {
                         if(db.Empresas[message.ID]==oferta.Empresa)
                         {
@@ -106,9 +106,9 @@ namespace Handlers
                     int numoferta = Int32.Parse(dt.DataTemporal[message.ID][0]);
                     string idComprador = dt.DataTemporal[message.ID][1];
                     DateTime fechaCompra = DateTime.Parse(message.Text);
-                    switch(db.Ofertas[numoferta])
+                    if (db.Ofertas[numoferta].RecurrenciaMensual == 0)
                     {
-                    case Oferta o:
+                        Oferta o = db.Ofertas[numoferta];
                         if(!o.Disponible)
                         {
                             response = "La oferta ya ha sido comprada";
@@ -121,9 +121,11 @@ namespace Handlers
                         sm.UserStatusChat.Remove(message.ID);
                         dt.DataTemporal.Remove(message.ID);
                         return true;
-                    
-                    case OfertaRecurrente o:
-                        o.AddFechaVenta(idComprador,fechaCompra);
+                    }
+                    if (db.Ofertas[numoferta].RecurrenciaMensual > 0)
+                    {
+                        Oferta o = db.Ofertas[numoferta];
+                        o.AddComprador(idComprador,fechaCompra);
                         db.Empresas[message.ID].AddToRegister(o);
                         db.Emprendedores[idComprador].AddToRegister(o);
                         response = $"{o.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia "+fechaCompra;

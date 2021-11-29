@@ -34,7 +34,7 @@ namespace Ucu.Poo.TelegramBot
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
-            
+            /*
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
             Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
@@ -47,12 +47,12 @@ namespace Ucu.Poo.TelegramBot
             Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(uno);
-            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
             db.AddOferta(dos);
             db.AddClasificacion(madera);
-            uno.AddHabilitacion(msp);
+            //uno.AddHabilitacion(msp);
             db.AddHabilitacion(unit);
             emprendedor.AddHabilitacion(msp);
             db.AddRubro(rubro);
@@ -60,46 +60,49 @@ namespace Ucu.Poo.TelegramBot
             db.AddHabilitacion(msp);
             
 
-            emprendedor.ID = "1234";
+            //emprendedor.ID = "1234";
             //db.AddInvitado("1454175798");
-            uno.FechaVenta = DateTime.Parse("15/10/2021");
-            emprendedor.AddToRegister(uno);
-            db.AddEmprendedor("1234",emprendedor);
+            //uno.FechaVenta = DateTime.Parse("15/10/2021");
+            //emprendedor.AddToRegister(uno);
+            //db.AddEmprendedor("1234",emprendedor);
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
 
-            db.AddEmpresa("1454175798",maderaslr); //Rafa
-            maderaslr.ID="1454175798"; //Rafa
+            //db.AddEmpresa("1454175798",maderaslr); //Rafa
+            //maderaslr.ID="1454175798"; //Rafa
             //Añadir Empresa (Poner ID de usuario y emprendedor)
-            //db.AddEmpresa("1599425094",maderaslr); //Guille
+            db.AddEmpresa("1599425094",maderaslr); //Guille
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
             //db.AddEmprendedor("1599425094",emprendedor); //Guille
-
-            Oferta oferta1 = new Oferta("oferta1", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            */
+            
+            /*
+            Oferta oferta1 = new Oferta("oferta1", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             oferta1.AddComprador("5",DateTime.Parse("24/11/2021"));
             maderaslr.AddToRegister(oferta1);
 
-            Oferta oferta2 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta oferta2 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             oferta2.AddComprador("5",DateTime.Parse("02/11/2021"));
             maderaslr.AddToRegister(oferta2);
 
-            Oferta oferta3 = new Oferta("oferta3", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta oferta3 = new Oferta("oferta3", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
             oferta3.AddComprador("5",DateTime.Parse("21/11/2021"));
             maderaslr.AddToRegister(oferta3);
             
-            OfertaRecurrente oferta4 = new OfertaRecurrente("oferta4", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5);
-            oferta4.AddFechaVenta("1454175798",DateTime.Parse("21/11/2021"));
+            Oferta oferta4 = new Oferta("oferta4", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5, DateTime.Parse("11/11/2021"));
+            oferta4.AddComprador("1454175798",DateTime.Parse("21/11/2021"));
             maderaslr.AddToRegister(oferta4);
 
-            OfertaRecurrente oferta5 = new OfertaRecurrente("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5);
-            oferta5.AddFechaVenta("0000",DateTime.Parse("21/11/2021"));
+            Oferta oferta5 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5, DateTime.Parse("23/01/2021"));
+            oferta5.AddComprador("0000",DateTime.Parse("21/11/2021"));
             maderaslr.AddToRegister(oferta5);
 
-            Collection<OfertaBase> rest = maderaslr.BuscarEnHistorial(DateTime.Parse("20/11/2021"));
+            Collection<Oferta> rest = maderaslr.BuscarEnHistorial(DateTime.Parse("20/11/2021"));
             Console.WriteLine(rest.Count);
-            foreach(OfertaBase ofertaz in rest )
+            foreach(Oferta ofertaz in rest )
             {
                 Console.WriteLine(ofertaz.Nombreoferta);
             }
+            */
             
             firstHandler =
                 new HelloHandler(
@@ -133,8 +136,32 @@ namespace Ucu.Poo.TelegramBot
             string deserializaremprendedor = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmprendedor.Json");
             string deserializarempresa = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaEmpresa.Json");
             string deserializarinvitado = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaInvitados.Json");
-            contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaroferta, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado);
+            contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado, deserializaroferta);
 
+            Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
+            Habilitacion unit = new Habilitacion("UNIT", "9001");
+            Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
+            Contenedor db = Contenedor.Instancia;
+            Busqueda buscador = Busqueda.Instancia;
+            Habilitacion msp = new Habilitacion("MSP", "msp");
+            Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
+            Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
+            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
+            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
+            db.AddOferta(uno);
+            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
+            db.AddOferta(dos);
+            db.AddClasificacion(madera);
+            db.AddHabilitacion(unit);
+            emprendedor.AddHabilitacion(msp);
+            db.AddRubro(rubro);
+            db.AddRubro(rubro2);
+            db.AddHabilitacion(msp);
+            //db.AddEmpresa("1599425094",maderaslr);
+            
             // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
             // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync
             // es invocado cuando ocurre un error.
