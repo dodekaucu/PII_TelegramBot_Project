@@ -21,7 +21,6 @@ namespace Library
     /// </summary>
     public class Oferta : IJsonSerialize
     {
-        DateTime today = DateTime.Now;
         Contenedor db = Contenedor.Instancia;
         private FechaCompraOferta fechaCompra;
         private Collection<FechaCompraOferta> registroVentas = new Collection<FechaCompraOferta> ();
@@ -55,7 +54,7 @@ namespace Library
         [JsonConstructor]
         public Oferta(string nombreoferta, Empresa empresa, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor, int recurrenciaSemanal, DateTime fechaDeGeneracion)
         {
-            
+            this.Nombreoferta = nombreoferta;
             this.Empresa = empresa;
             this.Ciudad = ciudad;
             this.Calle = calle;
@@ -66,7 +65,6 @@ namespace Library
             this.Valor = valor;
             this.RecurrenciaSemanal = recurrenciaSemanal;
             this.FechadeGeneracion = fechaDeGeneracion;
-            this.Nombreoferta = nombreoferta;
 
             Material material = new Material(nombreMaterial, clasificacion, cantidad, unidad, valor);
             this.Material = material;
@@ -224,34 +222,13 @@ namespace Library
         {
             get
             {
-                if (this.RecurrenciaSemanal == 0)
+                if (fechaCompra == null)
                 {
-                    if (fechaCompra == null)
-                    {
-                        return "Disponible";
-                    }
-                    else
-                    {
-                        return "No disponible";
-                    }
+                    return "Disponible";
                 }
-                else
-                {
-                    if (registroVentas == null)
-                    {
-                        return "Disponible";
-                    }
                     else
-                    {
-                        if (registroVentas.Last().FechaCompra < today)
-                        {
-                            return "Disponible";
-                        }
-                        else
-                        {
-                            return "No disponible";
-                        }
-                    }
+                {
+                    return "No disponible";
                 }
             }
         }
@@ -271,16 +248,17 @@ namespace Library
         /// Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
         /// </summary>
         /// <param name="id">ID del usuario.</param>
-        public void AddComprador(string id)
+        /// <param name="fecha">Fecha de compra.</param>
+        public void AddComprador(string id, DateTime fecha)
         {
             if (this.RecurrenciaSemanal == 0)
             {
-            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,today);
+            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fecha);
             this.fechaCompra = fechaCompra;
             }
             if (this.RecurrenciaSemanal > 0)
             {
-            FechaCompraOferta venta = new FechaCompraOferta(id,today);
+            FechaCompraOferta venta = new FechaCompraOferta(id,fecha);
             this.registroVentas.Add(venta);
             }
         }

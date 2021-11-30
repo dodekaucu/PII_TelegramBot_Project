@@ -25,6 +25,7 @@ namespace ProgramTests
         Clasificacion clasificacionTest;
 
         Emprendedor emprendedor;
+        Oferta uno;
 
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace ProgramTests
             db.AddEmprendedor("Emprendedor Prueba", rubroMadera,"San Bautista", "Ruta 6","madera","9001");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
             Oferta uno = new Oferta("Madera tratada", db.Empresas["8001"] , "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
+            db.AddOferta(uno);
             handler = new AnadirCompradorHandler(null);
             message = new Message();
             message.From = new User();
@@ -68,12 +70,39 @@ namespace ProgramTests
                 "las ofertas que usted posee son:\n"+ opciones +"seleccione una oferta para añiadir un comprador"
                 ));
 
-            message.Text = "012036548465466";   //Ingresa una ID no registrada como emprendedor     
-            string fecha = DateTime.Now.ToString();
+            message.Text = "1";   //Ingresa una ID no registrada como emprendedor   
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo( $"{db.Ofertas[1].Nombreoferta}"));
+                /*$"Ingrese el ID del comprador de {db.Ofertas[1].Nombreoferta}:\n(recuerde que con /Info el comprador puede ver su Id)"
+                ));*/
+
+            message.Text = "1208465466";   //Ingresa una ID no registrada como emprendedor   
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
                 "la id no se encuentra registrada como emprendedor"
+                ));
+
+            message.Text = "9001";   //Ingresa una ID no registrada como emprendedor   
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo(
+                "Ahora ingrese la fecha de compra, recuerde que debe tener la forma dd/mm/aaaa"
+                ));
+
+            message.Text = "4/5/2021";   //Ingresa una ID no registrada como emprendedor   
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo(
+                "no ha ingresado una fecha valida, recuerde que debe tener la forma de dd/mm/aaaa"
+                ));
+
+            message.Text = "23/12/2021";   //Ingresa una ID no registrada como emprendedor   
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo(
+                $"{db.Ofertas[1].Nombreoferta} ha sido comprada por {db.Emprendedores["9001"].Nombre} el dia {db.Ofertas[1].FechaCompra.FechaCompra}"
                 ));
         }
 

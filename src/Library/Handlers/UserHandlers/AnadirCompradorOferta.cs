@@ -71,7 +71,7 @@ namespace Handlers
                     response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo";
                     return true;
                 }
-                if(message.ID==db.Ofertas[Int32.Parse(message.Text)].Empresa.ID)
+                else if(message.ID == db.Ofertas[Int32.Parse(message.Text)].Empresa.ID)
                 {
                     dt.AddDato(message.ID,message.Text);
                     int numoferta = Int32.Parse(message.Text);
@@ -121,7 +121,7 @@ namespace Handlers
                             dt.DataTemporal.Remove(message.ID);
                             return true;
                         }
-                        oferta.AddComprador(idComprador);
+                        oferta.AddComprador(idComprador,fechaCompra);
                         db.Empresas[message.ID].AddToRegister(oferta);
                         db.Emprendedores[idComprador].AddToRegister(oferta);
                         response = $"{oferta.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia {oferta.FechaCompra.FechaCompra}";
@@ -132,7 +132,7 @@ namespace Handlers
                     if (db.Ofertas[numoferta].RecurrenciaSemanal > 0)
                     {
                         Oferta oferta = db.Ofertas[numoferta];
-                        oferta.AddComprador(idComprador);
+                        oferta.AddComprador(idComprador,fechaCompra);
                         db.Empresas[message.ID].AddToRegister(oferta);
                         db.Emprendedores[idComprador].AddToRegister(oferta);
                         response = $"{oferta.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia "+fechaCompra;

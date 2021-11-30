@@ -1147,11 +1147,12 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Oferta.AddComprador(System.String)">
+        <member name="M:Library.Oferta.AddComprador(System.String,System.DateTime)">
             <summary>
             Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
             </summary>
             <param name="id">ID del usuario.</param>
+            <param name="fecha">Fecha de compra.</param>
         </member>
         <member name="P:Library.Oferta.RegistroVentas">
             <summary>

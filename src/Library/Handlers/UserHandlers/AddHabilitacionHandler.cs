@@ -137,7 +137,7 @@ namespace Handlers
                 }
                 else
                 {
-                    Console.WriteLine(dt.DataTemporal[message.ID][0]);
+                    //Console.WriteLine(dt.DataTemporal[message.ID][0]);
                     int numeroferta = Int32.Parse(dt.DataTemporal[message.ID][0]);
                     int numerohab = Int32.Parse(message.Text);
                     if (db.Ofertas[numeroferta].Habilitaciones.Contains(db.Habilitaciones[numerohab]))

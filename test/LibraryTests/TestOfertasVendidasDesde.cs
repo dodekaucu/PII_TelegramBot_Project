@@ -42,7 +42,8 @@ namespace ProgramTests
             db.AddEmprendedor("Emprendedor Prueba", rubroMadera,"San Bautista", "Ruta 6","madera","301");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
             Oferta uno = new Oferta("Madera tratada", db.Empresas["24"] , "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
-            uno.AddComprador("301");
+            DateTime fecha = DateTime.Parse("16/12/2021");
+            uno.AddComprador("301",fecha);
             db.AddOferta(uno);
             db.Emprendedores["301"].AddToRegister(uno);
             db.Empresas["201"].AddToRegister(uno);
@@ -73,7 +74,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Ofertas Consumidas Desde: 20/11/2021\n\nNOMBRE: Madera tratada\nNOMBRE MATERIAL: madera 1 Tonelada\n\nFECHA COMPRA: 30/11/2021 0:00:00\n\n"+lineas+"\n"
+                "Ofertas Consumidas Desde: 20/11/2021\n\nNOMBRE: Madera tratada\nNOMBRE MATERIAL: madera 1 Tonelada\n\nFECHA COMPRA: 16/12/2021 00:00:00\n\n"+lineas+"\n"
                 ));
         }
 
