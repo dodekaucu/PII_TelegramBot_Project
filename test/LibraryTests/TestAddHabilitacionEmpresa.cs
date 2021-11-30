@@ -89,7 +89,7 @@ namespace ProgramTests
                 "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo"
                 ));
             
-            message.Text = "1"; //el usuario ingresa un numero válido.
+            message.Text = "0"; //el usuario ingresa un numero válido.
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             string opciones2 = "";
@@ -99,7 +99,7 @@ namespace ProgramTests
                         opciones2 = opciones2 + i.ToString() + " - " + habilitacion.Name +"\n";
                         i++;
                     }
-                    string respuesta2 = $"Ingrese una habilitacion para agregar a {db.Ofertas[1].Nombreoferta}" + "\n \n" + "Habilitaciones disponibles: \n" + opciones2;
+                    string respuesta2 = $"Ingrese una habilitacion para agregar a {db.Ofertas[0].Nombreoferta}" + "\n \n" + "Habilitaciones disponibles: \n" + opciones2;
             Assert.That(response, Is.EqualTo(respuesta2));
 
             message.Text = "dsdsff"; //el usuario no ingresa un numero.

@@ -73,14 +73,26 @@ namespace ProgramTests
                 respuestaesperada = "OFERTAS DISPONIBLES: \n";
                 foreach (Oferta oferta in ofertasvalidas)
                 {
-                respuestaesperada += "\n";
-                respuestaesperada += "Nombre: " + oferta.Nombreoferta + "\n";
-                respuestaesperada += "Material: " + oferta.Material.Nombre + "\n";
-                respuestaesperada += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
-                respuestaesperada += "Precio: $" + oferta.Material.Valor + "\n";
-                respuestaesperada += "Identificador: " + oferta.Identificador + "\n";
-                respuestaesperada += "\n";
-                respuestaesperada += "---------------------------------------" + "\n";
+                    string textorecurrente = "";
+                    if (oferta.RecurrenciaSemanal == 0)
+                    {
+                        textorecurrente = "Oferta única";
+                    }
+                    else if (oferta.RecurrenciaSemanal > 0)
+                    {
+                        textorecurrente = "Oferta recurrente cada " + oferta.RecurrenciaSemanal + " semanas";
+                    }
+                    respuestaesperada += "\n";
+                    respuestaesperada += "Nombre: " + oferta.Nombreoferta + "\n";
+                    respuestaesperada += "Material: " + oferta.Material.Nombre + "\n";
+                    respuestaesperada += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
+                    respuestaesperada += "Precio: $" + oferta.Material.Valor + "\n";
+                    respuestaesperada += textorecurrente + "\n";
+                    respuestaesperada += "Identificador: " + db.Ofertas.IndexOf(oferta).ToString() + "\n";
+                    respuestaesperada += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
+                    respuestaesperada += "Teléfono de contacto: " + oferta.Empresa.Telefono+"\n";
+                    respuestaesperada += "\n";
+                    respuestaesperada += "---------------------------------------" + "\n";
                 }   
             }
 

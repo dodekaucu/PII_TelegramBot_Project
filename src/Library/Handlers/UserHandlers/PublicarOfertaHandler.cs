@@ -187,7 +187,7 @@ namespace Handlers
                             db.AddOferta(oferta);
                             dt.DataTemporal.Remove(message.ID);
                             sm.UserStatusChat.Remove(message.ID);
-                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\"a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
+                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
                             return true;
                         }
                     case "2":

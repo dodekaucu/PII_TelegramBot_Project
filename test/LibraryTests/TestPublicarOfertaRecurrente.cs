@@ -124,7 +124,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Como usted selecciono una Oferta Recurrente, ingrese la periocidad mensual con la que se genera la misma"
+                "Como usted selecciono una Oferta Recurrente, ingrese la primera fecha de disponibilidad de la oferta \n (Debe tener la forma dd/mm/aaaa)"
                 ));
 
             message.Text = "1";
