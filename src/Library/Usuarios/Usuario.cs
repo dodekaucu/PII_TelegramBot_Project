@@ -3,6 +3,10 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
+
+// ESTA CLASE NO SE UTILIZA EN EL PROGRAMA.
+
+
 /*
 using System;
 using System.Collections.Generic;

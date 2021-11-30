@@ -7,6 +7,10 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase es la responsable de manejar los datos de los usuarios.
+    /// Utiliza el patron de diseño singleton.
+    /// </summary>
     public class StatusManager
     {
         private static StatusManager statusManager;
@@ -17,6 +21,9 @@ namespace Library
         {
         }
 
+        /// <summary>
+        /// Instancia de status maneger.
+        /// </summary>
         public static StatusManager Instancia
         {
             get

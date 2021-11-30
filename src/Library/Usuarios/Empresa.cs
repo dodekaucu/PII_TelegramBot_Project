@@ -18,7 +18,6 @@ namespace Library
     /// </summary>
     public class Empresa : IJsonSerialize
     {
-        
         private Collection<Oferta> registroUsuario = new Collection<Oferta>();
 
         /// <summary>
@@ -26,7 +25,6 @@ namespace Library
         /// </summary>
         public Empresa()
         {
-
         }
 
         /// <summary>
@@ -52,6 +50,7 @@ namespace Library
             {
                 throw new ArgumentNullException("name");
             }
+
             if (nombre.Length == 0)
             {
                 throw new ArgumentException("El nombre no puede estar vacio");
@@ -59,7 +58,6 @@ namespace Library
 
             Ubicacion ubicacion = new Ubicacion(ciudad, calle);
             this.Ubicacion = ubicacion;
-
         }
 
         /// <summary>
@@ -77,12 +75,12 @@ namespace Library
         /// <summary>
         /// Obtiene o establece la calle donde se ubica la empresa.
         /// </summary>
-        public string Calle {get;set;}
+        public string Calle { get; set; }
 
         /// <summary>
         /// Obtiene o establece la ciudad donde se ubica la empresa.
         /// </summary>
-        public string Ciudad {get;set;}
+        public string Ciudad { get; set; }
 
         /// <summary>
         /// Obtiene o establece el telefono de la empresa.
@@ -140,6 +138,7 @@ namespace Library
                     o = oferta as Oferta;
 
                 }
+
                 if (oferta.RecurrenciaSemanal == 0)
                     {
                         if (oferta.Disponible == "No disponible" && oferta.FechaCompra.FechaCompra >= fechaDesde)
@@ -149,7 +148,6 @@ namespace Library
                     }
                 else if (oferta.RecurrenciaSemanal > 0)
                 {
-                    
                     foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
                     {
                         if (fecha.FechaCompra >= fechaDesde && fecha.IdComprador == this.ID)
@@ -163,22 +161,36 @@ namespace Library
             return resultado;
         }
 
-        public void CrearOferta(string nombre, string ciudad, string calle,string nombreMaterial,Clasificacion clasificacion,int cantidad, string unidad, double valor, int recurr, DateTime fecha)
+        /// <summary>
+        /// Metodo para crear ofertas.
+        /// Utiliza el patrón de diseño Creator.
+        /// </summary>
+        /// <param name="nombre">Nombre de la oferta.</param>
+        /// <param name="ciudad">Ciudad de la oferta.</param>
+        /// <param name="calle">Calle de la oferta.</param>
+        /// <param name="nombreMaterial">Nombre del material de la oferta.</param>
+        /// <param name="clasificacion">Clasificacion de la oferta.</param>
+        /// <param name="cantidad">Cantidad de la oferta.</param>
+        /// <param name="unidad">Unidad de la oferta.</param>
+        /// <param name="valor">Valor de la oferta.</param>
+        /// <param name="recurr">Recurrencia de la oferta.</param>
+        /// <param name="fecha">Fecha de la oferta.</param>
+        public void CrearOferta(string nombre, string ciudad, string calle, string nombreMaterial, Clasificacion clasificacion, int cantidad, string unidad, double valor, int recurr, DateTime fecha)
         {
-            Oferta oferta = new Oferta(nombre,this,ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,recurr,fecha);
-            Contenedor db= Contenedor.Instancia;
+            Oferta oferta = new Oferta(nombre, this, ciudad, calle, nombreMaterial, clasificacion, cantidad, unidad, valor, recurr, fecha);
+            Contenedor db = Contenedor.Instancia;
             db.AddOferta(oferta);
         }
 
         /// <summary>
         /// Convert to json.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retorna el JSON.</returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
             {
-                ReferenceHandler = MyReferenceHandler.Instance, 
+                ReferenceHandler = MyReferenceHandler.Instance,
                 WriteIndented = true
             };
             string json = JsonSerializer.Serialize(this, options);

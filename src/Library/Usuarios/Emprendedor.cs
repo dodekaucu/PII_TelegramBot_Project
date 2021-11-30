@@ -27,7 +27,6 @@ namespace Library
         /// </summary>
         public Emprendedor()
         {
-
         }
 
         /// <summary>
@@ -50,6 +49,7 @@ namespace Library
             {
                 throw new ArgumentNullException("name");
             }
+
             if (nombre.Length == 0)
             {
                 throw new ArgumentException("El nombre no puede estar vacio");
@@ -57,8 +57,8 @@ namespace Library
 
             Ubicacion ubicacion = new Ubicacion(ciudad, calle);
             this.Ubicacion = ubicacion;
-            
-            
+
+
             this.Especializacion = especializacion;
         }
 
@@ -76,14 +76,15 @@ namespace Library
         /// Obtiene o establece un valor que es el rubro del usuario.
         /// </summary>
         public Rubro Rubro { get; set; }
+
         /// <summary>
         /// Obtiene o establece la ciudad donde esta ubicado el emprendedor.
         /// </summary>
         public string Ciudad { get; set; }
+
         /// <summary>
         /// Obtiene o establece la calle donde esta ubicado el emprendedor.
         /// </summary>
-        /// <value></value>
         public string Calle { get; set; }
 
         /// <summary>
@@ -130,9 +131,10 @@ namespace Library
                             resultado.Add(oferta);
                         }
                     }
+
                 else if (oferta.RecurrenciaSemanal > 0)
                 {
-                    
+
                     foreach (FechaCompraOferta fecha in oferta.RegistroVentas)
                     {
                         if (fecha.FechaCompra >= fechaDesde && fecha.IdComprador == this.ID)
@@ -186,12 +188,12 @@ namespace Library
         /// <summary>
         /// Convert To Json.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve el JSON.</returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
             {
-                ReferenceHandler = MyReferenceHandler.Instance, 
+                ReferenceHandler = MyReferenceHandler.Instance,
                 WriteIndented = true
             };
             string json = JsonSerializer.Serialize(this, options);
