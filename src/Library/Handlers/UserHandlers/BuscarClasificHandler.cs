@@ -1,11 +1,10 @@
 //--------------------------------------------------------------------------------
-// <copyright file="IManejoDeDatos.cs" company="Universidad Católica del Uruguay">
+// <copyright file="BuscarClasificHandler.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
 using System;
 using Library;
-using System.Collections.Generic;
 
 namespace Handlers
 {

@@ -1,11 +1,9 @@
 //--------------------------------------------------------------------------------
-// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+// <copyright file="Impresora.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using System;
 using Library;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Handlers

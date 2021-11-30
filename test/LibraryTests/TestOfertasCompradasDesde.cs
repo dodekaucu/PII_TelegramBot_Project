@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------
-// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+// <copyright file="TestOfertasCompradasDesde.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
@@ -8,7 +8,6 @@ using Handlers;
 using Library;
 using Telegram.Bot.Types;
 using System;
-using System.Collections.ObjectModel;
 
 namespace ProgramTests
 {

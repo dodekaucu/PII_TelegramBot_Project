@@ -1,9 +1,8 @@
 //--------------------------------------------------------------------------------
-// <copyright file="IManejoDeDatos.cs" company="Universidad Católica del Uruguay">
+// <copyright file="DatosTemporales.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 

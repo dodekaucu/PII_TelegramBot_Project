@@ -1,9 +1,8 @@
 //--------------------------------------------------------------------------------
-// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+// <copyright file="IHandler.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using Library;
 
 namespace Handlers
 {

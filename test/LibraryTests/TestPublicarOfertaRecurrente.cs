@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="TesPublicarOfertaRecurrente.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using NUnit.Framework;
 using Handlers;
 using Library;

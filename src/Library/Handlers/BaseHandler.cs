@@ -1,11 +1,10 @@
 //--------------------------------------------------------------------------------
-// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+// <copyright file="BaseHandler.cs" company="Universidad Católica del Uruguay">
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
 using System;
 using System.Linq;
-using Library;
 
 namespace Handlers
 {

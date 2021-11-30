@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Library;
 using Handlers;
-using System.IO;
 
 namespace Ucu.Poo.TelegramBot
 {
@@ -20,10 +18,6 @@ namespace Ucu.Poo.TelegramBot
         // La instancia del bot.
         private static TelegramBotClient Bot;
 
-        // El token provisto por Telegram al crear el bot.
-        //
-        // *Importante*:
-        // Para probar este ejemplo, crea un bot nuevo y reemplaza este token por el de tu bot.
         private static string Token = "2084958009:AAE-GVhiDbuo_AinJ5rnMsH3e7-5Bs7vQf8";
 
         private static IHandler firstHandler;
@@ -34,6 +28,23 @@ namespace Ucu.Poo.TelegramBot
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
+            
+            
+            
+            //=========================================
+            // Lineas utiles para probar nuestro código:
+            //=========================================
+            // para añadir emprendedor (Poner ID de usuario y emprendedor)
+            // db.AddEmprendedor("user", emprendedor)
+            
+            // Para añadir empresa (Poner ID del usuario y instancia de empresa)
+            // db.AddEmpresa("user", empresa)
+
+            // Para añadir invitados (Poner ID del usuario)
+            //db.AddInvitado("user");
+
+
+            // Este es el setup que tenemos para las ofertas
             /*
             Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
             Habilitacion unit = new Habilitacion("UNIT", "9001");
@@ -70,39 +81,11 @@ namespace Ucu.Poo.TelegramBot
             //db.AddEmpresa("1454175798",maderaslr); //Rafa
             //maderaslr.ID="1454175798"; //Rafa
             //Añadir Empresa (Poner ID de usuario y emprendedor)
-            db.AddEmpresa("1599425094",maderaslr); //Guille
+            db.AddEmpresa("1599425094",maderaslr); // Empresa Guille
             //Añadir emprendedor (Poner ID de usuario y emprendedor)
-            //db.AddEmprendedor("1599425094",emprendedor); //Guille
+            //db.AddEmprendedor("1599425094",emprendedor); // Emprendedor Guille 
             */
             
-            /*
-            Oferta oferta1 = new Oferta("oferta1", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
-            oferta1.AddComprador("5",DateTime.Parse("24/11/2021"));
-            maderaslr.AddToRegister(oferta1);
-
-            Oferta oferta2 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
-            oferta2.AddComprador("5",DateTime.Parse("02/11/2021"));
-            maderaslr.AddToRegister(oferta2);
-
-            Oferta oferta3 = new Oferta("oferta3", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
-            oferta3.AddComprador("5",DateTime.Parse("21/11/2021"));
-            maderaslr.AddToRegister(oferta3);
-            
-            Oferta oferta4 = new Oferta("oferta4", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5, DateTime.Parse("11/11/2021"));
-            oferta4.AddComprador("1454175798",DateTime.Parse("21/11/2021"));
-            maderaslr.AddToRegister(oferta4);
-
-            Oferta oferta5 = new Oferta("NOmostrar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 5, DateTime.Parse("23/01/2021"));
-            oferta5.AddComprador("0000",DateTime.Parse("21/11/2021"));
-            maderaslr.AddToRegister(oferta5);
-
-            Collection<Oferta> rest = maderaslr.BuscarEnHistorial(DateTime.Parse("20/11/2021"));
-            Console.WriteLine(rest.Count);
-            foreach(Oferta ofertaz in rest )
-            {
-                Console.WriteLine(ofertaz.Nombreoferta);
-            }
-            */
             
             firstHandler =
                 new HelloHandler(
@@ -138,41 +121,6 @@ namespace Ucu.Poo.TelegramBot
             string deserializarinvitado = System.IO.File.ReadAllText(@"..\..\Listas_Json\ListaInvitados.Json");
             contenedor.Deserializar( deserializarhabilitacion, deserializarrubro, deserializarclasificacion, deserializaremprendedor, deserializarempresa, deserializaradmin, deserializarinvitado, deserializaroferta);
 
-            /*
-            Habilitacion unit = new Habilitacion("UNIT", "9001");
-            Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
-            Contenedor db = Contenedor.Instancia;
-            Busqueda buscador = Busqueda.Instancia;
-            Habilitacion msp = new Habilitacion("MSP", "msp");
-            Rubro rubrocarpinteria = new Rubro("Carpinteria", "Carpinteria", "Recursos");
-            Rubro rubrotextil = new Rubro("Téxtil", "Téxtil", "Telas y afines");
-            Rubro rubrotecnologia = new Rubro("Computación", "Tecnología", "Informática en general");
-            Rubro rubrometalurgica = new Rubro("Metalurgica", "Metales", "Metales en general");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubrocarpinteria, "San Ramon", "Ruta 12", "Emprendimiento","1581849977");
-            Empresa maderaslr = new Empresa("Madera SRL", rubrocarpinteria, "San Bautista", "Ruta 6","1599425094","6859595");
-            Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Clasificacion tecnologia = new Clasificacion("Tecnologia", "Material informatico");
-            Clasificacion metales = new Clasificacion("Metales", "Metales");
-            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
-            db.AddOferta(uno);
-            Oferta dos = new Oferta("Madera OSB", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
-            db.AddOferta(dos);
-            db.AddClasificacion(madera);
-            db.AddClasificacion(tecnologia);
-            db.AddClasificacion(metales);
-            db.AddHabilitacion(unit);
-            emprendedor.AddHabilitacion(msp);
-            db.AddRubro(rubrocarpinteria);
-            db.AddRubro(rubrotecnologia);
-            db.AddRubro(rubrometalurgica);
-            db.AddHabilitacion(msp);
-            db.AddInvitado("1599425094");
-            */
-            
-            
-            
-            
-            
             // Comenzamos a escuchar mensajes. Esto se hace en otro hilo (en background). El primer método
             // HandleUpdateAsync es invocado por el bot cuando se recibe un mensaje. El segundo método HandleErrorAsync
             // es invocado cuando ocurre un error.
@@ -221,10 +169,6 @@ namespace Ucu.Poo.TelegramBot
 
         /// <summary>
         /// Maneja los mensajes que se envían al bot.
-        /// Lo único que hacemos por ahora es escuchar 3 tipos de mensajes:
-        /// - "hola": responde con texto
-        /// - "chau": responde con texto
-        /// - "foto": responde con una foto
         /// </summary>
         /// <param name="message">El mensaje recibido</param>
         /// <returns></returns>

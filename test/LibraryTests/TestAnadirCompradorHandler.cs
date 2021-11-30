@@ -8,7 +8,6 @@ using Handlers;
 using Library;
 using Telegram.Bot.Types;
 using System;
-using System.Collections.ObjectModel;
 
 namespace ProgramTests
 {
