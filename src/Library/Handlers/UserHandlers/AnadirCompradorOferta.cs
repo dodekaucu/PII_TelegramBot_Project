@@ -114,9 +114,11 @@ namespace Handlers
                     if (db.Ofertas[numoferta].RecurrenciaSemanal == 0)
                     {
                         Oferta oferta = db.Ofertas[numoferta];
-                        if(oferta.Disponible == "Disponible")
+                        if(oferta.Disponible == "No Disponible")
                         {
                             response = "La oferta ya ha sido comprada";
+                            sm.UserStatusChat.Remove(message.ID);
+                            dt.DataTemporal.Remove(message.ID);
                             return true;
                         }
                         oferta.AddComprador(idComprador);

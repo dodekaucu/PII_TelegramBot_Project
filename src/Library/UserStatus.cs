@@ -1,8 +1,12 @@
+//--------------------------------------------------------------------------------
+// <copyright file="IManejoDeDatos.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System.Collections.Generic;
 
 namespace Library
 {
-    //LA IDEA ES QUE GUARDE EL ULTIMO STATUS QUE UTILIZO UN USUARIO
     public class StatusManager
     {
         private static StatusManager statusManager;

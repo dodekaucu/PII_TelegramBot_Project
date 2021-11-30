@@ -1,5 +1,9 @@
+//--------------------------------------------------------------------------------
+// <copyright file="IManejoDeDatos.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Telegram.Bot.Types;
-using System.Linq;
 
 namespace Handlers
 {

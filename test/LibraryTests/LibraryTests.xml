@@ -121,6 +121,46 @@
             Este test prueba como se procesa el mensaje cuando el usuario es administrador.
             </summary>
         </member>
+        <member name="T:ProgramTests.TestOfertasConsumidasDesde">
+            <summary>
+            Esta clase prueba el handler de HistorialDesde. Concretamente desde el punto de vista de una empresa
+            Le permitira a la empresa saber todos los materiales o residuos entregados en un período de tiempo.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasConsumidasDesde.Setup">
+            <summary>
+            Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa
+            Luego se le agrega un comprador a la oferta (el emprendedor), Asi como agregarlo al registro de c/usuario
+            (Esto se demuestra que se hace automaticamente en el handler de /AnadirComprador).
+            Por ultimo se crea el message asi como el TelegramMSGadpater.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasConsumidasDesde.EmpresaHistorialDesde">
+            <summary>
+            Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde
+            una fecha anterior.
+            </summary>
+        </member>
+        <member name="T:ProgramTests.TestOfertasVendidasDesde">
+            <summary>
+            Esta clase prueba el handler de HistorialDesde. Concretamente desde el punto de vista de una empresa
+            Le permitira a la empresa saber todos los materiales o residuos entregados en un período de tiempo.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasVendidasDesde.Setup">
+            <summary>
+            Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa
+            Luego se le agrega un comprador a la oferta (el emprendedor), Asi como agregarlo al registro de c/usuario
+            (Esto se demuestra que se hace automaticamente en el handler de /AnadirComprador).
+            Por ultimo se crea el message asi como el TelegramMSGadpater.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasVendidasDesde.EmpresaHistorialDesde">
+            <summary>
+            Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde
+            una fecha anterior.
+            </summary>
+        </member>
         <member name="T:ProgramTests.PublicarOfertaRecurrenteTests">
             <summary>
             Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta recurrente.

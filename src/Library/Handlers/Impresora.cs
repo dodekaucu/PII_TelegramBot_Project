@@ -12,7 +12,8 @@ namespace Handlers
 {
     /// <summary>
     /// Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
-    /// Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia el
+    /// Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia la forma
+    /// de imprimir la oferta.
     /// </summary>
     public class Impresora
     {

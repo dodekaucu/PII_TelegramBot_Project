@@ -126,11 +126,18 @@ namespace ProgramTests
                 "Como usted selecciono una Oferta Recurrente, ingrese la primera fecha de disponibilidad de la oferta \n (Debe tener la forma dd/mm/aaaa)"
                 ));
 
+            message.Text="30/11/2021";
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo(
+                "Fecha inicial: 30/11/2021, ahora ingrese la recurrencia semanal (Cada cúantas semanas vuelve a estar disponible la oferta.):"
+                ));
+
             message.Text = "1";
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Se a creado la oferta NombreOferta a nombre de la empresa EmpresaTest.\n Características:\nNombreMaterial\n45 kg\n Periocidad mensual: 1"
+                "Se a creado la oferta NombreOferta a nombre de la empresa EmpresaTest.\n Características:\nNombreMaterial\n45 kg\n Recurrencia: cada 1 semanas."+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave."
                 ));
         }
     }

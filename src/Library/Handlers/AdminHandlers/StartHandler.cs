@@ -1,6 +1,10 @@
+//--------------------------------------------------------------------------------
+// <copyright file="IManejoDeDatos.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 using Telegram.Bot.Types;
-using System.Linq;
 using Library;
 
 namespace Handlers
@@ -35,9 +39,9 @@ namespace Handlers
             Contenedor db = Contenedor.Instancia;
             if (this.CanHandle(message))
             {
-                if (db.Invitados.Contains(message.ID.ToString()))  // ver como referenciar a la clase contenedor
+                if (db.Invitados.Contains(message.ID) && !db.Empresas.ContainsKey(message.ID))  // ver como referenciar a la clase contenedor
                 {
-                    response = "Usted se encuentra en la lista de empresas invitadas, se procedera con el registro";
+                    response = "Usted se encuentra en la lista de empresas invitadas, Utilize el comando /registro para proceder con el registro";
                     return true;
                 }
                 else if (db.Administradores.Contains(message.ID.ToString()))
@@ -45,9 +49,23 @@ namespace Handlers
                     response = "Eres admin";
                     return true;
                 }
+                else if (db.Empresas.ContainsKey(message.ID) || db.Emprendedores.ContainsKey(message.ID))
+                {
+                    if (db.Empresas.ContainsKey(message.ID))
+                    {
+                        response = "Bienvenido de vuelta"+ db.Empresas[message.ID].Nombre+"Recuerde que para publicar una oferta utilize el comando /PublicarOferta, para consultar sus publicaciones /MisPublicaciones, para añadir un comprador (en caso de haber vendido) /AñadirComprador, por ultimo /HistorialDesde para ver las ofertas vendidas en un periodo de tiempo" ;
+                        return true;
+                    }
+                    else
+                    {
+                        response = "Bienvenido de vuelta "+db.Emprendedores[message.ID].Nombre+"Recuerde que que si necesita ayuda puede usar /ayuda para tener una guia detallada de los comandos";
+                        return true;
+                    }
+
+                }
                 else
                 {
-                    response ="Usted no se encuentra en la lista de empresas invitadas, si usted es una empresa y desea registrarse como tal, por favor comuniqueselo a un Administrador. De lo contrario ignore el mensaje";
+                    response ="Usted no se encuentra en la lista de empresas invitadas, si usted es una empresa y desea registrarse como tal, por favor comuniqueselo a un Administrador. De lo contrario ignore el mensaje. Para registrarse utilize el comando /registro";
                     return true;
                 }
                 
@@ -56,16 +74,5 @@ namespace Handlers
             response = string.Empty;
             return false;
         }
-        /*
-        protected override bool CanHandle(IMessage message)
-        {
-            if (this.Keywords == null || this.Keywords.Length == 0)
-            {
-                throw new InvalidOperationException("No hay palabras clave que puedan ser procesadas");
-            }
-
-            return this.Keywords.Any(s => message.Text.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
-        }
-        */
     }
 }

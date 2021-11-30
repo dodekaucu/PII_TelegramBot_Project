@@ -14,8 +14,10 @@ using System.Linq;
 namespace Library
 {
     /// <summary>
-    /// Esta clase representa una oferta. Es una subclase de OfertaBase
-    /// Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
+    /// Esta clase representa una oferta.
+    /// Es experta (EXPERT) en la creación de ofertas.
+    /// Ademas se utiliza el patron CREATOR, pues los materiales son creados al momento de inicializar la oferta.
+    /// Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
     /// </summary>
     public class Oferta : IJsonSerialize
     {
@@ -146,12 +148,6 @@ namespace Library
         /// <value></value>
 
         public double Valor {get;set;}
-
-        /// <summary>
-        /// Obtiene o establece fecha en la cual se realizo la venta.
-        /// </summary>
-        /// <value>Fecha de la venta.</value>
-        public DateTime FechaVenta { get; set; } //BORRARLA --> NO SIRVE MAS
 
         /// <summary>
         /// Obtiene o establece material ofertado en la oferta.

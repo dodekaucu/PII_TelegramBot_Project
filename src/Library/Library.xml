@@ -233,7 +233,8 @@
         <member name="T:Handlers.Impresora">
             <summary>
             Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
-            Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia el
+            Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia la forma
+            de imprimir la oferta.
             </summary>
         </member>
         <member name="F:Handlers.Impresora.texto">
@@ -626,6 +627,8 @@
             Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
             Es la clase EXPERTA en contener las diferentes instancias del programa.
             Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
+            Tambien se utiliza el patron CREATOR en los metodos AddEmpresa y AddEmprendedor, pues almacena dichas
+            instancias de clase.
             </summary>
         </member>
         <member name="F:Library.Contenedor.contenedor">
@@ -997,8 +1000,10 @@
         </member>
         <member name="T:Library.Oferta">
             <summary>
-            Esta clase representa una oferta. Es una subclase de OfertaBase
-            Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
+            Esta clase representa una oferta.
+            Es experta (EXPERT) en la creación de ofertas.
+            Ademas se utiliza el patron CREATOR, pues los materiales son creados al momento de inicializar la oferta.
+            Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
             </summary>
         </member>
         <member name="M:Library.Oferta.#ctor">
@@ -1087,12 +1092,6 @@
             Obtiene o establece el precio de la oferta.
             </summary>
             <value></value>
-        </member>
-        <member name="P:Library.Oferta.FechaVenta">
-            <summary>
-            Obtiene o establece fecha en la cual se realizo la venta.
-            </summary>
-            <value>Fecha de la venta.</value>
         </member>
         <member name="P:Library.Oferta.Material">
             <summary>

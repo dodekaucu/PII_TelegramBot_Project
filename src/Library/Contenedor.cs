@@ -15,6 +15,8 @@ namespace Library
     /// Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
     /// Es la clase EXPERTA en contener las diferentes instancias del programa.
     /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
+    /// Tambien se utiliza el patron CREATOR en los metodos AddEmpresa y AddEmprendedor, pues almacena dichas
+    /// instancias de clase.
     /// </summary>
     public class Contenedor: IJsonSerialize
     {

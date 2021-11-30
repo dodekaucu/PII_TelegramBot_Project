@@ -49,7 +49,7 @@ namespace Handlers
                 }
                 else
                 {
-                    response = "Ingrese la fecha desde donde desee consultar el registro.\nRecuerde que la fecha debe tener la forma xx/xx/xxxx";
+                    response = "Ingrese la fecha desde donde desee consultar el registro.\nRecuerde que la fecha debe tener la forma dd/mm/aaaa";
                     //sm.AddKeyUser(message.ID);
                     sm.AddUserStatus(message.ID,"/HistorialDesde");
                     return true;
@@ -68,7 +68,7 @@ namespace Handlers
                     response = "Usted no es el Doc Brown para viajar en el tiempo, por favor, ingrese una fecha valida";
                     return true;
                 }
-                else // ver como imprimir las fechas de compra !!!!!
+                else 
                 {
                     if(db.Emprendedores.ContainsKey(message.ID))
                     {

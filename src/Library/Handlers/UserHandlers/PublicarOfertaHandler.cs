@@ -188,11 +188,10 @@ namespace Handlers
                             string unidad = dt.DataTemporal[message.ID][7];
                             double valor = double.Parse(dt.DataTemporal[message.ID][8]);
                             DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
-                            Oferta oferta = new Oferta(name,db.Empresas[message.ID],ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,0,fechageneracion);
-                            db.AddOferta(oferta);
+                            db.Empresas[message.ID].CrearOferta(name,ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,0,fechageneracion);
                             dt.DataTemporal.Remove(message.ID);
                             sm.UserStatusChat.Remove(message.ID);
-                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}\n\nPALABRAS CLAVES: "+oferta.PalabrasClaves[0]+" "+oferta.PalabrasClaves[1]+" "+oferta.PalabrasClaves[2]+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
+                            response = $"Se a creado la oferta \"{name}\" a nombre de la empresa {db.Empresas[message.ID].Nombre}.\nCaracterísticas:\n-{nombreMaterial}\n-{cantidad} {unidad}\n"+"-$"+$"{valor}\nFecha de generación: {fechageneracion}"+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
                             return true;
                         }
                     case "2":
@@ -224,11 +223,10 @@ namespace Handlers
                     double valor2 = double.Parse(dt.DataTemporal[message.ID][8]);
                     int periocidad = Int32.Parse(dt.DataTemporal[message.ID][10]);
                     DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
-                    Oferta oferta2 = new Oferta(name2,db.Empresas[message.ID],ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad,fechageneracion);
-                    db.AddOferta(oferta2);
+                    db.Empresas[message.ID].CrearOferta(name2,ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad,fechageneracion);                    
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Recurrencia: cada {oferta2.RecurrenciaSemanal} semanas.\n\nPALABRAS CLAVES: "+oferta2.PalabrasClaves[0]+" "+oferta2.PalabrasClaves[1]+" "+oferta2.PalabrasClaves[2]+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
+                    response = $"Se a creado la oferta {name2} a nombre de la empresa {db.Empresas[message.ID].Nombre}.\n Características:\n{nombreMaterial2}\n{cantidad2} {unidad2}\n Recurrencia: cada {periocidad} semanas."+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
                     return true;
             }
             response = string.Empty;

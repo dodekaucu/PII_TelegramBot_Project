@@ -163,6 +163,13 @@ namespace Library
             return resultado;
         }
 
+        public void CrearOferta(string nombre, string ciudad, string calle,string nombreMaterial,Clasificacion clasificacion,int cantidad, string unidad, double valor, int recurr, DateTime fecha)
+        {
+            Oferta oferta = new Oferta(nombre,this,ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,recurr,fecha);
+            Contenedor db= Contenedor.Instancia;
+            db.AddOferta(oferta);
+        }
+
         /// <summary>
         /// Convert to json.
         /// </summary>
