@@ -28,6 +28,7 @@ namespace Library
         {
 
         }
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
         /// </summary>
@@ -37,7 +38,6 @@ namespace Library
         /// <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
         /// <param name="id">parametro id recibido por el constructor de la empresa.</param>
         /// <param name="telefono">parametro telefono recibido por el constructor de la empresa.</param>
-        
         [JsonConstructor]
         public Empresa(string nombre, Rubro rubro, string ciudad, string calle, string id, string telefono)
         {
@@ -47,7 +47,7 @@ namespace Library
             this.Calle = calle;
             this.ID = id;
             this.Telefono = telefono;
-            
+
             if (nombre == null)
             {
                 throw new ArgumentNullException("name");
@@ -59,8 +59,7 @@ namespace Library
 
             Ubicacion ubicacion = new Ubicacion(ciudad, calle);
             this.Ubicacion = ubicacion;
-            
-            
+
         }
 
         /// <summary>
@@ -74,10 +73,12 @@ namespace Library
         /// </summary>
         /// <value>this.nombre.</value>
         public string Nombre { get; set; }
+
         /// <summary>
         /// Obtiene o establece la calle donde se ubica la empresa.
         /// </summary>
         public string Calle {get;set;}
+
         /// <summary>
         /// Obtiene o establece la ciudad donde se ubica la empresa.
         /// </summary>
@@ -161,6 +162,7 @@ namespace Library
 
             return resultado;
         }
+
         /// <summary>
         /// Convert to json.
         /// </summary>

@@ -31,9 +31,9 @@ namespace ProgramTests
         public void Setup()
         {
             Rubro rubroMadera = new Rubro("Madera", "Forestal", "Madera de todo tipo");
-            Empresa empresa = new Empresa("Barraca Fernandez", rubroMadera, "San Bautista", "Ruta 6","2555","099222333");
+            db.AddEmpresa("Barraca Fernandez", rubroMadera, "San Bautista", "Ruta 6","2555","099222333");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
-            Oferta uno = new Oferta("Madera tratada", empresa, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
+            Oferta uno = new Oferta("Madera tratada", db.Empresas["2555"], "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
             db.AddOferta(uno);
             Habilitacion msp = new Habilitacion("MSP", "Habilitación del Ministerio de salud publica");
             Habilitacion unit = new Habilitacion("UNIT", "Habilitación Instituto Uruguayo de Normas Técnicas");
@@ -46,7 +46,7 @@ namespace ProgramTests
             message.From = new User();
             message.From.Id = 2555;
             msj = new TelegramMSGadapter(message);
-            db.AddEmpresa("2555",empresa);
+            
             db.Ofertas[0].Habilitaciones.Add(msp);
         }
 

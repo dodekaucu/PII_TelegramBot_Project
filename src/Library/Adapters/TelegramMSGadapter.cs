@@ -42,6 +42,5 @@ namespace Handlers
                 return this.id.ToString();
             }
         }
-        
     }
 }

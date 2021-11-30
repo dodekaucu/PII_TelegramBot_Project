@@ -31,7 +31,6 @@ namespace ProgramTests
         public void Setup()
         {
             Rubro rubroMadera = new Rubro("Forestal", "Leñeria", "Recursos");
-            emprendedor = new Emprendedor("Gaston Pereira", rubroMadera, "San Ramon", "Ruta 12", "Emprendimiento","1333");
             Empresa barracaFernandez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","059954","099222333");
             Empresa carpinteriaRodriguez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","858999","099222333");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
@@ -46,7 +45,7 @@ namespace ProgramTests
             message.From = new User();
             message.From.Id = 1333;
             msj = new TelegramMSGadapter(message);
-            db.AddEmprendedor("1333",emprendedor);
+            db.AddEmprendedor("Gaston Pereira", rubroMadera, "San Ramon", "Ruta 12", "Emprendimiento","1333");
         }
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace ProgramTests
             string[] ubicacion = mensaje.Split(',');
             Ubicacion ubicacionbuscada = new Ubicacion(ubicacion[0].Trim(), ubicacion[1].Trim());
 
-            Collection<Oferta> ofertasvalidas = buscador.BuscarOferta(emprendedor, ubicacionbuscada, db);
+            Collection<Oferta> ofertasvalidas = buscador.BuscarOferta(db.Emprendedores["1333"], ubicacionbuscada, db);
             if (ofertasvalidas.Count == 0)
             {
                 respuestaesperada = "No hay ofertas disponibles";

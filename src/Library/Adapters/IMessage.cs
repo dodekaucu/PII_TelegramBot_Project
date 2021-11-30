@@ -8,11 +8,11 @@ namespace Handlers
         /// <summary>
         /// Id del usuario.
         /// </summary>
-        string ID { get;}
+        string ID { get; }
 
         /// <summary>
         /// Mensaje.
         /// </summary>
-        string Text { get;}
+        string Text { get; }
     }
 }

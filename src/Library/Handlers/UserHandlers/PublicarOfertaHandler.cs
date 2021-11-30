@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 using Library;
 
@@ -187,7 +192,7 @@ namespace Handlers
                             db.AddOferta(oferta);
                             dt.DataTemporal.Remove(message.ID);
                             sm.UserStatusChat.Remove(message.ID);
-                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
+                            response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}\n\nPALABRAS CLAVES: "+oferta.PalabrasClaves[0]+" "+oferta.PalabrasClaves[1]+" "+oferta.PalabrasClaves[2]+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
                             return true;
                         }
                     case "2":
@@ -223,7 +228,7 @@ namespace Handlers
                     db.AddOferta(oferta2);
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Recurrencia: cada {oferta2.RecurrenciaSemanal} semanas.";
+                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Recurrencia: cada {oferta2.RecurrenciaSemanal} semanas.\n\nPALABRAS CLAVES: "+oferta2.PalabrasClaves[0]+" "+oferta2.PalabrasClaves[1]+" "+oferta2.PalabrasClaves[2]+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
                     return true;
             }
             response = string.Empty;

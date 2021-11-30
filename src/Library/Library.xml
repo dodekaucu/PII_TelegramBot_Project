@@ -233,6 +233,7 @@
         <member name="T:Handlers.Impresora">
             <summary>
             Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+            Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia el
             </summary>
         </member>
         <member name="F:Handlers.Impresora.texto">
@@ -778,7 +779,7 @@
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
+        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Añade un emprendedor al diccionario de emprendedores.
             Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
@@ -792,7 +793,7 @@
             </summary>
             <param name="ID">ID del usuario.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
+        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Agrega una empresa al diccioanrio de empresas.
             </summary>

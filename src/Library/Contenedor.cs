@@ -260,8 +260,9 @@ namespace Library
         /// <param name="ID">ID del usuario.</param>
         /// <param name="emprendedor">Instancia de clase emprendedor.</param>
 
-        public void AddEmprendedor(string ID, Emprendedor emprendedor)
+        public void AddEmprendedor(string name,Rubro rubro, string ciudad, string calle, string especializacion,string ID)
         {
+            Emprendedor emprendedor = new Emprendedor(name, rubro, ciudad, calle, especializacion, ID);
             this.emprendedores.Add(ID,emprendedor);
         }
 
@@ -281,8 +282,9 @@ namespace Library
         /// <param name="ID">ID del usuario</param>
         /// <param name="empresa">Instancia de la clase empresa.</param>
 
-        public void AddEmpresa(string ID, Empresa empresa)
+        public void AddEmpresa(string name, Rubro rubro, string ciudad, string calle, string ID, string telefono)
         {
+            Empresa empresa = new Empresa(name, rubro, ciudad, calle, ID, telefono);
             this.empresas.Add(ID,empresa);
         }
 

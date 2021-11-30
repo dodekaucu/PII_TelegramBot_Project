@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="Admin.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 using Library;
 using System.Collections.Generic;
@@ -7,6 +12,7 @@ namespace Handlers
 {
     /// <summary>
     /// Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+    /// Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia el
     /// </summary>
     public class Impresora
     {
@@ -73,7 +79,7 @@ namespace Handlers
                     texto += textorecurrente + "\n";
                     texto += "Identificador: " + db.Ofertas.IndexOf(oferta).ToString() + "\n";
                     texto += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
-                    texto += "Teléfono de contacto: " + oferta.Empresa.Telefono+"\n";
+                    texto += "Teléfono de contacto: " + oferta.Empresa.Telefono +"\n";
                     texto += "\n";
                     texto += "---------------------------------------" + "\n";
                 }   

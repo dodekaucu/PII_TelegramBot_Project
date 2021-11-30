@@ -37,8 +37,7 @@ namespace ProgramTests
             message.From = new User();
             message.From.Id = 12;
             msj = new TelegramMSGadapter(message);
-            empresaTest = new Empresa("EmpresaTest",rubroTest,"Montevideo","calle 13","12","099222333");
-            db.AddEmpresa("12",empresaTest);
+            db.AddEmpresa("EmpresaTest",rubroTest,"Montevideo","calle 13","12","099222333");
         }
 
         /// <summary>

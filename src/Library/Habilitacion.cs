@@ -11,15 +11,15 @@ namespace Library
     /// <summary>
     /// Esta clase representa una Habilitacion basica.
     /// </summary>
-    public class Habilitacion: IJsonSerialize
+    public class Habilitacion : IJsonSerialize
     {
         /// <summary>
         /// Constructor vacío para la deserialización.
         /// </summary>
         public Habilitacion()
         {
-
         }
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Habilitacion"/>.
         /// </summary>
