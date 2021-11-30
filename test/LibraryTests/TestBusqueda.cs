@@ -32,8 +32,8 @@ namespace ProgramTests
         {
             Rubro rubroMadera = new Rubro("Forestal", "Leñeria", "Recursos");
             emprendedor = new Emprendedor("Gaston Pereira", rubroMadera, "San Ramon", "Ruta 12", "Emprendimiento","14");
-            Empresa barracaFernandez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","1343");
-            Empresa carpinteriaRodriguez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","2232");
+            Empresa barracaFernandez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","1343","099222333");
+            Empresa carpinteriaRodriguez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","2232","099222333");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
             Oferta uno = new Oferta("Madera tratada", barracaFernandez, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
             db.AddOferta(uno);

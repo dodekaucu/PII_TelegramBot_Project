@@ -121,7 +121,7 @@ namespace Ucu.Poo.TelegramBot
                 new AddHabilitacionHandler(
                 new PublicarOfertaHandler(
                 new MisPublicacionesHandler(
-                new AñadirCompradorHandler(
+                new AnadirCompradorHandler(
                 new HistorialUsuarioHandler(null)
                 )))))))))))))))));
 

@@ -58,10 +58,10 @@ namespace Handlers
                     string opciones ="";
                     foreach (Oferta oferta in db.Ofertas)
                     {
-                        if(db.Empresas[message.ID]==oferta.Empresa)
+                        if(message.ID==oferta.Empresa.ID)
                         {
                             //aca van a estar las ofertas que posee la empresa, identificadas por ID.
-                            opciones = opciones + "ID " + oferta.Identificador.ToString() + " - " + oferta.Nombreoferta +"\n";
+                            opciones = opciones + "ID " + db.Ofertas.IndexOf(oferta).ToString() + " - " + oferta.Nombreoferta +"\n";
                         }
                     }
                     response = "Seleccione la oferta a añadir una palabra clave: \n" + opciones;

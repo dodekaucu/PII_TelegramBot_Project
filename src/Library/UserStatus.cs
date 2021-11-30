@@ -24,6 +24,10 @@ namespace Library
                 return statusManager;
             }
         }
+        /// <summary>
+        /// Obtiene el diccionario de usuarios y su status.
+        /// </summary>
+        /// <value></value>
 
         public Dictionary<string,string> UserStatusChat
         {
@@ -32,11 +36,20 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Añade el usuario al diccionario de status pero sin status.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
         public void AddKeyUser(string ID)
         {
             this.userStatusChat.Add(ID,"");
         }
 
+        /// <summary>
+        /// Añade el status del usuario al diccionario.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
+        /// <param name="status">Status del usuario.</param>
         public void AddUserStatus(string ID, string status)
         {
             this.userStatusChat[ID]=status;

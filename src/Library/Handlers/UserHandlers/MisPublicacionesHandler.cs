@@ -34,24 +34,20 @@ namespace Handlers
                     string linea = "\n-------------------------\n";
                     foreach(Oferta oferta in db.Ofertas)
                     {
-                        if (db.Empresas[message.ID].ID==oferta.Empresa.ID)
+                        if (message.ID==oferta.Empresa.ID)
                         {
                             if (oferta.RecurrenciaSemanal == 0)
                             {
-                                Oferta o = oferta;
                                 if (oferta as Oferta != null)
                                 {
-                                    o = oferta as Oferta;
-                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+o.FechadeGeneracion+"\n"+"Estado de la oferta: "+o.Disponible.ToString()+linea;
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+oferta.FechadeGeneracion+"\n"+"Estado de la oferta: "+oferta.Disponible.ToString()+linea;
                                 }
                             }
                             else if (oferta.RecurrenciaSemanal > 0)
                             {
-                                Oferta o1 = oferta;
                                 if(oferta as Oferta != null)
                                 {
-                                    o1 = oferta as Oferta;
-                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: cada "+ o1.RecurrenciaSemanal+" semanas. \n"+linea;
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: cada "+ oferta.RecurrenciaSemanal+" semanas. \n"+linea;
                                 }
                             }
                         }

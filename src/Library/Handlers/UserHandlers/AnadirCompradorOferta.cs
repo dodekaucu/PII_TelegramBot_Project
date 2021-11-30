@@ -6,15 +6,15 @@ namespace Handlers
     /// <summary>
     /// Un "handler" del patrón Chain of Responsibility que implementa el comando "/Info".
     /// </summary>
-    public class AñadirCompradorHandler : BaseHandler
+    public class AnadirCompradorHandler : BaseHandler
     {
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="AñadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
+        /// Inicializa una nueva instancia de la clase <see cref="AnadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
         /// </summary>
         /// <param name="next">El próximo "handler".</param>
-        public AñadirCompradorHandler(BaseHandler next) : base(next)
+        public AnadirCompradorHandler(BaseHandler next) : base(next)
         {
-            this.Keywords = new string[] {"/AñadirComprador"};
+            this.Keywords = new string[] {"/AnadirComprador"};
         }
 
         /// <summary>
@@ -35,10 +35,10 @@ namespace Handlers
                     string opciones ="";
                     foreach (Oferta oferta in db.Ofertas)
                     {
-                        if(db.Empresas[message.ID]==oferta.Empresa)
+                        if(message.ID==oferta.Empresa.ID)
                         {
                             //aca van a estar las ofertas que posee la empresa, identificadas por ID.
-                            opciones = opciones + "ID " + oferta.Identificador.ToString() + " - " + oferta.Nombreoferta +"\n";
+                            opciones = opciones + "ID " + db.Ofertas.IndexOf(oferta) + " - " + oferta.Nombreoferta +"\n";
                         }
                     }
 
@@ -66,7 +66,7 @@ namespace Handlers
                     response = "Usted ha ingresado un número incorrecto, por favor vuelva a intentarlo";
                     return true;
                 }
-                if(db.Empresas[message.ID]==db.Ofertas[Int32.Parse(message.Text)].Empresa)
+                if(message.ID==db.Ofertas[Int32.Parse(message.Text)].Empresa.ID)
                 {
                     dt.AddDato(message.ID,message.Text);
                     int numoferta = Int32.Parse(message.Text);
@@ -108,27 +108,27 @@ namespace Handlers
                     DateTime fechaCompra = DateTime.Parse(message.Text);
                     if (db.Ofertas[numoferta].RecurrenciaSemanal == 0)
                     {
-                        Oferta o = db.Ofertas[numoferta];
-                        if(!o.Disponible)
+                        Oferta oferta = db.Ofertas[numoferta];
+                        if(oferta.Disponible == "Disponible")
                         {
                             response = "La oferta ya ha sido comprada";
                             return true;
                         }
-                        o.AddComprador(idComprador,fechaCompra);
-                        db.Empresas[message.ID].AddToRegister(o);
-                        db.Emprendedores[idComprador].AddToRegister(o);
-                        response = $"{o.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia {o.FechaCompra.FechaCompra}";
+                        oferta.AddComprador(idComprador);
+                        db.Empresas[message.ID].AddToRegister(oferta);
+                        db.Emprendedores[idComprador].AddToRegister(oferta);
+                        response = $"{oferta.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia {oferta.FechaCompra.FechaCompra}";
                         sm.UserStatusChat.Remove(message.ID);
                         dt.DataTemporal.Remove(message.ID);
                         return true;
                     }
                     if (db.Ofertas[numoferta].RecurrenciaSemanal > 0)
                     {
-                        Oferta o = db.Ofertas[numoferta];
-                        o.AddComprador(idComprador,fechaCompra);
-                        db.Empresas[message.ID].AddToRegister(o);
-                        db.Emprendedores[idComprador].AddToRegister(o);
-                        response = $"{o.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia "+fechaCompra;
+                        Oferta oferta = db.Ofertas[numoferta];
+                        oferta.AddComprador(idComprador);
+                        db.Empresas[message.ID].AddToRegister(oferta);
+                        db.Emprendedores[idComprador].AddToRegister(oferta);
+                        response = $"{oferta.Nombreoferta} ha sido comprada por {db.Emprendedores[idComprador].Nombre} el dia "+fechaCompra;
                         sm.UserStatusChat.Remove(message.ID);
                         dt.DataTemporal.Remove(message.ID);
                         return true;

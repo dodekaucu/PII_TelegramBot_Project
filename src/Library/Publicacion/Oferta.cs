@@ -6,8 +6,10 @@
 
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace Library
 {
@@ -17,6 +19,7 @@ namespace Library
     /// </summary>
     public class Oferta : IJsonSerialize
     {
+        DateTime today = DateTime.Now;
         Contenedor db = Contenedor.Instancia;
         private FechaCompraOferta fechaCompra;
         private Collection<FechaCompraOferta> registroVentas = new Collection<FechaCompraOferta> ();
@@ -217,16 +220,43 @@ namespace Library
                 
         }
         
-        
         /// <summary>
         /// Obtiene si la oferta esta disponible o no PARA OFERTAS ÚNICAS.
         /// </summary>
         /// <value></value>
-        public bool Disponible
+        public string Disponible
         {
             get
             {
-                return fechaCompra == null;
+                if (this.RecurrenciaSemanal == 0)
+                {
+                    if (fechaCompra == null)
+                    {
+                        return "Disponible";
+                    }
+                    else
+                    {
+                        return "No disponible";
+                    }
+                }
+                else
+                {
+                    if (registroVentas == null)
+                    {
+                        return "Disponible";
+                    }
+                    else
+                    {
+                        if (registroVentas.Last().FechaCompra < today)
+                        {
+                            return "Disponible";
+                        }
+                        else
+                        {
+                            return "No disponible";
+                        }
+                    }
+                }
             }
         }
         /// <summary>
@@ -245,17 +275,16 @@ namespace Library
         /// Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
         /// </summary>
         /// <param name="id">ID del usuario.</param>
-        /// <param name="fechaventa">Fecha de venta.</param>
-        public void AddComprador(string id,DateTime fechaventa)
+        public void AddComprador(string id)
         {
             if (this.RecurrenciaSemanal == 0)
             {
-            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,fechaventa);
+            FechaCompraOferta fechaCompra = new FechaCompraOferta(id,today);
             this.fechaCompra = fechaCompra;
             }
             if (this.RecurrenciaSemanal > 0)
             {
-            FechaCompraOferta venta = new FechaCompraOferta(id,fechaventa);
+            FechaCompraOferta venta = new FechaCompraOferta(id,today);
             this.registroVentas.Add(venta);
             }
         }

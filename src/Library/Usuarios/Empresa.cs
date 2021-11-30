@@ -36,6 +36,7 @@ namespace Library
         /// <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
         /// <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
         /// <param name="id">parametro id recibido por el constructor de la empresa.</param>
+        /// <param name="telefono">parametro telefono recibido por el constructor de la empresa.</param>
         
         [JsonConstructor]
         public Empresa(string nombre, Rubro rubro, string ciudad, string calle, string id, string telefono)
@@ -82,6 +83,10 @@ namespace Library
         /// </summary>
         public string Ciudad {get;set;}
 
+        /// <summary>
+        /// Obtiene o establece el telefono de la empresa.
+        /// </summary>
+        /// <value></value>
         public string Telefono { get; set; }
 
         /// <summary>
@@ -136,7 +141,7 @@ namespace Library
                 }
                 if (oferta.RecurrenciaSemanal == 0)
                     {
-                        if (!oferta.Disponible && oferta.FechaCompra.FechaCompra >= fechaDesde)
+                        if (oferta.Disponible == "No disponible" && oferta.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }

@@ -16,6 +16,7 @@ namespace Handlers
         public string texto;
 
         private static Impresora impresora;
+        Contenedor db = Contenedor.Instancia;
 
         private Impresora()
         {
@@ -70,7 +71,7 @@ namespace Handlers
                     texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
                     texto += "Precio: $" + oferta.Material.Valor + "\n";
                     texto += textorecurrente + "\n";
-                    texto += "Identificador: " + oferta.Identificador + "\n";
+                    texto += "Identificador: " + db.Ofertas.IndexOf(oferta).ToString() + "\n";
                     texto += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
                     texto += "Teléfono de contacto: " + oferta.Empresa.Telefono+"\n";
                     texto += "\n";

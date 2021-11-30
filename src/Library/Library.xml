@@ -303,18 +303,18 @@
             <param name="response">Respuesta al usaurio.</param>
             <returns></returns>
         </member>
-        <member name="T:Handlers.AñadirCompradorHandler">
+        <member name="T:Handlers.AnadirCompradorHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/Info".
             </summary>
         </member>
-        <member name="M:Handlers.AñadirCompradorHandler.#ctor(Handlers.BaseHandler)">
+        <member name="M:Handlers.AnadirCompradorHandler.#ctor(Handlers.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AñadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AnadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.AñadirCompradorHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AnadirCompradorHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el comando "/AñadirCompradorOferta" y retorna true; retorna false en caso contrario.
             </summary>
@@ -1147,12 +1147,11 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Oferta.AddComprador(System.String,System.DateTime)">
+        <member name="M:Library.Oferta.AddComprador(System.String)">
             <summary>
             Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
             </summary>
             <param name="id">ID del usuario.</param>
-            <param name="fechaventa">Fecha de venta.</param>
         </member>
         <member name="P:Library.Oferta.RegistroVentas">
             <summary>
@@ -1242,6 +1241,25 @@
             Convert to Json.
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Library.StatusManager.UserStatusChat">
+            <summary>
+            Obtiene el diccionario de usuarios y su status.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.StatusManager.AddKeyUser(System.String)">
+            <summary>
+            Añade el usuario al diccionario de status pero sin status.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.StatusManager.AddUserStatus(System.String,System.String)">
+            <summary>
+            Añade el status del usuario al diccionario.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+            <param name="status">Status del usuario.</param>
         </member>
         <member name="T:Library.Admin">
             <summary>
@@ -1395,6 +1413,7 @@
             <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
             <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
             <param name="id">parametro id recibido por el constructor de la empresa.</param>
+            <param name="telefono">parametro telefono recibido por el constructor de la empresa.</param>
         </member>
         <member name="P:Library.Empresa.ID">
             <summary>
@@ -1417,6 +1436,12 @@
             <summary>
             Obtiene o establece la ciudad donde se ubica la empresa.
             </summary>
+        </member>
+        <member name="P:Library.Empresa.Telefono">
+            <summary>
+            Obtiene o establece el telefono de la empresa.
+            </summary>
+            <value></value>
         </member>
         <member name="P:Library.Empresa.Rubro">
             <summary>

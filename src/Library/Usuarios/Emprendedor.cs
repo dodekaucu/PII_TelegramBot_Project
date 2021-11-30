@@ -125,7 +125,7 @@ namespace Library
             {
                 if (oferta.RecurrenciaSemanal == 0)
                     {
-                        if (!oferta.Disponible && oferta.FechaCompra.FechaCompra >= fechaDesde)
+                        if (oferta.Disponible == "No disponible" && oferta.FechaCompra.FechaCompra >= fechaDesde)
                         {
                             resultado.Add(oferta);
                         }
