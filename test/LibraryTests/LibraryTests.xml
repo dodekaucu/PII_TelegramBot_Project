@@ -52,6 +52,22 @@
             Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
+        <member name="T:ProgramTests.TestAnadirCompradorHandler">
+            <summary>
+            Esta clase prueba el handler de 
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestAnadirCompradorHandler.Setup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestAnadirCompradorHandler.AnadirComprador">
+            <summary>
+            Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas desde
+            una fecha anterior.
+            </summary>
+        </member>
         <member name="T:ProgramTests.TestBusqueda">
             <summary>
             Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
@@ -137,7 +153,7 @@
         </member>
         <member name="M:ProgramTests.TestOfertasConsumidasDesde.EmpresaHistorialDesde">
             <summary>
-            Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde
+            Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas desde
             una fecha anterior.
             </summary>
         </member>

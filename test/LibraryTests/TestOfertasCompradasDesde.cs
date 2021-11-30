@@ -54,7 +54,7 @@ namespace ProgramTests
         }
 
         /// <summary>
-        /// Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde
+        /// Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas desde
         /// una fecha anterior.
         /// </summary>
         [Test]
@@ -68,7 +68,7 @@ namespace ProgramTests
                 "Ingrese la fecha desde donde desee consultar el registro.\nRecuerde que la fecha debe tener la forma dd/mm/aaaa"
                 ));
 
-            message.Text = "20/11/2021";
+            message.Text = "20/11/2021";    //La fecha desde que desea saber que compr
             string lineas ="----------------------------------";
             string fecha = DateTime.Now.ToString();
             handler.Handle(msj, out response);
