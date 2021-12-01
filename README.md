@@ -5,6 +5,7 @@
 <blockquote>
   <p align="center">
 Este proyecto consta de desarrollar un chatbot el cual tratara de conectar empresas y organizaciones con emprendedores.
+    (El nombre del bot es @dodeKa_bot)
   </p>
 </blockquote>
 
