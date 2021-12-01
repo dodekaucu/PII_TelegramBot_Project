@@ -52,22 +52,6 @@
             Este test prueba la busqueda por palabras clave.
             </summary>
         </member>
-        <member name="T:ProgramTests.TestAnadirCompradorHandler">
-            <summary>
-            Esta clase prueba el handler de 
-            </summary>
-        </member>
-        <member name="M:ProgramTests.TestAnadirCompradorHandler.Setup">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:ProgramTests.TestAnadirCompradorHandler.AnadirComprador">
-            <summary>
-            Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas desde
-            una fecha anterior.
-            </summary>
-        </member>
         <member name="T:ProgramTests.TestBusqueda">
             <summary>
             Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta única.
@@ -235,6 +219,46 @@
         <member name="M:ProgramTests.RegistroHandlerTests.TestRegistroUsuarioRegistrado">
             <summary>
             Este test representa lo que sucede cuando el usuario intenta registrarse otra vez.
+            </summary>
+        </member>
+        <member name="T:Test.Tests">
+            <summary>
+            Pruebas de las diferentes Users story.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testRubro">
+            <summary>
+            Rubro para pruebas.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testHabilitacion">
+            <summary>
+            Habilitacion para prueba.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testClasifciacion">
+            <summary>
+            Clasificacion para prueba.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.Setup">
+            <summary>
+            Crea un Rubro, una habilitacion y una clasificacion para pruebas.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearEmpresa">
+            <summary>
+            Prueba que se cree la empresa.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearMateriales">
+            <summary>
+             Prueba que se crea materiales.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearEmprendedor">
+            <summary>
+            Prueba que se cree el emprendedor.
             </summary>
         </member>
     </members>

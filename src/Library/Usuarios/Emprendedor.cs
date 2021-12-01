@@ -59,6 +59,7 @@ namespace Library
 
 
             this.Especializacion = especializacion;
+            this.ID = id;
         }
 
         /// <summary>

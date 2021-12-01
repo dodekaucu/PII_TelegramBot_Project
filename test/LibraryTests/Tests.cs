@@ -4,7 +4,7 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 
-/*using System;
+using System;
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -55,7 +55,7 @@ namespace Test
         [Test]
         public void TestCrearEmpresa()
         {
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848","5122","007");
             string expectedNombre = "12 Holdings";
             Assert.AreEqual(expectedNombre, empresaTest.Nombre);
             string expectedRubro = "Tecnologia";
@@ -64,6 +64,8 @@ namespace Test
             Assert.AreEqual(expectedCiudad, empresaTest.Ubicacion.Ciudad);
             string expectedCalle = "Plaza Independencia 848";
             Assert.AreEqual(expectedCalle, empresaTest.Ubicacion.Calle);
+            Assert.AreEqual("5122", empresaTest.ID);
+            Assert.AreEqual("007", empresaTest.Telefono);
         }
 
         /// <summary>
@@ -91,7 +93,7 @@ namespace Test
         /// <summary>
         /// Prueba que se cree una Oferta.
         /// </summary>
-        [Test]
+        /*[Test]
         public void TestCrearOferta()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
@@ -143,12 +145,12 @@ namespace Test
             Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, DateTime.Parse("11/11/2021"));
             DateTime dateExpected = DateTime.Parse("11/11/2021");
             Assert.AreEqual(dateExpected, ofertaTest.FechadeGeneracion);
-        }
+        }*/
 
         /// <summary>
         /// Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
         /// </summary>
-        [Test]
+        /*[Test]
         public void TestHabilitacionesEmprendedor()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
@@ -175,7 +177,7 @@ namespace Test
             ofertaTest.AddPalabraClave("cocina");
             List<string> expectedPalabrasClaves = new List<string>() { "Escombros", "12 Holdings", "Escombros", "madera", "Montevideo", "cocina" };
             Assert.AreEqual(ofertaTest.PalabrasClaves, expectedPalabrasClaves);
-        }
+        }*/
 
         /// <summary>
         /// Prueba que se cree el emprendedor.
@@ -183,7 +185,7 @@ namespace Test
         [Test]
         public void TestCrearEmprendedor()
         {
-            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera");
+            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera","150");
             string expectedNombre = "Rene";
             Assert.AreEqual(expectedNombre, emprendedorTest.Nombre);
             string expectedRubro = "Tecnologia";
@@ -194,12 +196,13 @@ namespace Test
             Assert.AreEqual(expectedCalle, emprendedorTest.Ubicacion.Calle);
             string expectedEspezialicacion = "madera";
             Assert.AreEqual(expectedEspezialicacion, emprendedorTest.Especializacion);
+            Assert.AreEqual("150",emprendedorTest.ID);
         }
 
         /// <summary>
         /// Prueba que se agruegue una habilitacion a un emprendedor.
         /// </summary>
-        [Test]
+        /*[Test]
         public void HabilitacionesEmprendedor()
         {
             Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera");
@@ -307,6 +310,6 @@ namespace Test
             emprendedor.AddToRegister(oferta1);
             List<OfertaBase> expectedRegister2 = new List<OfertaBase>() { oferta1 };
             Assert.AreEqual(expectedRegister2, emprendedor.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
-        }
+        }*/
     }
-}*/
+}

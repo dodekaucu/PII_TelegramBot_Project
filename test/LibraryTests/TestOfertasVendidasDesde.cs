@@ -73,7 +73,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Ofertas Consumidas Desde: 20/11/2021\n\nNOMBRE: Madera tratada\nNOMBRE MATERIAL: madera 1 Tonelada\n\nFECHA COMPRA: 16/12/2021 00:00:00\n\n"+lineas+"\n"
+                "Ofertas Consumidas Desde: 20/11/2021\n\nNOMBRE: Madera tratada\nNOMBRE MATERIAL: madera 1 Tonelada\n\nFECHA COMPRA: 16/12/2021 0:00:00\n\n"+lineas+"\n"
                 ));
         }
 

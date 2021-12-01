@@ -156,7 +156,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Se a creado la oferta \"NombreOferta\" a nombre de la empresa EmpresaTest.\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/06/2022 00:00:00"+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave."
+                "Se a creado la oferta \"NombreOferta\" a nombre de la empresa EmpresaTest.\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/6/2022 0:00:00"+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave."
                 ));
 
         }

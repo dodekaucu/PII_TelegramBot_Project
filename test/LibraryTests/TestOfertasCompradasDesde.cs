@@ -70,7 +70,7 @@ namespace ProgramTests
 
             message.Text = "20/11/2021";    //La fecha desde que desea saber que compr
             string lineas ="----------------------------------";
-            string fecha = "16/12/2021 00:00:00";
+            string fecha = "16/12/2021 0:00:00";
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
