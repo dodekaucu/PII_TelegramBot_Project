@@ -93,12 +93,12 @@ namespace Test
         /// <summary>
         /// Prueba que se cree una Oferta.
         /// </summary>
-        /*[Test]
+        [Test]
         public void TestCrearOferta()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
-            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", clasificacionTest, 150, "Kilos", 100, DateTime.Parse("11/11/2021"));
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848","564","666");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", clasificacionTest, 150, "Kilos", 100, 0 ,DateTime.Parse("11/11/2021"));
             string expectedNombre = "Escombros";
             Assert.AreEqual(expectedNombre, ofertaTest.Nombreoferta);
             string expectedEmpresa = "12 Holdings";
@@ -122,16 +122,16 @@ namespace Test
         }
 
         /// <summary>
-        /// Prueba la Disponibilidad Materiales de manera mensual.
+        /// Prueba la Disponibilidad Materiales de manera semanal.
         /// </summary>
         [Test]
         public void TestDisponibilidadMateriales()
         {
-            Material materialTest = new Material("Escombros de Antel", this.testClasifciacion, 100, "kg", 150);
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
-            OfertaRecurrente ofertaTest = new OfertaRecurrente("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, 3);
-            int expectedRecurrencia = 3;
-            Assert.AreEqual(expectedRecurrencia, ofertaTest.RecurrenciaMensual);
+            Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848","564","666");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", clasificacionTest, 150, "Kilos", 100, 5 ,DateTime.Parse("11/11/2021"));
+            int expectedRecurrencia = 5;
+            Assert.AreEqual(expectedRecurrencia, ofertaTest.RecurrenciaSemanal);
         }
 
         /// <summary>
@@ -141,22 +141,22 @@ namespace Test
         public void TestDisponibilidadUnica()
         {
             Material materialTest = new Material("Escombros de Antel", this.testClasifciacion, 100, "kg", 150);
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
-            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, DateTime.Parse("11/11/2021"));
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848","00001","010101");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, 0 ,DateTime.Parse("11/11/2021"));
             DateTime dateExpected = DateTime.Parse("11/11/2021");
             Assert.AreEqual(dateExpected, ofertaTest.FechadeGeneracion);
-        }*/
+        }
 
         /// <summary>
         /// Prueba que dada una oferta se le asigenen las habilitaciones correspondientes.
         /// </summary>
-        /*[Test]
+        [Test]
         public void TestHabilitacionesEmprendedor()
         {
             Clasificacion clasificacionTest = new Clasificacion("Escombros", "Escombros de demolicion");
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848", "494","09002911");
             Habilitacion habilitacionTest = new Habilitacion("DGI", "Permisos del DGI");
-            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, DateTime.Parse("11/11/2021"));
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, 0, DateTime.Parse("11/11/2021"));
             ofertaTest.AddHabilitacion(habilitacionTest);
             string expectedNombreHabilitacion = "DGI";
             Assert.AreEqual(expectedNombreHabilitacion, habilitacionTest.Name);
@@ -170,14 +170,14 @@ namespace Test
         [Test]
         public void TestPalabrasClaveOferta()
         {
-            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848");
-            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, DateTime.Parse("11/11/2021"));
+            Empresa empresaTest = new Empresa("12 Holdings", this.testRubro, "Montevideo", "Plaza Independencia 848","125","09002920");
+            Oferta ofertaTest = new Oferta("Escombros", empresaTest, "Montevideo", "Plaza Independencia 848", "Escombros", this.testClasifciacion, 150, "Kilos", 100, 0 ,DateTime.Parse("11/11/2021"));
             ofertaTest.AddPalabraClave("madera");
             ofertaTest.AddPalabraClave("Montevideo");
             ofertaTest.AddPalabraClave("cocina");
-            List<string> expectedPalabrasClaves = new List<string>() { "Escombros", "12 Holdings", "Escombros", "madera", "Montevideo", "cocina" };
+            List<string> expectedPalabrasClaves = new List<string>() { "escombros", "12", "holdings", "escombros" ,"madera", "montevideo", "cocina" };
             Assert.AreEqual(ofertaTest.PalabrasClaves, expectedPalabrasClaves);
-        }*/
+        }
 
         /// <summary>
         /// Prueba que se cree el emprendedor.
@@ -202,10 +202,10 @@ namespace Test
         /// <summary>
         /// Prueba que se agruegue una habilitacion a un emprendedor.
         /// </summary>
-        /*[Test]
+        [Test]
         public void HabilitacionesEmprendedor()
         {
-            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera");
+            Emprendedor emprendedorTest = new Emprendedor("Rene", this.testRubro, "La perla", "Calle 13", "madera","127");
             emprendedorTest.AddHabilitacion(this.testHabilitacion);
             Assert.AreEqual(this.testHabilitacion, emprendedorTest.Habilitaciones[0]);
         }
@@ -216,8 +216,8 @@ namespace Test
         [Test]
         public void ThrowNameException()
         {
-            Assert.Throws<ArgumentException>(() => new Emprendedor(string.Empty, this.testRubro, "La perla", "Calle 13", "madera"));
-            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null, this.testRubro, "La perla", "Calle 13", "madera"));
+            Assert.Throws<ArgumentException>(() => new Emprendedor(string.Empty, this.testRubro, "La perla", "Calle 13", "madera","450"));
+            Assert.Throws<ArgumentNullException>(() => new Emprendedor(null, this.testRubro, "La perla", "Calle 13", "madera","450"));
         }
 
         /// <summary>
@@ -228,17 +228,16 @@ namespace Test
         {
             Habilitacion msp = new Habilitacion("MSP", "msp");
             Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento","4252564");
+            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6","582","582");
             Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera", maderaslr, "San Bautista", "Ruta 6", "Madera", madera, 1, "Tonelada", 5000, DateTime.Parse("11/11/2021"));
+            Oferta uno = new Oferta("Madera", maderaslr, "San Bautista", "Ruta 6", "Madera", madera, 1, "Tonelada", 5000, 0 ,DateTime.Parse("11/11/2021"));
             uno.AddHabilitacion(msp);
+            uno.AddPalabraClave("barato");
             emprendedor.AddHabilitacion(msp);
             this.db.AddOferta(uno);
             List<Oferta> expectedResultado = new List<Oferta>() { uno };
-            Assert.AreEqual(expectedResultado, this.buscador.BuscarOferta(emprendedor, "Madera", this.db));
-            int largoEsperado2 = 0;
-            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, "Azucar", this.db).Count);
+            Assert.AreEqual(expectedResultado, this.buscador.BuscarOferta(emprendedor, "barato", this.db));
         }
 
         /// <summary>
@@ -248,17 +247,15 @@ namespace Test
         public void TestBusquedaUbicacion()
         {
             Rubro rubro2 = new Rubro("Metal", "Hierro", "Herreria");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro2, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa herracor = new Empresa("Herracor", rubro2, "San Bautista", "Ruta 6");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro2, "San Ramon", "Ruta 12", "Emprendimiento","7892");
+            Empresa herracor = new Empresa("Herracor", rubro2, "San Bautista", "Ruta 6","79523","789798789");
             Clasificacion hierro = new Clasificacion("Metales", "Metales, etc");
-            Oferta dos = new Oferta("Metales", herracor, "Santa Rosa", "Ruta 6", "Metales", hierro, 1, "Kilos", 500, DateTime.Parse("11/11/2021"));
+            Oferta dos = new Oferta("Metales", herracor, "Santa Rosa", "Ruta 6", "Metales", hierro, 1, "Kilos", 500,0, DateTime.Parse("11/11/2021"));
             Ubicacion buscarubi = new Ubicacion("Santa Rosa", "Ruta 6");
             Ubicacion buscarubi2 = new Ubicacion("San Ramon", "Ruta 6");
             this.db.AddOferta(dos);
             List<Oferta> expectedResultadoo = new List<Oferta>() { dos };
             Assert.AreEqual(expectedResultadoo, this.buscador.BuscarOferta(emprendedor, buscarubi, this.db));
-            int largoEsperado2 = 0;
-            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, buscarubi2, this.db).Count);
         }
 
         /// <summary>
@@ -268,17 +265,15 @@ namespace Test
         public void TestBusquedaCategoria()
         {
             Rubro rubro3 = new Rubro("Ropa", "Textil", "Telas");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro3, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa ropaUsada = new Empresa("Ropa Usada", rubro3, "San Bautista", "Ruta 6");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro3, "San Ramon", "Ruta 12", "Emprendimiento","6548");
+            Empresa ropaUsada = new Empresa("Ropa Usada", rubro3, "San Bautista", "Ruta 6","64585","099925879");
             Clasificacion textil = new Clasificacion("Textiles", "Todo tipo de textiles");
-            Oferta tres = new Oferta("Textiles", ropaUsada, "San Bautista", "Ruta 6", "Textiles", textil, 1, "Kilos", 500, DateTime.Parse("11/11/2021"));
+            Oferta tres = new Oferta("Textiles", ropaUsada, "San Bautista", "Ruta 6", "Textiles", textil, 1, "Kilos", 500,0, DateTime.Parse("11/11/2021"));
             Clasificacion buscarclasi = new Clasificacion("Textiles", "Todo tipo de textiles");
             Clasificacion buscarclasi2 = new Clasificacion("Residuos hospitalarios", "Residuoos provenientes de hospitales");
             this.db.AddOferta(tres);
             List<Oferta> expectedResultadoo = new List<Oferta>() { tres };
             Assert.AreEqual(expectedResultadoo, this.buscador.BuscarOferta(emprendedor, buscarclasi, this.db));
-            int largoEsperado2 = 0;
-            Assert.AreEqual(largoEsperado2, this.buscador.BuscarOferta(emprendedor, buscarclasi2, this.db).Count);
         }
 
         /// <summary>
@@ -287,12 +282,15 @@ namespace Test
         [Test]
         public void TestRegistroEmpresa()
         {
-            Empresa empresa = new Empresa("tata", this.testRubro, "mont", "uru");
-            Oferta oferta1 = new Oferta("a", empresa,"10", "10", "pan", this.testClasifciacion, 5, "kg", 5.0, DateTime.Parse("11/11/2021"));
-            oferta1.FechaVenta = DateTime.Parse("01/11/2021");
-            empresa.AddToRegister(oferta1);
-            List<OfertaBase> expectedRegister = new List<OfertaBase>() { oferta1 };
-            Assert.AreEqual(expectedRegister, empresa.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
+            Rubro rubro = new Rubro("a", "a", "a");
+            Clasificacion clasificacion = new Clasificacion("a", "a");
+            db.AddEmprendedor("tata", rubro, "mont", "uru", "madera","410");
+            db.AddEmpresa("tata", rubro, "mont", "uru","480","480");
+            Oferta oferta1 = new Oferta("a", db.Empresas["480"], "10", "10", "pan", clasificacion, 5, "kg", 5.0,0,DateTime.Parse("11/11/2021"));
+            oferta1.AddComprador("410",DateTime.Parse("12/11/2021"));
+            db.Empresas["480"].AddToRegister(oferta1);
+            List<Oferta> expectedRegister2 = new List<Oferta>() { oferta1 };
+            Assert.AreEqual(expectedRegister2, db.Empresas["480"].BuscarEnHistorial(DateTime.Parse("01/10/2021")));
         }
 
         /// <summary>
@@ -303,13 +301,13 @@ namespace Test
         {
             Rubro rubro = new Rubro("a", "a", "a");
             Clasificacion clasificacion = new Clasificacion("a", "a");
-            Emprendedor emprendedor = new Emprendedor("tata", rubro, "mont", "uru", "madera");
-            Empresa empresa = new Empresa("tata", rubro, "mont", "uru");
-            Oferta oferta1 = new Oferta("a", empresa, "10", "10", "pan", clasificacion, 5, "kg", 5.0, DateTime.Parse("11/11/2021"));
-            oferta1.FechaVenta = DateTime.Parse("01/11/2021");
-            emprendedor.AddToRegister(oferta1);
-            List<OfertaBase> expectedRegister2 = new List<OfertaBase>() { oferta1 };
-            Assert.AreEqual(expectedRegister2, emprendedor.BuscarEnHistorial(DateTime.Parse("01/10/2021")));
-        }*/
+            db.AddEmprendedor("tata", rubro, "mont", "uru", "madera","420");
+            Empresa empresa = new Empresa("tata", rubro, "mont", "uru","450","450");
+            Oferta oferta1 = new Oferta("a", empresa, "10", "10", "pan", clasificacion, 5, "kg", 5.0,0,DateTime.Parse("11/11/2021"));
+            oferta1.AddComprador("420",DateTime.Parse("12/11/2021"));
+            db.Emprendedores["420"].AddToRegister(oferta1);
+            List<Oferta> expectedRegister2 = new List<Oferta>() { oferta1 };
+            Assert.AreEqual(expectedRegister2, db.Emprendedores["420"].BuscarEnHistorial(DateTime.Parse("01/10/2021")));
+        }
     }
 }
