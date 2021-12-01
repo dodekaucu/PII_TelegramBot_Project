@@ -50,13 +50,11 @@ CONTEXTUALIZACIÓN
   
   Asi como fue necesario aprender del funcionamiento de la aplicacion Telegram, fue evidente que era necesario el familiarizarse con el funcionamiento de los ChatBots e indagar mas a fondo en el de Telegram en especifico. Tambien tuvimos problemas con respecto al Doxygen "https://www.doxygen.nl/index.html", mas bien en su instalacion, ya que eran necesarias las intalaciones de diferentes extensiones para lograr que funcionara, y desde el comienzo del curso no habiamos tocado el tema de las extensiones por lo que fue necesario ver su funcionamiento para asi poder utilizar esta herramienta.
 
-  REFLEXION FINAL:
-  QUE SALIO BIEN: 
-
-  PROBLEMAS:<br>Al utilizar la api de persistencia nos encontramos con el problema de que nuestras clases Oferta, OfertaPersistente, Empresa y Emprendedor no eran compatibles con la misma.
+<h4>PROBLEMAS:</h4><br>Al utilizar la api de persistencia nos encontramos con el problema de que nuestras clases Oferta, OfertaPersistente, Empresa y Emprendedor no eran compatibles con la misma.
 Antes utilizabamos el patrón de herencia para Oferta y OfertaRecurrente, para eso teniamos una clase abstracta OfertaBase y esta era la que se guardaba en nuestra "base de datos" Contenedor. Con Empresa y Emprendedor era lo mismo pero con la clase abstracta Usuario, ya que la api de persistencia no funciona cpn clases abstractas tuvimos que hacer dos clases muy similares para oferta y ofertapersistente, y para empresa y emprendedor.
 
 <h3>Diagramas UML</h3>
+<img src = "docs\DiagramasUMLfinal.png">
 
 <h3>Tarjetas CRC</h3>
 
