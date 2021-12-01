@@ -18,7 +18,7 @@ namespace Ucu.Poo.TelegramBot
         // La instancia del bot.
         private static TelegramBotClient Bot;
 
-        private static string Token = "2084958009:AAE-GVhiDbuo_AinJ5rnMsH3e7-5Bs7vQf8";
+        private static string Token = "2084958009:AAHpP2r7z0q7rgouWVpJur5302Jm_kFRha0";
 
         private static IHandler firstHandler;
 

@@ -11,7 +11,7 @@ namespace Library
     /// <summary>
     /// Esta clase representa una clasificación de un material.
     /// </summary>
-    public class Clasificacion: IJsonSerialize
+    public class Clasificacion : IJsonSerialize
     {   
         /// <summary>
         /// Constructor vacío para la serialización.

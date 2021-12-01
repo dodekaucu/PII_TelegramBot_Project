@@ -6,7 +6,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-
 namespace Library
 {
     /// <summary>
@@ -16,7 +15,7 @@ namespace Library
     {
         private static DatosTemporales estadoConversacion;
 
-        private Dictionary<string,Collection<string>> dataTemporal = new Dictionary<string,Collection<string>> () ;
+        private Dictionary<string, Collection<string>> dataTemporal = new Dictionary<string, Collection<string>> ();
 
         private DatosTemporales()
         {
@@ -25,8 +24,7 @@ namespace Library
         /// <summary>
         /// Singleton datos.
         /// </summary>
-        /// <value></value>
-
+        /// <value>retorna la instancia estadoconversacion si exsite. La crea en caso contrario.</value>
         public static DatosTemporales Instancia
         {
             get
@@ -44,9 +42,10 @@ namespace Library
         /// Data temp.
         /// </summary>
         /// <value></value>
-
-        public Dictionary <string,Collection<string>> DataTemporal{
-            get{
+        public Dictionary <string, Collection<string>> DataTemporal
+        {
+            get
+            {
                 return this.dataTemporal;
             }
         }
@@ -69,12 +68,12 @@ namespace Library
         {
             dataTemporal[chatId].Add(dato);
         }
+
         /// <summary>
         /// Remove dato.
         /// </summary>
         /// <param name="chatId"></param>
         /// <param name="dato"></param>
-
         public void RemoveDato(string chatId, string dato)
         {
             dataTemporal[chatId].Remove(dato);
