@@ -1,8 +1,16 @@
+//--------------------------------------------------------------------------------
+// <copyright file="UserStatus.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System.Collections.Generic;
 
 namespace Library
 {
-    //LA IDEA ES QUE GUARDE EL ULTIMO STATUS QUE UTILIZO UN USUARIO
+    /// <summary>
+    /// Esta clase es la responsable de manejar los datos de los usuarios.
+    /// Utiliza el patron de diseño singleton.
+    /// </summary>
     public class StatusManager
     {
         private static StatusManager statusManager;
@@ -13,6 +21,9 @@ namespace Library
         {
         }
 
+        /// <summary>
+        /// Instancia de status maneger.
+        /// </summary>
         public static StatusManager Instancia
         {
             get
@@ -24,6 +35,10 @@ namespace Library
                 return statusManager;
             }
         }
+        /// <summary>
+        /// Obtiene el diccionario de usuarios y su status.
+        /// </summary>
+        /// <value></value>
 
         public Dictionary<string,string> UserStatusChat
         {
@@ -32,11 +47,20 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Añade el usuario al diccionario de status pero sin status.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
         public void AddKeyUser(string ID)
         {
             this.userStatusChat.Add(ID,"");
         }
 
+        /// <summary>
+        /// Añade el status del usuario al diccionario.
+        /// </summary>
+        /// <param name="ID">ID del usuario.</param>
+        /// <param name="status">Status del usuario.</param>
         public void AddUserStatus(string ID, string status)
         {
             this.userStatusChat[ID]=status;

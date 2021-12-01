@@ -1,6 +1,8 @@
-using System;
-using System.Linq;
-using Telegram.Bot.Types;
+//--------------------------------------------------------------------------------
+// <copyright file="AddAdminHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Library;
 
 namespace Handlers
@@ -34,7 +36,7 @@ namespace Handlers
             {
                 if (db.Administradores.Contains(message.ID.ToString()))
                 {
-                    string newAdmin = message.Text.Replace("/AddAdmin ","").Trim();
+                    string newAdmin = message.Text.ToLower().Replace("/addadmin ","").Trim();
                     db.AddAdministrador(newAdmin); 
                     response = "Se ha asignado como admin al usuario con ID: " + newAdmin;
                     return true;

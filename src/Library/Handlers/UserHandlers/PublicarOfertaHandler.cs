@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="PublicarOfertaHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 using Library;
 
@@ -156,7 +161,7 @@ namespace Handlers
                     return true;
 
                     case "2":
-                    response="Como usted selecciono una Oferta Recurrente, ingrese la periocidad mensual con la que se genera la misma";
+                    response="Como usted selecciono una Oferta Recurrente, ingrese la primera fecha de disponibilidad de la oferta \n (Debe tener la forma dd/mm/aaaa)";
                     return true;
                 }
             }
@@ -165,40 +170,48 @@ namespace Handlers
                 switch(dt.DataTemporal[message.ID][0])
                 {
                     case "1":
-                    DateTime fecha;
-                    if (!DateTime.TryParse(message.Text,out fecha))
+                        DateTime fecha;
+                        if (!DateTime.TryParse(message.Text,out fecha))
+                        {
+                            response = "La fecha no es valida, recuerda que debe tener el formato dd/mmm/aaaa";
+                            return true;
+                        }
+                        else
+                        {
+                            dt.AddDato(message.ID,message.Text);
+                            string name = dt.DataTemporal[message.ID][1];
+                            string ciudad = dt.DataTemporal[message.ID][2];
+                            string calle = dt.DataTemporal[message.ID][3];
+                            string nombreMaterial = dt.DataTemporal[message.ID][4];
+                            Clasificacion clasificacion = db.Clasificaciones[Int32.Parse(dt.DataTemporal[message.ID][5])];
+                            int cantidad = Int32.Parse(dt.DataTemporal[message.ID][6]);
+                            string unidad = dt.DataTemporal[message.ID][7];
+                            double valor = double.Parse(dt.DataTemporal[message.ID][8]);
+                            DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
+                            db.Empresas[message.ID].CrearOferta(name,ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,0,fechageneracion);
+                            dt.DataTemporal.Remove(message.ID);
+                            sm.UserStatusChat.Remove(message.ID);
+                            response = $"Se a creado la oferta \"{name}\" a nombre de la empresa {db.Empresas[message.ID].Nombre}.\nCaracterísticas:\n-{nombreMaterial}\n-{cantidad} {unidad}\n"+"-$"+$"{valor}\nFecha de generación: {fechageneracion}"+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
+                            return true;
+                        }
+                    case "2":
+                    DateTime fecha2;
+                    if (!DateTime.TryParse(message.Text,out fecha2))
                     {
                         response = "La fecha no es valida, recuerda que debe tener el formato dd/mmm/aaaa";
                         return true;
                     }
-                    dt.AddDato(message.ID,message.Text);
-                    string name = dt.DataTemporal[message.ID][1];
-                    string ciudad = dt.DataTemporal[message.ID][2];
-                    string calle = dt.DataTemporal[message.ID][3];
-                    string nombreMaterial = dt.DataTemporal[message.ID][4];
-                    Clasificacion clasificacion = db.Clasificaciones[Int32.Parse(dt.DataTemporal[message.ID][5])];
-                    int cantidad = Int32.Parse(dt.DataTemporal[message.ID][6]);
-                    string unidad = dt.DataTemporal[message.ID][7];
-                    double valor = double.Parse(dt.DataTemporal[message.ID][8]);
-                    DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
-                    Oferta oferta = new Oferta(name,db.Empresas[message.ID],ciudad,calle,nombreMaterial,clasificacion,cantidad,unidad,valor,fechageneracion);
-                    /*if(!db.Ofertas.ContainsKey(message.ID))
+                    else
                     {
-                        db.AddOfertaKey(message.ID);
-                    }*/
-                    db.AddOferta(oferta);
-                    dt.DataTemporal.Remove(message.ID);
-                    sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta \"{oferta.Nombreoferta}\" a nombre de la empresa {oferta.Empresa.Nombre}.\nCaracterísticas:\n-{oferta.Material.Nombre}\n-{oferta.Material.Cantidad} {oferta.Material.Unidad}\n"+"-$"+$"{oferta.Material.Valor}\nFecha de generación: {oferta.FechadeGeneracion}";
-                    return true;
-
-                    case "2":
-                    int num;
-                    if(!Int32.TryParse(message.Text,out num))
-                    {
-                        response = "La periocidad no es válida, recuerda que debe ser un número";
+                        dt.AddDato(message.ID,message.Text);
+                        DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
+                        response = $"Fecha inicial: {dt.DataTemporal[message.ID][9]}, ahora ingrese la recurrencia semanal (Cada cúantas semanas vuelve a estar disponible la oferta.):";
                         return true;
                     }
+                }
+            }
+            if(sm.UserStatusChat[message.ID]=="PublicarOferta" && dt.DataTemporal[message.ID].Count==10)
+            {
                     dt.AddDato(message.ID,message.Text);
                     string name2 = dt.DataTemporal[message.ID][1];
                     string ciudad2 = dt.DataTemporal[message.ID][2];
@@ -208,16 +221,14 @@ namespace Handlers
                     int cantidad2 = Int32.Parse(dt.DataTemporal[message.ID][6]);
                     string unidad2 = dt.DataTemporal[message.ID][7];
                     double valor2 = double.Parse(dt.DataTemporal[message.ID][8]);
-                    int periocidad = Int32.Parse(dt.DataTemporal[message.ID][9]);
-                    OfertaRecurrente oferta2 = new OfertaRecurrente(name2,db.Empresas[message.ID],ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad);
-                    db.AddOferta(oferta2);
+                    int periocidad = Int32.Parse(dt.DataTemporal[message.ID][10]);
+                    DateTime fechageneracion = DateTime.Parse(dt.DataTemporal[message.ID][9]);
+                    db.Empresas[message.ID].CrearOferta(name2,ciudad2,calle2,nombreMaterial2,clasificacion2,cantidad2,unidad2,valor2,periocidad,fechageneracion);                    
                     dt.DataTemporal.Remove(message.ID);
                     sm.UserStatusChat.Remove(message.ID);
-                    response = $"Se a creado la oferta {oferta2.Nombreoferta} a nombre de la empresa {oferta2.Empresa.Nombre}.\n Características:\n{oferta2.Material.Nombre}\n{oferta2.Material.Cantidad} {oferta2.Material.Unidad}\n Periocidad mensual: {oferta2.RecurrenciaMensual}";
+                    response = $"Se a creado la oferta {name2} a nombre de la empresa {db.Empresas[message.ID].Nombre}.\n Características:\n{nombreMaterial2}\n{cantidad2} {unidad2}\n Recurrencia: cada {periocidad} semanas."+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave.";
                     return true;
-                }
             }
-
             response = string.Empty;
             return false;
         }

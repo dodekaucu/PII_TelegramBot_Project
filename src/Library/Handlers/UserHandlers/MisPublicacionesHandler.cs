@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="MisPublicacionesHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Library;
 
 namespace Handlers
@@ -31,21 +36,23 @@ namespace Handlers
                 {
                     string opciones = "";
                     string linea = "\n-------------------------\n";
-                    foreach(OfertaBase oferta in db.Ofertas)
+                    foreach(Oferta oferta in db.Ofertas)
                     {
-                        if (db.Empresas[message.ID]==oferta.Empresa)
+                        if (message.ID==oferta.Empresa.ID)
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaSemanal == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+o.FechadeGeneracion+"\n"+"Estado de la oferta: "+o.Disponible.ToString()+linea;
+                                if (oferta as Oferta != null)
+                                {
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nFECHA DE GENERACION: "+oferta.FechadeGeneracion+"\n"+"Estado de la oferta: "+oferta.Disponible.ToString()+linea;
+                                }
                             }
-                            if(oferta as OfertaRecurrente != null)
+                            else if (oferta.RecurrenciaSemanal > 0)
                             {
-                                o1= oferta as OfertaRecurrente;
-                                opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: "+ o1.RecurrenciaMensual+"\n"+linea;
+                                if(oferta as Oferta != null)
+                                {
+                                    opciones = opciones + oferta.Nombreoferta +"\n"+ oferta.Material.Nombre+" "+oferta.Material.Cantidad+" "+oferta.Material.Unidad+"\n$"+oferta.Material.Valor+"\n\nRecurrencia: cada "+ oferta.RecurrenciaSemanal+" semanas. \n"+linea;
+                                }
                             }
                         }
                     }

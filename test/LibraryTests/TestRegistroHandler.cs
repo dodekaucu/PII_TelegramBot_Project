@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="TestRegistroHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using NUnit.Framework;
 using Handlers;
 using Library;
@@ -23,7 +28,7 @@ namespace ProgramTests
         /// crea una instancia de TelegramMSG adapter.
         /// </summary>
         [SetUp]
-        public void Setup() //Deberiamos hacer uno por mensage o uno por proceso????
+        public void Setup()
         {
             Rubro rubroTest = new Rubro("Prueba","Prueba","Prueba");
             db = Contenedor.Instancia;
@@ -40,7 +45,7 @@ namespace ProgramTests
         /// no invitada).
         /// </summary>
         [Test]
-        public void TestRegistroEmprendedorHandle()
+        public void TestRegistroEmprendedorHandle() //Registro de un usuario no invitado
         {
             message.Text = handler.Keywords[0];
             string response;
@@ -66,14 +71,14 @@ namespace ProgramTests
                 "Su nombre es: "+"NombreEmprendedor"+"\n"+"\n"+"Seleccione su rubro:\n" + opciones
                 ));
             
-            message.Text = "rubro"; 
+            message.Text = "rubro";     //El usuario no ingresa un número
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
                 "No se ha ingresado un número, ingrese un numero válido."
                 ));
 
-            message.Text = "80";
+            message.Text = "80";    //El usuario se equivoca en el numero
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
@@ -116,7 +121,7 @@ namespace ProgramTests
         [Test]
         public void TestRegistroEmpresaHandle()
         {
-            db.Invitados.Add("1454175798");
+            db.Invitados.Add("1454175798"); //Previa invitacion del administrador
             message.Text = handler.Keywords[0];
             string response;
 
@@ -127,7 +132,7 @@ namespace ProgramTests
                 "Su ID se encuentra en la lista de invitados para registrarse como Empresa"+"\n"+"Ingrese el nombre de la empresa:"
                 ));
             
-                        message.Text = "NombreEmpresa";
+            message.Text = "NombreEmpresa";
             handler.Handle(msj, out response);
             string opciones = "";
             int i =0;
@@ -159,7 +164,14 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "NombreEmpresa has sido registrado correctamente!"+"\n"+$"su domicilio a sido fijado a calle 8, montevideo"
+                "Su calle es: calle 8\n"+"\n"+"Ahora ingrese un teléfono de contacto:"
+                ));
+            
+            message.Text = "+598 99 777 777";
+            handler.Handle(msj, out response);
+            Assert.That(result, Is.Not.Null);
+            Assert.That(response, Is.EqualTo(
+                "NombreEmpresa has sido registrado correctamente!"+"\n"+$"su domicilio a sido fijado a calle 8, montevideo\nTEL: +598 99 777 777\n\nRecuerde que como empresa puede utilizar /PublicarOferta."
                 ));
         }
 

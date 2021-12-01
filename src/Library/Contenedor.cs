@@ -6,38 +6,65 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un contenedor de las diferentes clases del bot.
-    /// Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+    /// Utiliza el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
     /// Es la clase EXPERTA en contener las diferentes instancias del programa.
     /// Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
+    /// Tambien se utiliza el patron CREATOR en los metodos AddEmpresa y AddEmprendedor, pues almacena dichas
+    /// instancias de clase.
     /// </summary>
     public class Contenedor: IJsonSerialize
     {
+        /// <summary>
+        /// Contenedor.
+        /// </summary>
         public static Contenedor contenedor;
 
+        /// <summary>
+        /// Colleción de habilitaciones disponibles.
+        /// </summary>
         public Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
 
+        /// <summary>
+        /// Colección de rubros disponibles.
+        /// </summary>
         public Collection<Rubro> rubros = new Collection<Rubro>();
 
-        public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        /// <summary>
+        /// Colección de clasificaciones disponibles.
+        /// </summary>
 
-        public Collection<OfertaBase> ofertas = new Collection<OfertaBase>();
+        public Collection<Clasificacion> clasificaciones = new Collection<Clasificacion>();
+        /// <summary>
+        /// Colección de ofertas.
+        /// </summary>
+        public Collection<Oferta> ofertas = new Collection<Oferta>();
+        /// <summary>
+        /// Diccionario de emprendedores registrados, guarda el ID como key y un objeto emprendedor.
+        /// </summary>
 
         public Dictionary<string,Emprendedor> emprendedores = new Dictionary<string, Emprendedor>();
+        /// <summary>
+        /// Diccionario de empresas registradas, guarda el ID como key y un objeto empresa.
+        /// </summary>
 
         public Dictionary<string,Empresa> empresas = new Dictionary<string, Empresa>();
-
-
+        /// <summary>
+        /// Lista de administradores, solo guarda su ID.
+        /// </summary>
         public Collection<string> administradores = new Collection<string>() { "1454175798" };
-
-
+        /// <summary>
+        /// Lista de invitados, solo guarda su ID.
+        /// </summary>
         public Collection<string> invitados = new Collection<string> ();
 
+        /// <summary>
+        /// Constructor vacío de contenedor.
+        /// </summary>
         public Contenedor()
         {
         }
@@ -99,7 +126,7 @@ namespace Library
         /// Obtiene un valor con la lista de las ofertas.
         /// </summary>
         /// <value>this.ofertas.</value>
-        public Collection<OfertaBase> Ofertas
+        public Collection<Oferta> Ofertas
         {
             get
             {
@@ -213,7 +240,7 @@ namespace Library
         /// Añiade una oferta a la lista de ofertas.
         /// </summary>
         /// <param name="oferta">parametro oferta recibido por el metodo AddOferta.</param>
-        public void AddOferta(OfertaBase oferta)
+        public void AddOferta(Oferta oferta)
         {
             this.ofertas.Add(oferta);
         }
@@ -231,11 +258,16 @@ namespace Library
         /// Añade un emprendedor al diccionario de emprendedores.
         /// Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
         /// </summary>
-        /// <param name="ID">ID del usuario.</param>
-        /// <param name="emprendedor">Instancia de clase emprendedor.</param>
+        /// <param name="name">Nombre del emprendedor.</param>
+        /// <param name="rubro">Rubro del emprendedor.</param>
+        /// <param name="ciudad">Ciudad del emprendedor.</param>
+        /// <param name="calle">Calle del emprendedor.</param>
+        /// <param name="especializacion">Especializacion del emprendedor.</param>
+        /// <param name="ID">ID del emprendedor.</param>
 
-        public void AddEmprendedor(string ID, Emprendedor emprendedor)
+        public void AddEmprendedor(string name,Rubro rubro, string ciudad, string calle, string especializacion,string ID)
         {
+            Emprendedor emprendedor = new Emprendedor(name, rubro, ciudad, calle, especializacion, ID);
             this.emprendedores.Add(ID,emprendedor);
         }
 
@@ -252,11 +284,16 @@ namespace Library
         /// <summary>
         /// Agrega una empresa al diccioanrio de empresas.
         /// </summary>
-        /// <param name="ID">ID del usuario</param>
-        /// <param name="empresa">Instancia de la clase empresa.</param>
+        /// <param name="name">Nombre de la empresa.</param>
+        /// <param name="rubro">Rubro de la empresa.</param>
+        /// <param name="ciudad">Ciudad de la empresa.</param>
+        /// <param name="calle">Calle de la empresa.</param>
+        /// <param name="ID">ID de la empresa.</param>
+        /// <param name="telefono">Telefono de la empresa.</param>
 
-        public void AddEmpresa(string ID, Empresa empresa)
+        public void AddEmpresa(string name, Rubro rubro, string ciudad, string calle, string ID, string telefono)
         {
+            Empresa empresa = new Empresa(name, rubro, ciudad, calle, ID, telefono);
             this.empresas.Add(ID,empresa);
         }
 
@@ -288,6 +325,11 @@ namespace Library
         {
             this.administradores.Add(ID);
         }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
@@ -298,58 +340,122 @@ namespace Library
             string json = JsonSerializer.Serialize(this, options);
             return json;
         }
-        /*public void LoadFromJson(string json)
-        {
-            Contenedor data = JsonSerializer.Deserialize<Contenedor>(json);
-            this.habilitaciones = data.habilitaciones;
-            this.rubros = data.rubros;
-            this.clasificaciones = data.clasificaciones;
-            this.ofertas = data.ofertas;
-            this.emprendedores = data.emprendedores;
-            this.empresas = data.empresas;
-            this.administradores = data.administradores;
-            this.invitados = data.invitados;
-        }*/
+
+        /// <summary>
+        /// Serializa el diccionario de emprendedores.
+        /// </summary>
+        /// <returns></returns>
         public string serializaremprendedor()
         {
             return JsonSerializer.Serialize(this.emprendedores);
         }
+
+        /// <summary>
+        /// Serializa el diccionario de empresas.
+        /// </summary>
+        /// <returns></returns>
         public string serializarempresa()
         {
             return JsonSerializer.Serialize(this.empresas);
         }
+
+        /// <summary>
+        /// Serializa la lista de habilitaciones.
+        /// </summary>
+        /// <returns></returns>
         public string serializarhabilitacion()
         {
             return JsonSerializer.Serialize(this.habilitaciones);
         }
+
+        /// <summary>
+        /// Serializa la lista de rubros.
+        /// </summary>
+        /// <returns></returns>
         public string serializarrubro()
         {
             return JsonSerializer.Serialize(this.rubros);
         }
+
+        /// <summary>
+        /// Serializa la lista de clasificaciones.
+        /// </summary>
+        /// <returns></returns>
         public string serializarclasificacion()
         {
             return JsonSerializer.Serialize(this.clasificaciones);
         }
+
+        /// <summary>
+        /// Serializa la lista de ofertas.
+        /// </summary>
+        /// <returns></returns>
         public string serializaroferta()
         {
             return JsonSerializer.Serialize(this.ofertas);
         }
+
+        /// <summary>
+        /// Serializa la lista de adminstradores.
+        /// </summary>
+        /// <returns></returns>
         public string serializaradministrador()
         {
             return JsonSerializer.Serialize(this.administradores);
         }
+
+        /// <summary>
+        /// Serializa la lista de invitados.
+        /// </summary>
+        /// <returns></returns>
         public string serializarinvitado()
         {
             return JsonSerializer.Serialize(this.invitados);
         }
+
+        /// <summary>
+        /// Diccionario de emprendedores convertidas en string.
+        /// </summary>
         public string jsonemprendedor = "";
+
+        /// <summary>
+        /// Diccionario de empresas convertidas en string.
+        /// </summary>
         public string jsonempresa = "";
+
+        /// <summary>
+        /// Listas de habilitaciones convertidas en string.
+        /// </summary>
         public string jsonhabilitacion = "";
+
+        /// <summary>
+        /// Listas de rubros convertidas en string.
+        /// </summary>
         public string jsonrubro = "";
+
+        /// <summary>
+        /// Lista de clasificaciones convertidas en string.
+        /// </summary>
         public string jsonclasificacion = "";
+
+        /// <summary>
+        /// Lista de ofertas convertidas en string.
+        /// </summary>
         public string jsonoferta = "";
+
+        /// <summary>
+        /// Lista de admins convertidas en string.
+        /// </summary>
         public string jsonadmin = "";
+
+        /// <summary>
+        /// Lista de invitados convertidas en string.
+        /// </summary>
         public string jsoninvitado = "";
+
+        /// <summary>
+        /// Metodo de serialización de la api de persistencia.
+        /// </summary>
         public void Serializar()
         {
             this.jsonhabilitacion = serializarhabilitacion();
@@ -361,12 +467,24 @@ namespace Library
             this.jsonadmin = serializaradministrador();
             this.jsoninvitado = serializarinvitado();
         }
-        public void Deserializar(string deserializarhabilitacion, string deserializarrubro, string deserializarclasificacion, string deserializaroferta, string deserializaremprendedor, string deserializarempresa, string deserializaradmin, string deserializarinvitado)
+
+        /// <summary>
+        /// Metodo de deserialización de la api de persistencia.
+        /// </summary>
+        /// <param name="deserializarhabilitacion">Direccion de JSON de habilitaciones.</param>
+        /// <param name="deserializarrubro">Direccion de JSON de rubros.</param>
+        /// <param name="deserializarclasificacion">Direccion de JSON de clasificacion.</param>
+        /// <param name="deserializaremprendedor">Direccion de JSON de emprendedores.</param>
+        /// <param name="deserializarempresa">Direccion de JSON de empresas.</param>
+        /// <param name="deserializaradmin">Direccion de JSON de admins.</param>
+        /// <param name="deserializarinvitado">Direccion de JSON de invitados.</param>
+        /// <param name="deserializaroferta">Direccion de JSON de ofertas.</param>
+        public void Deserializar(string deserializarhabilitacion, string deserializarrubro, string deserializarclasificacion, string deserializaremprendedor, string deserializarempresa, string deserializaradmin, string deserializarinvitado, string deserializaroferta)
         {
             this.habilitaciones = JsonSerializer.Deserialize<Collection<Habilitacion>>(deserializarhabilitacion);
             this.rubros = JsonSerializer.Deserialize<Collection<Rubro>>(deserializarrubro);
             this.clasificaciones = JsonSerializer.Deserialize<Collection<Clasificacion>>(deserializarclasificacion);
-            this.ofertas = JsonSerializer.Deserialize<Collection<OfertaBase>>(deserializaroferta);
+            this.ofertas = JsonSerializer.Deserialize<Collection<Oferta>>(deserializaroferta);
             this.emprendedores = JsonSerializer.Deserialize<Dictionary<string, Emprendedor>>(deserializaremprendedor);
             this.empresas = JsonSerializer.Deserialize<Dictionary<string, Empresa>>(deserializarempresa);
             this.administradores = JsonSerializer.Deserialize<Collection<string>>(deserializaradmin);

@@ -4,14 +4,13 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Esta clase representa un Administrador de la aplicacion.
     /// </summary>
-    public class Admin: IJsonSerialize
+    public class Admin : IJsonSerialize
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Admin"/>.
@@ -36,11 +35,16 @@ namespace Library
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns>Retorna el JSON.</returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()
             {
-                ReferenceHandler = MyReferenceHandler.Instance, 
+                ReferenceHandler = MyReferenceHandler.Instance,
                 WriteIndented = true
             };
             string json = JsonSerializer.Serialize(this, options);

@@ -51,36 +51,41 @@ namespace Library
         /// <param name="mensaje">Son las palabras claves que busca el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, string mensaje, Contenedor basededatos)
         {
-            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
             mensaje = mensaje.ToLower();
-            foreach (OfertaBase oferta in basededatos.Ofertas)
+            string[] palabrasbuscar = mensaje.Split(" ");
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
-                if (oferta.PalabrasClaves.Contains(mensaje))
+                foreach (string palabra in palabrasbuscar)
                 {
-                    if (oferta.Habilitaciones.Count >= 1)
+                    Console.WriteLine(palabra);
+                    if (oferta.PalabrasClaves.Contains(palabra))
                     {
-                        foreach (Habilitacion habilitacion in oferta.Habilitaciones)
+                        if (oferta.Habilitaciones.Count >= 1)
                         {
-                            if (emprendedor.Habilitaciones.Contains(habilitacion))
+                            foreach (Habilitacion habilitacion in oferta.Habilitaciones)
                             {
+                                if (emprendedor.Habilitaciones.Contains(habilitacion))
+                                {
+                                }
+                                else
+                                {
+                                    valido = false;
+                                }
                             }
-                            else
+
+                            if (valido == true)
                             {
-                                valido = false;
+                                listaOfertas.Add(oferta);
                             }
                         }
-
-                        if (valido == true)
+                        else
                         {
                             listaOfertas.Add(oferta);
                         }
-                    }
-                    else
-                    {
-                        listaOfertas.Add(oferta);
                     }
                 }
             }
@@ -98,11 +103,11 @@ namespace Library
         /// <param name="ubicacion">Ubicacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Ubicacion ubicacion, Contenedor basededatos)
         {
-            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
-            foreach (OfertaBase oferta in basededatos.Ofertas)
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
                 if (String.Equals(oferta.Ubicacion.Ciudad, ubicacion.Ciudad, StringComparison.OrdinalIgnoreCase))
                 {
@@ -155,11 +160,11 @@ namespace Library
         /// <param name="clasificacion">Clasificacion buscada por el emprendedor.</param>
         /// <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
         /// <returns>Lista de ofertas que cumplen con los requisitos.</returns>
-        public Collection<OfertaBase> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
+        public Collection<Oferta> BuscarOferta(Emprendedor emprendedor, Clasificacion clasificacion, Contenedor basededatos)
         {
-            Collection<OfertaBase> listaOfertas = new Collection<OfertaBase>();
+            Collection<Oferta> listaOfertas = new Collection<Oferta>();
             bool valido = true;
-            foreach (OfertaBase oferta in basededatos.Ofertas)
+            foreach (Oferta oferta in basededatos.Ofertas)
             {
                 if (String.Equals(oferta.Material.Clasificacion.Nombre, clasificacion.Nombre, StringComparison.OrdinalIgnoreCase))
                 {

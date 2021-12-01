@@ -18,11 +18,20 @@ namespace Library
         private string descripcion;
 
         /// <summary>
+        /// Constructor vacío de rubro para la deserialización
+        /// </summary>
+        public Rubro()
+        {
+
+        }
+
+        /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Rubro"/>.
         /// </summary>
         /// <param name="nombre">El nombre del rubro.</param>
         /// <param name="area">El area del Rubro.</param>
         /// <param name="descripcion">La descripcion del rubro.</param>
+        [JsonConstructor]
         public Rubro(string nombre, string area, string descripcion)
         {
             this.nombre = nombre;
@@ -65,6 +74,11 @@ namespace Library
                 return this.descripcion;
             }
         }
+
+        /// <summary>
+        /// Convert to Json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             JsonSerializerOptions options = new()

@@ -1,12 +1,17 @@
-using System;
+//--------------------------------------------------------------------------------
+// <copyright file="Impresora.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Library;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Handlers
 {
     /// <summary>
     /// Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+    /// Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia la forma
+    /// de imprimir la oferta.
     /// </summary>
     public class Impresora
     {
@@ -16,6 +21,7 @@ namespace Handlers
         public string texto;
 
         private static Impresora impresora;
+        Contenedor db = Contenedor.Instancia;
 
         private Impresora()
         {
@@ -44,7 +50,7 @@ namespace Handlers
         /// </summary>
         /// <param name="lista">lista buscada.</param>
         /// <returns></returns>
-        public string Imprimir(Collection<OfertaBase> lista)
+        public string Imprimir(Collection<Oferta> lista)
         {  
             if (lista.Count == 0)
             {
@@ -53,16 +59,28 @@ namespace Handlers
             else
             {
                 texto = "OFERTAS DISPONIBLES: \n";
-                foreach (OfertaBase oferta in lista)
+                foreach (Oferta oferta in lista)
                 {
-                texto += "\n";
-                texto += "Nombre: " + oferta.Nombreoferta + "\n";
-                texto += "Material: " + oferta.Material.Nombre + "\n";
-                texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
-                texto += "Precio: $" + oferta.Material.Valor + "\n";
-                texto += "Identificador: " + oferta.Identificador + "\n";
-                texto += "\n";
-                texto += "---------------------------------------" + "\n";
+                    string textorecurrente = "";
+                    if (oferta.RecurrenciaSemanal == 0)
+                    {
+                        textorecurrente = "Oferta única";
+                    }
+                    else if (oferta.RecurrenciaSemanal > 0)
+                    {
+                        textorecurrente = "Oferta recurrente cada " + oferta.RecurrenciaSemanal + " semanas";
+                    }
+                    texto += "\n";
+                    texto += "Nombre: " + oferta.Nombreoferta + "\n";
+                    texto += "Material: " + oferta.Material.Nombre + "\n";
+                    texto += "Cantidad: " + oferta.Material.Cantidad +" "+oferta.Material.Unidad + "\n";
+                    texto += "Precio: $" + oferta.Material.Valor + "\n";
+                    texto += textorecurrente + "\n";
+                    texto += "Identificador: " + db.Ofertas.IndexOf(oferta).ToString() + "\n";
+                    texto += "Ofrecido por: " + oferta.Empresa.Nombre + "\n";
+                    texto += "Teléfono de contacto: " + oferta.Empresa.Telefono +"\n";
+                    texto += "\n";
+                    texto += "---------------------------------------" + "\n";
                 }   
             }
             return texto;

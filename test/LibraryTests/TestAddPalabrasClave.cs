@@ -1,9 +1,13 @@
+//--------------------------------------------------------------------------------
+// <copyright file="TestAddPalabrasClave.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using NUnit.Framework;
 using Handlers;
 using Library;
 using Telegram.Bot.Types;
 using System;
-using System.Collections.ObjectModel;
 
 namespace ProgramTests
 {
@@ -31,9 +35,9 @@ namespace ProgramTests
         public void Setup()
         {
             Rubro rubroMadera = new Rubro("Forestal", "Leñeria", "Recursos");
-            Empresa barracaFernandez = new Empresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6");
+            db.AddEmpresa("Madera SRL", rubroMadera, "San Bautista", "Ruta 6","24","099222333");
             Clasificacion madera = new Clasificacion("Madera", "Madera natural");
-            Oferta uno = new Oferta("Madera tratada", barracaFernandez, "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, DateTime.Parse("13/09/2021"));
+            Oferta uno = new Oferta("Madera tratada", db.Empresas["24"] , "San Ramon", "Tala", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("13/09/2021"));
             db.AddOferta(uno);
             db.AddClasificacion(madera);
             db.AddRubro(rubroMadera);
@@ -42,7 +46,6 @@ namespace ProgramTests
             message.From = new User();
             message.From.Id = 24;
             msj = new TelegramMSGadapter(message);
-            db.AddEmpresa("24",barracaFernandez);
         }
 
         /// <summary>
@@ -57,7 +60,7 @@ namespace ProgramTests
             IHandler result = handler.Handle(msj, out response);
 
             string opciones ="";
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    foreach (Oferta oferta in db.Ofertas)
                     {
                         if(db.Empresas[msj.ID]==oferta.Empresa)
                         {

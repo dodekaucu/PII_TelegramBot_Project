@@ -1,4 +1,8 @@
-using System.Linq;
+//--------------------------------------------------------------------------------
+// <copyright file="AddHabilitacionHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 using Library;
 
@@ -65,12 +69,12 @@ namespace Handlers
                     dt.DataTemporal.Remove(message.ID);
                     dt.AddKeyUser(message.ID);
                     string opciones ="";
-                    foreach (OfertaBase oferta in db.Ofertas)
+                    foreach (Oferta oferta in db.Ofertas)
                     {
-                        if(db.Empresas[message.ID]==oferta.Empresa)
+                        if(message.ID==oferta.Empresa.ID)
                         {
                             //aca van a estar las ofertas que posee la empresa, identificadas por ID.
-                            opciones = opciones + "ID " + oferta.Identificador.ToString() + " - " + oferta.Nombreoferta +"\n";
+                            opciones = opciones + "ID " + db.Ofertas.IndexOf(oferta).ToString() + " - " + oferta.Nombreoferta +"\n";
                         }
                     }
                     response = "Seleccione la oferta a añadir una habilitación: \n" + opciones;
@@ -132,7 +136,7 @@ namespace Handlers
                 }
                 else
                 {
-                    Console.WriteLine(dt.DataTemporal[message.ID][0]);
+                    //Console.WriteLine(dt.DataTemporal[message.ID][0]);
                     int numeroferta = Int32.Parse(dt.DataTemporal[message.ID][0]);
                     int numerohab = Int32.Parse(message.Text);
                     if (db.Ofertas[numeroferta].Habilitaciones.Contains(db.Habilitaciones[numerohab]))

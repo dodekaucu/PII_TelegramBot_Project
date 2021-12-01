@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="IMessage.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 namespace Handlers
 {
     /// <summary>
@@ -8,11 +13,11 @@ namespace Handlers
         /// <summary>
         /// Id del usuario.
         /// </summary>
-        string ID { get;}
+        string ID { get; }
 
         /// <summary>
         /// Mensaje.
         /// </summary>
-        string Text { get;}
+        string Text { get; }
     }
 }

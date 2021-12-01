@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="TestPublicarOfertaUnica.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using NUnit.Framework;
 using Handlers;
 using Library;
@@ -37,8 +42,7 @@ namespace ProgramTests
             message.From = new User();
             message.From.Id = 12;
             msj = new TelegramMSGadapter(message);
-            empresaTest = new Empresa("EmpresaTest",rubroTest,"Montevideo","calle 13");
-            db.AddEmpresa("12",empresaTest);
+            db.AddEmpresa("EmpresaTest",rubroTest,"Montevideo","calle 13","12","099222333");
         }
 
         /// <summary>
@@ -152,7 +156,7 @@ namespace ProgramTests
             handler.Handle(msj, out response);
             Assert.That(result, Is.Not.Null);
             Assert.That(response, Is.EqualTo(
-                "Se a creado la oferta \"NombreOferta\" a nombre de la empresa EmpresaTest.\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/06/2022 00:00:00"
+                "Se a creado la oferta \"NombreOferta\" a nombre de la empresa EmpresaTest.\nCaracterísticas:\n-NombreMaterial\n-45 kg\n"+"-$"+$"20\nFecha de generación: 20/6/2022 0:00:00"+"\nRecuerde que si desea agreagr una habilitacion a la oferta lo puede hacer con /AddHabilitacion.\nTambien puede agregar mas palabras claves a la oferta con el comando /AddPalabraClave."
                 ));
 
         }

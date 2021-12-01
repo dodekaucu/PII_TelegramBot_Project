@@ -233,6 +233,8 @@
         <member name="T:Handlers.Impresora">
             <summary>
             Clase impresora, se encarga de hacer un string con las ofertas que cumplen con los requisitos de la busqueda.
+            Se cumple el principio SRP, pues la unica razon para cambiar de esta clase es si cambia la forma
+            de imprimir la oferta.
             </summary>
         </member>
         <member name="F:Handlers.Impresora.texto">
@@ -246,7 +248,7 @@
             </summary>
             <value>una instancia de impresora.</value>
         </member>
-        <member name="M:Handlers.Impresora.Imprimir(System.Collections.ObjectModel.Collection{Library.OfertaBase})">
+        <member name="M:Handlers.Impresora.Imprimir(System.Collections.ObjectModel.Collection{Library.Oferta})">
             <summary>
             Funcion que recibe la lista de ofertas para imprimir.
             </summary>
@@ -303,18 +305,18 @@
             <param name="response">Respuesta al usaurio.</param>
             <returns></returns>
         </member>
-        <member name="T:Handlers.AñadirCompradorHandler">
+        <member name="T:Handlers.AnadirCompradorHandler">
             <summary>
             Un "handler" del patrón Chain of Responsibility que implementa el comando "/Info".
             </summary>
         </member>
-        <member name="M:Handlers.AñadirCompradorHandler.#ctor(Handlers.BaseHandler)">
+        <member name="M:Handlers.AnadirCompradorHandler.#ctor(Handlers.BaseHandler)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AñadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
+            Inicializa una nueva instancia de la clase <see cref="T:Handlers.AnadirCompradorHandler"/>. Esta clase procesa el comando "/AñadirComprador".
             </summary>
             <param name="next">El próximo "handler".</param>
         </member>
-        <member name="M:Handlers.AñadirCompradorHandler.InternalHandle(Handlers.IMessage,System.String@)">
+        <member name="M:Handlers.AnadirCompradorHandler.InternalHandle(Handlers.IMessage,System.String@)">
             <summary>
             Procesa el comando "/AñadirCompradorOferta" y retorna true; retorna false en caso contrario.
             </summary>
@@ -401,17 +403,11 @@
             El usuario que busca ofertas.
             </summary>
         </member>
-        <member name="T:Library.IJsonSerialize">
         <member name="F:Handlers.BuscarUbiHandler.db">
             <summary>
             base de datos.
             </summary>
         </member>
-        <member name="M:Library.IJsonSerialize.ConvertToJson">
-            <summary>
-            Método que serializa un objeto en formato Json.
-            </summary>
-            <returns>String con el objeto serializado en formato Json.</returns>
         <member name="F:Handlers.BuscarUbiHandler.buscador">
             <summary>
             Buscador de ofertas.
@@ -595,6 +591,11 @@
             Esta clase representa una clasificación de un material.
             </summary>
         </member>
+        <member name="M:Library.Clasificacion.#ctor">
+            <summary>
+            Constructor vacío para la serialización.
+            </summary>
+        </member>
         <member name="M:Library.Clasificacion.#ctor(System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Clasificacion"/>.
@@ -614,12 +615,70 @@
             </summary>
             <value>this.descripcion.</value>
         </member>
+        <member name="M:Library.Clasificacion.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Library.Contenedor">
             <summary>
             Esta clase representa un contenedor de las diferentes clases del bot.
-            Utilzia el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
+            Utiliza el patron de diseño Singleton. Pues solo se puede tener una instancia de esta clase.
             Es la clase EXPERTA en contener las diferentes instancias del programa.
             Ademas se cumple SRP pues su unica razon para cambiar es que se cambie la forma de almacenar las instancias.
+            Tambien se utiliza el patron CREATOR en los metodos AddEmpresa y AddEmprendedor, pues almacena dichas
+            instancias de clase.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.contenedor">
+            <summary>
+            Contenedor.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.habilitaciones">
+            <summary>
+            Colleción de habilitaciones disponibles.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.rubros">
+            <summary>
+            Colección de rubros disponibles.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.clasificaciones">
+            <summary>
+            Colección de clasificaciones disponibles.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.ofertas">
+            <summary>
+            Colección de ofertas.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.emprendedores">
+            <summary>
+            Diccionario de emprendedores registrados, guarda el ID como key y un objeto emprendedor.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.empresas">
+            <summary>
+            Diccionario de empresas registradas, guarda el ID como key y un objeto empresa.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.administradores">
+            <summary>
+            Lista de administradores, solo guarda su ID.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.invitados">
+            <summary>
+            Lista de invitados, solo guarda su ID.
+            </summary>
+        </member>
+        <member name="M:Library.Contenedor.#ctor">
+            <summary>
+            Constructor vacío de contenedor.
             </summary>
         </member>
         <member name="P:Library.Contenedor.Instancia">
@@ -711,7 +770,7 @@
             </summary>
             <param name="clasificacion">parametro clasificacion que recibe Removelasificacion.</param>
         </member>
-        <member name="M:Library.Contenedor.AddOferta(Library.OfertaBase)">
+        <member name="M:Library.Contenedor.AddOferta(Library.Oferta)">
             <summary>
             Añiade una oferta a la lista de ofertas.
             </summary>
@@ -723,13 +782,17 @@
             </summary>
             <param name="oferta">parametro oferta recibido por el metodo RemoveOferta.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Emprendedor)">
+        <member name="M:Library.Contenedor.AddEmprendedor(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Añade un emprendedor al diccionario de emprendedores.
             Se utiliza un diccionario porque es mas facil para buscarlos por ID de usuario.
             </summary>
-            <param name="ID">ID del usuario.</param>
-            <param name="emprendedor">Instancia de clase emprendedor.</param>
+            <param name="name">Nombre del emprendedor.</param>
+            <param name="rubro">Rubro del emprendedor.</param>
+            <param name="ciudad">Ciudad del emprendedor.</param>
+            <param name="calle">Calle del emprendedor.</param>
+            <param name="especializacion">Especializacion del emprendedor.</param>
+            <param name="ID">ID del emprendedor.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmprendedor(System.String)">
             <summary>
@@ -737,12 +800,16 @@
             </summary>
             <param name="ID">ID del usuario.</param>
         </member>
-        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Empresa)">
+        <member name="M:Library.Contenedor.AddEmpresa(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Agrega una empresa al diccioanrio de empresas.
             </summary>
-            <param name="ID">ID del usuario</param>
-            <param name="empresa">Instancia de la clase empresa.</param>
+            <param name="name">Nombre de la empresa.</param>
+            <param name="rubro">Rubro de la empresa.</param>
+            <param name="ciudad">Ciudad de la empresa.</param>
+            <param name="calle">Calle de la empresa.</param>
+            <param name="ID">ID de la empresa.</param>
+            <param name="telefono">Telefono de la empresa.</param>
         </member>
         <member name="M:Library.Contenedor.RemoveEmmpresa(System.String)">
             <summary>
@@ -761,6 +828,118 @@
             Agrega a un administrador a la lista de admins.
             </summary>
             <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.Contenedor.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializaremprendedor">
+            <summary>
+            Serializa el diccionario de emprendedores.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializarempresa">
+            <summary>
+            Serializa el diccionario de empresas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializarhabilitacion">
+            <summary>
+            Serializa la lista de habilitaciones.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializarrubro">
+            <summary>
+            Serializa la lista de rubros.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializarclasificacion">
+            <summary>
+            Serializa la lista de clasificaciones.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializaroferta">
+            <summary>
+            Serializa la lista de ofertas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializaradministrador">
+            <summary>
+            Serializa la lista de adminstradores.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Contenedor.serializarinvitado">
+            <summary>
+            Serializa la lista de invitados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Library.Contenedor.jsonemprendedor">
+            <summary>
+            Diccionario de emprendedores convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonempresa">
+            <summary>
+            Diccionario de empresas convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonhabilitacion">
+            <summary>
+            Listas de habilitaciones convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonrubro">
+            <summary>
+            Listas de rubros convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonclasificacion">
+            <summary>
+            Lista de clasificaciones convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonoferta">
+            <summary>
+            Lista de ofertas convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsonadmin">
+            <summary>
+            Lista de admins convertidas en string.
+            </summary>
+        </member>
+        <member name="F:Library.Contenedor.jsoninvitado">
+            <summary>
+            Lista de invitados convertidas en string.
+            </summary>
+        </member>
+        <member name="M:Library.Contenedor.Serializar">
+            <summary>
+            Metodo de serialización de la api de persistencia.
+            </summary>
+        </member>
+        <member name="M:Library.Contenedor.Deserializar(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metodo de deserialización de la api de persistencia.
+            </summary>
+            <param name="deserializarhabilitacion">Direccion de JSON de habilitaciones.</param>
+            <param name="deserializarrubro">Direccion de JSON de rubros.</param>
+            <param name="deserializarclasificacion">Direccion de JSON de clasificacion.</param>
+            <param name="deserializaremprendedor">Direccion de JSON de emprendedores.</param>
+            <param name="deserializarempresa">Direccion de JSON de empresas.</param>
+            <param name="deserializaradmin">Direccion de JSON de admins.</param>
+            <param name="deserializarinvitado">Direccion de JSON de invitados.</param>
+            <param name="deserializaroferta">Direccion de JSON de ofertas.</param>
         </member>
         <member name="T:Library.DatosTemporales">
             <summary>
@@ -804,6 +983,11 @@
             Esta clase representa una Habilitacion basica.
             </summary>
         </member>
+        <member name="M:Library.Habilitacion.#ctor">
+            <summary>
+            Constructor vacío para la deserialización.
+            </summary>
+        </member>
         <member name="M:Library.Habilitacion.#ctor(System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Habilitacion"/>.
@@ -815,31 +999,28 @@
             <summary>
             Obtiene un valor que indica el nombre de la habilitacion.
             </summary>
-            <value>this.name.</value>
         </member>
         <member name="P:Library.Habilitacion.Descripcion">
             <summary>
             Obtiene un valor que indica la descripcion de la habilitacion.
             </summary>
-            <value>this.descripcion.</value>
         </member>
-        <member name="T:Library.IManejoDeDatos">
+        <member name="M:Library.Habilitacion.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IJsonSerialize">
             <summary>
             Interface con la firma de los métodos que debe tener un manejador de datos.
             </summary>
         </member>
-        <member name="M:Library.IManejoDeDatos.GuardarInfo(System.String,System.String)">
+        <member name="M:Library.IJsonSerialize.ConvertToJson">
             <summary>
-            Guarda los datos en un archivo.
+            Método que serializa un objeto en formato Json.
             </summary>
-            <param name="dondeGuardar">parametro que indica donde se va a guardar el archivo.</param>
-            <param name="nombreArchivo">parametro que indica el nombre del archivo a guardar.</param>
-        </member>
-        <member name="M:Library.IManejoDeDatos.DevolverInfo(System.String)">
-            <summary>
-            Devuelve los datos de un archivo.
-            </summary>
-            <param name="dondeBuscar">parametro que indica donde va a buscar el archivo.</param>
+            <returns>String con el objeto serializado en formato Json.</returns>
         </member>
         <member name="T:Library.Busqueda">
             <summary>
@@ -891,6 +1072,30 @@
             <param name="basededatos">Es la base de datos donde se buscan las ofertas disponibles.</param>
             <returns>Lista de ofertas que cumplen con los requisitos.</returns>
         </member>
+        <member name="T:Library.FechaCompraOferta">
+            <summary>
+            Clase que guarda la fecha de compra de una oferta y el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.FechaCompraOferta.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor de Fecha compra oferta.
+            </summary>
+            <param name="idComprador">ID del comprador.</param>
+            <param name="fechaCompra">Fecha de compra.</param>
+        </member>
+        <member name="P:Library.FechaCompraOferta.IdComprador">
+            <summary>
+            Obtiene o establece el id del comprador.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.FechaCompraOferta.FechaCompra">
+            <summary>
+            Obtiene o establece la fecha de compra.
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Library.Material">
             <summary>
             Clase que representa al Material.
@@ -939,11 +1144,18 @@
         </member>
         <member name="T:Library.Oferta">
             <summary>
-            Esta clase representa una oferta. Es una subclase de OfertaBase
-            Esto se debe a porque al ser una oferta recurrente necesita una property que es fechaDeGeneracion.
+            Esta clase representa una oferta.
+            Es experta (EXPERT) en la creación de ofertas.
+            Ademas se utiliza el patron CREATOR, pues los materiales son creados al momento de inicializar la oferta.
+            Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
             </summary>
         </member>
-        <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.DateTime)">
+        <member name="M:Library.Oferta.#ctor">
+            <summary>
+            Constructor de oferta vacío para la deserialización.
+            </summary>
+        </member>
+        <member name="M:Library.Oferta.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32,System.DateTime)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Oferta"/>.
             </summary>
@@ -956,7 +1168,14 @@
             <param name="cantidad">cantidad del material.</param>
             <param name="unidad">unidad del material.</param>
             <param name="valor">valor del material.</param>
+            <param name="recurrenciaSemanal">Cada cuantas semanas se renueva la oferta.</param>
             <param name="fechaDeGeneracion">cuando se genera la oferta.</param>
+        </member>
+        <member name="P:Library.Oferta.RecurrenciaSemanal">
+            <summary>
+            Recurrencia semanal. Esto es un int de cada cuantas semanas se repite la oferta.
+            </summary>
+            <value></value>
         </member>
         <member name="P:Library.Oferta.FechadeGeneracion">
             <summary>
@@ -964,121 +1183,141 @@
             </summary>
             <value>La fecha de la generacion.</value>
         </member>
-        <member name="P:Library.Oferta.Disponible">
+        <member name="P:Library.Oferta.Identificador">
             <summary>
-            
+            ID de la oferta.
             </summary>
             <value></value>
         </member>
-        <member name="T:Library.OfertaBase">
-            <summary>
-            Clase abstracta que representa la base de oferta. 
-            Es experta en la creación de ofertas.
-            Ademas se utiliza el patron creator, pues los materiales son creados al momento de inicializar la oferta.
-            Pues oferta usa de forma muy cercana los materiales. => oferta tiene la responsabilidad de crear materiales.
-            Se utilizo una clase abstracta de oferta, pues se requieren tener dos tipos diferentes de oferta en el programa,
-            con properties diferentes. Por lo tanto tener instanciada una clase abstracta de oferta, facilita el codigo.
-            Ademas que deja abierto a la posibilidad de crear otras ofertas mediante la herencia de OfertaBase.
-            </summary>
-        </member>
-        <member name="M:Library.OfertaBase.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaBase"/>.
-            </summary>
-            <param name="nombreoferta">Nombre de la oferta a crear.</param>
-            <param name="empresa">Empresa que crea la oferta.</param>
-            <param name="ciudad">Ciudad donde se encuentra la oferta.</param>
-            <param name="calle">Calle donde esta la oferta.</param>
-            <param name="nombreMaterial">Nombre del material a ofertar.</param>
-            <param name="clasificacion">Clasificación del material.</param>
-            <param name="cantidad">Cantidad a ofertar.</param>
-            <param name="unidad">Unidad del material.</param>
-            <param name="valor">Valor de la oferta.</param>
-        </member>
-        <member name="P:Library.OfertaBase.Nombreoferta">
+        <member name="P:Library.Oferta.Nombreoferta">
             <summary>
             Obtiene o establece el nombre de la oferta.
             </summary>
             <value>Nombre de la oferta.</value>
         </member>
-        <member name="P:Library.OfertaBase.FechaVenta">
+        <member name="P:Library.Oferta.Calle">
             <summary>
-            Obtiene o establece fecha en la cual se realizo la venta.
+            Obtiene o establece la calles donde se encuentra la oferta.
             </summary>
-            <value>Fecha de la venta.</value>
+            <value></value>
         </member>
-        <member name="P:Library.OfertaBase.Material">
+        <member name="P:Library.Oferta.Ciudad">
+            <summary>
+            Obtiene o establece la ciudad donde se encuentra la oferta.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Nombrematerial">
+            <summary>
+            Obtiene o establece el nombre del materia de la oferta.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Clasificacion">
+            <summary>
+            Obtiene o establece la clasificacion del material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Cantidad">
+            <summary>
+            Obtiene o establece la cantidad de material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Unidad">
+            <summary>
+            Obtiene o establece la unidad del material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Valor">
+            <summary>
+            Obtiene o establece el precio de la oferta.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Oferta.Material">
             <summary>
             Obtiene o establece material ofertado en la oferta.
             </summary>
             <value>Material ofrecido.</value>
         </member>
-        <member name="P:Library.OfertaBase.Empresa">
+        <member name="P:Library.Oferta.Empresa">
             <summary>
             Obtiene empresa que realiza la oferta.
             </summary>
             <value>Empresa que oferta.</value>
         </member>
-        <member name="P:Library.OfertaBase.Ubicacion">
+        <member name="P:Library.Oferta.Ubicacion">
             <summary>
             Obtiene o establece ubicación de la oferta.
             </summary>
             <value>Ubicacion de la oferta.</value>
         </member>
-        <member name="P:Library.OfertaBase.PalabrasClaves">
+        <member name="P:Library.Oferta.PalabrasClaves">
             <summary>
             Obtiene palabras clave de la oferta, estas sirven para su futura busqueda.
             </summary>
             <value>Palabras clave de la oferta.</value>
         </member>
-        <member name="P:Library.OfertaBase.Habilitaciones">
+        <member name="P:Library.Oferta.Habilitaciones">
             <summary>
             Obtiene lista de habilitaciones nesesarias para poder adquirir la oferta.
             </summary>
             <value>retorna this.habilitaciones.</value>
         </member>
-        <member name="M:Library.OfertaBase.AddHabilitacion(Library.Habilitacion)">
+        <member name="M:Library.Oferta.AddHabilitacion(Library.Habilitacion)">
             <summary>
             Añade habilitaciones a la lista.
             </summary>
             <param name="habilitacion">Habilitaciones necesarias para adquirir la oferta.</param>
         </member>
-        <member name="M:Library.OfertaBase.AddPalabraClave(System.String)">
+        <member name="M:Library.Oferta.AddPalabraClave(System.String)">
             <summary>
             Añade palabras clave a la lista.
             </summary>
             <param name="palabraClave">Palabras clave para buscar la oferta.</param>
         </member>
-        <member name="T:Library.OfertaRecurrente">
+        <member name="P:Library.Oferta.Disponible">
             <summary>
-            Esta clase representa una oferta recurrente. Es una subclase de OfertaBase
-            Esto se debe a porque al ser una oferta recurrente necesita una property que es recurrenciaMensual.
+            Obtiene si la oferta esta disponible o no PARA OFERTAS ÚNICAS.
             </summary>
+            <value></value>
         </member>
-        <member name="M:Library.OfertaRecurrente.#ctor(System.String,Library.Empresa,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32)">
+        <member name="P:Library.Oferta.FechaCompra">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.OfertaRecurrente"/>.
+            Obtiene la fecha de compra PARA OFERTAS ÚNICAS.
             </summary>
-            <param name="nombreoferta">parametro nombre de la oferta.</param>
-            <param name="empresa">parametro empresa que oferta.</param>
-            <param name="ciudad">ciuadad donde se encuentra la oferta.</param>
-            <param name="calle">callle donde se encuentra la oferta.</param>
-            <param name="nombreMaterial">nombre del material donde se encuentra la oferta.</param>
-            <param name="clasificacion">clasificacion del material.</param>
-            <param name="cantidad">cantidad del material.</param>
-            <param name="unidad">unidad del material.</param>
-            <param name="valor">valor del material.</param>
-            <param name="recurrenciaMensual">cuantas veces se repite en un mes.</param>
+            <value></value>
         </member>
-        <member name="P:Library.OfertaRecurrente.RecurrenciaMensual">
+        <member name="M:Library.Oferta.AddComprador(System.String,System.DateTime)">
             <summary>
-            Obtiene o establece el número de veces que se repite la oferta en un mes.
+            Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes.
             </summary>
-            <value>this.RecurrenciaMensual.</value>
+            <param name="id">ID del usuario.</param>
+            <param name="fecha">Fecha de compra.</param>
+        </member>
+        <member name="P:Library.Oferta.RegistroVentas">
+            <summary>
+            Obtiene el registro de ventas PARA OFERTAS RECURRENTES.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Oferta.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
             Esta clase representa una ubicacion.
+            </summary>
+        </member>
+        <member name="M:Library.Ubicacion.#ctor">
+            <summary>
+            Constructor vacío para la serialización.
             </summary>
         </member>
         <member name="M:Library.Ubicacion.#ctor(System.String,System.String)">
@@ -1100,9 +1339,20 @@
             </summary>
             <value>this.calle.</value>
         </member>
+        <member name="M:Library.Ubicacion.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>    
+        </member>
         <member name="T:Library.Rubro">
             <summary>
             Clase que representa los rubros.
+            </summary>
+        </member>
+        <member name="M:Library.Rubro.#ctor">
+            <summary>
+            Constructor vacío de rubro para la deserialización
             </summary>
         </member>
         <member name="M:Library.Rubro.#ctor(System.String,System.String,System.String)">
@@ -1131,6 +1381,42 @@
             </summary>
             <value>La descripcion del Rubro.</value>
         </member>
+        <member name="M:Library.Rubro.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.StatusManager">
+            <summary>
+            Esta clase es la responsable de manejar los datos de los usuarios.
+            Utiliza el patron de diseño singleton.
+            </summary>
+        </member>
+        <member name="P:Library.StatusManager.Instancia">
+            <summary>
+            Instancia de status maneger.
+            </summary>
+        </member>
+        <member name="P:Library.StatusManager.UserStatusChat">
+            <summary>
+            Obtiene el diccionario de usuarios y su status.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.StatusManager.AddKeyUser(System.String)">
+            <summary>
+            Añade el usuario al diccionario de status pero sin status.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+        </member>
+        <member name="M:Library.StatusManager.AddUserStatus(System.String,System.String)">
+            <summary>
+            Añade el status del usuario al diccionario.
+            </summary>
+            <param name="ID">ID del usuario.</param>
+            <param name="status">Status del usuario.</param>
+        </member>
         <member name="T:Library.Admin">
             <summary>
             Esta clase representa un Administrador de la aplicacion.
@@ -1154,6 +1440,12 @@
             </summary>
             <param name="userEmpresa">parametro userEmpresa que represneta el usuario de la empresa a inviatr.</param>
         </member>
+        <member name="M:Library.Admin.ConvertToJson">
+            <summary>
+            Convert to Json.
+            </summary>
+            <returns>Retorna el JSON.</returns>
+        </member>
         <member name="T:Library.Emprendedor">
             <summary>
             Esta clase representa un Emprendedor.
@@ -1161,7 +1453,12 @@
             EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
             </summary>
         </member>
-        <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String)">
+        <member name="M:Library.Emprendedor.#ctor">
+            <summary>
+            Constructor vacío para deserialización.
+            </summary>
+        </member>
+        <member name="M:Library.Emprendedor.#ctor(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Emprendedor"/>.
             </summary>
@@ -1170,6 +1467,55 @@
             <param name="ciudad">parametro ciudad recibido por el constructor del emprendedor.</param>
             <param name="calle">parametro calle recibido por el constructor del emprendedor.</param>
             <param name="especializacion">parametro especializacion recibidio por el constructor del emprendedor.</param>
+            <param name="id">parametro id del emprendedor que se registra.</param>
+        </member>
+        <member name="P:Library.Emprendedor.Nombre">
+            <summary>
+            Obtiene o establece un valor el nombre del usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.ID">
+            <summary>
+            Obtiene o establece el id del usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Rubro">
+            <summary>
+            Obtiene o establece un valor que es el rubro del usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Ciudad">
+            <summary>
+            Obtiene o establece la ciudad donde esta ubicado el emprendedor.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Calle">
+            <summary>
+            Obtiene o establece la calle donde esta ubicado el emprendedor.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Ubicacion">
+            <summary>
+            Obtiene o establece un valor que indica la ubicacion del usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.RegistroUsuario">
+            <summary>
+            Obtiene un valor que indica el registro del usuario.
+            </summary>
+        </member>
+        <member name="M:Library.Emprendedor.AddToRegister(Library.Oferta)">
+            <summary>
+            Añiade al registro del usuario la oferta.
+            </summary>
+            <param name="oferta">Parametro.</param>
+        </member>
+        <member name="M:Library.Emprendedor.BuscarEnHistorial(System.DateTime)">
+            <summary>
+            Busca en el registro del usuario.
+            </summary>
+            <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
+            <returns>una lista de ofertas llamada resultado.</returns>
         </member>
         <member name="P:Library.Emprendedor.Especializacion">
             <summary>
@@ -1195,6 +1541,12 @@
             </summary>
             <param name="habilitacion">parametro habilitaciones que recibe el metodo RemoveHabilitacion.</param>
         </member>
+        <member name="M:Library.Emprendedor.ConvertToJson">
+            <summary>
+            Convert To Json.
+            </summary>
+            <returns>Devuelve el JSON.</returns>
+        </member>
         <member name="T:Library.Empresa">
             <summary>
             Clase que representa una Empresa.
@@ -1202,7 +1554,12 @@
             EXPERT, porque conoce toda la informacion que debe conocer una empresa.
             </summary>
         </member>
-        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String)">
+        <member name="M:Library.Empresa.#ctor">
+            <summary>
+            Constructor de empresa vacío para deserialización.
+            </summary>
+        </member>
+        <member name="M:Library.Empresa.#ctor(System.String,Library.Rubro,System.String,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             </summary>
@@ -1210,65 +1567,89 @@
             <param name="rubro">parametro rubro recibido por el constructor de la empresa.</param>
             <param name="ciudad">parametro ciudad recibido por el constructor de la emrpesa.</param>
             <param name="calle">parametro calle recibido por el constructor de la empresa.</param>
+            <param name="id">parametro id recibido por el constructor de la empresa.</param>
+            <param name="telefono">parametro telefono recibido por el constructor de la empresa.</param>
         </member>
-        <member name="T:Library.Usuario">
-            <summary>
-            Esta clase representa un usuario de la aplicación.
-            Es una clase abstracta, por lo que no puede ser instanciada.
-            Representa a un usuario de la aplicación de manera general.
-            </summary>
-        </member>
-        <member name="M:Library.Usuario.#ctor(System.String,Library.Rubro,System.String,System.String)">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Usuario"/>.
-            </summary>
-            <param name="nombre">parametro nombre recibido por el constructor del usuario.</param>
-            <param name="rubro">parametro rubro recibido por el constructor del usuario.</param>
-            <param name="ciudad">parametro ciudad recibido por el constructor del usuario.</param>
-            <param name="calle">parametro calle recibido por el constructor del usuario.</param>
-        </member>
-        <member name="P:Library.Usuario.Nombre">
-            <summary>
-            Obtiene o establece un valor el nombre del usuario.
-            </summary>
-            <value>this.nombre.</value>
-        </member>
-        <member name="P:Library.Usuario.ID">
+        <member name="P:Library.Empresa.ID">
             <summary>
             Obtiene o establece el id del usuario.
             </summary>
             <value></value>
         </member>
-        <member name="P:Library.Usuario.Rubro">
+        <member name="P:Library.Empresa.Nombre">
+            <summary>
+            Obtiene o establece un valor el nombre del usuario.
+            </summary>
+            <value>this.nombre.</value>
+        </member>
+        <member name="P:Library.Empresa.Calle">
+            <summary>
+            Obtiene o establece la calle donde se ubica la empresa.
+            </summary>
+        </member>
+        <member name="P:Library.Empresa.Ciudad">
+            <summary>
+            Obtiene o establece la ciudad donde se ubica la empresa.
+            </summary>
+        </member>
+        <member name="P:Library.Empresa.Telefono">
+            <summary>
+            Obtiene o establece el telefono de la empresa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresa.Rubro">
             <summary>
             Obtiene o establece un valor que es el rubro del usuario.
             </summary>
             <value>this.rubro.</value>
         </member>
-        <member name="P:Library.Usuario.Ubicacion">
+        <member name="P:Library.Empresa.Ubicacion">
             <summary>
             Obtiene o establece un valor que indica la ubicacion del usuario.
             </summary>
             <value>this.ubicacion.</value>
         </member>
-        <member name="P:Library.Usuario.RegistroUsuario">
+        <member name="P:Library.Empresa.RegistroUsuario">
             <summary>
             Obtiene un valor que indica el registro del usuario.
             </summary>
             <value>this.registroUsuario.</value>
         </member>
-        <member name="M:Library.Usuario.AddToRegister(Library.OfertaBase)">
+        <member name="M:Library.Empresa.AddToRegister(Library.Oferta)">
             <summary>
             Añiade al registro del usuario la oferta.
             </summary>
             <param name="oferta">Parametro.</param>
         </member>
-        <member name="M:Library.Usuario.BuscarEnHistorial(System.DateTime)">
+        <member name="M:Library.Empresa.BuscarEnHistorial(System.DateTime)">
             <summary>
             Busca en el registro del usuario.
             </summary>
             <param name="fechaDesde">Parametro que indica la fechaDesde donde se desea buscar.</param>
             <returns>una lista de ofertas llamada resultado.</returns>
+        </member>
+        <member name="M:Library.Empresa.CrearOferta(System.String,System.String,System.String,System.String,Library.Clasificacion,System.Int32,System.String,System.Double,System.Int32,System.DateTime)">
+            <summary>
+            Metodo para crear ofertas.
+            Utiliza el patrón de diseño Creator.
+            </summary>
+            <param name="nombre">Nombre de la oferta.</param>
+            <param name="ciudad">Ciudad de la oferta.</param>
+            <param name="calle">Calle de la oferta.</param>
+            <param name="nombreMaterial">Nombre del material de la oferta.</param>
+            <param name="clasificacion">Clasificacion de la oferta.</param>
+            <param name="cantidad">Cantidad de la oferta.</param>
+            <param name="unidad">Unidad de la oferta.</param>
+            <param name="valor">Valor de la oferta.</param>
+            <param name="recurr">Recurrencia de la oferta.</param>
+            <param name="fecha">Fecha de la oferta.</param>
+        </member>
+        <member name="M:Library.Empresa.ConvertToJson">
+            <summary>
+            Convert to json.
+            </summary>
+            <returns>Retorna el JSON.</returns>
         </member>
     </members>
 </doc>

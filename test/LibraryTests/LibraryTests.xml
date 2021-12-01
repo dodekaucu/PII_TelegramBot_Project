@@ -121,6 +121,46 @@
             Este test prueba como se procesa el mensaje cuando el usuario es administrador.
             </summary>
         </member>
+        <member name="T:ProgramTests.TestOfertasConsumidasDesde">
+            <summary>
+            Esta clase prueba el handler de HistorialDesde. Concretamente desde el punto de vista de una empresa
+            Le permitira a la empresa saber todos los materiales o residuos entregados en un período de tiempo.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasConsumidasDesde.Setup">
+            <summary>
+            Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa
+            Luego se le agrega un comprador a la oferta (el emprendedor), Asi como agregarlo al registro de c/usuario
+            (Esto se demuestra que se hace automaticamente en el handler de /AnadirComprador).
+            Por ultimo se crea el message asi como el TelegramMSGadpater.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasConsumidasDesde.EmpresaHistorialDesde">
+            <summary>
+            Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas desde
+            una fecha anterior.
+            </summary>
+        </member>
+        <member name="T:ProgramTests.TestOfertasVendidasDesde">
+            <summary>
+            Esta clase prueba el handler de HistorialDesde. Concretamente desde el punto de vista de una empresa
+            Le permitira a la empresa saber todos los materiales o residuos entregados en un período de tiempo.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasVendidasDesde.Setup">
+            <summary>
+            Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa
+            Luego se le agrega un comprador a la oferta (el emprendedor), Asi como agregarlo al registro de c/usuario
+            (Esto se demuestra que se hace automaticamente en el handler de /AnadirComprador).
+            Por ultimo se crea el message asi como el TelegramMSGadpater.
+            </summary>
+        </member>
+        <member name="M:ProgramTests.TestOfertasVendidasDesde.EmpresaHistorialDesde">
+            <summary>
+            Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde
+            una fecha anterior.
+            </summary>
+        </member>
         <member name="T:ProgramTests.PublicarOfertaRecurrenteTests">
             <summary>
             Esta clase prueba el handler de PublicarOferta. Concretamente cuando se toma la ruta de oferta recurrente.
@@ -179,6 +219,46 @@
         <member name="M:ProgramTests.RegistroHandlerTests.TestRegistroUsuarioRegistrado">
             <summary>
             Este test representa lo que sucede cuando el usuario intenta registrarse otra vez.
+            </summary>
+        </member>
+        <member name="T:Test.Tests">
+            <summary>
+            Pruebas de las diferentes Users story.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testRubro">
+            <summary>
+            Rubro para pruebas.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testHabilitacion">
+            <summary>
+            Habilitacion para prueba.
+            </summary>
+        </member>
+        <member name="F:Test.Tests.testClasifciacion">
+            <summary>
+            Clasificacion para prueba.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.Setup">
+            <summary>
+            Crea un Rubro, una habilitacion y una clasificacion para pruebas.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearEmpresa">
+            <summary>
+            Prueba que se cree la empresa.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearMateriales">
+            <summary>
+             Prueba que se crea materiales.
+            </summary>
+        </member>
+        <member name="M:Test.Tests.TestCrearEmprendedor">
+            <summary>
+            Prueba que se cree el emprendedor.
             </summary>
         </member>
     </members>

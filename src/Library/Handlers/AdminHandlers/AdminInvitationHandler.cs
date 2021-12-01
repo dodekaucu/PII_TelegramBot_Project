@@ -1,6 +1,8 @@
-using System;
-using System.Linq;
-using Telegram.Bot.Types;
+//--------------------------------------------------------------------------------
+// <copyright file="AdminInvitationHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Library;
 
 namespace Handlers
@@ -34,7 +36,7 @@ namespace Handlers
             {
                 if (db.Administradores.Contains(message.ID.ToString()))
                 {
-                    string invitado = message.Text.Replace("/Invitar ","").Trim();
+                    string invitado = message.Text.ToLower().Replace("/invitar ","").Trim();
                     db.AddInvitado(invitado); 
                     response = "La empresa con el usuario: " + invitado + " ha sido agregado a la lista de empresas invitadas";
                     return true;

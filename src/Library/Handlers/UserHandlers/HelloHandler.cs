@@ -1,4 +1,8 @@
-using Library;
+//--------------------------------------------------------------------------------
+// <copyright file="HelloHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 
 namespace Handlers
 {
@@ -26,7 +30,7 @@ namespace Handlers
         {
             if (message.Text.ToLower().Equals("hola"))
             {
-                response = "¡Hola! ¿Cómo estás?";
+                response = "¡Hola! ¿Cómo estás? Soy el asistente de DoDeka, por favor si tiene alguna duda utilize el comando /ayuda";
                 return true;
             }
 

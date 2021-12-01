@@ -1,6 +1,9 @@
-using System;
+//--------------------------------------------------------------------------------
+// <copyright file="BuscarHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using Library;
-using System.Collections.Generic;
 
 namespace Handlers
 {
@@ -58,7 +61,7 @@ namespace Handlers
                     else
                     {
                     string emprend = message.ID.ToString();
-                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca.Trim(),db));
+                    string OfertasValidas = impresora.Imprimir(buscador.BuscarOferta(db.Emprendedores[emprend],busca,db));
                     response = $"{OfertasValidas}";
                     return true;
                     }

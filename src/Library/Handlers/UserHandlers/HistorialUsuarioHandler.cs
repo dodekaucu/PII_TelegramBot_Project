@@ -1,6 +1,9 @@
+//--------------------------------------------------------------------------------
+// <copyright file="HistorialUsuarioHandler.cs" company="Universidad Católica del Uruguay">
+//     Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
-using Telegram.Bot.Types;
-using System.Linq;
 using Library;
 
 namespace Handlers
@@ -44,7 +47,7 @@ namespace Handlers
                 }
                 else
                 {
-                    response = "Ingrese la fecha desde donde desee consultar el registro.\nRecuerde que la fecha debe tener la forma xx/xx/xxxx";
+                    response = "Ingrese la fecha desde donde desee consultar el registro.\nRecuerde que la fecha debe tener la forma dd/mm/aaaa";
                     //sm.AddKeyUser(message.ID);
                     sm.AddUserStatus(message.ID,"/HistorialDesde");
                     return true;
@@ -63,7 +66,7 @@ namespace Handlers
                     response = "Usted no es el Doc Brown para viajar en el tiempo, por favor, ingrese una fecha valida";
                     return true;
                 }
-                else // ver como imprimir las fechas de compra !!!!!
+                else 
                 {
                     if(db.Emprendedores.ContainsKey(message.ID))
                     {
@@ -75,23 +78,29 @@ namespace Handlers
                             response = "No hay ninguna oferta comprada desde el "+message.Text;
                             return true;
                         }
-                        foreach (OfertaBase oferta in db.Emprendedores[message.ID].BuscarEnHistorial(fechaDesde))
+                        foreach (Oferta oferta in db.Emprendedores[message.ID].BuscarEnHistorial(fechaDesde))
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaSemanal == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
-                            }
-                            if(oferta as OfertaRecurrente != null)
-                            {
-                                o1= oferta as OfertaRecurrente;
-                                foreach (FechaCompraOferta item in o1.RegistroVentas)
+                                Oferta o = oferta;
+                                if (oferta as Oferta != null)
                                 {
-                                    if(item.IdComprador == message.ID)
+                                    o = oferta as Oferta;
+                                    opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra}\n\n"+linea+"\n";
+                                }
+                            }
+                            else if (oferta.RecurrenciaSemanal > 0)
+                            {
+                                Oferta o1 = oferta;
+                                if(oferta as Oferta != null)
+                                {
+                                    o1= oferta as Oferta;
+                                    foreach (FechaCompraOferta item in o1.RegistroVentas)
                                     {
-                                        opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        if(item.IdComprador == message.ID)
+                                        {
+                                            opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        }
                                     }
                                 }
                             }
@@ -109,23 +118,29 @@ namespace Handlers
                             response = "No hay ninguna oferta vendida desde el "+message.Text;
                             return true;
                         }
-                        foreach (OfertaBase oferta in db.Empresas[message.ID].BuscarEnHistorial(fechaDesde)) 
+                        foreach (Oferta oferta in db.Empresas[message.ID].BuscarEnHistorial(fechaDesde)) 
                         {
-                            Oferta o;
-                            OfertaRecurrente o1;
-                            if (oferta as Oferta != null)
+                            if (oferta.RecurrenciaSemanal == 0)
                             {
-                                o = oferta as Oferta;
-                                opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
-                            }
-                            if(oferta as OfertaRecurrente != null)
-                            {
-                                o1= oferta as OfertaRecurrente;
-                                foreach (FechaCompraOferta item in o1.RegistroVentas)
+                                Oferta o = oferta;
+                                if (oferta as Oferta != null)
                                 {
-                                    if(item.IdComprador == message.ID)
+                                    o = oferta as Oferta;
+                                    opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {o.FechaCompra.FechaCompra.Date}\n\n"+linea+"\n";
+                                }
+                            }
+                            else if (oferta.RecurrenciaSemanal > 0)
+                            {
+                                Oferta o1 = oferta;
+                                if(oferta as Oferta != null)
+                                {
+                                    o1= oferta as Oferta;
+                                    foreach (FechaCompraOferta item in o1.RegistroVentas)
                                     {
-                                        opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        if(item.IdComprador == message.ID)
+                                        {
+                                            opciones = opciones + $"NOMBRE: {oferta.Nombreoferta}\nNOMBRE MATERIAL: {oferta.Material.Nombre} {oferta.Material.Cantidad} {oferta.Material.Unidad}\n\nFECHA COMPRA: {item.FechaCompra}\n\n"+linea+"\n";
+                                        }
                                     }
                                 }
                             }
