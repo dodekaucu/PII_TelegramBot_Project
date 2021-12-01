@@ -1,0 +1,27 @@
+digraph "Library.Busqueda.BuscarOferta"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Busqueda.BuscarOferta",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="La función para buscar ofertas reciben un string con las palabras a buscar y revisa cada oferta para ..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.BuscarClasificHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarClasificHandler.html#adbb79f3c3de0235e5b70dd1ab10f88b3",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BuscarHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarHandler.html#ab835c1043938bfec19c029baa0f1c456",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.BuscarUbiHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarUbiHandler.html#a4e8b851c63ac2865fc8623e92c748875",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Test.Tests.TestBusquedaCategoria",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a5e1d75196e2cc96f7e4d9eab6371d3ce",tooltip="Test de la clase busqeuda, realiza una busqueda por categoria de material."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ProgramTests.TestBusqueda.\lTestBusquedaPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusqueda.html#aabc32f0e476b686818e70f9e1c4554f7",tooltip="Este test prueba la busqueda por palabras clave."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ProgramTests.TestBusqueda\lClasific.TestBusquedaPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaClasific.html#ad03581cb5df9b72041318cb865b1d46e",tooltip="Este test prueba la busqueda por clasificación de los materiales."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Test.Tests.TestBusquedaPalabras\lClave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a679b476e08b99beee1a627f2daba1be6",tooltip="Test de la clase busqueda, realiza una busqueda por palabras claves."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="ProgramTests.TestBusqueda\lUbi.TestBusquedaUbicacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaUbi.html#a8f0af28e394f300267c807c22c335177",tooltip="Este test prueba la busqueda por ubicación."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Test.Tests.TestBusquedaUbicacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a99aa6bd011f89fcddf1592f05df71053",tooltip="Test de la clase busqueda, realiza una busqueda por Ubicacion."];
+}

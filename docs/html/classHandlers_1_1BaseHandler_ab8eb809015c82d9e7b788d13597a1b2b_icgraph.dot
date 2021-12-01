@@ -1,0 +1,41 @@
+digraph "Handlers.BaseHandler.InternalHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Handlers.BaseHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y re..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.BaseHandler.Handle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#af57875ebe4cc0deb8a06ae86cbb89817",tooltip="Procesa el mensaje o la pasa al siguiente \"handler\" si existe."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ProgramTests.TestOfertas\lConsumidasDesde.EmpresaHistorialDesde",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasConsumidasDesde.html#acfa26f22a50b5238778a8aa997d4b8a9",tooltip="Test que simula una interaccion desde un usuario (Emprendedor) que consulta las ofertas compradas des..."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ProgramTests.TestOfertas\lVendidasDesde.EmpresaHistorialDesde",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasVendidasDesde.html#aa324380eb38030006a5beb4d48c11f30",tooltip="Test que simula una interaccion desde un usuario (Empresa) que consulta las ofertas vendidas desde un..."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ProgramTests.TestAddHabilitacion\lEmpresa.TestAddHabilitacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestAddHabilitacionEmpresa.html#a6e296af15792c4e8cf8318e9b7e87d3d",tooltip="Este test prueba la busqueda por palabras clave."];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ProgramTests.TestAddHabilitacion\lEmprendedor.TestAddPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestAddHabilitacionEmprendedor.html#ab56fdbea5f5d489acd9cb959cf151396",tooltip="Este test prueba la busqueda por palabras clave."];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ProgramTests.TestAddPalabras\lClave.TestAddPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestAddPalabrasClave.html#a284d21dddfe74a040c2e539065858903",tooltip="Este test prueba la busqueda por palabras clave."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ProgramTests.TestBusqueda.\lTestBusquedaPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusqueda.html#aabc32f0e476b686818e70f9e1c4554f7",tooltip="Este test prueba la busqueda por palabras clave."];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="ProgramTests.TestBusqueda\lClasific.TestBusquedaPalabras",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaClasific.html#ad03581cb5df9b72041318cb865b1d46e",tooltip="Este test prueba la busqueda por clasificación de los materiales."];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="ProgramTests.TestBusqueda\lUbi.TestBusquedaUbicacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaUbi.html#a8f0af28e394f300267c807c22c335177",tooltip="Este test prueba la busqueda por ubicación."];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="ProgramTests.InvitarHandler\lTests.TestInvitaraEmpresaNOvalido",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1InvitarHandlerTests.html#ae5f2669fd865bdf87684bd403dd96a4a",tooltip="Este test prueba como se procesa el mensaje cuando el usuario no es administrador."];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="ProgramTests.InvitarHandler\lTests.TestInvitaraEmpresaValido",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1InvitarHandlerTests.html#a4bc05b21daeffe2d3c4e917cd7a8dec8",tooltip="Este test prueba como se procesa el mensaje cuando el usuario es administrador."];
+  Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="ProgramTests.PublicarOferta\lHandlerTests.TestPublicarOferta\lNormalHandler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1PublicarOfertaHandlerTests.html#a229cb30cb92ed5711a528e41e2db6f26",tooltip="Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta única."];
+  Node2 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="ProgramTests.PublicarOferta\lRecurrenteTests.TestPublicarOferta\lRecurrenteHandler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1PublicarOfertaRecurrenteTests.html#ad2de74bb339faa86bcee4e60dc5e6f8e",tooltip="Este test prueba como se procesan los mensajes involucrados en la creacion de una oferta recurrente."];
+  Node2 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="ProgramTests.RegistroHandler\lTests.TestRegistroEmprendedorHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1RegistroHandlerTests.html#a9961b66d0b2814d2efd45d5d4a96fc99",tooltip="Este test prueba como se procesan los mensajes para el registro de un emprendedor (usuario con una ID..."];
+  Node2 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="ProgramTests.RegistroHandler\lTests.TestRegistroEmpresaHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1RegistroHandlerTests.html#a2333bb7359dca3df8d8103ced361235f",tooltip="Este test prueba como se procesan los mensajes para realizar el registro de una Empresa (usuario con ..."];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="ProgramTests.RegistroHandler\lTests.TestRegistroUsuarioRegistrado",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1RegistroHandlerTests.html#a730bd39d74abacdb7d9eb1377899d0d4",tooltip="Este test representa lo que sucede cuando el usuario intenta registrarse otra vez."];
+}

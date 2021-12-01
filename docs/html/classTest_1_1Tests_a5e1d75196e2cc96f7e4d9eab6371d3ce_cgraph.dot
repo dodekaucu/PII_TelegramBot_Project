@@ -1,0 +1,13 @@
+digraph "Test.Tests.TestBusquedaCategoria"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Test.Tests.TestBusquedaCategoria",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Test de la clase busqeuda, realiza una busqueda por categoria de material."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Contenedor.AddOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#ad4e4bb01cb25c788a9260f7756821ae2",tooltip="Añiade una oferta a la lista de ofertas."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Library.Busqueda.BuscarOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Busqueda.html#abf75d4c612f608449c7abf723020cd92",tooltip="La función para buscar ofertas reciben un string con las palabras a buscar y revisa cada oferta para ..."];
+}

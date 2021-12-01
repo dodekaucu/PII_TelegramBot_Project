@@ -1,0 +1,19 @@
+digraph "Library.Oferta.AddComprador"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Oferta.AddComprador",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.AnadirComprador\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AnadirCompradorHandler.html#a825fb3c62368be4a8208cf5e55c15824",tooltip="Procesa el comando \"/AñadirCompradorOferta\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ProgramTests.TestOfertas\lConsumidasDesde.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasConsumidasDesde.html#aaff290ad2dcfbff856cd0468d0a42caa",tooltip="Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa Luego se..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ProgramTests.TestOfertas\lVendidasDesde.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasVendidasDesde.html#a684bded4cd2ca3caffc53194202c02b0",tooltip="Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa Luego se..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Test.Tests.TestRegistroEmprendedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a740ac61051a5c213ef57b1d57f148aa7",tooltip="Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo de..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Test.Tests.TestRegistroEmpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#ab7c8a7fce23a25f18126f2723496fdd0",tooltip="Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determi..."];
+}

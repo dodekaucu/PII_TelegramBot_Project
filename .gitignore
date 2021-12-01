@@ -606,5 +606,3 @@ fabric.properties
 # Code coverage
 lcov.info
 
-# Documents
-docs/html

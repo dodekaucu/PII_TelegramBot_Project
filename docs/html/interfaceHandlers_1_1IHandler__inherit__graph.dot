@@ -1,0 +1,46 @@
+digraph "Handlers.IHandler"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Handlers.IHandler\n|+ Next\l|+ Handle()\l+ Cancel()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interfaz para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a travé..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{Handlers.BaseHandler\n|+ Next\l+ Keywords\l|+ BaseHandler()\l+ BaseHandler()\l+ Handle()\l+ Cancel()\l# InternalHandle()\l# InternalCancel()\l# CanHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html",tooltip="Clase base para implementar el patrón Chain of Responsibility. En ese patrón se pasa un mensaje a tra..."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{Handlers.AddAdminHandler\n||+ AddAdminHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddAdminHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/AddAdmin\"."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node4 [label="{Handlers.AddHabilitacion\lHandler\n||+ AddHabilitacionHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddHabilitacionHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/AddHabilitacion\"."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node5 [label="{Handlers.AddPalabraClave\lHandler\n||+ AddPalabraClaveHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddPalabraClaveHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/AddHabilitacion\"."];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node6 [label="{Handlers.AdminInvitation\lHandler\n||+ AdminInvitationHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AdminInvitationHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/Invitar\"."];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node7 [label="{Handlers.AnadirComprador\lHandler\n||+ AnadirCompradorHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AnadirCompradorHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/Info\"."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node8 [label="{Handlers.BuscarClasificHandler\n|+ emprendedor\l+ db\l+ buscador\l|+ BuscarClasificHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarClasificHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"chau\"."];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node9 [label="{Handlers.BuscarHandler\n|+ emprendedor\l+ db\l+ buscador\l|+ BuscarHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"chau\"."];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node10 [label="{Handlers.BuscarUbiHandler\n|+ emprendedor\l+ db\l+ buscador\l|+ BuscarUbiHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarUbiHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"chau\"."];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node11 [label="{Handlers.CancelHandler\n||+ CancelHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1CancelHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/cacnelar\"."];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node12 [label="{Handlers.GoodByeHandler\n||+ GoodByeHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1GoodByeHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"chau\"."];
+  Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node13 [label="{Handlers.HelloHandler\n||+ HelloHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1HelloHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"hola\"."];
+  Node2 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node14 [label="{Handlers.HelpHandler\n||+ HelpHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1HelpHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/ayuda\"."];
+  Node2 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node15 [label="{Handlers.HistorialUsuario\lHandler\n||+ HistorialUsuarioHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1HistorialUsuarioHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/historialDesde\"."];
+  Node2 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node16 [label="{Handlers.InfoUsuarioHandler\n||+ InfoUsuarioHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1InfoUsuarioHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/Info\"."];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node17 [label="{Handlers.MisPublicaciones\lHandler\n||+ MisPublicacionesHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1MisPublicacionesHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/MisPublicaciones\"."];
+  Node2 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node18 [label="{Handlers.PublicarOfertaHandler\n||+ PublicarOfertaHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1PublicarOfertaHandler.html",tooltip="/// Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/PublicarOferta\"."];
+  Node2 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node19 [label="{Handlers.Registro\n||+ Registro()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1Registro.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/registro\"."];
+  Node2 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node20 [label="{Handlers.StartHandler\n||+ StartHandler()\l# InternalHandle()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1StartHandler.html",tooltip="Un \"handler\" del patrón Chain of Responsibility que implementa el comando \"/start\"."];
+}

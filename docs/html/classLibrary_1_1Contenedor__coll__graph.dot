@@ -1,0 +1,27 @@
+digraph "Library.Contenedor"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.Contenedor\n|+ Instancia\l+ Habilitaciones\l+ Rubros\l+ Clasificaciones\l+ Ofertas\l+ Emprendedores\l+ Empresas\l+ Invitados\l+ Administradores\l|+ Contenedor()\l+ AddHabilitacion()\l+ RemoveHabiltiacion()\l+ AddRubro()\l+ RemoveRubro()\l+ AddClasificacion()\l+ RemoveClasificacion()\l+ AddOferta()\l+ RemoveOferta()\l+ AddEmprendedor()\land 16 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Esta clase representa un contenedor de las diferentes clases del bot. Utiliza el patron de diseño Sin..."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{IJsonSerialize\n||+ ConvertToJson()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceLibrary_1_1IJsonSerialize.html",tooltip="Interface con la firma de los métodos que debe tener un manejador de datos."];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +jsonadmin\n+jsonclasificacion\n+jsonemprendedor\n+jsonempresa\n+jsonhabilitacion\n+jsoninvitado\n+jsonoferta\n+jsonrubro" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +clasificaciones" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{Collection\< Library.Clasificacion \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +administradores\n+invitados" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{Collection\< string \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +rubros" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node6 [label="{Collection\< Library.Rubro \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node7 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +empresas" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node7 [label="{Dictionary\< string,\l Library.Empresa \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node8 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +emprendedores" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node8 [label="{Dictionary\< string,\l Library.Emprendedor \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +habilitaciones" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node9 [label="{Collection\< Library.Habilitacion \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node10 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +ofertas" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node10 [label="{Collection\< Library.Oferta \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +contenedor" ,arrowhead="odiamond",fontname="Helvetica"];
+}

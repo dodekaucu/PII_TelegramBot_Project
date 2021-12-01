@@ -1,0 +1,11 @@
+digraph "Library.Contenedor.Deserializar"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Contenedor.Deserializar",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Metodo de deserialización de la api de persistencia."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ucu.Poo.TelegramBot.Program.Main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUcu_1_1Poo_1_1TelegramBot_1_1Program.html#a35a9ad85c60d378b7eb9c35993c4d7c0",tooltip="Punto de entrada al programa."];
+}

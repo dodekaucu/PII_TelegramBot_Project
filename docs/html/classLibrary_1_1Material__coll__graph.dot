@@ -1,0 +1,8 @@
+digraph "Library.Material"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.Material\n|+ Clasificacion\l+ Cantidad\l+ Unidad\l+ Valor\l+ Nombre\l|+ Material()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Clase que representa al Material. Es una clase experta en crear materiales. Y tiene la sola responsab..."];
+}

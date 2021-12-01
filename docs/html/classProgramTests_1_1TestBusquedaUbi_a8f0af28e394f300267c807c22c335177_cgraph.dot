@@ -1,0 +1,17 @@
+digraph "ProgramTests.TestBusquedaUbi.TestBusquedaUbicacion"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ProgramTests.TestBusqueda\lUbi.TestBusquedaUbicacion",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Este test prueba la busqueda por ubicación."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Busqueda.BuscarOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Busqueda.html#abf75d4c612f608449c7abf723020cd92",tooltip="La función para buscar ofertas reciben un string con las palabras a buscar y revisa cada oferta para ..."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BaseHandler.Handle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#af57875ebe4cc0deb8a06ae86cbb89817",tooltip="Procesa el mensaje o la pasa al siguiente \"handler\" si existe."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.IHandler.Handle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceHandlers_1_1IHandler.html#a541a3c9f352c8760d85fdb620f3653a8",tooltip="Procesa el mensaje o la pasa al siguiente \"handler\" si existe."];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Handlers.BaseHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#ab8eb809015c82d9e7b788d13597a1b2b",tooltip="Este método debe ser sobreescrito por las clases sucesores. La clase sucesora procesa el mensaje y re..."];
+}

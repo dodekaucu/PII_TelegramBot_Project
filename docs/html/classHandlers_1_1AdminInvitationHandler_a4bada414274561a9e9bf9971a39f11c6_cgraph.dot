@@ -1,0 +1,13 @@
+digraph "Handlers.AdminInvitationHandler.InternalHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Handlers.AdminInvitation\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Procesa el comando \"/Invitar\", Si es ejecutado por un Administrador entonces se procede a invitar al ..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Contenedor.AddInvitado",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a47277ae6c16b6ad03ca72882b3595c7c",tooltip="Agrega a un usuario a la lista de invitados."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BaseHandler.Can\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#a01de32372e80b2d11fecdb9ea45f758e",tooltip="Determina si este \"handler\" puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..."];
+}

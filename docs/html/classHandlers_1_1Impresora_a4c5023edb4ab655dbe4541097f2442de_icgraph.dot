@@ -1,0 +1,15 @@
+digraph "Handlers.Impresora.Imprimir"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Handlers.Impresora.Imprimir",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Funcion que recibe la lista de ofertas para imprimir."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.BuscarClasificHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarClasificHandler.html#adbb79f3c3de0235e5b70dd1ab10f88b3",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BuscarHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarHandler.html#ab835c1043938bfec19c029baa0f1c456",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.BuscarUbiHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarUbiHandler.html#a4e8b851c63ac2865fc8623e92c748875",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+}

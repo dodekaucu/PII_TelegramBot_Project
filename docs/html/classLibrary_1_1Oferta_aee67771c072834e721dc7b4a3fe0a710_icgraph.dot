@@ -1,0 +1,15 @@
+digraph "Library.Oferta.AddPalabraClave"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Oferta.AddPalabra\lClave",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Añade palabras clave a la lista."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Oferta.Oferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Oferta.html#ab5b8d2dd9e6804f37e3e2ff0cb68d428",tooltip="Inicializa una nueva instancia de la clase Oferta."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Test.Tests.TestBusquedaPalabras\lClave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a679b476e08b99beee1a627f2daba1be6",tooltip="Test de la clase busqueda, realiza una busqueda por palabras claves."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Test.Tests.TestPalabrasClave\lOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a2788d8bd77dac34a9fb675d4b6456f74",tooltip="Prueba que se agreguen las palabras claves a la oferta."];
+}

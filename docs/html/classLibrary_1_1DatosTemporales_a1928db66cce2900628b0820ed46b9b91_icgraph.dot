@@ -1,0 +1,19 @@
+digraph "Library.DatosTemporales.AddKeyUser"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.DatosTemporales.\lAddKeyUser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Add key."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.AddHabilitacion\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddHabilitacionHandler.html#aeb6447904788261f1d6d939bb4904352",tooltip="Este handler se ocupa de añadir una habilitación a una oferta o a un emprendedor. Si es ejecutado por..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.AddPalabraClave\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddPalabraClaveHandler.html#afc49804ae7ca93100038121994986f1a",tooltip="Este handler añade palabras clave a las ofertas de una empresa. Cuando se ejecuta por una empresa se ..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.AnadirComprador\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AnadirCompradorHandler.html#a825fb3c62368be4a8208cf5e55c15824",tooltip="Procesa el comando \"/AñadirCompradorOferta\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Handlers.PublicarOfertaHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1PublicarOfertaHandler.html#afb1315fd1a6ac6f82c938e3fae6a1011",tooltip="Procesa el mensaje \"/PublicarOferta\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Handlers.Registro.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1Registro.html#a4fd7f856f6aa93b7daf36b15ac826800",tooltip="Procesa el comando \"/registro\", en el caso de que el usuario se encuentre en la lista de invitados...."];
+}

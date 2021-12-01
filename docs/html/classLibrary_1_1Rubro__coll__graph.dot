@@ -1,0 +1,10 @@
+digraph "Library.Rubro"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.Rubro\n|+ Nombre\l+ Area\l+ Descripcion\l|+ Rubro()\l+ Rubro()\l+ ConvertToJson()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Clase que representa los rubros."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{IJsonSerialize\n||+ ConvertToJson()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceLibrary_1_1IJsonSerialize.html",tooltip="Interface con la firma de los métodos que debe tener un manejador de datos."];
+}
