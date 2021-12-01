@@ -1,0 +1,19 @@
+digraph "Handlers.AddPalabraClaveHandler.InternalHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Handlers.AddPalabraClave\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Este handler añade palabras clave a las ofertas de una empresa. Cuando se ejecuta por una empresa se ..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.DatosTemporales.\lAddDato",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1DatosTemporales.html#ae0eae45c6c40fb4f23abe86569cafe32",tooltip="Add dato."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Library.DatosTemporales.\lAddKeyUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1DatosTemporales.html#a1928db66cce2900628b0820ed46b9b91",tooltip="Add key."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Library.StatusManager.Add\lKeyUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1StatusManager.html#abcbe732b5b48df69778152e29e12172c",tooltip="Añade el usuario al diccionario de status pero sin status."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Library.StatusManager.Add\lUserStatus",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1StatusManager.html#abb91934f9999172a33c7c3f6bcd75196",tooltip="Añade el status del usuario al diccionario."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Handlers.BaseHandler.Can\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#a01de32372e80b2d11fecdb9ea45f758e",tooltip="Determina si este \"handler\" puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..."];
+}

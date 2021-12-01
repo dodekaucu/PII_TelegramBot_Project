@@ -1,0 +1,25 @@
+digraph "Library.Contenedor.Serializar"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Library.Contenedor.Serializar",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Metodo de serialización de la api de persistencia."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Contenedor.serializaradministrador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a2daf934098293cff1985c55cfcb20705",tooltip="Serializa la lista de adminstradores."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Library.Contenedor.serializarclasificacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a2a25006e537e99e48767a4be4aaf10fb",tooltip="Serializa la lista de clasificaciones."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Library.Contenedor.serializaremprendedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a42b6ec3fcd7df862b12c2f16128bae5e",tooltip="Serializa el diccionario de emprendedores."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Library.Contenedor.serializarempresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a7ec6961ad403a5f8140cd51c532c001c",tooltip="Serializa el diccionario de empresas."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Library.Contenedor.serializarhabilitacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#aa64a73c4452ce61eceabffbed721be82",tooltip="Serializa la lista de habilitaciones."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Library.Contenedor.serializarinvitado",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a79f54fb70b6bccc396f0f963ea8c0e9e",tooltip="Serializa la lista de invitados."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Library.Contenedor.serializaroferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a81208756b927e6effe46f04d34e72562",tooltip="Serializa la lista de ofertas."];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Library.Contenedor.serializarrubro",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#af8430418b68335846d6073c6ddf94cea",tooltip="Serializa la lista de rubros."];
+}

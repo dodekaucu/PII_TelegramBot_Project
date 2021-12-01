@@ -1,0 +1,13 @@
+digraph "Handlers.HistorialUsuarioHandler.InternalHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Handlers.HistorialUsuario\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Procesa el mensaje \"/historialDesde\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.StatusManager.Add\lUserStatus",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1StatusManager.html#abb91934f9999172a33c7c3f6bcd75196",tooltip="Añade el status del usuario al diccionario."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BaseHandler.Can\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#a01de32372e80b2d11fecdb9ea45f758e",tooltip="Determina si este \"handler\" puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..."];
+}

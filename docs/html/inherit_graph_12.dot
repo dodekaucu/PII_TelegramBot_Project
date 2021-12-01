@@ -1,0 +1,9 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ProgramTests.InvitarHandler\lTests",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1InvitarHandlerTests.html",tooltip="Esta clase prueba el Handler AdminInvitarHandler."];
+}

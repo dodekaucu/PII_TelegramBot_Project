@@ -1,0 +1,28 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Library.IJsonSerialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceLibrary_1_1IJsonSerialize.html",tooltip="Interface con la firma de los métodos que debe tener un manejador de datos."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Library.Admin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Admin.html",tooltip="Esta clase representa un Administrador de la aplicacion."];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Clasificacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Clasificacion.html",tooltip="Esta clase representa una clasificación de un material."];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Library.Contenedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html",tooltip="Esta clase representa un contenedor de las diferentes clases del bot. Utiliza el patron de diseño Sin..."];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Library.Emprendedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Emprendedor.html",tooltip="Esta clase representa un Emprendedor. Patrones y principios utilizados: EXPERT, porque el emprendedor..."];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Library.Empresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Empresa.html",tooltip="Clase que representa una Empresa. Patrones y principios utilizados: EXPERT, porque conoce toda la inf..."];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Library.Habilitacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Habilitacion.html",tooltip="Esta clase representa una Habilitacion basica."];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Library.Oferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Oferta.html",tooltip="Esta clase representa una oferta. Es experta (EXPERT) en la creación de ofertas. Ademas se utiliza el..."];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Library.Rubro",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Rubro.html",tooltip="Clase que representa los rubros."];
+  Node38 [label="Library.IUsuario",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceLibrary_1_1IUsuario.html",tooltip="Public Interface con la firma de los metodos que debe poseer un Usuario. Se utilizo una interface pue..."];
+  Node38 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node38 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

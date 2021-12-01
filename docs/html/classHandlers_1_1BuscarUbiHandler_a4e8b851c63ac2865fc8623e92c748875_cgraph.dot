@@ -1,0 +1,15 @@
+digraph "Handlers.BuscarUbiHandler.InternalHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Handlers.BuscarUbiHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Busqueda.BuscarOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Busqueda.html#abf75d4c612f608449c7abf723020cd92",tooltip="La función para buscar ofertas reciben un string con las palabras a buscar y revisa cada oferta para ..."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.BaseHandler.Can\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BaseHandler.html#a01de32372e80b2d11fecdb9ea45f758e",tooltip="Determina si este \"handler\" puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.Impresora.Imprimir",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1Impresora.html#a4c5023edb4ab655dbe4541097f2442de",tooltip="Funcion que recibe la lista de ofertas para imprimir."];
+}

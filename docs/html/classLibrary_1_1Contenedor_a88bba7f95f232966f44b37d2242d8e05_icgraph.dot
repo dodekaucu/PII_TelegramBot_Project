@@ -1,0 +1,27 @@
+digraph "Library.Contenedor.AddEmprendedor"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Contenedor.AddEmprendedor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Añade un emprendedor al diccionario de emprendedores. Se utiliza un diccionario porque es mas facil p..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.Registro.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1Registro.html#a4fd7f856f6aa93b7daf36b15ac826800",tooltip="Procesa el comando \"/registro\", en el caso de que el usuario se encuentre en la lista de invitados...."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ProgramTests.TestAddHabilitacion\lEmprendedor.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestAddHabilitacionEmprendedor.html#ace3d51160e2f01bbde5a37a9d93cc723",tooltip="Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda...."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ProgramTests.TestBusqueda.\lSetup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusqueda.html#a9cd9cc0aa3d82c278fb84468c43b95d7",tooltip="Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda...."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ProgramTests.TestBusqueda\lClasific.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaClasific.html#a9f789911f517a3e8e8436a0ff2524f35",tooltip="Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda...."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ProgramTests.TestBusqueda\lUbi.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestBusquedaUbi.html#abbc999f823b1d5ea18f43cc98d4e7d67",tooltip="Crea una instancia de rubro, emprendedor, dos empresas, clasificación y dos ofertas para la búsqueda...."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ProgramTests.TestOfertas\lConsumidasDesde.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasConsumidasDesde.html#aaff290ad2dcfbff856cd0468d0a42caa",tooltip="Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa Luego se..."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ProgramTests.TestOfertas\lVendidasDesde.Setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1TestOfertasVendidasDesde.html#a684bded4cd2ca3caffc53194202c02b0",tooltip="Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa Luego se..."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Test.Tests.TestRegistroEmprendedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#a740ac61051a5c213ef57b1d57f148aa7",tooltip="Prueba que los emprendedores accedan a su registro de materiales consumidos en un perido de tiempo de..."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Test.Tests.TestRegistroEmpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTest_1_1Tests.html#ab7c8a7fce23a25f18126f2723496fdd0",tooltip="Prueba que las empresas accedan a su registro de materiales entregados en un perido de tiempo determi..."];
+}

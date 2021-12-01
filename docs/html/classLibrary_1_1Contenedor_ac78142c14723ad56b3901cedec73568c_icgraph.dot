@@ -1,0 +1,13 @@
+digraph "Library.Contenedor.AddAdministrador"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Library.Contenedor.AddAdministrador",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Agrega a un administrador a la lista de admins."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.AddAdminHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddAdminHandler.html#a55ca6cd147960a7773a9eb3d4aa24857",tooltip="Procesa el comando \"/AddAdmin\", Si es ejecutado por un Administrador entonces se procede a añadir com..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ProgramTests.InvitarHandler\lTests.TestInvitaraEmpresaValido",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classProgramTests_1_1InvitarHandlerTests.html#a4bc05b21daeffe2d3c4e917cd7a8dec8",tooltip="Este test prueba como se procesa el mensaje cuando el usuario es administrador."];
+}

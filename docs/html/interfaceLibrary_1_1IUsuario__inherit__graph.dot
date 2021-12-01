@@ -1,0 +1,12 @@
+digraph "Library.IUsuario"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Library.IUsuario\n|+ Nombre\l+ Rubro\l+ Ubicacion\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Public Interface con la firma de los metodos que debe poseer un Usuario. Se utilizo una interface pue..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{Library.Emprendedor\n|+ Nombre\l+ ID\l+ Rubro\l+ Ciudad\l+ Calle\l+ Ubicacion\l+ RegistroUsuario\l+ Especializacion\l+ Habilitaciones\l|+ Emprendedor()\l+ Emprendedor()\l+ AddToRegister()\l+ BuscarEnHistorial()\l+ AddHabilitacion()\l+ RemoveHabilitacion()\l+ ConvertToJson()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Emprendedor.html",tooltip="Esta clase representa un Emprendedor. Patrones y principios utilizados: EXPERT, porque el emprendedor..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{Library.Empresa\n|+ ID\l+ Nombre\l+ Calle\l+ Ciudad\l+ Telefono\l+ Rubro\l+ Ubicacion\l+ RegistroUsuario\l|+ Empresa()\l+ Empresa()\l+ AddToRegister()\l+ BuscarEnHistorial()\l+ CrearOferta()\l+ ConvertToJson()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Empresa.html",tooltip="Clase que representa una Empresa. Patrones y principios utilizados: EXPERT, porque conoce toda la inf..."];
+}

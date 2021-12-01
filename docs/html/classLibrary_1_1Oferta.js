@@ -1,0 +1,28 @@
+var classLibrary_1_1Oferta =
+[
+    [ "Oferta", "classLibrary_1_1Oferta.html#a18f307cd26d3510b6a1b3293f25a061a", null ],
+    [ "Oferta", "classLibrary_1_1Oferta.html#ab5b8d2dd9e6804f37e3e2ff0cb68d428", null ],
+    [ "AddComprador", "classLibrary_1_1Oferta.html#ace9ca99325e83c1126376f0b3ad37020", null ],
+    [ "AddHabilitacion", "classLibrary_1_1Oferta.html#ab06d13d52c273f300a2b10b632af5777", null ],
+    [ "AddPalabraClave", "classLibrary_1_1Oferta.html#aee67771c072834e721dc7b4a3fe0a710", null ],
+    [ "ConvertToJson", "classLibrary_1_1Oferta.html#a92aec8bf28fa5911d7cfce2d42e05f2c", null ],
+    [ "Calle", "classLibrary_1_1Oferta.html#a7af15855ec779512c689b6d9490ce01b", null ],
+    [ "Cantidad", "classLibrary_1_1Oferta.html#aff704ecda5598b67c66060cf4dcaf87f", null ],
+    [ "Ciudad", "classLibrary_1_1Oferta.html#aa8cc053c9cf60ba763e21264e5129811", null ],
+    [ "Clasificacion", "classLibrary_1_1Oferta.html#a3f6c39bc97a2d6b602b82d30de17e5b0", null ],
+    [ "Disponible", "classLibrary_1_1Oferta.html#af4988d3ce2748d462cb89490a1c2e5bf", null ],
+    [ "Empresa", "classLibrary_1_1Oferta.html#adfaa03bd17010dce3a0830fb4d145407", null ],
+    [ "FechaCompra", "classLibrary_1_1Oferta.html#acafb14b32a9f1e278b86175f21447505", null ],
+    [ "FechadeGeneracion", "classLibrary_1_1Oferta.html#a1cd8e518d631e1ef4865c2151b52eef4", null ],
+    [ "Habilitaciones", "classLibrary_1_1Oferta.html#ad0b54dfbe67dd4fc285fd5d834ba1152", null ],
+    [ "Identificador", "classLibrary_1_1Oferta.html#a02dd4498beaa71dff4a0ac72dbf84c95", null ],
+    [ "Material", "classLibrary_1_1Oferta.html#a1e4fc03372b60e6c5031d42009480d7c", null ],
+    [ "Nombrematerial", "classLibrary_1_1Oferta.html#ab4ca0515d0c0388e4403bd48ff79b396", null ],
+    [ "Nombreoferta", "classLibrary_1_1Oferta.html#a27a6f2982f181d664d392bdd3e167c33", null ],
+    [ "PalabrasClaves", "classLibrary_1_1Oferta.html#ac7c81512f7d9ecc039fdc1483b9bb05e", null ],
+    [ "RecurrenciaSemanal", "classLibrary_1_1Oferta.html#af894f56d9afe9e94942df5f74ce25183", null ],
+    [ "RegistroVentas", "classLibrary_1_1Oferta.html#a620393f69c7f7fb953631697ea266f07", null ],
+    [ "Ubicacion", "classLibrary_1_1Oferta.html#ae666e0fa7458aedf1bb79e0a3a9c1267", null ],
+    [ "Unidad", "classLibrary_1_1Oferta.html#a93c19f0cdb5a93cea603ec4100ddef62", null ],
+    [ "Valor", "classLibrary_1_1Oferta.html#aef837ae0fa94fdcd37e33d70974c4cfd", null ]
+];

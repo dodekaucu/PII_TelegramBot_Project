@@ -1,0 +1,43 @@
+digraph "Handlers.BaseHandler.CanHandle"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Handlers.BaseHandler.Can\lHandle",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Determina si este \"handler\" puede procesar el mensaje. En la clase base se utiliza el array BaseHandl..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Handlers.AddAdminHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddAdminHandler.html#a55ca6cd147960a7773a9eb3d4aa24857",tooltip="Procesa el comando \"/AddAdmin\", Si es ejecutado por un Administrador entonces se procede a añadir com..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Handlers.AdminInvitation\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AdminInvitationHandler.html#a4bada414274561a9e9bf9971a39f11c6",tooltip="Procesa el comando \"/Invitar\", Si es ejecutado por un Administrador entonces se procede a invitar al ..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Handlers.StartHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1StartHandler.html#ae2216bfd7d76af8619b3cb35e560c6d1",tooltip="Procesa el mensaje \"/start\" y evalua si el usuario que envia el mensaje esta   retorna true; retorna ..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Handlers.CancelHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1CancelHandler.html#aafc1ea3de4fa65a8b3d399a05e6fa8aa",tooltip="Procesa el mensaje \"/cancel\" elimina el ChatStatus del usuario asi como eliminar todo dato temporal q..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Handlers.AddHabilitacion\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddHabilitacionHandler.html#aeb6447904788261f1d6d939bb4904352",tooltip="Este handler se ocupa de añadir una habilitación a una oferta o a un emprendedor. Si es ejecutado por..."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Handlers.AddPalabraClave\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AddPalabraClaveHandler.html#afc49804ae7ca93100038121994986f1a",tooltip="Este handler añade palabras clave a las ofertas de una empresa. Cuando se ejecuta por una empresa se ..."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Handlers.AnadirComprador\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1AnadirCompradorHandler.html#a825fb3c62368be4a8208cf5e55c15824",tooltip="Procesa el comando \"/AñadirCompradorOferta\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Handlers.BuscarClasificHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarClasificHandler.html#adbb79f3c3de0235e5b70dd1ab10f88b3",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Handlers.BuscarHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarHandler.html#ab835c1043938bfec19c029baa0f1c456",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Handlers.BuscarUbiHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1BuscarUbiHandler.html#a4e8b851c63ac2865fc8623e92c748875",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Handlers.GoodByeHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1GoodByeHandler.html#ac7e8906b7c87963f509a737f727b04b0",tooltip="Procesa el mensaje \"chau\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Handlers.HelpHandler.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1HelpHandler.html#aa4678136de5a4c22c4df63f8379c1d36",tooltip="Procesa el comando \"/ayuda\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Handlers.HistorialUsuario\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1HistorialUsuarioHandler.html#addc35c6ed59e374402ed97a8e72883ae",tooltip="Procesa el mensaje \"/historialDesde\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Handlers.InfoUsuarioHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1InfoUsuarioHandler.html#a28740e6163250cd5e91e5b97f1db157e",tooltip="Procesa el comando \"/Info\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Handlers.MisPublicaciones\lHandler.InternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1MisPublicacionesHandler.html#abcf89306391f0556c87fc8b6c467ee12",tooltip="Procesa el comando \"/MisPublicaciones\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Handlers.PublicarOfertaHandler.\lInternalHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1PublicarOfertaHandler.html#afb1315fd1a6ac6f82c938e3fae6a1011",tooltip="Procesa el mensaje \"/PublicarOferta\" y retorna true; retorna false en caso contrario."];
+  Node1 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="Handlers.Registro.Internal\lHandle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHandlers_1_1Registro.html#a4fd7f856f6aa93b7daf36b15ac826800",tooltip="Procesa el comando \"/registro\", en el caso de que el usuario se encuentre en la lista de invitados...."];
+}

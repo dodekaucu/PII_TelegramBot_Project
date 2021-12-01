@@ -1,0 +1,11 @@
+digraph "Test.Tests.HabilitacionesEmprendedor"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Test.Tests.Habilitaciones\lEmprendedor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Prueba que se agruegue una habilitacion a un emprendedor."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Emprendedor.AddHabilitacion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Emprendedor.html#a6bdcf76e30609fffef4a82b96878d4be",tooltip="Agrega una habilitacion al emprendedor."];
+}

@@ -1,0 +1,17 @@
+digraph "ProgramTests.TestOfertasConsumidasDesde.Setup"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ProgramTests.TestOfertas\lConsumidasDesde.Setup",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Crea una Empresa y un emprendedor (Asi como un rubro). Luego se crea la oferta de la empresa Luego se..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Library.Oferta.AddComprador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Oferta.html#ace9ca99325e83c1126376f0b3ad37020",tooltip="Añade un comprador al oferta, distingue entre ofertas únicas y recurrentes."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Library.Contenedor.AddEmprendedor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a88bba7f95f232966f44b37d2242d8e05",tooltip="Añade un emprendedor al diccionario de emprendedores. Se utiliza un diccionario porque es mas facil p..."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Library.Contenedor.AddEmpresa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#a3ddfed6d67c0db5d29add4cdf606f14a",tooltip="Agrega una empresa al diccioanrio de empresas."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Library.Contenedor.AddOferta",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLibrary_1_1Contenedor.html#ad4e4bb01cb25c788a9260f7756821ae2",tooltip="Añiade una oferta a la lista de ofertas."];
+}
