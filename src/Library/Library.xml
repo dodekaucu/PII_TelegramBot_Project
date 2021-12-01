@@ -22,6 +22,10 @@
         <member name="T:Handlers.TelegramMSGadapter">
             <summary>
             Adaptador de mensajes de Telegram a mensajes de la interfaz de usuario.
+            Se utilizo el patron Adapter que busca que el bot sea, justamente, adaptable a 
+            cualquier entorno. La idea es que el Message que recibe el bot este estrechamente ligado a 
+            telegram.(el bot con minimos cambios puede ser utilizado en diferentes entornos)
+            demas junto a esto se logra una gran independencia de telegram. Haciendo el codigo reutilizable.
             </summary>
         </member>
         <member name="M:Handlers.TelegramMSGadapter.#ctor(Telegram.Bot.Types.Message)">
@@ -950,7 +954,7 @@
             <summary>
             Singleton datos.
             </summary>
-            <value></value>
+            <value>retorna la instancia estadoconversacion si exsite. La crea en caso contrario.</value>
         </member>
         <member name="P:Library.DatosTemporales.DataTemporal">
             <summary>
@@ -1650,6 +1654,34 @@
             Convert to json.
             </summary>
             <returns>Retorna el JSON.</returns>
+        </member>
+        <member name="T:Library.IUsuario">
+            <summary>
+            Public Interface con la firma de los metodos que debe poseer un Usuario. Se utilizo una interface
+            puesto que todos los usuarios deben tener almenos ciertas properties en orden de ser considerados
+            un Usuario. Se cumple el principio OCP, puesto que al crear una interface usuario permito que las
+            clases que dependan de IUsuario, queden abiertas a la extension pero cerradas a la modificacion.
+            Esto se ve ejemplificado en el caso de que yo quiera modificar una clase que implementa IUsuario
+            sencillamente la exando utilizando una interface que implemente IUsuario. Respetando asi el principio
+            </summary>
+        </member>
+        <member name="P:Library.IUsuario.Nombre">
+            <summary>
+            Obtiene o establece un valor el nombre del usuario.
+            </summary>
+            <value>this.nombre.</value>
+        </member>
+        <member name="P:Library.IUsuario.Rubro">
+            <summary>
+            Obtiene o establece un valor que es el rubro del usuario.
+            </summary>
+            <value>this.rubro.</value>
+        </member>
+        <member name="P:Library.IUsuario.Ubicacion">
+            <summary>
+            Obtiene o establece un valor que indica la ubicacion del usuario.
+            </summary>
+            <value>ubicacion.</value>
         </member>
     </members>
 </doc>

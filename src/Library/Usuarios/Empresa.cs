@@ -16,7 +16,7 @@ namespace Library
     /// Patrones y principios utilizados:
     /// EXPERT, porque conoce toda la informacion que debe conocer una empresa.
     /// </summary>
-    public class Empresa : IJsonSerialize
+    public class Empresa : IJsonSerialize, IUsuario
     {
         private Collection<Oferta> registroUsuario = new Collection<Oferta>();
 

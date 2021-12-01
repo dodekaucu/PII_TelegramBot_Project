@@ -9,6 +9,10 @@ namespace Handlers
 {
     /// <summary>
     /// Adaptador de mensajes de Telegram a mensajes de la interfaz de usuario.
+    /// Se utilizo el patron Adapter que busca que el bot sea, justamente, adaptable a 
+    /// cualquier entorno. La idea es que el Message que recibe el bot este estrechamente ligado a 
+    /// telegram.(el bot con minimos cambios puede ser utilizado en diferentes entornos)
+    /// demas junto a esto se logra una gran independencia de telegram. Haciendo el codigo reutilizable.
     /// </summary>
     public class TelegramMSGadapter : IMessage
     {

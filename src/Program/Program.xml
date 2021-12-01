@@ -23,10 +23,6 @@
         <member name="M:Ucu.Poo.TelegramBot.Program.HandleMessageReceived(Handlers.IMessage)">
             <summary>
             Maneja los mensajes que se envían al bot.
-            Lo único que hacemos por ahora es escuchar 3 tipos de mensajes:
-            - "hola": responde con texto
-            - "chau": responde con texto
-            - "foto": responde con una foto
             </summary>
             <param name="message">El mensaje recibido</param>
             <returns></returns>

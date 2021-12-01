@@ -16,7 +16,7 @@ namespace Library
     /// Patrones y principios utilizados:
     /// EXPERT, porque el emprendedor es una clase experta en la inficación que debe poseer un emprendedor.
     /// </summary>
-    public class Emprendedor : IJsonSerialize
+    public class Emprendedor : IJsonSerialize, IUsuario
     {
         private Collection<Habilitacion> habilitaciones = new Collection<Habilitacion>();
         private Collection<Oferta> registroUsuario = new Collection<Oferta>();

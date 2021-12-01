@@ -18,7 +18,7 @@ namespace Ucu.Poo.TelegramBot
         // La instancia del bot.
         private static TelegramBotClient Bot;
 
-        private static string Token = "2084958009:AAE-GVhiDbuo_AinJ5rnMsH3e7-5Bs7vQf8";
+        private static string Token = "2084958009:AAHpP2r7z0q7rgouWVpJur5302Jm_kFRha0";
 
         private static IHandler firstHandler;
 
@@ -28,64 +28,6 @@ namespace Ucu.Poo.TelegramBot
         public static void Main()
         {
             Bot = new TelegramBotClient(Token);
-            
-            
-            
-            //=========================================
-            // Lineas utiles para probar nuestro código:
-            //=========================================
-            // para añadir emprendedor (Poner ID de usuario y emprendedor)
-            // db.AddEmprendedor("user", emprendedor)
-            
-            // Para añadir empresa (Poner ID del usuario y instancia de empresa)
-            // db.AddEmpresa("user", empresa)
-
-            // Para añadir invitados (Poner ID del usuario)
-            //db.AddInvitado("user");
-
-
-            // Este es el setup que tenemos para las ofertas
-            /*
-            Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
-            Habilitacion unit = new Habilitacion("UNIT", "9001");
-            Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
-            Contenedor db = Contenedor.Instancia;
-            Busqueda buscador = Busqueda.Instancia;
-            Habilitacion msp = new Habilitacion("MSP", "msp");
-            Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
-            Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
-            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
-            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
-            Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
-            Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
-            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
-            db.AddOferta(uno);
-            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
-            db.AddOferta(dos);
-            db.AddClasificacion(madera);
-            //uno.AddHabilitacion(msp);
-            db.AddHabilitacion(unit);
-            emprendedor.AddHabilitacion(msp);
-            db.AddRubro(rubro);
-            db.AddRubro(rubro2);
-            db.AddHabilitacion(msp);
-            
-
-            //emprendedor.ID = "1234";
-            //db.AddInvitado("1454175798");
-            //uno.FechaVenta = DateTime.Parse("15/10/2021");
-            //emprendedor.AddToRegister(uno);
-            //db.AddEmprendedor("1234",emprendedor);
-            //Añadir emprendedor (Poner ID de usuario y emprendedor)
-
-            //db.AddEmpresa("1454175798",maderaslr); //Rafa
-            //maderaslr.ID="1454175798"; //Rafa
-            //Añadir Empresa (Poner ID de usuario y emprendedor)
-            db.AddEmpresa("1599425094",maderaslr); // Empresa Guille
-            //Añadir emprendedor (Poner ID de usuario y emprendedor)
-            //db.AddEmprendedor("1599425094",emprendedor); // Emprendedor Guille 
-            */
-            
             
             firstHandler =
                 new HelloHandler(
@@ -128,6 +70,60 @@ namespace Ucu.Poo.TelegramBot
                 new DefaultUpdateHandler(HandleUpdateAsync, HandleErrorAsync),
                 cts.Token
             );
+
+            //=========================================
+            // Lineas utiles para probar nuestro código:
+            //=========================================
+            // para añadir emprendedor (Poner ID de usuario y emprendedor)
+            // contenedor.AddEmprendedor("user", emprendedor)
+            
+            // Para añadir empresa (Poner ID del usuario y instancia de empresa)
+            // contenedor.AddEmpresa("user", empresa)
+
+            // Para añadir invitados (Poner ID del usuario)
+            //contenedor.AddInvitado("user");
+
+
+            // Este es el setup que tenemos para las ofertas
+            /*
+            Rubro testRubro = new Rubro("Tecnologia", "Software", "Programacion");
+            Habilitacion unit = new Habilitacion("UNIT", "9001");
+            Clasificacion testClasifciacion = new Clasificacion("Reciclable", "se puede reciclar");
+            Busqueda buscador = Busqueda.Instancia;
+            Habilitacion msp = new Habilitacion("MSP", "msp");
+            Rubro rubro = new Rubro("Forestal", "Leñeria", "Recursos");
+            Rubro rubro2 = new Rubro("Tecnologia", "Leñeria", "Recursos");
+            Emprendedor emprendedor = new Emprendedor("Gaston", rubro, "San Ramon", "Ruta 12", "Emprendimiento");
+            Empresa maderaslr = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Empresa maderaslr2 = new Empresa("Madera SRL", rubro, "San Bautista", "Ruta 6");
+            Clasificacion madera = new Clasificacion("Madera", "Roble Oscuro");
+            Oferta uno = new Oferta("Madera Para Reciclar", maderaslr, "San", "Bautista", "madera", madera, 1, "Tonelada", 5000, 0, DateTime.Parse("11/11/2021"));
+            contenedor.AddOferta(uno);
+            Oferta dos = new Oferta("Madera Prohibida", maderaslr, "San", "Bautista", "madera", madera, 100, "Kilos", 4000, 0, DateTime.Parse("11/11/2021"));
+            contenedor.AddOferta(dos);
+            contenedor.AddClasificacion(madera);
+            //uno.AddHabilitacion(msp);
+            contenedor.AddHabilitacion(unit);
+            emprendedor.AddHabilitacion(msp);
+            contenedor.AddRubro(rubro);
+            contenedor.AddRubro(rubro2);
+            contenedor.AddHabilitacion(msp);
+            
+
+            //emprendedor.ID = "1234";
+            //contenedor.AddInvitado("1454175798");
+            //uno.FechaVenta = DateTime.Parse("15/10/2021");
+            //emprendedor.AddToRegister(uno);
+            //contenedor.AddEmprendedor("1234",emprendedor);
+            //Añadir emprendedor (Poner ID de usuario y emprendedor)
+
+            //contenedor.AddEmpresa("1454175798",maderaslr); //Rafa
+            //maderaslr.ID="1454175798"; //Rafa
+            //Añadir Empresa (Poner ID de usuario y emprendedor)
+            contenedor.AddEmpresa("1599425094",maderaslr); // Empresa Guille
+            //Añadir emprendedor (Poner ID de usuario y emprendedor)
+            //contenedor.AddEmprendedor("1599425094",emprendedor); // Emprendedor Guille 
+            */
 
             Console.WriteLine($"Bot is up!");
 

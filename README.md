@@ -11,7 +11,7 @@ Este proyecto consta de desarrollar un chatbot el cual tratara de conectar empre
 <h2>Resumen del proeyecto: </h2>
 
   <p>
-  La idea principal del proyecto
+  La idea principal del proyecto es generar un bot siguiendo las historias de usuario pautadas a continuacion. En este mismo se busca conectar empreas que ofrecen residuos asi como materiales reciclables, con emprendedores que puedan aprovechar dicho desecho. Todo esto para cumplir una economia circular.
   </p>
 <h4>HISTORIAS DE USUARIO: (los requerimientos que tenia que cumplir el bot)</h4>
   <p>
@@ -53,7 +53,8 @@ CONTEXTUALIZACIÓN
   REFLEXION FINAL:
   QUE SALIO BIEN: 
 
-  PROBLEMAS: La persistencia fue nuestro mayor problema al momento de trabajar el bot. (expandir porque paso esto)
+  PROBLEMAS:<br>Al utilizar la api de persistencia nos encontramos con el problema de que nuestras clases Oferta, OfertaPersistente, Empresa y Emprendedor no eran compatibles con la misma.
+Antes utilizabamos el patrón de herencia para Oferta y OfertaRecurrente, para eso teniamos una clase abstracta OfertaBase y esta era la que se guardaba en nuestra "base de datos" Contenedor. Con Empresa y Emprendedor era lo mismo pero con la clase abstracta Usuario, ya que la api de persistencia no funciona cpn clases abstractas tuvimos que hacer dos clases muy similares para oferta y ofertapersistente, y para empresa y emprendedor.
 
 <h3>Diagramas UML</h3>
 
